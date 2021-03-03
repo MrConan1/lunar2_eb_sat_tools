@@ -1,0 +1,1 @@
+The font in this table is basically a modified shift-jis.  For the most part the ordering of characters follows shift-jis, but a lot of characters are left out... Then at the end all the characters are just sort of random.
