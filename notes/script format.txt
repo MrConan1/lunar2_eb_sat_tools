@@ -1,0 +1,256 @@
+Indexing into the script
+========================
+Script files are indexed into by a separate file in memory.
+These files have some sort of 8-bit compression going on (RLE maybe)
+The decompression routine is around ???.
+I have not really looked at the format of these files that much.
+
+LORAM 2D7000 to 2d76ff seems to hold relative offsets into the ES Script files
+
+
+
+Running the Script
+==================
+The game reads from the index file, finds the pointer into the script.
+Then it adds 0x20 to that pointer to get by the script header.
+Then 32-bit script commands are run.  If a script command is a dialog command,
+then it will jump to the dialog text section and print the dialog box.  When
+the control code for a dialog portrait is found, it jumps to the portrait section of the script
+to print the portrait out, then goes back to printing the rest of the dialog.
+Commands keep running sequentially until an end-of-command command is reached.
+
+
+
+============================================
+ES Header "EternalBlue Script" (0x20 Bytes) 
+============================================ 
+0x00: Constant 0x45 'E'
+0x01: Constant 0x53 'S'
+0x02: Constant 0x00
+0x03: Constant 0x01
+
+0x04 to 0x07: 32-bit pointer. Byte Offset to Portrait section.
+0x08 to 0x0B: 32-bit pointer. [???]
+0x0C to 0x0F: Constant 0x00000020, the size of this header.  Pointers into the script from the external file have this value added to them.
+0x10 to 0x13: Constant 0x00000000
+0x14 to 0x17: 32-bit pointer?  Also Byte offset to start of text section, havent seen it used?
+0x18 to 0x1B: 32-bit pointer  [???]
+0x1C to 0x1F: 32-bit pointer, Byte offset to start of text section. Stored at 0x06041DC8.
+
+Immediately following the 0x20 byte header are a series of 32-bit commands.
+These commands are index to by an external file located in another section of RAM (LORAM 0x2D7000 to 0x2d76ff).
+
+Following the commands is the Dialog Text section.
+
+Following the commands is the optional Portrait section:
+This is an array of character portrait indicies/offsets.
+#_of_portraits default_portrait_offset(index not found) portrait_1_index portrait_1_byte_offset portrait_2_index portrait_2_byte_offset ... 
+Image data is located at Byte_Offset_to_Portrait_Section+portrait_x_byte_offset
+If the portrait isnt found generally the offset points to a bunch of zeros (blank portrait)
+
+
+
+Commands
+========
+Commands are 32-bits, with the upper byte signifying a routine to be called and the lower 3 bytes arguments to be run.
+
+1 Byte Cmd   3 Byte Argument     Description  
+===========  ===============     ===========  
+0x01         0x000000            End of commands
+0x08         ???                 Something to do with selecting files to load i think?
+0x0E         ???
+0x1B         Byte_Offset         Conditional jump to (current_script_address+4) + Byte_Offset
+0x1C         Byte_Offset         Jump to (current_script_address+4) + Byte_Offset
+0x1D         0xXXXXXX            Performs a relative jump to the start of text dialog.  
+                                 Argument is a byte pointer (6 bytes) to be added to the current script's
+								 byte offset to the start of the text section within the script.
+0x1E         0x000008            Heal Party (Like at statues)
+0x1E         0x000015            Turn on lighting
+0x1E         ???                 ???
+0x1F         Byte_Offset         Jump to (current_script_address+4) + Byte_Offset
+
+
+
+Dialog Text Format
+======================
+Dialog text is formatted as a mix of 16-bit font indexes and control codes.
+The Text Display Loop takes each short word and ANDs with 0xF000 to look for a control code.
+Each 0x1D command called will only draw one text box, unlike Lunar SSS which draws a sequence.
+
+The first short word of dialog text is the length of the dialog text & control codes in bytes.
+This includes the two bytes used to specify the length.  So if you had one control word and one font character,
+then the length specified would be 0x0006.
+
+The next short word is the beginning of the dialog contents, which is a mix of 16-bit kanji and control codes.
+
+If you ever get a length of 0x0000 bytes, then that means you are at the end of the text section.
+
+
+
+Control Codes
+=============
+0x1000 <-- Moves text to next line. Control code 0x1000 3x in a row ends dialog with push button.
+0x2xxx <-- hit a button, when hit clears the box and keeps on printing
+0x3xxx <-- prints the left half of character 0xXXX
+0x4xxx <-- nothing is printed or performed
+0x5xxx <-- Dialog Selection.  If lowest byte is 2, there are 2 selections.  If lowest byte is 3 there are 3 selections.
+           Selections are just 16-bit text, each ending in 0x1000.
+0x6000 <-- hit a button, when hit continue printing
+0x7xxx <-- hit a button, when hit clears the box and keeps on printing
+0x8xxx <-- hit a button, when hit clears the box and keeps on printing
+0x9xxx <-- space printed.  Usually 9010, but since theres no vwf, i think it doesnt matter
+0xBxxx <-- Prints something about items but you dont get anything?
+0xCxxx <-- Display Left portrait
+0xDxxx <-- Animations? D001 is lucias entrance
+0xFxxx <-- Displays more left portraits
+
+
+
+
+Comparing a PSX & Saturn JP ES file:
+====================================
+From 0x0020 to 0x012B - 32-bit words (PSX byteswapped), seem to be command words
+At, 0x012C differences creep in:
+Saturn 0x0D0A_0000 0001_0000 000E_0000 C21C_0000 100E_0000
+PSX    0x0000_000D 0A00_0000 01C2_0000           0E10_0000
+
+
+
+
+
+
+
+====================
+Item and Common Text
+====================
+The extracted file corresponding to the Item/Common Text can be located by running:
+  LANG=C grep -obUaPr "\x00\x89\x00\x8C\x00\x8A\x00\xBE" ./*
+  This locates a 97kB file, the start of which corresonds to LO-RAM location 0x278000
+  I have not yet figured out what else is in this file.
+
+Item Name/Descriptions Start at 0x2855C0 in LO-RAM.
+  Each entry is 13 short words (5 for name, 8 for desc)
+  Each short word is an index value to 2 consecutive short words located at 0x289290+(index_val*4)
+  Those short words map directly to the font table
+  A short word entry of 0x0000 maps to blank space.
+  This means names can be 10 characters, and descriptions can be 16 characters.
+  It turns out only 15 characters are visible for descriptions though due to available screen space.
+
+Common Strings Notes
+  28893C <-- text stored in 16-bit shorts that map to text.  0x14 long or ends in 0xFFFF
+  288412 <-- end of BACKUP ram not present message
+
+
+   
+   
+   
+==================
+Movie Subtitles
+==================
+Rendered using VDP1 for text.  Not sure how the data is stored.
+Doesnt appear to be uncompressed.
+
+
+
+
+
+
+
+
+
+
+
+Messy Notes Start here:  
+
+
+
+Item Text
+=================
+157 189 137 140  138
+9D BD 89 8C 8A
+
+89 8C 8A Found at 0x28976C (sa-fuaia)
+Appears to be some sort of piecing together going on
+
+Read at 0x606DCE6
+mov.w @r2+,r1  r2 is 285af4  <-- Holds ptr to data
+      r1 becomes 0x138
+	  r0 = 0x138
+	  r1 = *060423c4 = 289290
+	  r0 *= 4 == 0x4E0
+	  r1 = *(r0+r1) = *(289770));
+	  r1 = 2 short words of data to be printed.
+	 
+	  r2 is then 285af6
+	  
+Working backwards
+0x606CBC4 mov.l @r1,r4   r4=*6042960  (r4=2855C0)
+          r6 is 0x198 -> div by 16 = 0x33
+		  
+At 0x606CBB6:
+   *0x6042B14 - *0x60ECA40     <-- pointers at 060eca40 on up?
+   28BB10 - 28B3E4 = 72C (1836dec)
+   r1= 0x38e38e39
+   dmulu.l r1,r4    MACH=0x198  MACL=0xCC
+   r5=0x34 (constant)
+   r6=MACH = 0x198 (408 dec)
+   r4=0x2855C0
+   r6 /= 8;  r6 = 0x33
+   ...
+   mul.l r6*0x1A = 0x33 (51dec) *0x1A (26dec) -->  macl = 0x52E
+   r1=0x52e
+   r4 = r4+r1 = 2855c0+0x52e = 285aee
+   r2=r4
+   
+NOTE:  1836/408 = 4.5
+FC (252) 38 (56)  --> 56 * 4.5 = 252
+
+To find the location of item text:
+===================================
+Take difference in address offset from 0x28B3E4
+Divide by 4.5
+Divide by 8       (Effective divide by 36, each entry in this region is 36 bytes)
+[Now you have the index of the corresponding item]
+Multiply by 26 bytes (Each entry is 13 short words)
+Add to 0x2855C0
+
+Note 0x28B3E4 i think is the first entry? This is a NULL Entry.
+Each item occupies 9 LW.
+
+The data for the right dragon eye is at 0x28BB10 to 0x28BB33:
+00F7 <- ID for icon
+0000 ???
+01  <-- # in inventory
+00 ???
+000F ???
+rest are 0's
+
+Break on writes to 60eca40-60eca60
+NEW - 0606423E
+
+Loop here going through and testing items, adding 9LW to advance.
+4D total items being checked 
+6064220
+6064222 add r6,r3  <-- r3 is base 0x28B3E4
+
+
+--> Item text and description seem to be paired together.
+--> Item name is 5 shorts (10 characters).  Description is 8 shorts (16 characters, 15 fit).
+--> Each 16-bit word at 0x285Axx identifies two 16-bit kanji combos.
+--> All item entries (item+descr) appear to be limited to 13 short words.
+--> 0x0000 is a blank
+   
+   
+ New info: 0x278000 is start of 97kB common strings file
+  LANG=C grep -obUaPr "\x00\x89\x00\x8C\x00\x8A\x00\xBE" ./*
+  
+ 
+ Summary
+ ========
+ Item Name/Descr Start at 0x2855C0.
+     Each entry is 13 short words (5 for name, 10 for desc)
+	 Each short entry is an index to 2 consecutive short words located at 0x289290+(entry*4)
+	 Those short words map to the table
+
+28893C <-- text stored in 16-bit shorts that map to text.  0x14 long or ends in 0xFFFF
+288412 <-- end of BACKUP ram not present message
