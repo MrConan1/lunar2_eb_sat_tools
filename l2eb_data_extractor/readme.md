@@ -4,3 +4,4 @@ The pak file holds the data
 In the saturn version, the idx file is "1" and the pak file is "2"  
 The psx version has a third file with filenames that does not appear to exists on the Saturn...  
 So output files are just numbered 1 to N by this program.  
+(Also dont bother using the PSX file to name the Saturn files, they arent in the correct order for Saturn)  
