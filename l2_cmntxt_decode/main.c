@@ -180,8 +180,8 @@ int main(int argc, char** argv){
 	
 	/* Item Name/Descriptions 
 	  ======================
-	  Start at Offset 0xD5C0 (0x2855C0-0x278000)
-	  END BY D900?   256 entries? end @ EFC0
+	  Start at Offset 0xD5C0 (0x2855C0-0x278000=0xD5C0)
+	  END BY 0xF7FA
 	  Each entry is 13 short words (5 for name, 8 for desc)
       Each short word is an index value to 2 consecutive short words located at:
  	       0x0001_1290+(index_val*4)  <-- (0x289290-0x278000=0x11290)
@@ -288,14 +288,18 @@ int main(int argc, char** argv){
 	fprintf(outFile,"\n\n\n\n");
 #endif	
 
+/***********************************************************/
+/* Note - no idea what is stored between 0xF7FA and 0x103C4*/
+/***********************************************************/
+
+
 #if 1
 	/*
 	Common Strings Notes
-    Definitely end by 0x0001_1290
     text stored in 16-bit shorts that map to text.  0x14 short words or ends early in 0xFFFF
 	*/
 	#define CMN_STRING_START 0x103C4
-	#define CMN_STRING_END   0x10D24 //17E00 //0x11290
+	#define CMN_STRING_END   0x10D24
 	#define CMN_STRING_SIZE  0x14
 	printf("Decoding Common Strings\n");
 	fprintf(outFile,"Decoding Common Strings\n");
@@ -350,6 +354,7 @@ int main(int argc, char** argv){
 
 
 #if 1
+	/* Decoding of stuff from 0x10D24 through 0x11290 (start of 2 byte dictionary lookup table) */
 	printf("Decoding Other\n");
 	fprintf(outFile,"Decoding Other\n");
 	fprintf(outFile,"Offset\tItem\tDescription\n");
@@ -406,7 +411,7 @@ int main(int argc, char** argv){
 #endif	
 
 
-
+/* More strings between 0xF900 and 103C4*/
 
 #if 1
 	/*
