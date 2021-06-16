@@ -1,0 +1,2029 @@
+File: 104
+Monster Name Offset: 0x1D8
+Size (Bytes): 96
+8 Monsters
+	Monster 0: "ポーン         "
+	Monster 1: "バイケン        "
+	Monster 2: "ウィンダム       "
+	Monster 3: "ゾッド         "
+
+File: 109
+Monster Name Offset: 0x24C
+Size (Bytes): 120
+10 Monsters
+	Monster 0: "シロ          "
+	Monster 1: "チロ          "
+	Monster 2: "デスキャリアー     "
+	Monster 3: "アイスクラッシャー   "
+	Monster 4: "スノーイェット     "
+
+File: 114
+Monster Name Offset: 0x24C
+Size (Bytes): 120
+10 Monsters
+	Monster 0: "キラードルフィン    "
+	Monster 1: "フナヨイムシ      "
+	Monster 2: "フナムシ        "
+	Monster 3: "アクアエレム      "
+	Monster 4: "アクアランサー     "
+
+File: 119
+Monster Name Offset: 0x1D8
+Size (Bytes): 96
+8 Monsters
+	Monster 0: "ボンバキッド      "
+	Monster 1: "ボンバボーイ      "
+	Monster 2: "ボンバファーザー    "
+	Monster 3: "グランボンバ      "
+
+File: 124
+Monster Name Offset: 0x1D8
+Size (Bytes): 96
+8 Monsters
+	Monster 0: "ロックバイター     "
+	Monster 1: "ツインダム       "
+	Monster 2: "カースフェイス     "
+	Monster 3: "ゴーゴンギドラ     "
+
+File: 129
+Monster Name Offset: 0x1D8
+Size (Bytes): 96
+8 Monsters
+	Monster 0: "ゾンビ         "
+	Monster 1: "ザ・ディープ      "
+	Monster 2: "エルムマスター     "
+	Monster 3: "カオスデーモン     "
+
+File: 134
+Monster Name Offset: 0x1D8
+Size (Bytes): 96
+8 Monsters
+	Monster 0: "エレドータス      "
+	Monster 1: "ホムンクルス      "
+	Monster 2: "アーククルス      "
+	Monster 3: "イビルアイ       "
+
+File: 139
+Monster Name Offset: 0x1D8
+Size (Bytes): 96
+8 Monsters
+	Monster 0: "アークメイジ      "
+	Monster 1: "アローフィッシュ    "
+	Monster 2: "キラーファング     "
+	Monster 3: "ビクニ         "
+
+File: 14
+Monster Name Offset: 0x1D8
+Size (Bytes): 96
+8 Monsters
+	Monster 0: "スライム        "
+	Monster 1: "サーブクルス      "
+	Monster 2: "トライクルス      "
+	Monster 3: "クリスタルソルジャー  "
+
+File: 144
+Monster Name Offset: 0x1D8
+Size (Bytes): 96
+8 Monsters
+	Monster 0: "ファイアエレム     "
+	Monster 1: "ブロブスライム     "
+	Monster 2: "フレアランサー     "
+	Monster 3: "バーナー        "
+
+File: 149
+Monster Name Offset: 0x1D8
+Size (Bytes): 96
+8 Monsters
+	Monster 0: "ドッペルゲンガー    "
+	Monster 1: "ハーピー        "
+	Monster 2: "ワイバーン       "
+	Monster 3: "？？？         "
+
+File: 154
+Monster Name Offset: 0x1D8
+Size (Bytes): 96
+8 Monsters
+	Monster 0: "スクリューミラー    "
+	Monster 1: "リッグホーン      "
+	Monster 2: "モノフライヤー     "
+	Monster 3: "キャノンエンジェル   "
+
+File: 159
+Monster Name Offset: 0x1D8
+Size (Bytes): 96
+8 Monsters
+	Monster 0: "ガデス         "
+	Monster 1: "バガーアイ       "
+	Monster 2: "スナッチャー      "
+	Monster 3: "ダークコメット     "
+
+File: 162
+Monster Name Offset: 0x334
+Size (Bytes): 168
+14 Monsters
+	Monster 0: "ルナシード       "
+	Monster 1: "ファイアシード     "
+	Monster 2: "スパークシード     "
+	Monster 3: "エアシード       "
+	Monster 4: "アイスシード      "
+	Monster 5: "ベルセルク       "
+	Monster 6: "デモンゲート      "
+
+File: 167
+Monster Name Offset: 0x1D8
+Size (Bytes): 96
+8 Monsters
+	Monster 0: "ダークアイ       "
+	Monster 1: "レーザーフット     "
+	Monster 2: "シェルアーマー     "
+	Monster 3: "ゴリアテ        "
+
+File: 172
+Monster Name Offset: 0x1D8
+Size (Bytes): 96
+8 Monsters
+	Monster 0: "ダークストーカー    "
+	Monster 1: "デバウアー       "
+	Monster 2: "カースブレイン     "
+	Monster 3: "クロームギドラ     "
+
+File: 177
+Monster Name Offset: 0x1D8
+Size (Bytes): 96
+8 Monsters
+	Monster 0: "アラートミラー     "
+	Monster 1: "ガードホーン      "
+	Monster 2: "セプトフライヤー    "
+	Monster 3: "キャノンセラフィム   "
+
+File: 182
+Monster Name Offset: 0xF0
+Size (Bytes): 48
+4 Monsters
+	Monster 0: "ブズフライ       "
+	Monster 1: "ブズスライム      "
+
+File: 187
+Monster Name Offset: 0x1D8
+Size (Bytes): 96
+8 Monsters
+	Monster 0: "ヘルギガント      "
+	Monster 1: "ヘルウォーム      "
+	Monster 2: "シュリーカー      "
+	Monster 3: "キラービー       "
+
+File: 19
+Monster Name Offset: 0x1D8
+Size (Bytes): 96
+8 Monsters
+	Monster 0: "スライム        "
+	Monster 1: "サーブクルス      "
+	Monster 2: "トライクルス      "
+	Monster 3: "クリスタルソルジャー  "
+
+File: 192
+Monster Name Offset: 0xF0
+Size (Bytes): 48
+4 Monsters
+	Monster 0: "ゴブリン        "
+	Monster 1: "ハミングバード     "
+
+File: 197
+Monster Name Offset: 0x7C
+Size (Bytes): 24
+2 Monsters
+	Monster 0: "フレアエルム      "
+
+File: 202
+Monster Name Offset: 0x7C
+Size (Bytes): 24
+2 Monsters
+	Monster 0: "バイケン        "
+
+File: 207
+Monster Name Offset: 0x164
+Size (Bytes): 72
+6 Monsters
+	Monster 0: "チェン         "
+	Monster 1: "ワーデュエラー     "
+	Monster 2: "ランザン        "
+
+File: 212
+Monster Name Offset: 0x164
+Size (Bytes): 72
+6 Monsters
+	Monster 0: "ビートル        "
+	Monster 1: "デザートアイ      "
+	Monster 2: "ドルフィンフェイス   "
+
+File: 217
+Monster Name Offset: 0x1D8
+Size (Bytes): 96
+8 Monsters
+	Monster 0: "スライム        "
+	Monster 1: "マスクフローター    "
+	Monster 2: "グレムリン       "
+	Monster 3: "クリスタルソルジャー  "
+
+File: 222
+Monster Name Offset: 0x164
+Size (Bytes): 72
+6 Monsters
+	Monster 0: "ゴブリン        "
+	Monster 1: "ハミングバード     "
+	Monster 2: "ブズフライ       "
+
+File: 227
+Monster Name Offset: 0x1D8
+Size (Bytes): 96
+8 Monsters
+	Monster 0: "パラサイト       "
+	Monster 1: "ハニーデビル      "
+	Monster 2: "シュリーカー      "
+	Monster 3: "キラービー       "
+
+File: 24
+Monster Name Offset: 0x164
+Size (Bytes): 72
+6 Monsters
+	Monster 0: "ドルフィンフェイス   "
+	Monster 1: "ポイズンビートル    "
+	Monster 2: "スコーピオン      "
+
+File: 29
+Monster Name Offset: 0xF0
+Size (Bytes): 48
+4 Monsters
+	Monster 0: "インファント      "
+	Monster 1: "キャプテン       "
+
+File: 34
+Monster Name Offset: 0x1D8
+Size (Bytes): 96
+8 Monsters
+	Monster 0: "ゴブリン        "
+	Monster 1: "ホブゴブリン      "
+	Monster 2: "ゴブリンキング     "
+	Monster 3: "ハミングバード     "
+
+File: 374
+Monster Name Offset: 0x7C
+Size (Bytes): 24
+2 Monsters
+	Monster 0: "ガーディアン      "
+
+File: 379
+Monster Name Offset: 0x7C
+Size (Bytes): 24
+2 Monsters
+	Monster 0: "ガーディアン      "
+
+File: 385
+Monster Name Offset: 0x7C
+Size (Bytes): 24
+2 Monsters
+	Monster 0: "プランタリウム     "
+
+File: 389
+Monster Name Offset: 0x7C
+Size (Bytes): 24
+2 Monsters
+	Monster 0: "プランタリウム     "
+
+File: 39
+Monster Name Offset: 0x1D8
+Size (Bytes): 96
+8 Monsters
+	Monster 0: "ヘルギガント      "
+	Monster 1: "スカルハーピー     "
+	Monster 2: "ストーンエルム     "
+	Monster 3: "ヘルウォーム      "
+
+File: 395
+Monster Name Offset: 0xF0
+Size (Bytes): 48
+4 Monsters
+	Monster 0: "プランタリウム     "
+	Monster 1: "            "
+
+File: 399
+Monster Name Offset: 0xF0
+Size (Bytes): 48
+4 Monsters
+	Monster 0: "プランタリウム     "
+	Monster 1: "            "
+
+File: 4
+Monster Name Offset: 0xF0
+Size (Bytes): 48
+4 Monsters
+	Monster 0: "ビートル        "
+	Monster 1: "デザートアイ      "
+
+File: 403
+Monster Name Offset: 0xF0
+Size (Bytes): 48
+4 Monsters
+	Monster 0: "プランタリウム     "
+	Monster 1: "            "
+
+File: 407
+Monster Name Offset: 0x164
+Size (Bytes): 72
+6 Monsters
+	Monster 0: "プランタリウム     "
+	Monster 1: "            "
+	Monster 2: "            "
+
+File: 411
+Monster Name Offset: 0x164
+Size (Bytes): 72
+6 Monsters
+	Monster 0: "プランタリウム     "
+	Monster 1: "            "
+	Monster 2: "            "
+
+File: 415
+Monster Name Offset: 0x164
+Size (Bytes): 72
+6 Monsters
+	Monster 0: "プランタリウム     "
+	Monster 1: "            "
+	Monster 2: "            "
+
+File: 419
+Monster Name Offset: 0x164
+Size (Bytes): 72
+6 Monsters
+	Monster 0: "プランタリウム     "
+	Monster 1: "            "
+	Monster 2: "            "
+
+File: 423
+Monster Name Offset: 0x164
+Size (Bytes): 72
+6 Monsters
+	Monster 0: "プランタリウム     "
+	Monster 1: "            "
+	Monster 2: "            "
+
+File: 427
+Monster Name Offset: 0x164
+Size (Bytes): 72
+6 Monsters
+	Monster 0: "プランタリウム     "
+	Monster 1: "            "
+	Monster 2: "            "
+
+File: 431
+Monster Name Offset: 0xF0
+Size (Bytes): 48
+4 Monsters
+	Monster 0: "マジカルバスターマシーン"
+	Monster 1: "            "
+
+File: 435
+Monster Name Offset: 0xF0
+Size (Bytes): 48
+4 Monsters
+	Monster 0: "マジカルバスターマシーン"
+	Monster 1: "            "
+
+File: 439
+Monster Name Offset: 0xF0
+Size (Bytes): 48
+4 Monsters
+	Monster 0: "マジカルバスターマシーン"
+	Monster 1: "            "
+
+File: 44
+Monster Name Offset: 0x164
+Size (Bytes): 72
+6 Monsters
+	Monster 0: "クルクルピエロ     "
+	Monster 1: "ネムリン        "
+	Monster 2: "ロックン        "
+
+File: 445
+Monster Name Offset: 0xF0
+Size (Bytes): 48
+4 Monsters
+	Monster 0: "マジカルバスターマシーン"
+	Monster 1: "            "
+
+File: 449
+Monster Name Offset: 0xF0
+Size (Bytes): 48
+4 Monsters
+	Monster 0: "マジカルバスターマシーン"
+	Monster 1: "            "
+
+File: 453
+Monster Name Offset: 0xF0
+Size (Bytes): 48
+4 Monsters
+	Monster 0: "マジカルバスターマシーン"
+	Monster 1: "            "
+
+File: 457
+Monster Name Offset: 0xF0
+Size (Bytes): 48
+4 Monsters
+	Monster 0: "マジカルバスターマシーン"
+	Monster 1: "            "
+
+File: 461
+Monster Name Offset: 0xF0
+Size (Bytes): 48
+4 Monsters
+	Monster 0: "マジカルバスターマシーン"
+	Monster 1: "            "
+
+File: 465
+Monster Name Offset: 0xF0
+Size (Bytes): 48
+4 Monsters
+	Monster 0: "マジカルバスターマシーン"
+	Monster 1: "            "
+
+File: 469
+Monster Name Offset: 0xF0
+Size (Bytes): 48
+4 Monsters
+	Monster 0: "マジカルバスターマシーン"
+	Monster 1: "            "
+
+File: 473
+Monster Name Offset: 0xF0
+Size (Bytes): 48
+4 Monsters
+	Monster 0: "マジカルバスターマシーン"
+	Monster 1: "            "
+
+File: 477
+Monster Name Offset: 0x24C
+Size (Bytes): 120
+10 Monsters
+	Monster 0: "ホワイトイェット    "
+	Monster 1: "            "
+	Monster 2: "            "
+	Monster 3: "            "
+	Monster 4: "            "
+
+File: 481
+Monster Name Offset: 0x24C
+Size (Bytes): 120
+10 Monsters
+	Monster 0: "ホワイトイェット    "
+	Monster 1: "            "
+	Monster 2: "            "
+	Monster 3: "            "
+	Monster 4: "            "
+
+File: 485
+Monster Name Offset: 0x24C
+Size (Bytes): 120
+10 Monsters
+	Monster 0: "ホワイトイェット    "
+	Monster 1: "            "
+	Monster 2: "            "
+	Monster 3: "            "
+	Monster 4: "            "
+
+File: 489
+Monster Name Offset: 0x24C
+Size (Bytes): 120
+10 Monsters
+	Monster 0: "ホワイトイェット    "
+	Monster 1: "            "
+	Monster 2: "            "
+	Monster 3: "            "
+	Monster 4: "            "
+
+File: 49
+Monster Name Offset: 0x1D8
+Size (Bytes): 96
+8 Monsters
+	Monster 0: "ペルソナ        "
+	Monster 1: "マスカレード      "
+	Monster 2: "クリスタルミラー    "
+	Monster 3: "クリスタルフェンサー  "
+
+File: 493
+Monster Name Offset: 0x24C
+Size (Bytes): 120
+10 Monsters
+	Monster 0: "ホワイトイェット    "
+	Monster 1: "            "
+	Monster 2: "            "
+	Monster 3: "            "
+	Monster 4: "            "
+
+File: 497
+Monster Name Offset: 0x24C
+Size (Bytes): 120
+10 Monsters
+	Monster 0: "ホワイトイェット    "
+	Monster 1: "            "
+	Monster 2: "            "
+	Monster 3: "            "
+	Monster 4: "            "
+
+File: 501
+Monster Name Offset: 0x164
+Size (Bytes): 72
+6 Monsters
+	Monster 0: "ガーディアン      "
+	Monster 1: "ガーディアン      "
+	Monster 2: "ガーディアン      "
+
+File: 505
+Monster Name Offset: 0x164
+Size (Bytes): 72
+6 Monsters
+	Monster 0: "ガーディアン      "
+	Monster 1: "ガーディアン      "
+	Monster 2: "ガーディアン      "
+
+File: 509
+Monster Name Offset: 0x164
+Size (Bytes): 72
+6 Monsters
+	Monster 0: "ガーディアン      "
+	Monster 1: "ガーディアン      "
+	Monster 2: "ガーディアン      "
+
+File: 513
+Monster Name Offset: 0x164
+Size (Bytes): 72
+6 Monsters
+	Monster 0: "ガーディアン      "
+	Monster 1: "ガーディアン      "
+	Monster 2: "ガーディアン      "
+
+File: 519
+Monster Name Offset: 0x164
+Size (Bytes): 72
+6 Monsters
+	Monster 0: "フレイムファング    "
+	Monster 1: "            "
+	Monster 2: "            "
+
+File: 523
+Monster Name Offset: 0x164
+Size (Bytes): 72
+6 Monsters
+	Monster 0: "フレイムファング    "
+	Monster 1: "            "
+	Monster 2: "            "
+
+File: 527
+Monster Name Offset: 0x164
+Size (Bytes): 72
+6 Monsters
+	Monster 0: "フレイムファング    "
+	Monster 1: "            "
+	Monster 2: "            "
+
+File: 531
+Monster Name Offset: 0x164
+Size (Bytes): 72
+6 Monsters
+	Monster 0: "フレイムファング    "
+	Monster 1: "            "
+	Monster 2: "            "
+
+File: 535
+Monster Name Offset: 0x1D8
+Size (Bytes): 96
+8 Monsters
+	Monster 0: "白の魔竜        "
+	Monster 1: "            "
+	Monster 2: "            "
+	Monster 3: "            "
+
+File: 537
+Monster Name Offset: 0x1D8
+Size (Bytes): 96
+8 Monsters
+	Monster 0: "白の魔竜        "
+	Monster 1: "            "
+	Monster 2: "            "
+	Monster 3: "            "
+
+File: 539
+Monster Name Offset: 0x1D8
+Size (Bytes): 96
+8 Monsters
+	Monster 0: "白の魔竜        "
+	Monster 1: "            "
+	Monster 2: "            "
+	Monster 3: "            "
+
+File: 54
+Monster Name Offset: 0x1D8
+Size (Bytes): 96
+8 Monsters
+	Monster 0: "ビッグフット      "
+	Monster 1: "ラウンドウルフ     "
+	Monster 2: "ルサントロプス     "
+	Monster 3: "ワイアーム       "
+
+File: 541
+Monster Name Offset: 0x1D8
+Size (Bytes): 96
+8 Monsters
+	Monster 0: "白の魔竜        "
+	Monster 1: "            "
+	Monster 2: "            "
+	Monster 3: "            "
+
+File: 543
+Monster Name Offset: 0x1D8
+Size (Bytes): 96
+8 Monsters
+	Monster 0: "白の魔竜        "
+	Monster 1: "            "
+	Monster 2: "            "
+	Monster 3: "            "
+
+File: 545
+Monster Name Offset: 0x1D8
+Size (Bytes): 96
+8 Monsters
+	Monster 0: "ライナス        "
+	Monster 1: "            "
+	Monster 2: "            "
+	Monster 3: "            "
+
+File: 547
+Monster Name Offset: 0x1D8
+Size (Bytes): 96
+8 Monsters
+	Monster 0: "ライナス        "
+	Monster 1: "            "
+	Monster 2: "            "
+	Monster 3: "            "
+
+File: 549
+Monster Name Offset: 0x1D8
+Size (Bytes): 96
+8 Monsters
+	Monster 0: "ライナス        "
+	Monster 1: "            "
+	Monster 2: "            "
+	Monster 3: "            "
+
+File: 551
+Monster Name Offset: 0x1D8
+Size (Bytes): 96
+8 Monsters
+	Monster 0: "ライナス        "
+	Monster 1: "            "
+	Monster 2: "            "
+	Monster 3: "            "
+
+File: 553
+Monster Name Offset: 0x1D8
+Size (Bytes): 96
+8 Monsters
+	Monster 0: "ライナス        "
+	Monster 1: "            "
+	Monster 2: "            "
+	Monster 3: "            "
+
+File: 555
+Monster Name Offset: 0x1D8
+Size (Bytes): 96
+8 Monsters
+	Monster 0: "ライナス        "
+	Monster 1: "            "
+	Monster 2: "            "
+	Monster 3: "            "
+
+File: 559
+Monster Name Offset: 0x1D8
+Size (Bytes): 96
+8 Monsters
+	Monster 0: "ライナス        "
+	Monster 1: "            "
+	Monster 2: "            "
+	Monster 3: "            "
+
+File: 563
+Monster Name Offset: 0x1D8
+Size (Bytes): 96
+8 Monsters
+	Monster 0: "青の魔竜        "
+	Monster 1: "            "
+	Monster 2: "            "
+	Monster 3: "            "
+
+File: 567
+Monster Name Offset: 0x1D8
+Size (Bytes): 96
+8 Monsters
+	Monster 0: "青の魔竜        "
+	Monster 1: "            "
+	Monster 2: "            "
+	Monster 3: "            "
+
+File: 571
+Monster Name Offset: 0x1D8
+Size (Bytes): 96
+8 Monsters
+	Monster 0: "青の魔竜        "
+	Monster 1: "            "
+	Monster 2: "            "
+	Monster 3: "            "
+
+File: 575
+Monster Name Offset: 0x1D8
+Size (Bytes): 96
+8 Monsters
+	Monster 0: "青の魔竜        "
+	Monster 1: "            "
+	Monster 2: "            "
+	Monster 3: "            "
+
+File: 579
+Monster Name Offset: 0x1D8
+Size (Bytes): 96
+8 Monsters
+	Monster 0: "青の魔竜        "
+	Monster 1: "            "
+	Monster 2: "            "
+	Monster 3: "            "
+
+File: 583
+Monster Name Offset: 0x1D8
+Size (Bytes): 96
+8 Monsters
+	Monster 0: "ボーガン        "
+	Monster 1: "            "
+	Monster 2: "            "
+	Monster 3: "            "
+
+File: 587
+Monster Name Offset: 0x1D8
+Size (Bytes): 96
+8 Monsters
+	Monster 0: "ボーガン        "
+	Monster 1: "            "
+	Monster 2: "            "
+	Monster 3: "            "
+
+File: 59
+Monster Name Offset: 0x1D8
+Size (Bytes): 96
+8 Monsters
+	Monster 0: "マッドピエロ      "
+	Monster 1: "ピンクリボン      "
+	Monster 2: "マンイーター      "
+	Monster 3: "マジックハット     "
+
+File: 591
+Monster Name Offset: 0x1D8
+Size (Bytes): 96
+8 Monsters
+	Monster 0: "ボーガン        "
+	Monster 1: "            "
+	Monster 2: "            "
+	Monster 3: "            "
+
+File: 595
+Monster Name Offset: 0x1D8
+Size (Bytes): 96
+8 Monsters
+	Monster 0: "ボーガン        "
+	Monster 1: "            "
+	Monster 2: "            "
+	Monster 3: "            "
+
+File: 599
+Monster Name Offset: 0x1D8
+Size (Bytes): 96
+8 Monsters
+	Monster 0: "ボーガン        "
+	Monster 1: "            "
+	Monster 2: "            "
+	Monster 3: "            "
+
+File: 603
+Monster Name Offset: 0x1D8
+Size (Bytes): 96
+8 Monsters
+	Monster 0: "ボーガン        "
+	Monster 1: "            "
+	Monster 2: "            "
+	Monster 3: "            "
+
+File: 607
+Monster Name Offset: 0x1D8
+Size (Bytes): 96
+8 Monsters
+	Monster 0: "ボーガン        "
+	Monster 1: "            "
+	Monster 2: "            "
+	Monster 3: "            "
+
+File: 609
+Monster Name Offset: 0x1D8
+Size (Bytes): 96
+8 Monsters
+	Monster 0: "黒の魔竜        "
+	Monster 1: "            "
+	Monster 2: "            "
+	Monster 3: "            "
+
+File: 611
+Monster Name Offset: 0x1D8
+Size (Bytes): 96
+8 Monsters
+	Monster 0: "黒の魔竜        "
+	Monster 1: "            "
+	Monster 2: "            "
+	Monster 3: "            "
+
+File: 613
+Monster Name Offset: 0x1D8
+Size (Bytes): 96
+8 Monsters
+	Monster 0: "黒の魔竜        "
+	Monster 1: "            "
+	Monster 2: "            "
+	Monster 3: "            "
+
+File: 615
+Monster Name Offset: 0x1D8
+Size (Bytes): 96
+8 Monsters
+	Monster 0: "黒の魔竜        "
+	Monster 1: "            "
+	Monster 2: "            "
+	Monster 3: "            "
+
+File: 617
+Monster Name Offset: 0x1D8
+Size (Bytes): 96
+8 Monsters
+	Monster 0: "黒の魔竜        "
+	Monster 1: "            "
+	Monster 2: "            "
+	Monster 3: "            "
+
+File: 621
+Monster Name Offset: 0x1D8
+Size (Bytes): 96
+8 Monsters
+	Monster 0: "デビルアイ       "
+	Monster 1: "            "
+	Monster 2: "            "
+	Monster 3: "            "
+
+File: 625
+Monster Name Offset: 0x1D8
+Size (Bytes): 96
+8 Monsters
+	Monster 0: "デビルアイ       "
+	Monster 1: "            "
+	Monster 2: "            "
+	Monster 3: "            "
+
+File: 629
+Monster Name Offset: 0x1D8
+Size (Bytes): 96
+8 Monsters
+	Monster 0: "デビルアイ       "
+	Monster 1: "            "
+	Monster 2: "            "
+	Monster 3: "            "
+
+File: 633
+Monster Name Offset: 0x1D8
+Size (Bytes): 96
+8 Monsters
+	Monster 0: "デビルアイ       "
+	Monster 1: "            "
+	Monster 2: "            "
+	Monster 3: "            "
+
+File: 635
+Monster Name Offset: 0x1D8
+Size (Bytes): 96
+8 Monsters
+	Monster 0: "デビルアイ       "
+	Monster 1: "            "
+	Monster 2: "            "
+	Monster 3: "            "
+
+File: 637
+Monster Name Offset: 0x1D8
+Size (Bytes): 96
+8 Monsters
+	Monster 0: "赤の魔竜        "
+	Monster 1: "            "
+	Monster 2: "            "
+	Monster 3: "            "
+
+File: 639
+Monster Name Offset: 0x1D8
+Size (Bytes): 96
+8 Monsters
+	Monster 0: "赤の魔竜        "
+	Monster 1: "            "
+	Monster 2: "            "
+	Monster 3: "            "
+
+File: 64
+Monster Name Offset: 0x1D8
+Size (Bytes): 96
+8 Monsters
+	Monster 0: "ゴアカラシン      "
+	Monster 1: "ファティバイパー    "
+	Monster 2: "キャノンフット     "
+	Monster 3: "アンモネーター     "
+
+File: 641
+Monster Name Offset: 0x1D8
+Size (Bytes): 96
+8 Monsters
+	Monster 0: "赤の魔竜        "
+	Monster 1: "            "
+	Monster 2: "            "
+	Monster 3: "            "
+
+File: 643
+Monster Name Offset: 0x1D8
+Size (Bytes): 96
+8 Monsters
+	Monster 0: "赤の魔竜        "
+	Monster 1: "            "
+	Monster 2: "            "
+	Monster 3: "            "
+
+File: 645
+Monster Name Offset: 0x1D8
+Size (Bytes): 96
+8 Monsters
+	Monster 0: "赤の魔竜        "
+	Monster 1: "            "
+	Monster 2: "            "
+	Monster 3: "            "
+
+File: 647
+Monster Name Offset: 0x24C
+Size (Bytes): 120
+10 Monsters
+	Monster 0: "アルテナフェイク    "
+	Monster 1: "            "
+	Monster 2: "            "
+	Monster 3: "            "
+	Monster 4: "            "
+
+File: 649
+Monster Name Offset: 0x24C
+Size (Bytes): 120
+10 Monsters
+	Monster 0: "アルテナフェイク    "
+	Monster 1: "            "
+	Monster 2: "            "
+	Monster 3: "            "
+	Monster 4: "            "
+
+File: 651
+Monster Name Offset: 0x24C
+Size (Bytes): 120
+10 Monsters
+	Monster 0: "アルテナフェイク    "
+	Monster 1: "            "
+	Monster 2: "            "
+	Monster 3: "            "
+	Monster 4: "            "
+
+File: 653
+Monster Name Offset: 0x24C
+Size (Bytes): 120
+10 Monsters
+	Monster 0: "アルテナフェイク    "
+	Monster 1: "            "
+	Monster 2: "            "
+	Monster 3: "            "
+	Monster 4: "            "
+
+File: 655
+Monster Name Offset: 0x24C
+Size (Bytes): 120
+10 Monsters
+	Monster 0: "アルテナフェイク    "
+	Monster 1: "            "
+	Monster 2: "            "
+	Monster 3: "            "
+	Monster 4: "            "
+
+File: 657
+Monster Name Offset: 0x24C
+Size (Bytes): 120
+10 Monsters
+	Monster 0: "アルテナフェイク    "
+	Monster 1: "            "
+	Monster 2: "            "
+	Monster 3: "            "
+	Monster 4: "            "
+
+File: 659
+Monster Name Offset: 0x1D8
+Size (Bytes): 96
+8 Monsters
+	Monster 0: "剣の守護者       "
+	Monster 1: "            "
+	Monster 2: "            "
+	Monster 3: "            "
+
+File: 661
+Monster Name Offset: 0x1D8
+Size (Bytes): 96
+8 Monsters
+	Monster 0: "剣の守護者       "
+	Monster 1: "            "
+	Monster 2: "            "
+	Monster 3: "            "
+
+File: 663
+Monster Name Offset: 0x1D8
+Size (Bytes): 96
+8 Monsters
+	Monster 0: "剣の守護者       "
+	Monster 1: "            "
+	Monster 2: "            "
+	Monster 3: "            "
+
+File: 665
+Monster Name Offset: 0x1D8
+Size (Bytes): 96
+8 Monsters
+	Monster 0: "剣の守護者       "
+	Monster 1: "            "
+	Monster 2: "            "
+	Monster 3: "            "
+
+File: 667
+Monster Name Offset: 0x1D8
+Size (Bytes): 96
+8 Monsters
+	Monster 0: "剣の守護者       "
+	Monster 1: "            "
+	Monster 2: "            "
+	Monster 3: "            "
+
+File: 669
+Monster Name Offset: 0x1D8
+Size (Bytes): 96
+8 Monsters
+	Monster 0: "水の守護者       "
+	Monster 1: "            "
+	Monster 2: "            "
+	Monster 3: "            "
+
+File: 671
+Monster Name Offset: 0x1D8
+Size (Bytes): 96
+8 Monsters
+	Monster 0: "水の守護者       "
+	Monster 1: "            "
+	Monster 2: "            "
+	Monster 3: "            "
+
+File: 673
+Monster Name Offset: 0x1D8
+Size (Bytes): 96
+8 Monsters
+	Monster 0: "水の守護者       "
+	Monster 1: "            "
+	Monster 2: "            "
+	Monster 3: "            "
+
+File: 675
+Monster Name Offset: 0x1D8
+Size (Bytes): 96
+8 Monsters
+	Monster 0: "水の守護者       "
+	Monster 1: "            "
+	Monster 2: "            "
+	Monster 3: "            "
+
+File: 677
+Monster Name Offset: 0x1D8
+Size (Bytes): 96
+8 Monsters
+	Monster 0: "水の守護者       "
+	Monster 1: "            "
+	Monster 2: "            "
+	Monster 3: "            "
+
+File: 683
+Monster Name Offset: 0xF0
+Size (Bytes): 48
+4 Monsters
+	Monster 0: "ゾファー        "
+	Monster 1: "            "
+
+File: 687
+Monster Name Offset: 0xF0
+Size (Bytes): 48
+4 Monsters
+	Monster 0: "ゾファー        "
+	Monster 1: "            "
+
+File: 69
+Monster Name Offset: 0x164
+Size (Bytes): 72
+6 Monsters
+	Monster 0: "ビッグモス       "
+	Monster 1: "デッドボール      "
+	Monster 2: "マッシュウォーカー   "
+
+File: 691
+Monster Name Offset: 0xF0
+Size (Bytes): 48
+4 Monsters
+	Monster 0: "ゾファー        "
+	Monster 1: "            "
+
+File: 695
+Monster Name Offset: 0xF0
+Size (Bytes): 48
+4 Monsters
+	Monster 0: "ゾファー        "
+	Monster 1: "            "
+
+File: 699
+Monster Name Offset: 0xF0
+Size (Bytes): 48
+4 Monsters
+	Monster 0: "ゾファー        "
+	Monster 1: "            "
+
+File: 703
+Monster Name Offset: 0xA74
+Size (Bytes): 552
+46 Monsters
+	Monster 0: "ゾファー        "
+	Monster 1: "顔２          "
+	Monster 2: "顔３          "
+	Monster 3: "顔４          "
+	Monster 4: "顔５          "
+	Monster 5: "顔６          "
+	Monster 6: "顔７          "
+	Monster 7: "右１          "
+	Monster 8: "右２          "
+	Monster 9: "右３          "
+	Monster 10: "右４          "
+	Monster 11: "右５          "
+	Monster 12: "左１          "
+	Monster 13: "左２          "
+	Monster 14: "左３          "
+	Monster 15: "左４          "
+	Monster 16: "左５          "
+	Monster 17: "R１          "
+	Monster 18: "R２          "
+	Monster 19: "R３          "
+	Monster 20: "L１          "
+	Monster 21: "L２          "
+	Monster 22: "L３          "
+
+File: 707
+Monster Name Offset: 0xA74
+Size (Bytes): 552
+46 Monsters
+	Monster 0: "ゾファー        "
+	Monster 1: "顔２          "
+	Monster 2: "顔３          "
+	Monster 3: "顔４          "
+	Monster 4: "顔５          "
+	Monster 5: "顔６          "
+	Monster 6: "顔７          "
+	Monster 7: "右１          "
+	Monster 8: "右２          "
+	Monster 9: "右３          "
+	Monster 10: "右４          "
+	Monster 11: "右５          "
+	Monster 12: "左１          "
+	Monster 13: "左２          "
+	Monster 14: "左３          "
+	Monster 15: "左４          "
+	Monster 16: "左５          "
+	Monster 17: "R１          "
+	Monster 18: "R２          "
+	Monster 19: "R３          "
+	Monster 20: "L１          "
+	Monster 21: "L２          "
+	Monster 22: "L３          "
+
+File: 715
+Monster Name Offset: 0xA74
+Size (Bytes): 552
+46 Monsters
+	Monster 0: "ゾファー        "
+	Monster 1: "顔２          "
+	Monster 2: "顔３          "
+	Monster 3: "顔４          "
+	Monster 4: "顔５          "
+	Monster 5: "顔６          "
+	Monster 6: "顔７          "
+	Monster 7: "右１          "
+	Monster 8: "右２          "
+	Monster 9: "右３          "
+	Monster 10: "右４          "
+	Monster 11: "右５          "
+	Monster 12: "左１          "
+	Monster 13: "左２          "
+	Monster 14: "左３          "
+	Monster 15: "左４          "
+	Monster 16: "左５          "
+	Monster 17: "R１          "
+	Monster 18: "R２          "
+	Monster 19: "R３          "
+	Monster 20: "L１          "
+	Monster 21: "L２          "
+	Monster 22: "L３          "
+
+File: 717
+Monster Name Offset: 0xA74
+Size (Bytes): 552
+46 Monsters
+	Monster 0: "ゾファー        "
+	Monster 1: "顔２          "
+	Monster 2: "顔３          "
+	Monster 3: "顔４          "
+	Monster 4: "顔５          "
+	Monster 5: "顔６          "
+	Monster 6: "顔７          "
+	Monster 7: "右１          "
+	Monster 8: "右２          "
+	Monster 9: "右３          "
+	Monster 10: "右４          "
+	Monster 11: "右５          "
+	Monster 12: "左１          "
+	Monster 13: "左２          "
+	Monster 14: "左３          "
+	Monster 15: "左４          "
+	Monster 16: "左５          "
+	Monster 17: "R１          "
+	Monster 18: "R２          "
+	Monster 19: "R３          "
+	Monster 20: "L１          "
+	Monster 21: "L２          "
+	Monster 22: "L３          "
+
+File: 721
+Monster Name Offset: 0xA74
+Size (Bytes): 552
+46 Monsters
+	Monster 0: "ゾファー        "
+	Monster 1: "顔２          "
+	Monster 2: "顔３          "
+	Monster 3: "顔４          "
+	Monster 4: "顔５          "
+	Monster 5: "顔６          "
+	Monster 6: "顔７          "
+	Monster 7: "右１          "
+	Monster 8: "右２          "
+	Monster 9: "右３          "
+	Monster 10: "右４          "
+	Monster 11: "右５          "
+	Monster 12: "左１          "
+	Monster 13: "左２          "
+	Monster 14: "左３          "
+	Monster 15: "左４          "
+	Monster 16: "左５          "
+	Monster 17: "R１          "
+	Monster 18: "R２          "
+	Monster 19: "R３          "
+	Monster 20: "L１          "
+	Monster 21: "L２          "
+	Monster 22: "L３          "
+
+File: 725
+Monster Name Offset: 0xA74
+Size (Bytes): 552
+46 Monsters
+	Monster 0: "ゾファー        "
+	Monster 1: "顔２          "
+	Monster 2: "顔３          "
+	Monster 3: "顔４          "
+	Monster 4: "顔５          "
+	Monster 5: "顔６          "
+	Monster 6: "顔７          "
+	Monster 7: "右１          "
+	Monster 8: "右２          "
+	Monster 9: "右３          "
+	Monster 10: "右４          "
+	Monster 11: "右５          "
+	Monster 12: "左１          "
+	Monster 13: "左２          "
+	Monster 14: "左３          "
+	Monster 15: "左４          "
+	Monster 16: "左５          "
+	Monster 17: "R１          "
+	Monster 18: "R２          "
+	Monster 19: "R３          "
+	Monster 20: "L１          "
+	Monster 21: "L２          "
+	Monster 22: "L３          "
+
+File: 729
+Monster Name Offset: 0xA74
+Size (Bytes): 552
+46 Monsters
+	Monster 0: "ゾファー        "
+	Monster 1: "顔２          "
+	Monster 2: "顔３          "
+	Monster 3: "顔４          "
+	Monster 4: "顔５          "
+	Monster 5: "顔６          "
+	Monster 6: "顔７          "
+	Monster 7: "右１          "
+	Monster 8: "右２          "
+	Monster 9: "右３          "
+	Monster 10: "右４          "
+	Monster 11: "右５          "
+	Monster 12: "左１          "
+	Monster 13: "左２          "
+	Monster 14: "左３          "
+	Monster 15: "左４          "
+	Monster 16: "左５          "
+	Monster 17: "R１          "
+	Monster 18: "R２          "
+	Monster 19: "R３          "
+	Monster 20: "L１          "
+	Monster 21: "L２          "
+	Monster 22: "L３          "
+
+File: 733
+Monster Name Offset: 0xA74
+Size (Bytes): 552
+46 Monsters
+	Monster 0: "ゾファー        "
+	Monster 1: "顔２          "
+	Monster 2: "顔３          "
+	Monster 3: "顔４          "
+	Monster 4: "顔５          "
+	Monster 5: "顔６          "
+	Monster 6: "顔７          "
+	Monster 7: "右１          "
+	Monster 8: "右２          "
+	Monster 9: "右３          "
+	Monster 10: "右４          "
+	Monster 11: "右５          "
+	Monster 12: "左１          "
+	Monster 13: "左２          "
+	Monster 14: "左３          "
+	Monster 15: "左４          "
+	Monster 16: "左５          "
+	Monster 17: "R１          "
+	Monster 18: "R２          "
+	Monster 19: "R３          "
+	Monster 20: "L１          "
+	Monster 21: "L２          "
+	Monster 22: "L３          "
+
+File: 735
+Monster Name Offset: 0xA74
+Size (Bytes): 552
+46 Monsters
+	Monster 0: "ゾファー        "
+	Monster 1: "顔２          "
+	Monster 2: "顔３          "
+	Monster 3: "顔４          "
+	Monster 4: "顔５          "
+	Monster 5: "顔６          "
+	Monster 6: "顔７          "
+	Monster 7: "右１          "
+	Monster 8: "右２          "
+	Monster 9: "右３          "
+	Monster 10: "右４          "
+	Monster 11: "右５          "
+	Monster 12: "左１          "
+	Monster 13: "左２          "
+	Monster 14: "左３          "
+	Monster 15: "左４          "
+	Monster 16: "左５          "
+	Monster 17: "R１          "
+	Monster 18: "R２          "
+	Monster 19: "R３          "
+	Monster 20: "L１          "
+	Monster 21: "L２          "
+	Monster 22: "L３          "
+
+File: 737
+Monster Name Offset: 0xA74
+Size (Bytes): 552
+46 Monsters
+	Monster 0: "ゾファー        "
+	Monster 1: "顔２          "
+	Monster 2: "顔３          "
+	Monster 3: "顔４          "
+	Monster 4: "顔５          "
+	Monster 5: "顔６          "
+	Monster 6: "顔７          "
+	Monster 7: "右１          "
+	Monster 8: "右２          "
+	Monster 9: "右３          "
+	Monster 10: "右４          "
+	Monster 11: "右５          "
+	Monster 12: "左１          "
+	Monster 13: "左２          "
+	Monster 14: "左３          "
+	Monster 15: "左４          "
+	Monster 16: "左５          "
+	Monster 17: "R１          "
+	Monster 18: "R２          "
+	Monster 19: "R３          "
+	Monster 20: "L１          "
+	Monster 21: "L２          "
+	Monster 22: "L３          "
+
+File: 739
+Monster Name Offset: 0x24C
+Size (Bytes): 120
+10 Monsters
+	Monster 0: "星の守護者       "
+	Monster 1: "            "
+	Monster 2: "            "
+	Monster 3: "            "
+	Monster 4: "            "
+
+File: 74
+Monster Name Offset: 0x1D8
+Size (Bytes): 96
+8 Monsters
+	Monster 0: "ギガアント       "
+	Monster 1: "オクトプラント     "
+	Monster 2: "キラーハミング     "
+	Monster 3: "ワスプウッダー     "
+
+File: 741
+Monster Name Offset: 0x24C
+Size (Bytes): 120
+10 Monsters
+	Monster 0: "星の守護者       "
+	Monster 1: "            "
+	Monster 2: "            "
+	Monster 3: "            "
+	Monster 4: "            "
+
+File: 743
+Monster Name Offset: 0x24C
+Size (Bytes): 120
+10 Monsters
+	Monster 0: "星の守護者       "
+	Monster 1: "            "
+	Monster 2: "            "
+	Monster 3: "            "
+	Monster 4: "            "
+
+File: 745
+Monster Name Offset: 0x24C
+Size (Bytes): 120
+10 Monsters
+	Monster 0: "星の守護者       "
+	Monster 1: "            "
+	Monster 2: "            "
+	Monster 3: "            "
+	Monster 4: "            "
+
+File: 747
+Monster Name Offset: 0x24C
+Size (Bytes): 120
+10 Monsters
+	Monster 0: "星の守護者       "
+	Monster 1: "            "
+	Monster 2: "            "
+	Monster 3: "            "
+	Monster 4: "            "
+
+File: 749
+Monster Name Offset: 0x24C
+Size (Bytes): 120
+10 Monsters
+	Monster 0: "星の守護者       "
+	Monster 1: "            "
+	Monster 2: "            "
+	Monster 3: "            "
+	Monster 4: "            "
+
+File: 751
+Monster Name Offset: 0x578
+Size (Bytes): 288
+24 Monsters
+	Monster 0: "ゾファーマインド    "
+	Monster 1: "ゾファーマインド    "
+	Monster 2: "ゾファーマインド    "
+	Monster 3: "ゾファーマインド    "
+	Monster 4: "ゾファーマインド    "
+	Monster 5: "ゾファーマインド    "
+	Monster 6: "ゾファーマインド    "
+	Monster 7: "ゾファーマインド    "
+	Monster 8: "ゾファーマインド    "
+	Monster 9: "ゾファーマインド    "
+	Monster 10: "ゾファーマインド    "
+	Monster 11: "ゾファーマインド    "
+
+File: 753
+Monster Name Offset: 0x578
+Size (Bytes): 288
+24 Monsters
+	Monster 0: "ゾファーマインド    "
+	Monster 1: "ゾファーマインド    "
+	Monster 2: "ゾファーマインド    "
+	Monster 3: "ゾファーマインド    "
+	Monster 4: "ゾファーマインド    "
+	Monster 5: "ゾファーマインド    "
+	Monster 6: "ゾファーマインド    "
+	Monster 7: "ゾファーマインド    "
+	Monster 8: "ゾファーマインド    "
+	Monster 9: "ゾファーマインド    "
+	Monster 10: "ゾファーマインド    "
+	Monster 11: "ゾファーマインド    "
+
+File: 759
+Monster Name Offset: 0x7C
+Size (Bytes): 24
+2 Monsters
+	Monster 0: "ガレオン        "
+
+File: 761
+Monster Name Offset: 0x7C
+Size (Bytes): 24
+2 Monsters
+	Monster 0: "ガレオン        "
+
+File: 763
+Monster Name Offset: 0x7C
+Size (Bytes): 24
+2 Monsters
+	Monster 0: "ガレオン        "
+
+File: 765
+Monster Name Offset: 0x7C
+Size (Bytes): 24
+2 Monsters
+	Monster 0: "ガレオン        "
+
+File: 767
+Monster Name Offset: 0x164
+Size (Bytes): 72
+6 Monsters
+	Monster 0: "ガレオン        "
+	Monster 1: "            "
+	Monster 2: "            "
+
+File: 769
+Monster Name Offset: 0x164
+Size (Bytes): 72
+6 Monsters
+	Monster 0: "ガレオン        "
+	Monster 1: "            "
+	Monster 2: "            "
+
+File: 771
+Monster Name Offset: 0x164
+Size (Bytes): 72
+6 Monsters
+	Monster 0: "ガレオン        "
+	Monster 1: "            "
+	Monster 2: "            "
+
+File: 773
+Monster Name Offset: 0x164
+Size (Bytes): 72
+6 Monsters
+	Monster 0: "ガレオン        "
+	Monster 1: "            "
+	Monster 2: "            "
+
+File: 775
+Monster Name Offset: 0x24C
+Size (Bytes): 120
+10 Monsters
+	Monster 0: "ガレオン        "
+	Monster 1: "            "
+	Monster 2: "            "
+	Monster 3: "            "
+	Monster 4: "            "
+
+File: 777
+Monster Name Offset: 0x24C
+Size (Bytes): 120
+10 Monsters
+	Monster 0: "ガレオン        "
+	Monster 1: "            "
+	Monster 2: "            "
+	Monster 3: "            "
+	Monster 4: "            "
+
+File: 779
+Monster Name Offset: 0x24C
+Size (Bytes): 120
+10 Monsters
+	Monster 0: "ガレオン        "
+	Monster 1: "            "
+	Monster 2: "            "
+	Monster 3: "            "
+	Monster 4: "            "
+
+File: 781
+Monster Name Offset: 0x24C
+Size (Bytes): 120
+10 Monsters
+	Monster 0: "ガレオン        "
+	Monster 1: "            "
+	Monster 2: "            "
+	Monster 3: "            "
+	Monster 4: "            "
+
+File: 783
+Monster Name Offset: 0x24C
+Size (Bytes): 120
+10 Monsters
+	Monster 0: "ガレオン        "
+	Monster 1: "            "
+	Monster 2: "            "
+	Monster 3: "            "
+	Monster 4: "            "
+
+File: 785
+Monster Name Offset: 0x24C
+Size (Bytes): 120
+10 Monsters
+	Monster 0: "ガレオン        "
+	Monster 1: "            "
+	Monster 2: "            "
+	Monster 3: "            "
+	Monster 4: "            "
+
+File: 787
+Monster Name Offset: 0x24C
+Size (Bytes): 120
+10 Monsters
+	Monster 0: "ガレオン        "
+	Monster 1: "            "
+	Monster 2: "            "
+	Monster 3: "            "
+	Monster 4: "            "
+
+File: 789
+Monster Name Offset: 0x24C
+Size (Bytes): 120
+10 Monsters
+	Monster 0: "ガレオン        "
+	Monster 1: "            "
+	Monster 2: "            "
+	Monster 3: "            "
+	Monster 4: "            "
+
+File: 79
+Monster Name Offset: 0x1D8
+Size (Bytes): 96
+8 Monsters
+	Monster 0: "キュクロプス      "
+	Monster 1: "コロナキャスター    "
+	Monster 2: "メタボール       "
+	Monster 3: "スパークアイ      "
+
+File: 791
+Monster Name Offset: 0x24C
+Size (Bytes): 120
+10 Monsters
+	Monster 0: "ガレオン        "
+	Monster 1: "            "
+	Monster 2: "            "
+	Monster 3: "            "
+	Monster 4: "            "
+
+File: 793
+Monster Name Offset: 0x24C
+Size (Bytes): 120
+10 Monsters
+	Monster 0: "ガレオン        "
+	Monster 1: "            "
+	Monster 2: "            "
+	Monster 3: "            "
+	Monster 4: "            "
+
+File: 795
+Monster Name Offset: 0x24C
+Size (Bytes): 120
+10 Monsters
+	Monster 0: "ガレオン        "
+	Monster 1: "            "
+	Monster 2: "            "
+	Monster 3: "            "
+	Monster 4: "            "
+
+File: 797
+Monster Name Offset: 0x24C
+Size (Bytes): 120
+10 Monsters
+	Monster 0: "ガレオン        "
+	Monster 1: "            "
+	Monster 2: "            "
+	Monster 3: "            "
+	Monster 4: "            "
+
+File: 799
+Monster Name Offset: 0x24C
+Size (Bytes): 120
+10 Monsters
+	Monster 0: "ガレオン        "
+	Monster 1: "            "
+	Monster 2: "            "
+	Monster 3: "            "
+	Monster 4: "            "
+
+File: 801
+Monster Name Offset: 0x24C
+Size (Bytes): 120
+10 Monsters
+	Monster 0: "ガレオン        "
+	Monster 1: "            "
+	Monster 2: "            "
+	Monster 3: "            "
+	Monster 4: "            "
+
+File: 803
+Monster Name Offset: 0x24C
+Size (Bytes): 120
+10 Monsters
+	Monster 0: "ガレオン        "
+	Monster 1: "            "
+	Monster 2: "            "
+	Monster 3: "            "
+	Monster 4: "            "
+
+File: 805
+Monster Name Offset: 0x24C
+Size (Bytes): 120
+10 Monsters
+	Monster 0: "ガレオン        "
+	Monster 1: "            "
+	Monster 2: "            "
+	Monster 3: "            "
+	Monster 4: "            "
+
+File: 807
+Monster Name Offset: 0x2C0
+Size (Bytes): 144
+12 Monsters
+	Monster 0: "レオ          "
+	Monster 1: "            "
+	Monster 2: "            "
+	Monster 3: "            "
+	Monster 4: "            "
+	Monster 5: "            "
+
+File: 809
+Monster Name Offset: 0x2C0
+Size (Bytes): 144
+12 Monsters
+	Monster 0: "レオ          "
+	Monster 1: "            "
+	Monster 2: "            "
+	Monster 3: "            "
+	Monster 4: "            "
+	Monster 5: "            "
+
+File: 811
+Monster Name Offset: 0x2C0
+Size (Bytes): 144
+12 Monsters
+	Monster 0: "レオ          "
+	Monster 1: "            "
+	Monster 2: "            "
+	Monster 3: "            "
+	Monster 4: "            "
+	Monster 5: "            "
+
+File: 813
+Monster Name Offset: 0x2C0
+Size (Bytes): 144
+12 Monsters
+	Monster 0: "レオ          "
+	Monster 1: "            "
+	Monster 2: "            "
+	Monster 3: "            "
+	Monster 4: "            "
+	Monster 5: "            "
+
+File: 819
+Monster Name Offset: 0x2C0
+Size (Bytes): 144
+12 Monsters
+	Monster 0: "レオ          "
+	Monster 1: "            "
+	Monster 2: "            "
+	Monster 3: "            "
+	Monster 4: "            "
+	Monster 5: "            "
+
+File: 823
+Monster Name Offset: 0x2C0
+Size (Bytes): 144
+12 Monsters
+	Monster 0: "レオ          "
+	Monster 1: "            "
+	Monster 2: "            "
+	Monster 3: "            "
+	Monster 4: "            "
+	Monster 5: "            "
+
+File: 825
+Monster Name Offset: 0x2C0
+Size (Bytes): 144
+12 Monsters
+	Monster 0: "レオ          "
+	Monster 1: "            "
+	Monster 2: "            "
+	Monster 3: "            "
+	Monster 4: "            "
+	Monster 5: "            "
+
+File: 831
+Monster Name Offset: 0x2C0
+Size (Bytes): 144
+12 Monsters
+	Monster 0: "レオ          "
+	Monster 1: "            "
+	Monster 2: "            "
+	Monster 3: "            "
+	Monster 4: "            "
+	Monster 5: "            "
+
+File: 835
+Monster Name Offset: 0x2C0
+Size (Bytes): 144
+12 Monsters
+	Monster 0: "レオ          "
+	Monster 1: "            "
+	Monster 2: "            "
+	Monster 3: "            "
+	Monster 4: "            "
+	Monster 5: "            "
+
+File: 84
+Monster Name Offset: 0xF0
+Size (Bytes): 48
+4 Monsters
+	Monster 0: "ランサー        "
+	Monster 1: "ポーン         "
+
+File: 841
+Monster Name Offset: 0xA74
+Size (Bytes): 552
+46 Monsters
+	Monster 0: "ゾファー        "
+	Monster 1: "顔２          "
+	Monster 2: "顔３          "
+	Monster 3: "顔４          "
+	Monster 4: "顔５          "
+	Monster 5: "顔６          "
+	Monster 6: "顔７          "
+	Monster 7: "右１          "
+	Monster 8: "右２          "
+	Monster 9: "右３          "
+	Monster 10: "右４          "
+	Monster 11: "右５          "
+	Monster 12: "左１          "
+	Monster 13: "左２          "
+	Monster 14: "左３          "
+	Monster 15: "左４          "
+	Monster 16: "左５          "
+	Monster 17: "R１          "
+	Monster 18: "R２          "
+	Monster 19: "R３          "
+	Monster 20: "L１          "
+	Monster 21: "L２          "
+	Monster 22: "L３          "
+
+File: 845
+Monster Name Offset: 0xA74
+Size (Bytes): 552
+46 Monsters
+	Monster 0: "ゾファー        "
+	Monster 1: "顔２          "
+	Monster 2: "顔３          "
+	Monster 3: "顔４          "
+	Monster 4: "顔５          "
+	Monster 5: "顔６          "
+	Monster 6: "顔７          "
+	Monster 7: "右１          "
+	Monster 8: "右２          "
+	Monster 9: "右３          "
+	Monster 10: "右４          "
+	Monster 11: "右５          "
+	Monster 12: "左１          "
+	Monster 13: "左２          "
+	Monster 14: "左３          "
+	Monster 15: "左４          "
+	Monster 16: "左５          "
+	Monster 17: "R１          "
+	Monster 18: "R２          "
+	Monster 19: "R３          "
+	Monster 20: "L１          "
+	Monster 21: "L２          "
+	Monster 22: "L３          "
+
+File: 851
+Monster Name Offset: 0x1D8
+Size (Bytes): 96
+8 Monsters
+	Monster 0: "ゾファー        "
+	Monster 1: "            "
+	Monster 2: "            "
+	Monster 3: "            "
+
+File: 855
+Monster Name Offset: 0x1D8
+Size (Bytes): 96
+8 Monsters
+	Monster 0: "ゾファー        "
+	Monster 1: "            "
+	Monster 2: "            "
+	Monster 3: "            "
+
+File: 859
+Monster Name Offset: 0x1D8
+Size (Bytes): 96
+8 Monsters
+	Monster 0: "ゾファー        "
+	Monster 1: "            "
+	Monster 2: "            "
+	Monster 3: "            "
+
+File: 863
+Monster Name Offset: 0x1D8
+Size (Bytes): 96
+8 Monsters
+	Monster 0: "ゾファー        "
+	Monster 1: "            "
+	Monster 2: "            "
+	Monster 3: "            "
+
+File: 867
+Monster Name Offset: 0x1D8
+Size (Bytes): 96
+8 Monsters
+	Monster 0: "ゾファー        "
+	Monster 1: "            "
+	Monster 2: "            "
+	Monster 3: "            "
+
+File: 871
+Monster Name Offset: 0x1D8
+Size (Bytes): 96
+8 Monsters
+	Monster 0: "ゾファー        "
+	Monster 1: "            "
+	Monster 2: "            "
+	Monster 3: "            "
+
+File: 875
+Monster Name Offset: 0x1D8
+Size (Bytes): 96
+8 Monsters
+	Monster 0: "ゾファー        "
+	Monster 1: "            "
+	Monster 2: "            "
+	Monster 3: "            "
+
+File: 89
+Monster Name Offset: 0xF0
+Size (Bytes): 48
+4 Monsters
+	Monster 0: "バイケン        "
+	Monster 1: "サージェント      "
+
+File: 9
+Monster Name Offset: 0x1D8
+Size (Bytes): 96
+8 Monsters
+	Monster 0: "スライム        "
+	Monster 1: "サーブクルス      "
+	Monster 2: "トライクルス      "
+	Monster 3: "ブレインハンド     "
+
+File: 94
+Monster Name Offset: 0xF0
+Size (Bytes): 48
+4 Monsters
+	Monster 0: "ウィンダム       "
+	Monster 1: "ダークソーサラー    "
+
+File: 99
+Monster Name Offset: 0xF0
+Size (Bytes): 48
+4 Monsters
+	Monster 0: "ゾッド         "
+	Monster 1: "ガーゴイル       "
+
