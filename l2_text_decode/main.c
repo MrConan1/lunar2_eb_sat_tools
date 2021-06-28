@@ -55,7 +55,7 @@ void printUsage(){
     printf("Error in input arguments.\n");
     printf("Usage:\n===============================\n");
     printf("l2_txt_decode.exe InputFname type offset\n");
-	printf("type = 0 for jp saturn, type = 1 for jp, 2 for us\n");
+	printf("type = 0 for jp saturn, type = 1 for jp psx, 2 for us psx\n");
     printf("\n\n");
     return;
 }
