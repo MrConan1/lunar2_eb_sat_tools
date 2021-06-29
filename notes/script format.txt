@@ -95,13 +95,14 @@ Control Codes
 0x4xxx <-- nothing is printed or performed
 0x5xxx <-- Dialog Selection.  If lowest byte is 2, there are 2 selections.  If lowest byte is 3 there are 3 selections.
            Selections are just 16-bit text, each ending in 0x1000.
-0x6000 <-- hit a button, when hit continue printing
+0x6000 <-- Not used
 0x7xxx <-- hit a button, when hit clears the box and keeps on printing
 0x8xxx <-- hit a button, when hit clears the box and keeps on printing
 0x9xxx <-- space printed.  Usually 9010, but since theres no vwf, i think it doesnt matter
 0xBxxx <-- Prints something about items but you dont get anything?
 0xCxxx <-- Display Left portrait
 0xDxxx <-- Animations? D001 is lucias entrance
+0xExxx <-- Pause while displaying text
 0xFxxx <-- Displays more left portraits
 
 
@@ -110,14 +111,7 @@ Control Codes
 Comparing a PSX & Saturn JP ES file:
 ====================================
 From 0x0020 to 0x012B - 32-bit words (PSX byteswapped), seem to be command words
-At, 0x012C differences creep in:
-Saturn 0x0D0A_0000 0001_0000 000E_0000 C21C_0000 100E_0000
-PSX    0x0000_000D 0A00_0000 01C2_0000           0E10_0000
-
-
-
-
-
+Need to redo analysis, psx files were corrupt.
 
 
 ====================
@@ -148,8 +142,10 @@ Common Strings Notes
 Movie Subtitles
 ==================
 Rendered using VDP1 for text.  Not sure how the data is stored.
-Doesnt appear to be uncompressed.
-
+The intro video seems like it is grabbing image data from file #1234  
+and putting that into VDP1 RAM.  There is a lot of code taking that  
+reads that file and alters it to place it in a format compatible with VDP1.  
+Could be compression or could just be getting it in a VDP1 format.  
 
 
 
