@@ -31,7 +31,7 @@
 
 
 #define VER_MAJ    1
-#define VER_MIN    0
+#define VER_MIN    1
 
 #define SAT_US	0
 #define PSX_JP	1
@@ -69,10 +69,11 @@ int main(int argc, char** argv){
     FILE *inFile, *outFile;
     static char inFileName[300];
     static char outFileName[300];
-    int rval, ienc, oenc, file_start_offset,type;
+    int rval, ienc, oenc, file_start_offset,type,dialogNum;
 	unsigned int textOffset, portraitOffset, currentOffset;
     rval = ienc = oenc = type = -1;
 	file_start_offset = 0;
+	dialogNum = 1;
 
     printf("Lunar2 Text Decoder v%d.%02d\n", VER_MAJ, VER_MIN);
 
@@ -184,9 +185,10 @@ int main(int argc, char** argv){
 		dlogSizeBytes-=2;
 		currentOffset+=2;
 		
-		printf("\n\nStart DLOG\n==========\n");
-		fprintf(outFile,"\n\nStart DLOG\n==========\n");
-				
+		printf("\n\nStart DLOG %d\n==============\n",dialogNum);
+		fprintf(outFile,"\n\nStart DLOG %d\n==============\n",dialogNum);
+		dialogNum++;
+		
 		/* Read and dump dialog contents */
 		for(x = 0; x < dlogSizeBytes; x+=2){
 		
@@ -324,7 +326,7 @@ int main(int argc, char** argv){
 			0x4xxx <-- nothing is printed or performed
 			0x5xxx <-- Dialog Selection.  If lowest byte is 2, there are 2 selections.  If lowest byte is 3 there are 3 selections.
 					   Selections are just 16-bit text, each ending in 0x1000.
-			0x6000 <-- hit a button, when hit continue printing
+			0x6000 <-- Not used.
 			0x7xxx <-- hit a button, when hit clears the box and keeps on printing
 			0x8xxx <-- hit a button, when hit clears the box and keeps on printing
 			0x9xxx <-- space printed.  Usually 9010, but since theres no vwf, i think it doesnt matter
@@ -374,7 +376,7 @@ void decodeJPSat_CtrlCode(char* tmp, FILE* outfile,
 		break;
 
 		case 6:
-			sprintf(tmp,"(Press_button,continue printing)\n");	
+			sprintf(tmp,"(Not Used)\n");	
 		break;
 		case 9:
 			sprintf(tmp," ");
