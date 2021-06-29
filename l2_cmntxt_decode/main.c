@@ -289,8 +289,67 @@ int main(int argc, char** argv){
 #endif	
 
 /***********************************************************/
-/* Note - no idea what is stored between 0xF7FA and 0x103C4*/
+/* Note - no idea what is stored between 0xF7FA and 0xF8FF */
 /***********************************************************/
+/* More strings between 0xF900 and 103C4*/
+
+#if 1
+	/*
+	Common Strings Notes
+    Definitely end by 0x0001_1290
+    text stored in 16-bit shorts that map to text.  0x14 short words or ends early in 0xFFFF
+	*/
+	#define CMN_STRING2_START 0xF900-4
+	#define CMN_STRING2_END   0x0103C4 //17E00 //0x11290
+	#define CMN_STRING2_SIZE  0x14
+	printf("Decoding Common Strings 2\n");
+	fprintf(outFile,"Decoding Common Strings 2\n");
+	
+	currentOffset = CMN_STRING2_START;
+	while(currentOffset <= CMN_STRING2_END){
+		unsigned short* ptrString;
+		unsigned short tmpShort;
+		
+		fprintf(outFile,"0x%06X\t",currentOffset);
+		
+		for(x = 0; x < CMN_STRING2_SIZE;x++){
+			ptrString = (unsigned short*)&buffer[currentOffset];
+			tmpShort = *(unsigned short*)ptrString;
+			swap16(&tmpShort);
+		
+			if(tmpShort == 0xFFFF){
+				printf("<0xFFFF>");
+				fprintf(outFile,"<0xFFFF>");
+			}
+			else if((tmpShort &0xF000) == 0x9000){
+				printf(" ");
+				fprintf(outFile," ");
+			}
+			else if(tmpShort < 0x1000){
+				memset(data,0,10);
+				if(getUTF8character((int)tmpShort, data) >= 0){
+					printf("%s",data);
+					fprintf(outFile,"%s",data);
+				}
+				else{
+					printf("\nError printing 0x%X\n",tmpShort&0xFFFF);
+					fprintf(outFile,"\nError printing 0x%X\n",tmpShort&0xFFFF);
+				}
+			}
+			else{
+				printf("<0x%4X>",tmpShort);
+				fprintf(outFile,"<0x%4X>",tmpShort);
+			}
+			
+			currentOffset += 2;
+		}
+		
+		/* Newline before next entry */
+		fprintf(outFile,"\n");
+	}
+#endif
+
+
 
 
 #if 1
@@ -360,7 +419,7 @@ int main(int argc, char** argv){
 	fprintf(outFile,"Offset\tItem\tDescription\n");
 
 	currentOffset = 0x10D24+4;
-	while(currentOffset < 0x11290){
+	while(currentOffset < 0x11290 /*0x133E0*/){
 		
 		unsigned short itemDescRLE[16];
 		unsigned short* pData;
@@ -411,76 +470,19 @@ int main(int argc, char** argv){
 #endif	
 
 
-/* More strings between 0xF900 and 103C4*/
-
-#if 1
-	/*
-	Common Strings Notes
-    Definitely end by 0x0001_1290
-    text stored in 16-bit shorts that map to text.  0x14 short words or ends early in 0xFFFF
-	*/
-	#define CMN_STRING2_START 0xF900-4
-	#define CMN_STRING2_END   0x0103C4 //17E00 //0x11290
-	#define CMN_STRING2_SIZE  0x14
-	printf("Decoding Common Strings 2\n");
-	fprintf(outFile,"Decoding Common Strings 2\n");
-	
-	currentOffset = CMN_STRING2_START;
-	while(currentOffset <= CMN_STRING2_END){
-		unsigned short* ptrString;
-		unsigned short tmpShort;
-		
-		fprintf(outFile,"0x%06X\t",currentOffset);
-		
-		for(x = 0; x < CMN_STRING2_SIZE;x++){
-			ptrString = (unsigned short*)&buffer[currentOffset];
-			tmpShort = *(unsigned short*)ptrString;
-			swap16(&tmpShort);
-		
-			if(tmpShort == 0xFFFF){
-				printf("<0xFFFF>");
-				fprintf(outFile,"<0xFFFF>");
-			}
-			else if((tmpShort &0xF000) == 0x9000){
-				printf(" ");
-				fprintf(outFile," ");
-			}
-			else if(tmpShort < 0x1000){
-				memset(data,0,10);
-				if(getUTF8character((int)tmpShort, data) >= 0){
-					printf("%s",data);
-					fprintf(outFile,"%s",data);
-				}
-				else{
-					printf("\nError printing 0x%X\n",tmpShort&0xFFFF);
-					fprintf(outFile,"\nError printing 0x%X\n",tmpShort&0xFFFF);
-				}
-			}
-			else{
-				printf("<0x%4X>",tmpShort);
-				fprintf(outFile,"<0x%4X>",tmpShort);
-			}
-			
-			currentOffset += 2;
-		}
-		
-		/* Newline before next entry */
-		fprintf(outFile,"\n");
-	}
-#endif
 
 
 
 
 #if 0
 	/* Spells are from 0xC7C4 to 0xD5BA.  These are all 2 byte lookups.  Terminate in 0xFFFF */
-    #define CMN_STRING_START 0xF900
-	#define CMN_STRING_END   0x11290
-	printf("Decoding Common Strings\n");
-	fprintf(outFile,"Decoding Common Strings\n");
+//    #define CMN_STRING_START 0xF900
+//	#define CMN_STRING_END   0x11290
+	printf("Decoding More Common Strings\n");
+	fprintf(outFile,"Decoding More Common Strings\n");
 	
-	currentOffset = CMN_STRING_START;
-	while(currentOffset < CMN_STRING_END){
+	currentOffset = 0x11290;
+	while(currentOffset < 0x133E0){
 		unsigned short* pData;
 		unsigned short tmpShort = 0;
 		unsigned short tmpIndex = 0;
