@@ -1,0 +1,62 @@
+
+
+==================================
+==== Top Level Script Routine ====
+==================================
+
+Summary:
+Takes current pointer into script, reads a 32-bit LW
+Top byte of longword*4 is pointer to function to call
+Lower 3 bytes of longword are input parameters to function.
+This is somewhat similar to how lunar 1 handles subroutines.
+
+
+0x06059036 mov.l @r8,r1   ; r8 is 0x06042208, file ptr loc.
+                            r1 := 00200540, file ptr value
+
+0x06059038 mov.l @r1+,r4  ; r4 := 0E0000C2, read script value
+                            r1 := 00200544
+
+0x0605903A mov.l r1, @r8  ; Advance stored file ptr to 00200544
+
+mov    r4,r0  ; r0 = 0E0000C2
+shlr16 r0     ; r0 = 0E00
+shlr8  r0     ; r0 = 0E
+r1 = 0x00FFFFFF
+and r1,r4     ; r4 = (0E0000C2 & 0x00FFFFFF) = C2
+
+shll2 r0      ; r0 = 0x38 (0xE * 4)
+
+0x06059048 r1 = 0x0604a318
+0x0605904A mov.l @(r0,r1), r1  ; r1 = 0x0604a318 + 0x38
+0x0605904C jsr @r1             ; r1 = 0x06059350
+0x0605904E nop
+0x06059050 mov.l ; r1 = 0x06042b10
+0x06059052 mov.l @r1,r1
+0x06059054 tst r1,r1
+0x06059056 bf 0x06059036
+0x06059058 r1 = 0x0605841C
+0x0605905A jsr @r1
+0x0605905C nop
+0x0605905E mov r14,r15
+0x06059060 lds.l @r15+, pr
+0x06059062 r1 = 0x06041fe0
+0x06059064 mov.l @r1,r0
+0x06059066 mov.l @r15+,r14
+0x06059068 rts
+0x0605906A mov.l @r15+,r8
+========= End of Subroutine =============
+
+
+
+******************
+Need to re-verify:
+
+
+Text Draw loop begins
+======================
+0x0605B6B8  mov.w @r1+,r2     Read *20074C ;  r2 = 004A
+            mov.l r1,@r3    *604266C = 0x20074E
+
+0x0605B6B8  <-- continually go back here
+           Ends with push button

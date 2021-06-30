@@ -1,0 +1,25 @@
+String "Magic"
+===============
+0x801C205C  <-- String for Magic (Terminated in 0xFFFF)
+2E 06 48 42 C44A FFFF
+06 2E 42 48 4A C4
+               44, but set highest bit to denote last character
+    M  a  g  i c
+
+Ascii
+=====
+30-7A
+4F-99
+
+Common text is in PSX RAM from
+================================ 
+0x801BBA6D to 0x801C2592
+
+Format is short word swapped text.
+Each phrase starts with 0x06.
+The final byte has bit 7 set.
+Following the final byte, if it is unaligned on a 16-bit boundary, 0xFF follows.
+There is always an aligned short word of 0xFFFF at the end. 
+
+File is /ISOK/SYSSPR.PCK
+0x2AA6C to 0x31592

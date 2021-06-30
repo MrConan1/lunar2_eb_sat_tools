@@ -1,0 +1,40 @@
+Text is in 4c 2bpp in loram
+Offset  0x290040 is the start of characters
+A is at 0x2907C0
+I is at 0x2909C0
+L is at 0x290A80
+U is at 0x290CC0
+Last character at 0x2A683F
+
+Hit on reads 0x290040-0x2A683F
+
+
+Enter a battle
+first hit is a read to "bi"  (beetle monster?)  (0x600F572)
+Caller is 0x600F4F0
+Added a breakpoint to 0x600F4F0 and rts in that fctn.
+
+Function called again with input r4=6, r5=25C06000, r6=C, r7=1, r15 = 60ffa84
+r4 is turned into 1C0 (add 1 and mult by 64) and added to 0x290000.  (- character)
+
+Going up 1 fctn:  
+0x600F71a    mov.w @r9,r1
+Monster text seems to be at 2A8168
+
+Going up 1 fctn (0x06083F0C)
+mov.l @r1,r4  (r1=0x0604295C)
+6083F9C mov.l  r1=0604295C
+mov.l @r1,r4     r4=2A8168
+
+06083FA0 add r8,r5
+jsr @r0
+add r11,r4
+
+
+Enemy name Beetle
+212, 24, 4 have it  (no clue what any of them are)
+0x2A7FE0 lines up with file 212
+Pointer at 0x04?  0x0000015C
+At 0x15C + 10 = 0x166, there is a length of 0x0048, followed by that many bytes of monster names.
+Each monster name is a fixed 12 short words.  In this case there are 3 monster names.
+Files: 99,207,212

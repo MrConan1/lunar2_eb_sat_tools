@@ -1,0 +1,642 @@
+Break on reads to 200000-20FFFF
+
+
+
+==================================
+==== Top Level Script Routine ====
+==================================
+
+Summary:
+Takes current pointer into script, reads a 32-bit LW
+Top byte of longword*4 is pointer to function to call
+Lower 3 bytes of longword are input parameters to function.
+
+
+0x06059036 mov.l @r8,r1   ; r8 is 0x06042208, file ptr loc.
+                            r1 := 00200540, file ptr value
+
+0x06059038 mov.l @r1+,r4  ; r4 := 0E0000C2, read script value
+                            r1 := 00200544
+
+0x0605903A mov.l r1, @r8  ; Advance stored file ptr to 00200544
+
+mov    r4,r0  ; r0 = 0E0000C2
+shlr16 r0     ; r0 = 0E00
+shlr8  r0     ; r0 = 0E
+r1 = 0x00FFFFFF
+and r1,r4     ; r4 = (0E0000C2 & 0x00FFFFFF) = C2
+
+shll2 r0      ; r0 = 0x38 (0xE * 4)
+
+0x06059048 r1 = 0x0604a318
+0x0605904A mov.l @(r0,r1), r1  ; r1 = 0x0604a318 + 0x38
+0x0605904C jsr @r1             ; r1 = 0x06059350
+0x0605904E nop
+0x06059050 mov.l ; r1 = 0x06042b10
+0x06059052 mov.l @r1,r1
+0x06059054 tst r1,r1
+0x06059056 bf 0x06059036
+0x06059058 r1 = 0x0605841C
+0x0605905A jsr @r1
+0x0605905C nop
+0x0605905E mov r14,r15
+0x06059060 lds.l @r15+, pr
+0x06059062 r1 = 0x06041fe0
+0x06059064 mov.l @r1,r0
+0x06059066 mov.l @r15+,r14
+0x06059068 rts
+0x0605906A mov.l @r15+,r8
+========= End of Subroutine =============
+
+
+Function Table at 0x0604a318 - See images
+
+
+LW Read #1:  00200540  (0x0E 0x0000C2)
+LW Read #2:  00200544  (0x1B 0x000010)
+LW Read #3:  00200548  (0x1D 0x000098) <-- Relative jump to dlog
+    Add parameter 2 to (*06041dc8) = 0x2006B0 + 0x98 = 0x200748
+    SW Read 3a: 0x0605B2D2  200748 (0x0050)
+	      Store 0x0050 at 0x06042E74 (save SW value, ends up referencing end of text block)
+		  Store 0x0020_074A at 0x0604266C (Save next address)
+		  Store (0x0050+0x200748 = 0x200798) at 0x06042E74  <-- end of text
+      Then r1 = *0x06042E74 = 0x200798
+    SW Read 3b: 20074A (0xC2C3) <-- Text loop, Control code for portrait?
+     	Store 0x0020_074C at 0x0604266C (Save next address)
+        SW Read 3c: 20074C (0x004A) <-- start text
+        Make sure it isnt 1000 
+        Cxxx identifies portrait, STORE 2C3 at 0x060429E8
+	
+LW Read 200BDC (0x00000004) CMP with -1
+LW Read 200BE4 (0x000002C1) CMP with r5 (2C3)
+LW Read 200BEC (0x000002C3) CMP with r5 (2C3)
+LW Read r2+4 (200BEC+4) into r1 ; r1 = *200BD0 = 0x0000040C
+
+In interrupt? now at 0x600FB06
+   mov.l @r4,r3   ; 0x200FE8 into r3   (r3 = 0x00000E00)
+   mov.b @r6+,r1  ; 200FEC
+    continue to copy 0x0E00 bytes or something like that
+   read 2010x0 to 2013C0
+
+END PORTRAIT STUFF
+
+Text Draw loop begins
+======================
+0x0605B6B8  mov.w @r1+,r2     Read *20074C ;  r2 = 004A
+            mov.l r1,@r3    *604266C = 0x20074E
+
+0x0605B6B8  <-- continually go back here
+           Ends with push button
+
+Next
+0x06059038 mov.l @r1+,r4  r4 = *20054C = 0x0E 0x000BBA
+0x06059038 mov.l @r1+,r4  r4 = *200550 = 0x1B 0x000004
+0x06059038 mov.l @r1+,r4  r4 = *200554 = 0x1D 0x0000E8 <-- Relative jump to dlog
+    SW Read 3a: 200798 (0x002E) <-- Reference to end of dialog
+    SW Read 3b: 20079A (0xC2C1) <-- [0x0605B6BA]  Portrait
+    SW Read 3c: 20079C (0x004E) <-- [0x0605BA8E]  Portrait check for 1000
+
+0x0605B016 mov.l @r4, r0   r0 = *200BDC
+    LW Read 200BDC (0x00000004) CMP with -1
+0x0605B030 mov.l @r2,r1                           ??
+    LW Read 200BE4 (0x000002C1) CMP with r5 (2C1) ??
+
+In interrupt? now at 0x600FB06
+600FB06 mov.l @r4,r3   r3=*200C04  = 0x00000E00
+   mov.l @r4,r3   ; 0x200FE8 into r3   (r3 = 0x00000E00)
+   mov.b @r6+,r1  ; 200FEC
+    continue to copy 0x0E00 bytes or something like that
+
+Text Draw loop begins
+======================
+0x0605B6B8  mov.w @r1+,r2     Read *20079C ;  r2 = 004A
+            mov.l r1,@r3    *604266C = 0x20079E
+
+0x0605B6B8  <-- continually go back here
+           Ends with push button
+
+
+Text Loop takes the short word and ANDs with 0xF000 to look for a control code.  Control Codes include:
+0x7xxx <-- hit a button, when hit clears the box and keeps on printing
+0x2xxx <-- same as above
+0x8xxx <-- same as above
+0x9xxx <-- space printed.  Usually 9010, but since theres no vwf, i think it doesnt matter
+If r2 is now 0, then proceed to 0x0605B7b0 (Print text)
+   jsr 0x0605b0cc
+   mov r12,r4   <-- put character to be printed in r4
+   jsr 0x0605b2a4 <-- probably draw routine
+   nop
+   bra 0x0605ba02
+0x1000
+0x5xxx <-- selection
+0x3xxx <-- prints the left half of character 0xXXX
+0x6000 <-- hit a button, when hit continue printing
+0x4xxx <-- nothing is printed or performed
+0xBxxx <-- Prints something about items but you dont get anything?
+0xCxxx <-- Left portrait
+0xDxxx <-- animations? D001 is lucias entrance
+0xFxxx <-- More left portraits
+
+Control code 1000 3x in a row ends dialog with push button
+
+
+
+
+==============================================
+How is the script start location determined? =
+==============================================
+Break on writes to 0x06042208
+
+Action read of 0x0520 takes place at 0x0604FA92
+
+Hit at 0x06058388
+200020 <-- *0x06042720
+   520 <-- r4  Short Word:  *(0x2d7a20 + 16 decimal)
+=======
+200540   
+
+Scratch:
+When leaving the first location loads in 2D7000 + 12 (0x000000D4)
+
+Break on reads to 2d7000
+0x0605E98 read *2d7000 SW = 4800
+0x0605EA64 read *2d7002 SW = 002B
+0x0605EA72 read *2d7002 B = 2B
+0x0605EA72 read *2d7003 B = 4E
+0x0605EA72 read *2d7005 B = 54
+0x0605EA9A read *2d7008 SW = 0000
+0x0605EAB2 read *2d700A B = 00
+0x0605EAEE read *2d7007 B = 01
+0x0605EAEE read *2d7006 B = 01
+
+#end scratch
+
+
+Scene2 - Heal at statue
+1E 000008  <-- Command to heal
+0E 00000C
+1B 000004
+01 000000  <-- End of commands
+
+
+
+
+
+
+Ship portion
+Read 0x200170   0E 01E7C
+     0x200174   1C 00034
+	 0x200178   0E 00005
+	 0x20017C   1B 0002C
+	 0x200180   08 00014
+	 0x200184   08 00014
+	 0x200188   1E 0200B
+	       Read from 0x06042044  (Holds 0x20033C)
+	       Read 20033C+4 = 0x7D4
+           Add R0+R3 = 20033C+7D4 = 0x200B10
+		   *0x200B10 = 0xFFFFFFFF
+		   2E2C38 - 200B10 = E2128;  Save E2128 to 0x200B10+4
+
+  		 (Rumble action)
+		 Read 2E274C (00D7)
+		 Read 20033C  (2)
+		 Read 200344 (2C1)
+		 Read 20034C (2C3)
+		 Read 20033C+4 (7D4)
+		// Read 200354 (ffffffff)
+		 read 200b10 (7D4)
+		 read 200b10+4 (E2128)
+605B030  read *2e2c38 = 00000009  (comparing against r5 = 2C5); seems to be a table of ID/Address_offset
+605B030  read *2e2c40 = 00000001
+         read *2e2c48 = 00000002
+		 read *2e2c50 = 0000000D
+		 read *2e2c58 = 00000201
+		 ...
+605B03E	 Call subroutine 
+		 Read 0x2E5930 (E00)
+		   Big copy thing (portrait?)
+		 Exit out subroutine
+605C2AC		 
+		 Read 2D5028 (2D34B0)
+		 Read 2D5028+4 (00000000) 
+		 Reads from address 0 and other locations...
+		
+         Read 2ba910 (0x003A)...
+		 
+		 Read ...
+		
+		 rumbles and ruby text and movie, no breaks
+		Found text is located at 2E275A  (Maybe starts at 2E2600-2E2D00?)
+		6092750
+066D782<-- copy to
+
+60585C0 mov.l @(12,r4),r1  (2E2714+12 -> r1)  r1 = 0x20
+60585C0 mov.l @(28,r4),r3  (2E2714+28 -> r3)  r3 = 0x34
+add r4,r1                                     r1 = 2e2714+20 = 2e2734
+60585C8  r2 = *2e2734 = 1D000000
+		 verify equals 1D
+		    Then r3 = r3+r4 = 0x34+2e2714=2e2748
+			
+I think it then Anded the lower bytes 0x000000 with 0xFFFFFFFF
+Added the result to r3 (2E2748+0) = r3
+
+0605B2D2 *2e2748 (SW) = 56, saved off to 604266c
+       save r4+r2 = 2e279e (end of text)
+
+0605B6B8 Text Loop	   
+		(Caller to text loop was 0605BB60)
+		     0605D3F4
+			   605C2A8
+			    (Top loop at 0605C296?)
+				     605C128
+					 
+Movie, not sure where command is buried
+
+0x6059038  mov.l @r1+,r4  0E 000005	
+                          1C 000008
+                          01 000000 <- fade in? Resume text
+
+Leave area 0800e004		
+080001F0
+08000050
+...
+
+0605903C
+1E xxxx seems to indicate a text/motion combinational sequence?
+1E 02000B						  
+
+Option Box ???
+==========
+1D 001F3C	
+
+Read 0x202CF4
+0030 C00E 5002 (Start Text) 0350 ... 1000
+          (Text 2) ... 1000 0096	
+
+C00E is portrait
+5002 is selection, with 2 meaning 2 selections
+5003 is 3 selections
+Each selection must end in 0x1000
+
+Debug 1E 04000D
+R0 = 0x0000000D * 4--> 0x34
+R4 = 0x00000004			  
+
+Jump table at 0x0604a398
+At 0x06059688: Call (0x0604a398+r0) with input parameter r4
+
+
+When going to telescope
+2D7600 to 2d76ff seems to have a ton of SW ptrs
+24050101 00010307 25310000 00000000
+0000062c 00000368 24050502 00010303 ...
+
+Code from 600fb6c writes this in when scenes change
+looks like copy from HIRAM to LORAM
+
+
+
+LANG=C grep -obUaPr "\x24\x05\x01\x01\x00\x01\x03\x07" ./*
+FOUND in ./ISOK/MNSPR276.PCK
+
+
+
+
+
+On the trail of pointers (statue at gwens)
+=========================
+Break at 0605837C  mov r4,r8  <-- The value in r4 is later added to 0x200020 (which is a constant at 0x6042720)
+*0x06042208 = r8 + 0x200020 (assign file pointer)
+
+Working backwards:
+At 0605EB46:  mov.l @(12,r4),r4     <-- r4 is 0x2D7010, becomes 0x00000460
+605E9D0... Get into a loop where addresses from 2D7000 - 2D7340 keep getting read.
+           It appears every 4th LW is an offset, and those only get used if a flag (event)
+		   is set.  Otherwise theres this constant polling going on.
+
+Loading of files at 2D7xxx
+Exiting Gwens house triggers a write hit.
+First there appears to be a LW clear going on in the memory region.
+Then:
+0x0600FB74 mov.b r1,@r5 (r1 is 18, r5 is 2D7010)
+
+
+
+
+Copy of Scenario to 0x200000
+=============================
+LW copies at 0x0602C86C  Copying from 0x060900BC to 0x002000BC
+R2 holds the number of copies to perform
+Then read 0x00200020 = 0x20
+Add-->  r1 = r1+r10 (0x20+0x00200000) = 0x00200020
+*0x06042720 = 0x00200020
+
+r1 = *20001C;   r1 = 0x09DC
+*0x06041dc8 = 0x09DC + 0x200000 = 0x2009DC
+
+r1 = 0x00200004
+r3 = *0x00200004 = 0x170C
+*6042044 = (0x200000+0x170C) = 0x20170C   (Location 1 LW prior to EOF??)
+
+r0 = *(0x20170C+4 = 0x201710) = 8  (Value at EOF??)
+r1 = 0;  [At 0x0605854C]
+bra 0x06058560
+mov.l r1, @(r0,r3);     <-- put 0x0 at 8+0x20170C = 0x201714.  So *0x201714 = 0;
+
+Returned to 0x06050C6A
+...
+
+At 0x06058382:
+r1 = 0x06042720
+r1 = *0x06042720 = 0x200020
+Add r8,r1 --> r8 is 0x7E4  (how did r8 get this??)
+*06042208 = 0x200804
+
+
+At 0x06059036
+Read *06042208 = 0x200804
+Copy from 0x200804 to 25C07500
+*06042208 = 0x200808
+
+
+
+File #1 (File Sector Locations / Sizes) is stored at 0x2F3000 to 0x2F61B0
+4 files loads take place on scene transitions
+File load calculation JSR at 0x600C9A2, 0x6011D94
+2d7xxx?
+06050ff4 <-- first load
+   0600C932 <-- Believed to be script load request?
+   0600D6D6 <-- copy zeros into 200000 area
+   06058512
+   06058514 <-- Script pointer load start?
+         0600C932 <-- again called
+   06058518
+         0602C870 <-- copy data from 06090000 into 200xxx
+         0600C932 <-- Called again
+	  
+2d7xxx Stuff
+=================
+
+
+0x060536A8
+<-- 06050C6C
+   Call 06053690 with r4 = 0x1800
+   r8=06042DB0
+   r9=008C
+   r1=06042DB0+#120 = 06042E28
+   r1 = *r1 = 25C18000
+   r0 = 06042DB0
+   *(06042DB0 + r9) = r1;
+   *(06042DB0 + 008C) = 25C18000;
+   r0 = 060536cc;
+   jsr @r0
+          Function called 0600D6A8 (Its a Data Zeroing function)
+		  r4=2D7600 (hard code)
+		  r5=0A00 (hard code, # of bytes to zero)
+		      A00*2 = 0x280 (# LW)
+     
+0x060536E4 <-- loads in 2D7600
+    location zeroing occurs
+0x06053728 <-- loads in 2D7600
+    location writing occurs at 2d7600
+    0x06053738   
+       0x0605E926   
+         jsr @r0 (r0=0600faf0)
+         SOME SORT OF 8-bit decompression?
+         Original file at 06091000
+         0600FB74 <- write byte to 2D7000-2D7007
+         0600FBBC <- write byte to 2D7008 to 2D700D
+         0600FB74 <- write byte to 2D700E to 2D7015
+         0600FBBC <- write byte...
+
+	0x0605E926 jsr @0600faf0
+         location writing occurs at 2d7000
+
+
+
+Mapping Files to a Load Location
+=================================
+File load offsets are in binary file "1"
+These values are located in memory at 0x2F3000
+
+0x060536A8
+<-- 06050C6C
+   Call 06053690 with r4 = 0x1800
+   r8=06042DB0
+   r9=008C
+   r1=06042DB0+#120 = 06042E28
+   r1 = *r1 = 25C18000
+   r0 = 06042DB0
+   *(06042DB0 + r9) = r1;
+   *(06042DB0 + 008C) = 25C18000;
+   r0 = 060536cc;
+   jsr @r0
+          Function called 0600D6A8 (Its a Data Zeroing function)
+		  r4=2D7600 (hard code)
+		  r5=0A00 (hard code, # of bytes to zero)
+		      A00*2 = 0x280 (# LW)
+	...
+	
+	060FFAD0 contents: 06030000 06008C4 06091000 00000100
+	
+	0x0600C9A4
+	   r4 = 060FFAD0
+	   
+	   0x06011CB8 is the start of the fctn
+	   r0=rval getFileOffsetAndSize(r4=addr_2_byte_fid)
+	   rval = 0 on pass.  r4 is an index to the file in file#1
+	   
+	   r3 = *r4 = 0xXXXX0603
+	   r2 = 0x0603
+	   check that value > 0xFF
+	   r1 = 0x0603a1aa
+	   *r1 = (*0x0603a1aa) = 0x09EE  (constant)
+	   r7 = 0x0100 (constant)
+	   r1 = r1+r7 = 0x0AEE
+	   cmp/ge r1,r2
+	   branch 06011CDE
+	   
+	   06011CDE <-- Cant fail if you get here
+06011CBA:
+       mov.w @r4,r3     <-- r3 = *060FFAD0 = 0x0603  <-- magic offset
+	   r1 = 0xFF
+	   extu.w r3,r2     <-- r2 = 0x0603
+	   cmp/hi r1,r2
+	   bf/s 0x06011cd4 (fail branch)
+	   mov r15,r14
+	   mov.l r1       <-- 0x0603a1aa
+	   mov.w @r1,r1   <-- r1=*0603a1aa = 0x9EE
+	   r7 = 0x100
+	   add r7,r1      <-- r1=0xAEE
+	   cmp/ge r1,r2   <-- r1 is 0xAEE, r2 is 0x0603
+	   bf 0x06011CDE (pass branch)
+	   ...
+	   
+0x06011CDE:	   
+	   mov.w r3, @r5      0x060FFAD0 = 0x0603 (word write)
+	   mov.l @(8,r4),r1   r1 = (060FFAD0 (r4)+8) = 0x06091000
+	   mov.l r1,@(8,r5)   *0x060FFAD8 = 0x06091000
+	   mov.w @R5,R1       r1=0x0603
+	   r3 = 0x0603A1A4     <-- constant that stores the address 0x2F3000
+0x6011CE8:	   
+	   extu.w r1,r1
+	   sub r7,r1     R1 = 0x0503
+	   mov r1,r2     R2 = 0x0503
+	   shll r2       R2 = 0x140C
+	   add r1,r2     R2 = 0x190F
+	   mov.l @r3,r1   <-- r1 = 0x2F3000
+	   mov r1,r3     <-- r3 = 0x2F3000
+	   add r2,r3    <-- r3 = 0x2F490F
+	   mov r1,r0    <-- r0 = 2F3000
+	   mov.b(r0,r2),r2  <-- r2 = *(0x2f3000+0x190f) = 00
+	   mov r5,r7     <-- r7=60ffAD0
+	   extu.b r2,r2  <-- r2 = 0x00
+	   mov r3,r1     <-- r1=2f490F
+	   add #1,r1     <-- r1=2f4910
+	   mov.b @r1,r1  <-- *2f4910 = 0x68
+	   shll16 r2     <-- r2 = 0x00_0000
+	   extu.b r1,r1
+	   shll8 r1      <-- r1= 0x68_00
+	   or r1,r2      <-- r2= 0x0068_00
+	   mov r3, r1    <-- r1=2f490F
+	   add #2,r1     <-- r1=2f4911
+	   mov.b @r1,r1  <-- r1= 0xFFFFFF_86
+	   add #2,R7     <-- r7= 0x060FFAD2
+	   extu.b r1,r1  <-- r1=0x86
+	   or r1,r2      <-- r2 = 0x006886
+	   mov.l r2,@(4,r5) <-- *(0x060FFAD0+4) = 0x00006886
+	   mov r3,r1
+	   add #3,r1
+	   mov.b @r1,r2
+	   add #4,r3
+	   ..
+	   mov.w r2,@r7    <-- Write next 2 bytes (0x0065) to 0060FFAD2
+	   r1 = *(060FFAD0+8)  <-- r1 = 0x06091000
+	   mov.l r1, @(20,r5)  <-- 060FFAE4 = 0x06091000
+	   mov.l @(4,r5),r1   <-- r1 = 0x006886
+	   mov #0,r0          <-- r0 = 0
+	   mov.l r1,@(16,r5)  <-- 060FFAE0 = 0x006886
+	   mov.w @r7,r1    <-- r1 = 0x0065
+	   add #14,r5      <-- r5 = 0x060FFADE
+	   mov.w r1,@r5    <-- *0x060FFADE = 0x0065
+	   mov r14,r15     <--
+	   rts
+	   
+	   
+	   
+  	   0x06011CFA read from 2F3000 + 3002 (r2)
+
+
+
+
+**** Start at 06059018!! This is the main command loop ****
+    Fctn 06059278 is called with r4=0x1800
+    Seems to be command 0x08001800 or 0x08002400, so script load is tied to cmd.
+    Should see how file reads tie to commands.		
+
+Entering gwens house from world	
+2001E0  0x0E00001A
+2001E4  0x1B00001C
+2001E8  0x08002400
+2001EC  0x080001A8
+2001F0  0x08000218
+2001F4  0x08000001
+2001F8  0x08002400
+    Store 2400 to 06087aa4
+2001FC  0x1E05000C
+<Black screen>
+    Perform Read of sector/sector size  006A95 / 005A
+	Perform Read of sector/sector size  006A95 / 005A
+	Perform Read of sector/sector size  008D1F / 0014
+    Perform Read of sector/sector size  008D1F / 0014
+	Perform Read of sector/sector size  0100A8 / 0009
+2000F4  0x1E000014
+2000F8  0x1C000024
+200120  0x0800000A
+200124  0x08000000
+    Write 0 to 06087AA4
+200128  0x1E020010
+20012C  0x01000000  (caused a jump to 200024 somehow)
+200024  0x1E000015
+         (turn on light)
+200028  0x1F0003D8  (jump to (current_address+4)+0x3d8)
+200404  0x0E000BBA
+200408  0x1B000004
+200410  0x0E00000B
+200414  0x1B00001C
+200418  0x0E00000C
+20041C  0x1B000014 (conditional jump to (current_address+4)+0x14) ; see 0x060595E6
+200434  0x0E00000B
+200438  0x1C000020 (jump to (current_address+4)+0x20)
+20045C  0x0E00001A
+200460  0x1C000018
+20047C  0x01000000
+20002C  0x01000000
+DONE!
+
+FUNCTION START  060599F8 r4 = 5
+================================================
+
+06059d24 <-- subroutine makes screen go black
+0x06059A18  jsr @r0  <-- after calling this, R0 is 0x1800
+     Reads from 0x06087A94 + (r4-1 * 4) ???
+	            0x06087aa4  <-- updated somehow for each scene change
+				
+				The update occurs at 060590A2!!!
+				Break on 0x06059284... 06059284
+				
+
+
+				
+
+FUNCTION START  06050C30 r0= 0x1800 and r4=1800
+================================================
+060505CE jsr 0x06050FC0
+
+06050FC0 <-- start of fctn
+         mov r4,r9 (r4 = 0x1800)
+         *06042028 = 0x00001800
+		 *06042180 = 0x00000000
+		 jsr 0x06050b50
+		 mov #0,r4
+		 r8 = 0x06091000
+		 r0 = 0x0600d8ec
+06050fe6 mov r9,r5  (r9 is 0x1800)
+         jsr 0x0600D83C
+		 mov #0,r4
+06050fec mov r0,r1  <-- r0 is now 0x0603
+         then mov r1,r4 and jsr to 0x0600c924  
+  0600C96C ??? FCTN START ??? (passed in as r4)	   
+    0600C99C <-- src of word? (0609)
+  06011CDE 0609 again
+
+
+Function 0x0600D83C
+===================
+r1 = 0xE
+cmp/hi r1,r4   (r1=0xE,r4=0x0)
+mov r4,r1
+add r1,r1  r1=0
+r0=600d858
+add r1,r0
+jmp@r0
+
+r4=8
+extu.w r5,r5
+r0 = 0x600ff24
+jsr r0;        
+extu.w r4,r4  (r4=8 ; r5=0x1800)
+
+
+0x600ff24
+   R1 = 0x01
+   cmp eq r4,r1
+   ...
+   r1 = 0x420
+
+ 0x1800 -> 0603  (when r4=0)
+ 0x2400 -> 0609  (when r4=0)
+0x06053700 Calls 0x0600D83C too
+ r4 = (3 instead of 0)
+ 0x1800 -> 0A9A  
+ 0x2400 -> 0AA0  

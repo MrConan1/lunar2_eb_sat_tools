@@ -1,0 +1,160 @@
+Battle Commands:
+0xF150
+0x25C0F150 <-- check for writes here
+
+0xF348
+0x25C0F348 <-- check for writes here "AI"
+         
+F348     F34C
+00000000 30000000
+
+
+
+Data is copied into VDP1 ram between the end of the OP movie and the first game scene
+
+Copy occurs when 0x600cb94 is called
+0x600cb94 jsr @r1 (r1=0606210)
+  0x060621E jsr @r1
+  
+  0x0606E1D2
+  
+  *060884e4 =  0x28f9C8
+  *0x28f9C8 = 0290
+  Add 4
+  290+4 = 294
+  0x28f9C8 + 294 = 0x28FC5C
+  *060884e4 = 0x28FC5C
+  0x28FC5C += 4
+  0x28FC60
+  *060423d4 = 0x28FC60
+  
+  0606E09C jsr @r8 (0x0606DD04)
+    r0=dd80
+	r1=25C0_0000
+	r2=AAAAAAAB
+	r3=0603ADe0
+	r4=25C0A000
+	r5=06090008
+	r6=0000DD80
+	
+	dma copy      file 1227 offset 21228 seems to have the vdp1 image for battle text
+
+
+Additional Research
+====================
+Used Yabause to take a look at command images and character names, found them all stored in file 1227
+as 4bpp and various width/heights.
+
+
+hiro name
+=========
+Normal Sprite
+x = 148, y = 153
+Texture address = 0000A148
+Texture width = 32, height = 7
+Texture read direction: Normal
+Pre-clipping Enabled
+User Clipping Enabled
+Clipping Mode = 0
+Transparent Pixel Enabled
+Color mode: 4 BPP(16 color bank)
+Color bank: 00028800
+Color Calc. mode: Replace
+
+
+Width 32 height 16, MD 4bpp, lots of text show up in 1227
+SAVE, Load, 
+Battle Cmds
+
+shisutemu (system) <-- found
+=========
+Normal Sprite
+x = 90, y = 135
+Texture address = 000173A8
+Texture width = 32, height = 14
+Texture read direction: Normal
+Pre-clipping Enabled
+Transparent Pixel Enabled
+Color mode: 4 BPP(16 color bank)
+Color bank: 00028800
+Color Calc. mode: Replace
+
+
+SAVE
+====
+Normal Sprite
+x = 20, y = 134
+Texture address = 0000FBA0
+Texture width = 32, height = 15
+Texture read direction: Normal
+Pre-clipping Enabled
+Transparent Pixel Enabled
+Color mode: 4 BPP(16 color bank)
+Color bank: 00028800
+Color Calc. mode: Replace
+
+LOAD
+====
+Normal Sprite
+x = 44, y = 133
+Texture address = 0000FC90
+Texture width = 32, height = 15
+Texture read direction: Normal
+Pre-clipping Enabled
+Transparent Pixel Enabled
+Color mode: 4 BPP(16 color bank)
+Color bank: 00028800
+Color Calc. mode: Replace
+
+Tactics   (located in 1227, md mode; 2x 16x16 images)
+=======
+Normal Sprite  (located in 1227, md mode)
+x = 68, y = 133
+Texture address = 0000F150
+Texture width = 16, height = 16
+Texture read direction: Normal
+Pre-clipping Enabled
+Transparent Pixel Enabled
+Color mode: 4 BPP(16 color bank)
+Color bank: 00028800
+Color Calc. mode: Replace
+
+
+Normal Sprite (located in 1227, md mode)
+x = 84, y = 133
+Texture address = 0000FD80
+Texture width = 16, height = 16
+Texture read direction: Normal
+Pre-clipping Enabled
+Transparent Pixel Enabled
+Color mode: 4 BPP(16 color bank)
+Color bank: 00028800
+Color Calc. mode: Replace
+
+
+
+Configuration
+=============
+Normal Sprite
+x = 92, y = 133
+Texture address = 0000FE00
+Texture width = 32, height = 16
+Texture read direction: Normal
+Pre-clipping Enabled
+Transparent Pixel Enabled
+Color mode: 4 BPP(16 color bank)
+Color bank: 00028800
+Color Calc. mode: Replace
+
+
+File 1227 contents:
+8x8 4bpp:  Numbers 0 to 9
+32x7 4bpp: Character names (hiro,ronfa, remina, jean, guen, rushia, 
+           and 1 more something warrior?
+8x12 4bpp: Numbers 0 to 9 then a dash (different outline)
+8x12 4bpp: Numbers 0 to 9 then a dash (white outline)
+????
+32x14-16 <- status images show up
+...
+various other text stored as images follows
+

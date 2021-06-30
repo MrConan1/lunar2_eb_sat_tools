@@ -1,0 +1,87 @@
+<Filename>
+1234
+</Filename>
+
+<ES_Header>
+Script_Offset: 0xXXXX
+Text_Offset: 0xXXXX
+Portrait_Offset: 0xXXXX
+Script_Size: 0xXXXX
+</ES_Header>
+
+<Command_Section>
+Num_Text_Pointers: 0xXX
+Text_Pointer_1: 0xXXXX TxtOffset 0xXXXXXX
+Text_Pointer_2: 0xXXXX TxtOffset 0xXXXXXX
+Text_Pointer_N: 0xXXXX TxtOffset 0xXXXXXX
+</Command_Section>
+
+<Text_Section>
+Num_Text_
+Label: Text_1
+Offset: 0xXX
+Size: 0xXX bytes
+Cmd_Links: 0xNum_Links Text_Pointer_X Text_Pointer_Y
+Text_Start
+"utf-8"
+Control_Code: 0xXXXX  (Description)
+"utf-8"
+Text_End
+
+...
+
+</Text_Section>
+
+<Script_Errors>
+Text_Pointer_N: Bad_Link_To_Text
+...
+Missing_Text_Pointer: Text_N
+...
+</Script Errors>
+
+To build:
+1. Dump Header
+2. Run through Cmd section (0x20 to start of Text Offset).
+If Cmd 1D, then add a text pointer
+3. Run through Text Section.  List applicable text pointers.  Keep track of:
+    a.) At least 1 is assigned to each text section.
+    b.) If at the end, any text pointers exist that have no text section.
+4. Output Errors based on 3a and 3b
+
+
+To create a binary file:
+1. Create Text Section first.  It will start at the same offset.
+2. Create Updated Text pointers based on new Text start offsets.  Leave erroneous text pointers unmodified.
+3. Create ES header, update portrait offset.
+4. Copy ES header, Cmd Section, Txt Section, and Portrait section.
+5. Output file, or if the ES script is not at offset 0, read in the original file and paste in the new ES script file.  (Verify nothing comes after the ES file in such files and that other offsets in the file do not require modification).
+
+
+
+
+
+
+
+
+
+Common File
+============
+Dict_Offset: 0x%X
+Dict_Size:   0x%X bytes
+Replacement_Dict: ""
+
+Type: Normal
+Offset: 0xXXXX
+Text_Length:  0xXX bytes
+Text: ""
+Replacement: ""
+
+Type: Dict_Lookup
+Offset: 0xXXXX
+Text_Length: 0xXX bytes
+Text: ""
+Replacement: ""
+
+Build output file using hard-coded information
+To build modified file, user enters in information in Replacement section
+Alternatively a csv file could be used. 
