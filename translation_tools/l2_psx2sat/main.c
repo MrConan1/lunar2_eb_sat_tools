@@ -17,15 +17,6 @@
 /* text.                                                               */
 /***********************************************************************/
 
-/*
-Building an updated file:
-Copy header and file up to Script section.
-Create modified script based on PSX Script and insert.  Ensure command section matches saturn section.  Error if #dialogs are not equal.
-Update LW 5 and copy in all data up to the offset provided by LW 0 in the original file.
-Now set LW 0 to the next location in the new file.
-Zero pad the new file until the file size is a multiple of 2048 bytes.
-Not sure what you do if the file is a multiple of 2048 bytes without zeropadding.  Maybe you just add 2048 bytes of zeroes?
-*/
 
 /* Includes */
 #include <stdio.h>
@@ -35,34 +26,35 @@ Not sure what you do if the file is a multiple of 2048 bytes without zeropadding
 
 
 #define VER_MAJ    1
-#define VER_MIN    0
+#define VER_MIN    1
 
 
 #undef PRINT_CMDS
 
-/* ES File Format */
+/* Sections of ES File Format */
 /* 1.) 0x20 Byte ES Header */
 /* 2.) Command Section     */
 /* 3.) Text Section        */
 /* 4.) Some data (not sure what)  */
 /* 5.) Character Portrait section */
-/* 6.) Zero padding to make file size a multiple of 2048 bytes */
+/* 6.) Zero padding (if needed) to make file size a multiple of 2048 bytes */
 typedef struct{
     char esString[4];
     unsigned int portraitOffset;  /* Start of character portraits */
-	unsigned int textOffsetMinusEsHeader;
-	unsigned int esHeaderSizeBytes;
+	unsigned int textOffsetMinusEsHeader; /* textOffset - 0x20 */
+	unsigned int esHeaderSizeBytes;       /* Always 0x20 */
 	unsigned int spareZeroes;    /* 4 bytes of zero */
-	unsigned int textOffset;
+	unsigned int textOffset;     /* Offset to dialog section */
 	unsigned int sizeTextBytes;  /* Size of Text section in bytes */
-	unsigned int textOffsetCopy;
+	unsigned int textOffsetCopy; /* Offset to dialog section (identical to textOffset) */
 }esHeaderType;
 
+/* Packed File with ES Script embedded within it */
 typedef struct{
     unsigned int zeroPadOffset;  /* In Saturn, offset to zero padding */
                                  /* to 2048 byte alignment at EOF     */
 								 /* Need to modify if ES Section altered. */
-								 /* PSX is different.                 */
+								 /* PSX holds something different.        */
     unsigned int offset1;        /* Points to some offset before ES Header */
 	unsigned int offset2;        /* Points to some offset before ES Header */
 	unsigned int esHdrOffset;    /* Offset to ES Header */
@@ -70,6 +62,17 @@ typedef struct{
 	unsigned int updateOffset4;  /* Points to some offset AFTER ES Header */
  								 /* Need to modify if ES Section altered. */
 }packedHeaderType;
+
+/*
+Building an updated file from a Saturn Packed File:
+Copy Saturn header and file up to ES Script section.
+Create modified ES script based on PSX Script and insert.
+    Ensure command section matches saturn section.  Error if #dialogs are not equal.
+Update "updateOffset4" and copy in all data up to the offset provided by LW 0 in the original file.
+Now set LW 0 to the next location in the new file.
+If it isnt already a multiple of 2048 bytes, zero pad the new file until the file size is a multiple of 2048 bytes.
+*/
+
 
 int dlgCmdLocation[1000];
 int dlogCmdOffset[1000];
@@ -291,9 +294,9 @@ int main(int argc, char** argv){
 
 
 
-	/****************************/
+	/********************************/
 	/* Create the ES Header Section */
-	/****************************/
+	/********************************/
 	
 	/* From the PSX File: */
 	/* Read the offset to start of the Text Section */
@@ -557,8 +560,9 @@ int main(int argc, char** argv){
 	/*************************************/
 	
 	/* Copy Saturn Portraits Section */
+	/* Set offset to next location after text script, regardless if there is a portraits section */
+	updatedPortraitSection = outputFsize - saturn_es_file_start_offset;
 	if(portraitExists >= 0){
-    	updatedPortraitSection = outputFsize - saturn_es_file_start_offset;
 	    fseek(inFile_SAT, pSaturnESHdr->portraitOffset+saturn_es_file_start_offset, SEEK_SET);
 	    readsizeBytes = satESPortraitSizeBytes;
 	    if(fread(&outputBuf[outputFsize],1,readsizeBytes,inFile_SAT) != readsizeBytes){
@@ -573,8 +577,10 @@ int main(int argc, char** argv){
 	/* Only for files that are NOT packed */
 	/* Fill with Zeroes such that the ES File is a multiple of 2048 bytes */
 	if(esFileFlg){
-	    remainderZeroes = 2048 - (outputFsize % 2048);
-	    outputFsize += remainderZeroes;  /* Already zeroed */
+		if((outputFsize % 2048) != 0){
+ 	        remainderZeroes = 2048 - (outputFsize % 2048);
+	        outputFsize += remainderZeroes;  /* Already zeroed */
+	    }
 	}
 	
 	/* Update ES Headers */
@@ -614,9 +620,11 @@ int main(int argc, char** argv){
 		}
 		outputFsize += readsizeBytes;
 		pPackedHdr->zeroPadOffset = outputFsize;
-	    zeroBytes = 2048 - (outputFsize % 2048);
-		outputFsize += zeroBytes;
-		
+		if((outputFsize % 2048) != 0){
+ 	        zeroBytes = 2048 - (outputFsize % 2048);
+		    outputFsize += zeroBytes;
+		}
+
 		/* Swap Packed Headers back */
 	    pUint = (unsigned int*)pPackedHdr;
 	    for(x = 0; x < 6; x++){
