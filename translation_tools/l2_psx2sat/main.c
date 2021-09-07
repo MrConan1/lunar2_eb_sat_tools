@@ -115,7 +115,7 @@ int main(int argc, char** argv){
 	static char inPSXFileName[300];
     static char outFileName[300];
 	unsigned int fsize;
-    int x, file_start_offset, rval, portraitExists;
+    int x, outIndex, file_start_offset, rval, portraitExists;
 	unsigned int textOffset, portraitOffset, fileLocByteOffset;
 	unsigned int satESPortraitSizeBytes, numTextPointers, satFileLocByteOffset;
 	unsigned int updatedTextSizeBytes, updatedPortraitSection, remainderZeroes, zeroBytes, numPortraits;
@@ -151,7 +151,13 @@ int main(int argc, char** argv){
 		outFileName[strlen(outFileName)-1] = '/';
 	else if(outFileName[strlen(outFileName)-1] != '/')
 		strcat(outFileName,"/");
-	strcat(outFileName,inPSXFileName);
+	x = 0; outIndex = 0;
+	while(inPSXFileName[x] != '\0'){
+		if((inPSXFileName[x] == '/') || (inPSXFileName[x] == '\\'))
+			outIndex = x+1;
+		x++;
+	}
+	strcat(outFileName,&inPSXFileName[outIndex]);
 
 
     /*******************************/
@@ -445,7 +451,7 @@ int main(int argc, char** argv){
 			origSizeBytes = *pData16;
 			if(origSizeBytes == 0x0000){
 				/* No Dialog */
-				printf("Zero Fill located\n");
+				printf("Zero Fill located (No Dialog)\n");
 				memcpy(&outputBuf[outputFsize],pData16,2);outputFsize+=2;
 				relativeSatTxtOffset += 2;
 				fileLocByteOffset += 2;
