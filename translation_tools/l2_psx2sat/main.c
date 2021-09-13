@@ -366,8 +366,10 @@ int main(int argc, char** argv){
 			dlgSatCmdLocation[numSatTextPointers] = satFileLocByteOffset + saturn_es_file_start_offset;
 			dlogSatCmdOffset[numSatTextPointers] = (cmd & 0x00FFFFFF)+satTextOffset;
 			if((numSatTextPointers > 0) && 
-			   (dlogCmdOffset[numSatTextPointers] < dlogCmdOffset[numSatTextPointers-1])){
+			   (dlogSatCmdOffset[numSatTextPointers] < dlogSatCmdOffset[numSatTextPointers-1])){
 				printf("Error in SAT Cmds, not continually increasing.\n");
+				fflush(stdin);
+      	        getchar();
 				free(outputBuf);
 				fclose(inFile_SAT);
 				return -1;
