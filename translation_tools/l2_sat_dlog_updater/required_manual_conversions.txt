@@ -1,0 +1,51 @@
+REM Manual Conversion l2_psx2sat.exe	jp_sat_scripts/1375	us_psx_scripts/CDE0090.DAT ./output
+Eliminate final dialog #11 in us version, not present in JP PSX either.
+
+REM Manual Conversion l2_psx2sat.exe	jp_sat_scripts/1386	us_psx_scripts/CDE0210.DAT ./output
+Saturn JP and PSX JP are the same.  Probably manually retranslate, WD took liberties.
+Saturn Dialogs 6 through 9 are missing; US PSX 6 through 8 dont correlate well.
+
+REM Manual Conversion l2_psx2sat.exe	jp_sat_scripts/1419	us_psx_scripts/CDE0530.DAT ./output
+Saturn JP and PSX JP are the same.
+Remove DLG 3 on US translation to fix.
+
+REM Manual Conversion l2_psx2sat.exe	jp_sat_scripts/1432	us_psx_scripts/CDE0620.DAT ./output
+Saturn JP and PSX JP are the same.
+Saturn dialog 3 should be inserted prior to US dialog 3 to fix.
+
+REM Manual Conversion l2_psx2sat.exe	jp_sat_scripts/1467	us_psx_scripts/CDE0965.DAT ./output
+Saturn JP and PSX JP are the same.
+Liberties were taken on dialog 2, saturn dialog #10 needs to be added
+
+REM Manual Conversion l2_psx2sat.exe	jp_sat_scripts/1493	us_psx_scripts/CDE1158.DAT ./output
+Saturn JP and PSX JP are the same.
+Dialog 1 was altered.  Saturn Dialog 3 needs to be added.
+
+REM Manual Conversion l2_psx2sat.exe	jp_sat_scripts/1516	us_psx_scripts/CDE1360.DAT ./output
+Saturn JP and PSX JP are the same.
+Dialogs 1 and 2 took a lot of liberties.  Saturn Dialog 3 is missing.
+
+REM Manual Conversion l2_psx2sat.exe	jp_sat_scripts/1556	us_psx_scripts/SMPG1800.DAT ./output
+Saturn is a text debug script.  PSX is empty.
+
+REM Manual Conversion l2_psx2sat.exe	jp_sat_scripts/1570	us_psx_scripts/SMPG3400.DAT ./output
+Dialog 299 and 300 are new in the psx jp/us version.   Remove them for the saturn.
+
+REM Manual Conversion l2_psx2sat.exe	jp_sat_scripts/1578	us_psx_scripts/SMPG4400.DAT ./output
+Dialog 147 and 148 are new in the psx jp/us version.   Remove them for the saturn.
+
+REM MANUAL Conversion l2_psx2sat.exe	jp_sat_scripts/1588	us_psx_scripts/SMPG6000.DAT ./output
+Dialog 3 and 4 are new in the psx jp/us version.   Remove them for the saturn.
+
+REM Manual Conversion l2_psx2sat.exe	jp_sat_scripts/1593	us_psx_scripts/SMPG7000.DAT ./output
+Dialog 25 and 26 are new in the psx jp/us version.   Remove them for the saturn.
+
+REM Manual Conversion l2_psx2sat.exe	jp_sat_scripts/1594	us_psx_scripts/SMPG7400.DAT ./output
+Dialog 190 and 191 are new in the psx jp/us version.   Remove them for the saturn.
+
+REM Manual Conversion l2_psx2sat.exe	jp_sat_scripts/1601	us_psx_scripts/SMPG8800.DAT ./output
+Dialog 6 should be modified to resemble the saturn version.
+Dialog 13 to 17 are new in the psx jp/us version.   Remove them for the saturn.
+
+REM Manual Conversion l2_psx2sat.exe	jp_sat_scripts/1622	us_psx_scripts/SMPGB800.DAT ./output
+Dialog 180 and 181 are new in the psx jp/us version.   Remove them for the saturn.
