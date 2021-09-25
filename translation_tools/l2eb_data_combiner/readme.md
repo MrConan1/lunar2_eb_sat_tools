@@ -9,3 +9,6 @@ The input files should be located in "inputDirectory" and should be
 numbered 1 to n.                                                     
 The two output files will be names "1" and "2", just as they are     
 on the cd.                                                         
+
+
+Example: ./l2combine.exe input 2542 test_out  
