@@ -152,12 +152,12 @@ int main(int argc, char** argv){
 	else if(outFileName[strlen(outFileName)-1] != '/')
 		strcat(outFileName,"/");
 	x = 0; outIndex = 0;
-	while(inPSXFileName[x] != '\0'){
-		if((inPSXFileName[x] == '/') || (inPSXFileName[x] == '\\'))
+	while(inSATFileName[x] != '\0'){
+		if((inSATFileName[x] == '/') || (inSATFileName[x] == '\\'))
 			outIndex = x+1;
 		x++;
 	}
-	strcat(outFileName,&inPSXFileName[outIndex]);
+	strcat(outFileName,&inSATFileName[outIndex]);
 
 
     /*******************************/
