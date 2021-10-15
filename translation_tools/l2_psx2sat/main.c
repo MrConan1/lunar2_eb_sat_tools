@@ -462,7 +462,8 @@ int main(int argc, char** argv){
 			}
 			
 			/* Update Corresponding CMD Pointer's Offset to this Dialog Block */
-			*(unsigned int*)&outputBuf[dlgSatCmdLocation[x]] = 0x1D00000000 | relativeSatTxtOffset;
+			*(unsigned int*)&outputBuf[dlgSatCmdLocation[x]] = 0x1D000000 | relativeSatTxtOffset;
+			swap32(&outputBuf[dlgSatCmdLocation[x]]);
 			x++;
 
 			/* Save a pointer to the text size */
