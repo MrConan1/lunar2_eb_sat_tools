@@ -487,6 +487,7 @@ int createDlgTextFromUpdateFile(char* updateFname, int numDlogs, char* pOutbuf,
 	  	    /* Found Text_Start */
 			/* When found, update Cmd Section Pointer and Dialog Size Pointer */
 			*(unsigned int*)&pOutbuf[dlgSatCmdLocation[countedDlogs]] = 0x1D000000 | relativeSatTxtOffset;
+			swap32(&pOutbuf[dlgSatCmdLocation[countedDlogs]]);
 			pDlogLength = (unsigned short*)&pOutbuf[bufferOffset+relativeSatTxtOffset];
 			*pDlogLength = 2;
 			relativeSatTxtOffset += 2;
@@ -525,13 +526,13 @@ int createDlgTextFromUpdateFile(char* updateFname, int numDlogs, char* pOutbuf,
 				}
 				textLen--;
 
-				printf("\n");
+//				printf("\n");
 				for(x = 0; x < textLen; x++){
 					pOutbuf[bufferOffset+relativeSatTxtOffset] = ptextStart[x] - 0x1F;
 					relativeSatTxtOffset++;
-					printf(".%c.",ptextStart[x]);
+//					printf(".%c.",ptextStart[x]);
 				}
-				printf("\n");
+//				printf("\n");
 				pOutbuf[bufferOffset+relativeSatTxtOffset-1] |= 0x80; /* set high bit on last character */
 
 				/* Update the Dialog length */
@@ -643,7 +644,7 @@ unsigned short convertPsxCtrlCode(unsigned short controlCode){
 			}
 			
 			/* Update Corresponding CMD Pointer's Offset to this Dialog Block */
-			*(unsigned int*)&outputBuf[dlgSatCmdLocation[x]] = 0x1D00000000 | relativeSatTxtOffset;
+			*(unsigned int*)&outputBuf[dlgSatCmdLocation[x]] = 0x1D000000 | relativeSatTxtOffset;
 			x++;
 
 			/* Save a pointer to the text size */
