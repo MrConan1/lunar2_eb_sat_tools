@@ -1,3 +1,4 @@
+REM 1415 and 1482 have no scripts in them so they are skipped
 l2_decode.exe jp_sat_scripts/1367 0 18812 
 l2_decode.exe jp_sat_scripts/1368 0 5908 
 l2_decode.exe jp_sat_scripts/1369 0 42300 
