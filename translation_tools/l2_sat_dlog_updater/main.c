@@ -575,6 +575,12 @@ int createDlgTextFromUpdateFile(char* updateFname, int numDlogs, char* pOutbuf,
 			break;
 	}
 
+	/* Ensure section is a multiple of 4 bytes */
+	while((relativeSatTxtOffset % 4) != 0){
+		pOutbuf[bufferOffset+relativeSatTxtOffset] = 0x00;
+		relativeSatTxtOffset++;
+	}
+
 	/* Update size of output file */
 	*outputSizeBytes += relativeSatTxtOffset;
 
