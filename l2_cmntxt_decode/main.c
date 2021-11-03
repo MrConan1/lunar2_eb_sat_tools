@@ -33,7 +33,7 @@
 /* File Definitions */
 #define DICT_LKUP_OFFSET 	0x11290
 #define ITEM_START_OFFSET 	0xD5C0
-#define NUM_ITEMS			338
+#define NUM_ITEMS			346//338
 
 /******************************************************************************/
 /* printUsage() - Display command line usage of this program.                 */
@@ -126,7 +126,7 @@ int main(int argc, char** argv){
 
 	/* Spells are from 0xC7C4 to 0xD5BA.  These are all 2 byte lookups.  Terminate in 0xFFFF */
 	currentOffset = 0xC7C4;
-    #define SPELL_STRING_START 0xC7C4
+    #define SPELL_STRING_START 0xC7D0
 	#define SPELL_STRING_END   0xD5BA
 	printf("Decoding Spell Strings\n");
 	fprintf(outFile,"Decoding Spell Strings\n");
@@ -194,8 +194,8 @@ int main(int argc, char** argv){
 
 	
 #if 1
-	printf("Decoding Items\n");
-	fprintf(outFile,"Decoding Items\n");
+	printf("Decoding Item Names and descriptions\n");
+	fprintf(outFile,"Decoding Item Names and descriptions\n");
 	fprintf(outFile,"Offset\tItem\tDescription\n");
 
 	currentOffset = ITEM_START_OFFSET;
@@ -299,11 +299,11 @@ int main(int argc, char** argv){
     Definitely end by 0x0001_1290
     text stored in 16-bit shorts that map to text.  0x14 short words or ends early in 0xFFFF
 	*/
-	#define CMN_STRING2_START 0xF900-4
-	#define CMN_STRING2_END   0x0103C4 //17E00 //0x11290
+	#define CMN_STRING2_START 0x10144 // 0xF900-4
+	#define CMN_STRING2_END   0x10D23 //17E00 //0x11290
 	#define CMN_STRING2_SIZE  0x14
-	printf("Decoding Common Strings 2\n");
-	fprintf(outFile,"Decoding Common Strings 2\n");
+	printf("Decoding User Interface Text and Error Reporting\n");
+	fprintf(outFile,"Decoding User Interface Text and Error Reporting\n");
 	
 	currentOffset = CMN_STRING2_START;
 	while(currentOffset <= CMN_STRING2_END){
@@ -352,7 +352,7 @@ int main(int argc, char** argv){
 
 
 
-#if 1
+#if 0
 	/*
 	Common Strings Notes
     text stored in 16-bit shorts that map to text.  0x14 short words or ends early in 0xFFFF
@@ -414,12 +414,12 @@ int main(int argc, char** argv){
 
 #if 1
 	/* Decoding of stuff from 0x10D24 through 0x11290 (start of 2 byte dictionary lookup table) */
-	printf("Decoding Other\n");
-	fprintf(outFile,"Decoding Other\n");
+	printf("\n\nDecoding Bromides and Replace Disc Msgs\n");
+	fprintf(outFile,"\n\nDecoding Bromides and Replace Disc Msgs\n");
 	fprintf(outFile,"Offset\tItem\tDescription\n");
 
-	currentOffset = 0x10D24+4;
-	while(currentOffset < 0x11290 /*0x133E0*/){
+	currentOffset = 0x10D28;
+	while(currentOffset < 0x11098 /*0x133E0*/){
 		
 		unsigned short itemDescRLE[16];
 		unsigned short* pData;
@@ -470,7 +470,62 @@ int main(int argc, char** argv){
 #endif	
 
 
+#if 1
+	/* Decoding of stuff from 0x10D24 through 0x11290 (start of 2 byte dictionary lookup table) */
+	printf("Decoding Map Area Names\n");
+	fprintf(outFile,"Decoding Map Area Names\n");
+	fprintf(outFile,"Offset\tItem\tDescription\n");
 
+	currentOffset = 0x1109C;
+	while(currentOffset < 0x1128C /*0x133E0*/){
+		
+		unsigned short itemDescRLE[16];
+		unsigned short* pData;
+		int indexLoc,z;
+		unsigned short tmpShort = 0;
+		
+		fprintf(outFile,"0x%06X\t",currentOffset);
+
+		/* Read 8 SW For Item Desc */
+		memcpy(itemDescRLE,&buffer[currentOffset],16);
+		for(y=0;y<8;y++)
+			swap16(&itemDescRLE[y]);
+		currentOffset += 16;
+		
+		/* Decode Description */
+		for(y=0; y<8;y++){
+			indexLoc = itemDescRLE[y]*4 + DICT_LKUP_OFFSET;
+			pData = (unsigned short*)&buffer[indexLoc];
+			for(z=0;z<2;z++){
+				memcpy(&tmpShort,&pData[z],2);
+				swap16(&tmpShort);
+				if((tmpShort & 0xF000) == 0x9000){
+					printf(" ");
+					fprintf(outFile," ");
+				}
+				else if(tmpShort < 0x1000){
+					memset(data,0,10);
+					if(getUTF8character((int)tmpShort, data) >= 0){
+						printf("%s",data);
+						fprintf(outFile,"%s",data);
+					}
+					else{
+						printf("\nError printing 0x%X\n",(int)tmpShort&0xFFFF);
+						fprintf(outFile,"\nError printing 0x%X\n",(int)tmpShort&0xFFFF);
+					}
+				}
+				else{
+					printf("<0x%4X>",tmpShort);
+					fprintf(outFile,"<0x%4X>",tmpShort);
+				}
+			}
+		}
+		
+		/* Newline before next entry */
+		fprintf(outFile,"\n");
+	}
+	fprintf(outFile,"\n\n\n\n");
+#endif	
 
 
 

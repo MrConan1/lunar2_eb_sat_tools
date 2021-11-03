@@ -1,0 +1,61 @@
+Top level Header:
+Value: 0x00000010
+
+REGION  (Assumed not text)
+Size 0x0000C7C4
+Start 0x0008
+End   0xC7CB
+
+REGION -- Spell Names and descriptions
+0xC7CC:  Size 0x00000DEC  (Dictionary Lookup: Spell, spaces, spell desc, 0xFFFF)
+Start 0xC7D0
+End   0xD5BB
+Each entry has 20 Short Words (Up to 20 characters)  [40 bytes]
+??? looks like 26 bytes each, 13 short words.  5 for spell, 8 for desc and term
+(3564 Bytes)
+
+
+REGION -- Item Names and descriptions
+0xD5BC:  Size 0x00002324  (Dictionary Lookup)
+Start 0xD5C0
+End   0xF8E3
+5 SW Entries for the item name, 8 SW Entries for Item Desc. [26 bytes per item]
+Results in 10 characters for item name, up to 16 for item desc.
+(8996 Bytes)
+
+REGION -- Unknown Data Section
+0xF8E4:  Size 0x00000858
+Start 0xF8E8
+End   0x1013F
+Each entry has 20 Short Words (Up to 20 characters)  [40 bytes]
+
+
+REGION -- User Interface Text and Error Reporting
+0x10140:  Size 0x00000BE0  (No Dict, Direct Lookup)
+Start 0x10144
+End   0x10D23
+Each entry has 20 Short Words (Up to 20 characters)  [40 bytes]
+(3040 Bytes)
+
+REGION -- Bromides and Replace Disc Msgs
+0x10D24:  Size 0x00000370  (Dict Lookup Section Follows)
+Start 0x10D28
+End   0x11097
+Each entry has 8 Short Words (Up to 16 characters when using the dictionary)  [0x10 bytes]
+(880 Bytes)
+
+REGION -- Map Area names
+0x11098:  Size 0x000001F0  (Dict Lookup Section Follows)
+Start 0x1109C
+End   0x1128B
+Each entry has 8 Short Words (Up to 16 characters when using the dictionary)  [0x10 bytes]
+(496 Bytes)
+
+REGION -- Dictionary
+0x1128C:  Size 0x00001D48  (Actual Dictionary Follows)
+Additional Data Sections follow
+(7496 Bytes)
+
+File is over at 0x17E60 (1A0 bytes unused)
+
+Total used data for character storage is 16,976 bytes
