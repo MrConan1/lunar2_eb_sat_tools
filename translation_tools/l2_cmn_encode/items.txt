@@ -1,0 +1,350 @@
+Item Names and descriptions
+0x00D5C0 0	          	                
+0x00D5DA 1	"Herb" "Recovers a bit of HP"
+0x00D5F4 2	"Healing Nut" "Recovers plenty of HP"
+0x00D60E 3	"Passion Fruit" "Recovers all HP"    
+0x00D628 4	          	                
+0x00D642 5	"Life Jewel" "Restores plenty of HP"
+0x00D65C 6	          	                
+0x00D676 7	"Star Light" "Recovers a bit of MP"  
+0x00D690 8	          	                
+0x00D6AA 9	"Silver Light" "Restores all MP"  
+0x00D6C4 10	          	                
+0x00D6DE 11	"Dragonfly Wing" "Escape from dungeons"
+0x00D6F8 12	"White Dragon Wings" "Magical traveling tool"
+0x00D712 13	"Lucia's Pendant" "Universal transporter"
+0x00D72C 14	          	                
+0x00D746 15	"Rememberizer Crystal" "View past adventures"
+0x00D760 16	"Bromide 01" "Goddess Smiles"
+0x00D77A 17	"Bromide 02" "Alone in the Afternoon"    
+0x00D794 18	"Bromide 03" "Picnic on the open sea"     
+0x00D7AE 19	"Bromide 04" "Looking Up, Blue Sky"
+0x00D7C8 20	"Bromide 05" "The best morning, the best smile"
+0x00D7E2 21	"Bromide 06" "Dreaming of a Blue Star? Or is it...?"
+0x00D7FC 22	"Bromide 07" "For This Drink..."    
+0x00D816 23	"Bromide 08" "Maihime's Descent! Hurry to the carnival!" 
+0x00D830 24	"Bromide 09" "A Little Bit of Sleeping Beauty"
+0x00D84A 25	"Bromide 10" "Blowing in the dusk wind..."     
+0x00D864 26	"Bromide 11" "A Million Silver Smiles"
+0x00D87E 27	"Bromide 12" "Midnight Fun ♥"     
+0x00D898 28	"Bromide 13" "Come home soon, Ronfa ♥"
+0x00D8B2 29	"Bromide 14" "The Dream We Dream Together..."  
+0x00D8CC 30	"Bromide 15" "Arrangement in progress! He calls himself the Friend of Justice."
+0x00D8E6 31	"Bromide 16" "Do not open! Amulet of Fear"
+0x00D900 32	          	                
+0x00D91A 33	          	                
+0x00D934 34	          	                
+0x00D94E 35	          	                
+0x00D968 36	          	                
+0x00D982 37	          	                
+0x00D99C 38	          	                
+0x00D9B6 39	          	                
+0x00D9D0 40	          	                
+0x00D9EA 41	"Purity Herb" "Cures poisoning" 
+0x00DA04 42	"Cleansing Water" "Cures paralysis"
+0x00DA1E 43	"Holy Water" "Cures all conditions"
+0x00DA38 44	"Vitality Vial" "Dispels all disabilities"
+0x00DA52 45	"Angel's Tear" "Revives a fainted friend"
+0x00DA6C 46	          	                
+0x00DA86 47	          	                
+0x00DAA0 48	          	                
+0x00DABA 49	          	                
+0x00DAD4 50	" " "For window display"    
+0x00DAEE 51	"Right Sapphire Jewel" "Gemstone obtained from the ruins"
+0x00DB08 52	"Left Opal Jewel" "Key to unlock the Blue Tower"
+0x00DB22 53	"Right Opal Jewel" "Stone from the Sunken Shrine" 
+0x00DB3C 54	"Left Sapphire Jewel" "Hand-picked from the Dragon Ruins" 
+0x00DB56 55	"White Dragon Aura" "Essence of White Dragon"      
+0x00DB70 56	"Blue Dragon Aura" "Essence of Blue Dragon"    
+0x00DB8A 57	"Black Dragon Aura" "Essence of Black Dragon"      
+0x00DBA4 58	"Red Dragon Aura" "Essence of Red Dragon"      
+0x00DBBE 59	"Rope Ladder" "Climbing tool"   
+0x00DBD8 60	"Snow Crest" "Descent made easy"   
+0x00DBF2 61	"Mask" "Cult leader's disguise"
+0x00DC0C 62	"Invitation" "Ticket to the Tournament"
+0x00DC26 63	"Cave Key" "Unlocks Black Dragon Cave"
+0x00DC40 64	"Althena's Aura" "Essence of the Goddess"
+0x00DC5A 65	"Undersea Key" "Used on oceanic locks"
+0x00DC74 66	          	                
+0x00DC8E 67	          	                
+0x00DCA8 68	          	                
+0x00DCC2 69	          	                
+0x00DCDC 70	          	                
+0x00DCF6 71	"Dagger" "Half-step above a butter knife"   
+0x00DD10 72	"Ancient Dagger" "Old-school critter-cutter"
+0x00DD2A 73	"Star Dagger" "Steals MP from enemies"  
+0x00DD44 74	"Rusty Dagger" "Not stainless steel"
+0x00DD5E 75	          	                
+0x00DD78 76	"Short Sword" "Or a really long dagger"
+0x00DD92 77	"Long Sword" "Standard military weapon"
+0x00DDAC 78	"Broadsword" "For men only"
+0x00DDC6 79	"Silver Sword" "Magical sword of Mythril"
+0x00DDE0 80	"Bastard Sword" "Blade to cause much cursing"
+0x00DDFA 81	"Crush Sword" "Thick as Ronfar, heavy as Borgan"
+0x00DE14 82	"Rune Blade" "Inscribed with mystic symbols"
+0x00DE2E 83	"Platinum Blade" "Made of lightweight metal"
+0x00DE48 84	"Samurai Sword" "Fight with honor"
+0x00DE62 85	"Amethyst Sword" "A magic blade of dark crystal"
+0x00DE7C 86	"Master Sword" "For experts only"
+0x00DE96 87	          	                
+0x00DEB0 88	"Ghaleon's Sword" "Valuable relic"
+0x00DECA 89	"Althena's Sword" "Blade blessed with light"
+0x00DEE4 90	          	                
+0x00DEFE 91	"Dyne's Sword" "Former Dragonmaster's blade"
+0x00DF18 92	"White Fang" "Deadly edge"   
+0x00DF32 93	"Nameless Sword" "Dare not speak its name"
+0x00DF4C 94	          	                
+0x00DF66 95	"Mace" "Iron-plated brain-basher"      
+0x00DF80 96	"Flail" "Chain of sharp silver spikes"  
+0x00DF9A 97	"Silver Mace" "Shiny skull-smashing stick"
+0x00DFB4 98	"Amber Mace" "A mace with amber in the head"
+0x00DFCE 99	"Spirit Mace" "For priests with pure hearts"
+0x00DFE8 100	"Ritual Mace" "Used in religious ceremonies"
+0x00E002 101	"Flaying Flail" "Mighty mace for martial artists"
+0x00E01C 102	"Amethyst Mace" "Constructed of crystal shards"
+0x00E036 103	"Prayer Mace" "Enemies pray for you to miss"
+0x00E050 104	"Holy Mace" "Weapon blessed by the Goddess"
+0x00E06A 105	"Judgment Mace" "Renders divine judgment upon foes"
+0x00E084 106	          	                
+0x00E09E 107	"Feather Fan" "Ornamental dancing fan"
+0x00E0B8 108	"Iron Fan" "Crafted from sharp steel strips"
+0x00E0D2 109	"Silver Fan" "Wards off evil spirits" 
+0x00E0EC 110	"Platinum Fan" "Magical fan of white metal" 
+0x00E106 111	"Jean's Fan" "Vividly decorated and very deadly"
+0x00E120 112	          	                
+0x00E13A 113	"Iron Claw" "Strong and deadly"
+0x00E154 114	"Black Panther Claw" "Forged from the hardest iron"    
+0x00E16E 115	"White Tiger Claw" "Grrr, baby! Very grrr!"
+0x00E188 116	"Crushing Fist" "Strong enough to smash stone"
+0x00E1A2 117	"Berserker Claw" "Slices through flesh and bone"
+0x00E1BC 118	"Fierce Fist" "This weapon is fueled by rage"
+0x00E1D6 119	          	                
+0x00E1F0 120	"Magic Staff" "Used by Magic Guild students" 
+0x00E20A 121	"Quake Staff" "Your opponents get stoned"
+0x00E224 122	"Thunder Staff" "Summons bolts from the blue"   
+0x00E23E 123	"Water Staff" "Drowns foes in high-quality H2O"
+0x00E258 124	"Flame Staff" "Giant fiery spheres are fun!"  
+0x00E272 125	"Wind Staff" "Gusts enemies to death"
+0x00E28C 126	"Earth Staff" "Unleashes a torrent of rocks"
+0x00E2A6 127	"Lightning Staff" "Very, very frightening!"
+0x00E2C0 128	"Ice Staff" "Cold blast stops foes dead"
+0x00E2DA 129	"Hellfire Staff" "Burn, baby, burn"
+0x00E2F4 130	"Hurricane Staff" "Conjures the perfect storm"
+0x00E30E 131	"Sage Staff" "Mutes your enemies"
+0x00E328 132	"Thieves' Staff" "Steals items from enemies"
+
+0x00E342 133	"Saucepan Lid" "Shield for kids and midgets"
+0x00E35C 134	"Wood Shield" "Splintery slice of lumber"
+0x00E376 135	"Iron Shield" "Standard military shield" 
+0x00E390 136	"Silver Shield" "Lightweight and easy to handle"
+0x00E3AA 137	"Steel Shield" "For fans of heavy metal" 
+0x00E3C4 138	"Platinum Shield" "Buy two and go double platinum"
+0x00E3DE 139	"Warrior Shield" "Large enough to deflect any blow"
+0x00E3F8 140	"Amethyst Shield" "Surprisingly shatter-proof"
+0x00E412 141	"Master Shield" "Forged BY experts FOR experts"
+0x00E42C 142	"Legendary Lid" "Taken from the Magical Saucepan"
+0x00E446 143	"Dragon Shield" "Almost indestructible"
+0x00E460 144	          	                
+0x00E47A 145	"Holy Shield" "Bright-shining blow-blocker"   
+0x00E494 146	          	                
+0x00E4AE 147	"Bracelet" "Light, white wrist-wrap"  
+0x00E4C8 148	"Iron Bracelet" "Metal bangle with heavy dangle"
+0x00E4E2 149	"Silver Bracelet" "Lookit the sparkle!"
+0x00E4FC 150	"Steel Bracelet" "Enhances defensive ability"
+0x00E516 151	"Platinum Bracelet" "Enhanced defensive ability"
+0x00E530 152	"Bejeweled Bracelet" "Taste the rainbow"
+0x00E54A 153	"Amethyst Bracelet" "Massive magical manacle"
+0x00E564 154	"Holy Bracelet" "Repels evil"
+0x00E57E 155	"Goddess Bracelet" "Touched by the Goddess herself"
+0x00E598 156	          	                
+0x00E5B2 157	"Leather Gauntlet" "Low-budget arm-armor"
+0x00E5CC 158	"Silver Gauntlet" "This does NOT detonate"  
+0x00E5E6 159	"Platinum Gauntlet" "Shimmering shielding" 
+0x00E600 160	"Magic Gauntlet" "Imbued with a protective spell"
+0x00E61A 161	"Jewel Gauntlet" "This is a real gem"
+0x00E634 162	"Mystic Gauntlet" "Comes with all-seeing magic eye"
+0x00E64E 163	"Psycho Gauntlet" "It's crazy how protective it is" 
+0x00E668 164	"Goddess Gauntlet" "Keeps your arm safe and warm" 
+0x00E682 165	          	                
+0x00E69C 166	"Hawk Armlet" "Emblazoned with a hawk's claw"  
+0x00E6B6 167	"Leopard Armlet" "Engraved with a leopard's paw"
+0x00E6D0 168	"Tiger Armlet" "Painted with tiger's stripes"
+0x00E6EA 169	"Lunn's Armlet" "Proof of martial-arts prowess"
+0x00E704 170	          	                
+0x00E71E 171	"Peasant Clothes" "Moth-eaten and SO out of style"  
+0x00E738 172	"Adventurer's Clothes" "Several layers of coarse cloth"
+0x00E752 173	"Blue Pajamas" "Recover lost HP while you sleep"
+0x00E76C 174	"Red Pajamas" "Recover lost MP while you sleep"    
+0x00E786 175	"House Pajamas" "Sleep well anytime"   
+0x00E7A0 176	"Plate Armor" "Great protection"
+0x00E7BA 177	          	                
+0x00E7D4 178	"Lucia's Robe" "Red and magical"  	                
+0x00E7EE 179	"Lucia's Shorts" "Trendy and red"  	                
+0x00E808 180	          	                
+0x00E822 181	"Leather Armor" "Made from the toughest cows" 
+0x00E83C 182	"Chain Mail" "Light linked armor" 
+0x00E856 183	          	                
+0x00E870 184	"Iron Armor" "Full-body metallic suit"
+0x00E88A 185	"Silver Armor" "Protects against evil"
+0x00E8A4 186	"Platinum Armor" "Precious metal, painstakingly molded" 
+0x00E8BE 187	"Warrior Armor" "Heavy-duty and dent-resistant"
+0x00E8D8 188	"Amethyst Armor" "Made of magical crystal"
+0x00E8F2 189	"Dyne's Armor" "A Dragonmaster perspired in this"  
+0x00E90C 190	          	                
+0x00E926 191	"Dragon Armor" "Dragon defensive power"
+0x00E940 192	          	                
+0x00E95A 193	"Goddess Armor" "Blessed by the goddess herself"
+0x00E974 194	          	                
+0x00E98E 195	"Priest Clothes" "Outfit of The Chosen"  
+0x00E9A8 196	"Purity Clothes" "Purified by a priest"
+0x00E9C2 197	"Ceremonial Clothes" "Worn for religious rituals"
+0x00E9DC 198	"Holy Clothes" "These reflect a priest's virtue"
+0x00E9F6 199	"Battle Clothes" "Divine protection"
+0x00EA10 200	"Miracle Clothes" "Miraculously easy to wash"
+0x00EA2A 201	"Saint Clothes" "Great garb for purified priests"
+0x00EA44 202	"Chaos Armor" "Provides random defensive power"
+0x00EA5E 203	          	                
+0x00EA78 204	"Pretty Dress" "Custom-tailored outfit"       
+0x00EA92 205	"Flared Dress" "Wide, poofy garment"   
+0x00EAAC 206	"Fur Dress" "Real fur? How un-PC!" 
+0x00EAC6 207	"Silk Dress" "Smooth and stylish"
+0x00EAE0 208	"Jean's Dress" "Gorgeous or gaudy?"
+0x00EAFA 209	          	                
+0x00EB14 210	"Hawk Wrap" "Enables hasty retreats"
+0x00EB2E 211	"Ninja Wrap" "Dark suit for sneaking about"
+0x00EB48 212	"Tiger Wrap" "You look FIERCE, girlfriend!"
+0x00EB62 213	"Scarlet Wrap" "Enemies' blood blends right in"
+0x00EB7C 214	          	                
+0x00EB96 215	"Robe" "Exquisitely comfy terry-cloth"      
+0x00EBB0 216	"Silver Robe" "Sewn with silver thread"
+0x00EBCA 217	"Fur Robe" "Wear the fur and no more brrr"   
+0x00EBE4 218	"Magician Robe" "Magic Guild's official uniform"
+0x00EBFE 219	"Immortal Robe" "Magically boosts defense"
+0x00EC18 220	"Wisdom Robe" "Boosts wearer's magic power"
+0x00EC32 221	"Aura Robe" "Woven of light's essence"
+0x00EC4C 222	"Sage Robe" "Only for powerful magicians"
+
+0x00EC66 223	"Safety Helmet" "Head protection of unknown origin" 
+0x00EC80 224	"Leather Cap" "Conceals bad-hair days"  
+0x00EC9A 225	"Iron Helm" "Standard military helmet"
+0x00ECB4 226	"Silver Helm" "Polished 'til it shines"
+0x00ECCE 227	"Steel Helm" "Heavy, with excellent defense"
+0x00ECE8 228	"Platinum Helm" "Lightweight helm of white metal"
+0x00ED02 229	"Warrior Helm" "Full head protection"
+0x00ED1C 230	"Amethyst Helm" "Magical mullet-musher"
+0x00ED36 231	"Master Helm" "Provides unrestricted vision" 
+0x00ED50 232	          	                
+0x00ED6A 233	"Lucia's Hat" "Attractive to a fault"               
+0x00ED84 234	          	                
+0x00ED9E 235	"Dragon Helm" "Legendary puss-protector"
+0x00EDB8 236	          	                
+0x00EDD2 237	"Lion Helm" "Ferocious protection"
+0x00EDEC 238	          	                
+0x00EE06 239	"Bandanna" "Stop the agony of sweat-in-eye"         
+0x00EE20 240	"Colorful Bandanna" "Tie-dyed with fluorescent colors"
+0x00EE3A 241	"Silver Bandanna" "Expensive hair-cloth"
+0x00EE54 242	"Lucky Bandanna" "With secret pocket for marked cards"
+0x00EE6E 243	"Soul Bandanna" "Calms the mind and improves magic"
+0x00EE88 244	          	                
+0x00EEA2 245	​​"Charm Bandanna" "Charms the ladies, that is"
+0x00EEBC 246	"Prayer Bandanna" "Purified for priests"
+0x00EED6 247	"Spirit Bandanna" "Wards off ghosts"
+0x00EEF0 248	"Aura Bandanna" "Provides a surge of holy power"
+0x00EF0A 249	"Miracle Bandanna" "Made of holy cloth"
+
+0x00EF24 250	"Cute Ribbon" "Makes its wearer irresistably cute"
+0x00EF3E 251	"Hairband" "Beautiful accessory for women"
+0x00EF58 252	"Silver Hairpin" "High-class hair accessory"   
+0x00EF72 253	"Platinum Hairpin" "Protects against evil" 
+0x00EF8C 254	"Bejeweled Hairpin" "Contains a magical gem"
+0x00EFA6 255	"Ritual Hairpin" "Holds evil at bay"  
+0x00EFC0 256	"Gold Hairpin" "Isn't your hair worth it?"
+0x00EFDA 257	"Amethyst Hairpin" "Creepy-looking and magic-imbued"
+0x00EFF4 258	"Holy Hairpin" "Ringing sound wards off evil"
+0x00F00E 259	          	                
+0x00F028 260	"Goddess Hairpin" "Increases fighting spirit"
+0x00F042 261	          	                
+0x00F05C 262	"Fantasy Ribbon" "Once used by Mia Ausa"
+0x00F076 263	"Headband" "Keeps long hair under control" 	                
+0x00F090 264	          	                
+0x00F0AA 265	          	                
+0x00F0C4 266	          	                
+0x00F0DE 267	          	                
+0x00F0F8 268	          	                
+0x00F112 269	          	                
+0x00F12C 270	          	                
+0x00F146 271	"Angel Ring" "Revives wearer from a faint"  
+0x00F160 272	"Healing Ring" "Restores some HP after every turn"     
+0x00F17A 273	"Stardust Ring" "Restores some MP after every turn"   
+0x00F194 274	"Snake Ring" "Increases ability to avoid attacks"   
+0x00F1AE 275	"Shield Ring" "Decreases damage caused by attacks"  
+0x00F1C8 276	"Force Ring" "Decreases damage caused by magic" 
+0x00F1E2 277	"Protection Ring" "Increases wearer's Defense"
+0x00F1FC 278	"Spirit Ring" "Increases wearer's Magic Defense"     
+0x00F216 279	"Luck Ring" "Increases wearer's Luck"
+0x00F230 280	"Barrier Ring" "Increases both types of Defense"
+0x00F24A 281	"Endurance Ring" "Increases Defense"
+0x00F264 282	"Anti-Magic Ring" "Increases Magic Defense"
+0x00F27E 283	"Earth Ring" "Decreases thunder and wind damage"
+0x00F298 284	"Plasma Ring" "Decreases earth and water damage"
+0x00F2B2 285	"Water Ring" "Decreases thunder and fire damage"
+0x00F2CC 286	"Phoenix Ring" "Decreases water and wind damage"
+0x00F2E6 287	"Wind Ring" "Decreases fire and earth damage" 
+0x00F300 288	"Spirit Talisman" "Lowers damage of elemental magic"
+0x00F31A 289	"Purity Ring" "Wearer immune to poison"
+0x00F334 290	"Vigor Ring" "Wearer cannot be paralyzed" 
+0x00F34E 291	"Dew Ring" "Wearer is immune to sleep spells"    
+0x00F368 292	"Noisy Amulet" "Wearer cannot be muted"
+0x00F382 293	"Power Talisman" "Wearer cannot be charmed"      
+0x00F39C 294	"Fresh Ring" "Prevents poison, paralysis, and sleep "    
+0x00F3B6 295	"Clear Ring" "Wearer is mute- and charm-proof "  
+0x00F3D0 296	"Tri-Ring" "Prevents any status changes" 
+0x00F3EA 297	"Fiend Ring" "Increases both types of Defense, but..."
+0x00F404 298	"Gauss's Necklace" "Recovers 7HP per turn when worn"
+0x00F41E 299	"Lemina's Purse" "Usually empty"
+0x00F438 300	"Mystere's Mask" "Disguise of the Messenger of Justice"
+0x00F452 301	"Lucia's Pendant" "Shiny and mysterious"  	                
+0x00F46C 302	"Gorgon Doll" "Precious Ausa clan heirloom"
+0x00F486 303	"Iron Clogs" "Weight training for karate students" 
+0x00F4A0 304	"Rubber Boots" "Insulates and protects" 
+0x00F4BA 305	          	                
+0x00F4D4 306	          	                
+0x00F4EE 307	          	                
+0x00F508 308	          	                
+0x00F522 309	          	                
+0x00F53C 310	          	                
+0x00F556 311	"Earth Crest" "Enables Earth Magic"    
+0x00F570 312	"Thunder Crest" "Enables Thunder Magic"     
+0x00F58A 313	"Water Crest" "Enables Water Magic"   
+0x00F5A4 314	"Fire Crest" "Enables Fire Magic" 
+0x00F5BE 315	"Wind Crest" "Enables Wind Magic"
+0x00F5D8 316	"Seal Crest" "Enables Muting Magic"
+0x00F5F2 317	"Charm Crest" "Enables Charm Magic"    
+0x00F60C 318	"Mind Crest" "Enables Paralysis Magic"
+0x00F626 319	"Snake Crest" "Enables Poison Magic" 
+0x00F640 320	"Dream Crest" "Enables Sleep Magic" 
+0x00F65A 321	"Magic Eye Crest" "Increases Wisdom"
+0x00F674 322	"Revenge Crest" "Fewer enemy counter-attacks"
+0x00F68E 323	"Healing Crest" "User's attacks absorb enemy HP"   
+0x00F6A8 324	"Warrior Crest" "Increases user's Attack"
+0x00F6C2 325	"Chiro Crest" "Increases user's Speed"
+0x00F6DC 326	"Hunter Crest" "Increases user's Agility" 
+0x00F6F6 327	"Shiro Crest" "Increases user's Range"
+0x00F710 328	"Gale Crest" "Increases user's Attacks"
+0x00F72A 329	"Genie's Crest" "Allows long-range attacks"
+0x00F744 330	"Ogre Crest" "Allows penetration attacks"
+0x00F75E 331	"Power Crest" "Powers up other crests worn"  
+0x00F778 332	"Goddess Crest" "Heightens power of other crests" 
+0x00F792 333	"White Dragon Crest" "Grants White Dragon's power"
+0x00F7AC 334	"Red Dragon Crest" "Grants Red Dragon's power"
+0x00F7C6 335	"Blue Dragon Crest" "Grants Blue Dragon's power"
+0x00F7E0 336	"Black Dragon Crest" "Grants Black Dragon's power"
+0x00F7FA 337	          	                
+0x00F814 338	          	                
+0x00F82E 339	          	                
+0x00F848 340	          	                
+0x00F862 341	          	                
+0x00F87C 342	          	                
+0x00F896 343	          	                
+0x00F8B0 344	          	                
+0x00F8CA 345	          	                
