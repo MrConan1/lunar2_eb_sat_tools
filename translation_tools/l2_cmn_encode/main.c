@@ -736,6 +736,7 @@ int encodeItems(int numItems, char* inFileName,
 		
 		/* Read the line, make sure it starts with "0x" */
 		/* Otherwise, just ignore it */
+		memset(line,0,1023);
 	    fgets(line,1023,infile);
 		if( strncmp(line,"0x",2) != 0)
 			continue;
