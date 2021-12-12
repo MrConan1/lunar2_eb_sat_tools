@@ -1,18 +1,29 @@
 /******************************************************************************/
-/* main.c - Main execution file for lunar Common Text Encoder                 */
+/* main.c - Main execution file for Lunar Common Text Encoder                 */
 /******************************************************************************/
 
 /***********************************************************************/
-/* Lunar Menu Editor (lunar_menu.exe) Usage                            */
+/* Lunar Common Text Encoder Usage                                     */
 /* ========================================                            */
-/* lunar_menu.exe decodemenu InputMenuFname [sss]                      */
-/* lunar_menu.exe encodemenu InputMenuFname InputCsvFname [sss]        */
-/*     sss will interpret SSSC JP table as the SSS JP table.           */
-/*     encoding assumes UTF8 characters.                               */
-/*     Output will encode text with 8 bits per byte.  Control Codes    */
-/*     are 16-bit, and records of control codes/text will start and    */
-/*     end on 16-bit aligned boundaries.  Not completing on a boundary */
-/*     will result in a filler byte of 0xFF appended at the end.       */
+/* l2_cmn_encode.exe outputName                                        */
+/* Expects for the following files in the immediate executable path:   */
+/*                                                                     */
+/*     Game Files                                                      */
+/*     ==========                                                      */
+/*     1233 - Original common file from Lunar EB Disc.                 */
+/*                                                                     */
+/*     Translation Files                                               */
+/*     =================                                               */
+/*     spells.txt - English Text for spells and descriptions.          */
+/*     items.txt - English Text for items and descriptions.            */
+/*     ui.txt - English Text for user interface messages.              */
+/*     bromides.txt - English Text for bromides & misc text.           */
+/*     locations.txt - English Text for locations.                     */
+/*                                                                     */
+/*     Encoding Files                                                  */
+/*     =================                                               */
+/*     l2_8bit_table.txt - UTF-8 to table encodings for the translation*/
+/*     bpe.table - Byte Pair Encoding table to be used for encoding.   */
 /***********************************************************************/
 #ifdef _MSC_VER
 #pragma warning(disable:4996)
@@ -400,6 +411,7 @@ int createUpdatedCommonTextFile(char* outFileName){
 		free(buffer);
         return -1;
     }
+	printf("Writing final output to %s\n",outFileName);
 
 	/* Open Original File for Reading, copy it all to the buffer */
 	infile = NULL;
@@ -501,8 +513,8 @@ int createUpdatedCommonTextFile(char* outFileName){
 
 /* Reads spells from an input file and encodes them */
 /* Expected format is:  Original_Address_Hex, Spell_Number_Dec, "Spell_Name" "Spell_Desc" */
-/* Example: 0x1234, 1, "" "" */
-/* Output Format: */
+/* Example: 0x1234, 1, "Name" "Description" */
+/* Output Format: Compr_Name, 0xFFFF, Compr_Desc, 0xFFFF */
 
 #define DELIM "\""
 
@@ -516,7 +528,6 @@ int encodeSpells(int numSpells, char* inFileName,
 	static char str1[1024];
 	static char str2[1024];
 	static char modifiedStr[1024];
-	unsigned char outputVal;
 	int outputSizeBytes;
 	int numTextPointers, str1Len,str2Len, numCharacters;
 	unsigned int oldAddress;
@@ -544,6 +555,7 @@ int encodeSpells(int numSpells, char* inFileName,
 		
 		/* Read the line, make sure it starts with "0x" */
 		/* Otherwise, just ignore it */
+		memset(line,0,1023);
 	    fgets(line,1023,infile);
 		if( strncmp(line,"0x",2) != 0)
 			continue;
@@ -643,8 +655,8 @@ int encodeSpells(int numSpells, char* inFileName,
 		/* Set the associated index to point to the next text location */
 		/* Index stores the relative short word location from the beginning of the section */
 		/* Each entry must be on a short word boundary.                                    */
-		/* Encode the first text as 8-bit ascii - 0x1F, last character upper bit is set    */
-		/* Encode the second text as 8-bit ascii - 0x1F, last character upper bit is set   */
+		/* Encode the first text as compressed BPE, terminate with 0xFF or 0xFFFF */
+		/* Encode the second text as compressed BPE, terminate with 0xFF or 0xFFFF */
 
 
         //BPE Compression
@@ -653,23 +665,25 @@ int encodeSpells(int numSpells, char* inFileName,
 		if(str2Len > 0)
 		    compressBPE((unsigned char*)str2,(unsigned int*) &str2Len);
 
+		/* Update Pointer to Spell */
 		pTextPointers[txtIndex] = (unsigned short)(outputSizeBytes / 2) & 0xFFFF;
 		swap16(&pTextPointers[txtIndex]);
-		for(x = 0; x < str1Len; x++){
-			outputVal = str1[x];// - 0x1F;
-//			if(x == (str1Len-1))
-//				outputVal |= 0x80;
-			outBuffer[outputSizeBytes++] = outputVal;
-		}
-		for(x = 0; x < str2Len; x++){
-			outputVal = str2[x];// - 0x1F;
-//			if(x == (str2Len-1))
-//				outputVal |= 0x80;
-			outBuffer[outputSizeBytes++] = outputVal;
-		}
-		if((outputSizeBytes % 2) != 0)
-			outBuffer[outputSizeBytes++] = 0xFF;
 
+        /* Copy Spell Name, terminate with 0xFFFF */
+		/* If not aligned on a 16-bit boundary, just need 0xFF */
+		memcpy(&outBuffer[outputSizeBytes], str1, str1Len);
+		outputSizeBytes += str1Len;
+		if((outputSizeBytes % 2) == 0)
+			outBuffer[outputSizeBytes++] = 0xFF;
+		outBuffer[outputSizeBytes++] = 0xFF;
+		
+		/* Copy Spell Description, terminate with 0xFFFF */
+		/* If not aligned on a 16-bit boundary, just need 0xFF */
+		memcpy(&outBuffer[outputSizeBytes], str2, str2Len);
+		outputSizeBytes += str2Len;
+		if((outputSizeBytes % 2) == 0)
+			outBuffer[outputSizeBytes++] = 0xFF;
+		outBuffer[outputSizeBytes++] = 0xFF;
 	}
 
     /* Update number of bytes written */
@@ -695,7 +709,6 @@ int encodeItems(int numItems, char* inFileName,
 	static char str1[1024];
 	static char str2[1024];
 	static char modifiedStr[1024];
-	unsigned char outputVal;
 	int outputSizeBytes;
 	int numTextPointers, str1Len,str2Len, numCharacters;
 	unsigned int oldAddress;
@@ -818,8 +831,8 @@ int encodeItems(int numItems, char* inFileName,
 		/* Set the associated index to point to the next text location */
 		/* Index stores the relative short word location from the beginning of the section */
 		/* Each entry must be on a short word boundary.                                    */
-		/* Encode the first text as 8-bit ascii - 0x1F, last character upper bit is set    */
-		/* Encode the second text as 8-bit ascii - 0x1F, last character upper bit is set   */
+		/* Encode the first text as compressed BPE, terminate with 0xFF or 0xFFFF */
+		/* Encode the second text as compressed BPE, terminate with 0xFF or 0xFFFF */
 
 		//BPE Compression
         if(str1Len > 0)
@@ -827,28 +840,26 @@ int encodeItems(int numItems, char* inFileName,
 		if(str2Len > 0)
 		    compressBPE((unsigned char*)str2,(unsigned int*) &str2Len);
 
+
+		/* Update Pointer to Item */
 		pTextPointers[txtIndex] = (unsigned short)(outputSizeBytes / 2) & 0xFFFF;
 		swap16(&pTextPointers[txtIndex]);
-		for(x = 0; x < str1Len; x++){
-			outputVal = str1[x];// - 0x1F;
-//			if(x == (str1Len-1))
-//				outputVal |= 0x80;
-			outBuffer[outputSizeBytes++] = outputVal;
-		}
-		outBuffer[outputSizeBytes++] = 0xFF;
-		if((outputSizeBytes % 2) != 0)
-			outBuffer[outputSizeBytes++] = 0xFF;
 
-		for(x = 0; x < str2Len; x++){
-			outputVal = str2[x];// - 0x1F;
-//			if(x == (str2Len-1))
-//				outputVal |= 0x80;
-			outBuffer[outputSizeBytes++] = outputVal;
-		}
-		outBuffer[outputSizeBytes++] = 0xFF;
-		if((outputSizeBytes % 2) != 0)
+        /* Copy Item Name, terminate with 0xFFFF */
+		/* If not aligned on a 16-bit boundary, just need 0xFF */
+		memcpy(&outBuffer[outputSizeBytes], str1, str1Len);
+		outputSizeBytes += str1Len;
+		if((outputSizeBytes % 2) == 0)
 			outBuffer[outputSizeBytes++] = 0xFF;
-
+		outBuffer[outputSizeBytes++] = 0xFF;
+		
+		/* Copy Item Description, terminate with 0xFFFF */
+		/* If not aligned on a 16-bit boundary, just need 0xFF */
+		memcpy(&outBuffer[outputSizeBytes], str2, str2Len);
+		outputSizeBytes += str2Len;
+		if((outputSizeBytes % 2) == 0)
+			outBuffer[outputSizeBytes++] = 0xFF;
+		outBuffer[outputSizeBytes++] = 0xFF;
 	}
 
     /* Update number of bytes written */
@@ -858,25 +869,29 @@ int encodeItems(int numItems, char* inFileName,
 }
 
 
+#define OPEN_QUOTE   0
+#define CLOSED_QUOTE 1
+
 
 /* Reads items from an input file and encodes them */
-/* Expected format is:  Original_Address_Hex, Item_Number_Dec, "Item_Name" "Item_Desc" */
-/* Example: 0x1234, 1, "" "" */
-/* Output Format: */
+/* Expected format is:  Original_Address_Hex, Item_Number_Dec, "Text" */
+/* Example: 0x1234, 1, "Text" */
+/* Output Format: Compr_Text, 0xFF or 0xFFFF*/
 int encodeCmnStandard(int numSlots, char* inFileName, 
     unsigned char* outBuffer, unsigned int* outNumBytes){
 
 	FILE* infile;
-	unsigned char* pData, *pChar;
+	unsigned char* pData, *pChar, *pTmpOutput, *pStrEnd;
 	unsigned short* pTextPointers;
 	static char line[1024];
 	static char str1[1024];
 	static char modifiedStr[1024];
-	unsigned char outputVal;
 	int outputSizeBytes;
 	int numTextPointers, str1Len, numCharacters;
 	unsigned int oldAddress;
-	int txtIndex, x;
+	int txtIndex;
+	int tmpOutputSize = 0;
+
 
 	/* Init Output Size */
 	*outNumBytes = 0;
@@ -895,11 +910,24 @@ int encodeCmnStandard(int numSlots, char* inFileName,
 	pTextPointers = (unsigned short*)outBuffer;
 	outputSizeBytes = numTextPointers*2;
 
+	/* Temp output buffer */
+	pTmpOutput = (unsigned char*)malloc(1024*1024);
+	if(pTmpOutput == NULL){
+		printf("Memory alloc error for temp buffer.\n");
+		return -1;
+	}
+
     /* Parse the entries line by line */
     while(!feof(infile)){
-		
+		int parseError = 0;
+	    int termFlag = 0;
+		int emptySlotFlg = 0;
+		int quoteFlag = OPEN_QUOTE;
+		tmpOutputSize = 0;
+
 		/* Read the line, make sure it starts with "0x" */
 		/* Otherwise, just ignore it */
+		memset(line,0,1023);
 	    fgets(line,1023,infile);
 		if( strncmp(line,"0x",2) != 0)
 			continue;
@@ -907,72 +935,180 @@ int encodeCmnStandard(int numSlots, char* inFileName,
 		/* Read the old address and the index */
 		sscanf((char*)line, "%X %d", &oldAddress, &txtIndex);
 		
-		/* Read the First Spell String */
-		str1Len = 0;
-		pData = (unsigned char*)strtok((char *)line, DELIM);
-		pData = (unsigned char*)strtok(NULL, DELIM);
-		if(pData == NULL)
-			continue;
-		x = 0;
-		while((pData[x] != '\0') && (pData[x] != '\"')){
-			x++;
-		}
-		str1Len = x;
-		strcpy(str1,(char*)pData);
-
-		/* Convert the UTF-8 text to use our table */
-        if(str1Len > 0){
-			pChar = (unsigned char*)str1;
-			numCharacters = 0;
-			while(*pChar != '\0'){
-				unsigned char utf8Code;
-				int nBytes;
-				nBytes = numBytesInUtf8Char(*pChar);
-				if(getUTF8code_Byte((char*)pChar, &utf8Code) < 0){
-					int y;
-					printf("Error, missing code for %d byte character!\n",nBytes);
-					for(y=0;y<nBytes;y++){
-						printf("\tByte %d: 0x%2X\n",y,pChar[y]);
-					}
-					fclose(infile);
-					return -1;
-				}
-				modifiedStr[numCharacters] = utf8Code;
-
-				pChar += nBytes;
-				numCharacters++;
+		/* Extract the Common String */
+		pData = (unsigned char*)line;
+		while(*pData != '\"'){
+			pData++;
+			if(*pData == '\0'){
+//				printf("Empty Slot.\n");
+				emptySlotFlg = 1;
+                break;
 			}
-			strncpy(str1,modifiedStr,numCharacters);
-			str1Len = numCharacters;
+		}
+		if(emptySlotFlg)
+			continue;
+		pData++;
+
+		str1Len = strlen(line);
+#if 0
+		printf("%s\n",line);
+#endif
+		pStrEnd = (unsigned char*) (&line[str1Len-1]);
+		while(*pStrEnd != '\"'){
+			pStrEnd--;
+			if(pStrEnd <= pData){
+				printf("Input file error detected.\n");
+				parseError = 1;
+			}
+		}
+		if(parseError){
+			continue;
+		}
+		*pStrEnd = '\0';
+
+
+		/* pData now points to a Null terminated string containing a mixture */
+		/* of text and control codes to be output.  Control codes all begin  */
+		/* with 0xF*** and get decoded on the saturn side.                   */
+
+
+		/* Now parse the utf-8 string looking for escape sequences for special */
+		/* characters or Control Codes in Hex.                                 */
+		/* Compress UTF-8 Strings and pad such that all text and hex codes begin        */
+		/* on a 16-bit boundary.  Pad with 0x00 if the current line is not complete     */
+		/* Pad with 0xFF if it is complete.  Add a final 0xFFFF if the line is complete */
+		/* and prior padding of 0xFF did not occur.                                     */
+		while(*pData != '\0'){
+			int x,y;
+			int hexValueLocated = 0;
+
+			/* Copy the first string to str1 */
+			x = y = 0;
+			while(1){
+				/* End of String */
+				if(pData[x] == '\0')
+					break;
+				/* Escape Sequence */
+				if(pData[x] == '\\'){
+					x++;
+					if(pData[x] == 'X'){
+						/* Hex Value Follows */
+						hexValueLocated = 1;
+						x++;
+						break;
+					}
+					else if(pData[x] == '\"'){
+						if(quoteFlag == OPEN_QUOTE){
+							/* Open Quote */
+							quoteFlag = CLOSED_QUOTE;
+							str1[y++] = 0x5B;  /* [ is open quote " */
+						}
+						else{
+							/* Closed Quote */
+							quoteFlag = OPEN_QUOTE;
+							str1[y++] = 0x5D;  /* ] is closed quote " */
+						}
+						x++;
+						continue;
+					}
+					else{
+						; /* Nothing extra to be done */
+						  /* The next character is to be printed */
+					}
+				}
+				str1[y++] = pData[x];
+				x++;
+			}
+			str1[y] = '\0';
+			str1Len = y;
+
+			/* Advance pointer to the next string after this one */
+			pData += x;
+
+			/* Encode string according to table file, then compress */
+			if(str1Len > 0){
+				pChar = (unsigned char*)str1;
+				numCharacters = 0;
+				while(*pChar != '\0'){
+					unsigned char utf8Code;
+					int nBytes;
+					nBytes = numBytesInUtf8Char(*pChar);
+					if(getUTF8code_Byte((char*)pChar, &utf8Code) < 0){
+						int y;
+						printf("Error, missing code for %d byte character!\n",nBytes);
+						for(y=0;y<nBytes;y++){
+							printf("\tByte %d: 0x%2X\n",y,pChar[y]);
+						}
+						fclose(infile);
+						return -1;
+					}
+					modifiedStr[numCharacters] = utf8Code;
+
+					pChar += nBytes;
+					numCharacters++;
+				}
+				strncpy(str1,modifiedStr,numCharacters);
+				str1Len = numCharacters;
+
+				//BPE Compression
+		        if(str1Len > 0){
+					compressBPE((unsigned char*)str1,(unsigned int*) &str1Len);
+
+					//Add to output string -- TBD
+					memcpy(&pTmpOutput[tmpOutputSize],str1,str1Len);
+					tmpOutputSize += str1Len;
+					if((tmpOutputSize % 2) != 0){
+						if(*pData == '\0'){
+							pTmpOutput[tmpOutputSize++] = 0xFF;
+							termFlag = 1;
+						}
+						else
+							pTmpOutput[tmpOutputSize++] = 0x00;
+					}
+				}
+			}
+			
+			/* If Hex Data, Output Directly */
+			if(hexValueLocated){
+				unsigned int hexData;
+				unsigned short swHexData;
+
+				memset(str1,0,10);
+				strncpy(str1,(char*)pData,4);
+				sscanf(str1,"%X",&hexData);
+				swHexData = hexData & 0xFFFF;
+				swap16(&swHexData);
+				pData += 4;
+
+				//Add to output string
+				memcpy(&pTmpOutput[tmpOutputSize],&swHexData,2);
+				tmpOutputSize += 2;
+			}
+
 		}
 
-		/* Now Encode to the output file */
+		/* Ensure there is a string termination character or short word */
+		if(!termFlag){
+			unsigned short swHexData = 0xFFFF;
+			memcpy(&pTmpOutput[tmpOutputSize],&swHexData,2);
+			tmpOutputSize += 2;
+		}
+
+
+		/* Now Encode the current line to the output file */
 		/* Set the associated index to point to the next text location */
 		/* Index stores the relative short word location from the beginning of the section */
 		/* Each entry must be on a short word boundary.                                    */
-		/* Encode the first text as 8-bit ascii - 0x1F, last character upper bit is set    */
-		/* Encode the second text as 8-bit ascii - 0x1F, last character upper bit is set   */
-
-		//BPE Compression
-        if(str1Len > 0)
-			compressBPE((unsigned char*)str1,(unsigned int*) &str1Len);
-
 		pTextPointers[txtIndex] = (unsigned short)(outputSizeBytes / 2) & 0xFFFF;
 		swap16(&pTextPointers[txtIndex]);
-		for(x = 0; x < str1Len; x++){
-			outputVal = str1[x];// - 0x1F;
-//			if(x == (str1Len-1))
-//				outputVal |= 0x80;
-			outBuffer[outputSizeBytes++] = outputVal;
-		}
-		outBuffer[outputSizeBytes++] = 0xFF;
-		if((outputSizeBytes % 2) != 0)
-			outBuffer[outputSizeBytes++] = 0xFF;
-
+		memcpy(&outBuffer[outputSizeBytes], pTmpOutput, tmpOutputSize);
+		outputSizeBytes += tmpOutputSize;
 	}
 
     /* Update number of bytes written */
 	*outNumBytes = outputSizeBytes;
+
+	free(pTmpOutput);
 	fclose(infile);
 	return 0;
 }

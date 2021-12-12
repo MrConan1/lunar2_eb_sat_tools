@@ -1,14 +1,14 @@
 Spell Strings
-0x00C7D0 0	                         <0xFFFF>	
+0x00C7D0 0	                      	
 0x00C7EA 1	"Escape Litany" "Teleport to the dungeon entrance"
 0x00C804 2	"Heal Litany" "Restores some HP to one ally"
 0x00C81E 3	"Purity Litany" "Recovers all HP of one ally"
 0x00C838 4	"Calm Litany" "Restores some HP to all allies"
 0x00C852 5	"Tranquil Litany" "Recovers most HP of all allies"
-0x00C86C 6	                         <0xFFFF>
-0x00C886 7	                         <0xFFFF>
-0x00C8A0 8	                         <0xFFFF>
-0x00C8BA 9	                         <0xFFFF>
+0x00C86C 6	                    
+0x00C886 7	                    
+0x00C8A0 8	                    
+0x00C8BA 9	                
 
 0x00C8D4 10	"Force Field"
 0x00C8EE 11	"Heal Litany"
@@ -128,10 +128,10 @@ Spell Strings
 0x00D316 111	"Atomic Burn"
 0x00D330 112	"Power Charge"
 
-0x00D34A 113	                         <0xFFFF>
-0x00D364 114	                         <0xFFFF>
-0x00D37E 115	                         <0xFFFF>
-0x00D398 116	                         <0xFFFF>
+0x00D34A 113	                       
+0x00D364 114	                       
+0x00D37E 115	                      
+0x00D398 116	                      
 
 0x00D3B2 117	"Sleep Sheep" "The enemy crashes"
 0x00D3CC 118	"Poison Dart" "A venomous purple projectile"
