@@ -67,7 +67,7 @@ An 0xA character will be used to separate the Name from the description.
 /* File Offsets */
 #define SPELL_OFFSET     0x0C7D0
 #define ITEM_OFFSET      0x0D5C0
-#define UI_OFFSET        0x0F8E8
+#define UI_OFFSET        0x10144//0x0F8E8
 #define BROMIDE_OFFSET   0x10D28
 #define LOCATION_OFFSET  0x1109C
 #define DICT_OFFSET      0x11290
@@ -669,13 +669,13 @@ int encodeSpells(int numSpells, char* inFileName,
 		pTextPointers[txtIndex] = (unsigned short)(outputSizeBytes / 2) & 0xFFFF;
 		swap16(&pTextPointers[txtIndex]);
 
-        /* Copy Spell Name, terminate with 0xFFFF */
+        /* Copy Spell Name, terminate with spacing, not 0xFFFF */
 		/* If not aligned on a 16-bit boundary, just need 0xFF */
 		memcpy(&outBuffer[outputSizeBytes], str1, str1Len);
 		outputSizeBytes += str1Len;
-		if((outputSizeBytes % 2) == 0)
-			outBuffer[outputSizeBytes++] = 0xFF;
-		outBuffer[outputSizeBytes++] = 0xFF;
+//		if((outputSizeBytes % 2) == 0)
+		outBuffer[outputSizeBytes++] = 0xF9;
+		outBuffer[outputSizeBytes++] = 0x10;  //Need to Calculate
 		
 		/* Copy Spell Description, terminate with 0xFFFF */
 		/* If not aligned on a 16-bit boundary, just need 0xFF */
@@ -846,13 +846,13 @@ int encodeItems(int numItems, char* inFileName,
 		pTextPointers[txtIndex] = (unsigned short)(outputSizeBytes / 2) & 0xFFFF;
 		swap16(&pTextPointers[txtIndex]);
 
-        /* Copy Item Name, terminate with 0xFFFF */
+        /* Copy Item Name, terminate with spacing not 0xFFFF */
 		/* If not aligned on a 16-bit boundary, just need 0xFF */
 		memcpy(&outBuffer[outputSizeBytes], str1, str1Len);
 		outputSizeBytes += str1Len;
-		if((outputSizeBytes % 2) == 0)
-			outBuffer[outputSizeBytes++] = 0xFF;
-		outBuffer[outputSizeBytes++] = 0xFF;
+//		if((outputSizeBytes % 2) == 0)
+		outBuffer[outputSizeBytes++] = 0xF9;
+		outBuffer[outputSizeBytes++] = 0x10;  //Need to calculate
 		
 		/* Copy Item Description, terminate with 0xFFFF */
 		/* If not aligned on a 16-bit boundary, just need 0xFF */
@@ -1063,8 +1063,9 @@ int encodeCmnStandard(int numSlots, char* inFileName,
 							pTmpOutput[tmpOutputSize++] = 0xFF;
 							termFlag = 1;
 						}
-						else
-							pTmpOutput[tmpOutputSize++] = 0x00;
+						// I dont think that this is needed
+						//else
+						//	pTmpOutput[tmpOutputSize++] = 0x00;
 					}
 				}
 			}
