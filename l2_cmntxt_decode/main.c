@@ -306,7 +306,7 @@ int main(int argc, char** argv){
 
 #if 1
 	/* Decoding of stuff from 0x10D24 through 0x11290 (start of 2 byte dictionary lookup table) */
-	printf("\n\nSpell Effects Msgs (178 Entries)\n");
+	printf("\n\nSpell Effects Msgs (89 Entries)\n");
 	fprintf(outFile,"\n\nDecoding Spell Effects Msgs\n");
 	fprintf(outFile,"Offset\tText\n");
 
