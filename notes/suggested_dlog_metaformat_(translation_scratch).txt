@@ -3,10 +3,10 @@
 </Filename>
 
 <ES_Header>
-Script_Offset: 0xXXXX
+Command_Offset: 0xXXXX
 Text_Offset: 0xXXXX
 Portrait_Offset: 0xXXXX
-Script_Size: 0xXXXX
+Text_Size: 0xXXXX
 </ES_Header>
 
 <Command_Section>
