@@ -1,0 +1,822 @@
+input\1268:
+Dragonship Destiny
+Dragonship Destiny
+Dragonship Destiny
+Dragonship Destiny
+Dragonship Destiny
+Dragonship Destiny
+
+
+input\1269:
+Dragonship Destiny
+Dragonship Destiny
+Dragonship Destiny
+Dragonship Destiny
+Dragonship Destiny
+Dragonship Destiny
+
+
+input\1270:
+Dragonship Destiny
+Dragonship Destiny
+Dragonship Destiny
+Dragonship Destiny
+Dragonship Destiny
+Dragonship Destiny
+
+
+input\1271:
+Dragonship Destiny
+Dragonship Destiny
+Dragonship Destiny
+Dragonship Destiny
+Dragonship Destiny
+Dragonship Destiny
+
+
+input\1272:
+Dragonship Destiny
+Dragonship Destiny
+Dragonship Destiny
+Dragonship Destiny
+Dragonship Destiny
+Dragonship Destiny
+
+
+input\1273:
+Save (Summerless)
+Ancient Ruins Top Floor
+
+
+input\1274:
+Save (Summerless)
+
+
+input\1275:
+Save (Summerless)
+Save (Summerless)
+Save (Summerless)
+Red Dragon Cave Entrance
+Hiro's Family
+
+
+input\1276:
+Save (Summerless)
+Goddess Tower Top Floor
+
+
+input\1277:
+Save (Summerless)
+Save (Summerless)
+Dragonship Destiny
+
+
+input\1278:
+Dragonship Destiny
+Save (Summerless)
+Save (Summerless)
+Vane Magic Guild
+
+
+input\1279:
+Save (Summerless)
+Save (Summerless)
+Save (Summerless)
+Save (Summerless)
+Dragonship Destiny
+Dragonship Destiny
+
+
+input\1280:
+Dragonship Destiny
+Save (Summerless)
+Save (Summerless)
+
+
+input\1281:
+Save (Summerless)
+Save (Summerless)
+Blue Spire 6F
+Save (Summerless)
+
+
+input\1282:
+Blue Spire Transmission Room
+Dragonship Destiny
+
+
+input\1283:
+Save (Summerless)
+
+
+input\1284:
+World Map
+Save (Summerless)
+
+
+input\1285:
+World Map
+
+
+input\1286:
+World Map
+
+
+input\1287:
+World Map
+Dragonship Destiny
+
+
+input\1288:
+Desert Village Larpa
+Desert Village Larpa
+Desert Village Larpa
+Desert Village Larpa
+Desert Village Larpa
+Desert Village Larpa
+Desert Village Larpa
+Desert Village Larpa
+Desert Village Larpa
+Desert Village Larpa
+
+
+input\1289:
+Larpa Mountains
+Larpa Mountains
+Desert Village Larpa
+Desert Village Larpa
+Save (Summerless)
+
+
+input\1290:
+Hiro's Family
+Hiro's Family
+Hiro's Family
+Hiro's Family
+Hiro's Family
+
+
+input\1291:
+Nota Village
+Nota Village
+Nota Village
+Nota Village
+Nota Village
+Nota Village
+Nota Village
+Nota Village
+Nota Village
+Nota Village
+Nota Village
+Nota Village
+Nota Village
+
+
+input\1292:
+Blue Labyrinth Entrance
+Blue Labyrinth 1F
+Blue Labyrinth 2F
+Blue Labyrinth Star Chamber
+Blue Labyrinth Sun Room
+Blue Labyrinth Moon Room
+Blue Labyrinth Between Stars
+Blue Labyrinth Final
+
+
+input\1293:
+Blue Labyrinth Entrance
+
+
+input\1294:
+Blue Spire Front Yard
+Blue Spire 1F
+Save (Summerless)
+
+
+input\1295:
+Blue Spire 2F
+Blue Spire 3F
+Blue Spire 4F
+Blue Spire 5F
+Blue Spire 6F
+
+
+input\1296:
+Blue Spire 7F
+Blue Spire Transmission Room
+
+
+input\1297:
+Horam
+Horam
+Horam
+Horam
+Horam
+Horam
+Horam
+Horam Dojo
+Horam Dojo
+Horam Dojo
+Horam Dojo
+Horam Dojo
+
+
+input\1298:
+Carnival
+Carnival
+Carnival
+Carnival
+Carnival
+Carnival
+Carnival
+Carnival
+Carnival
+
+
+input\1299:
+Zaback Mining Town
+Zaback Mining Town
+Zaback Mining Town
+Zaback Mining Town
+Zaback Mining Town
+Zaback Mining Town
+Zaback Mining Town
+Zaback Mining Town
+
+
+input\1300:
+Vane
+Vane
+Vane
+Vane
+Vane
+Vane
+
+
+input\1301:
+Vane Magic Guild
+Vane Magic Guild
+
+
+input\1302:
+Vane
+
+
+input\1303:
+Port Town Dalton
+Port Town Dalton
+Port Town Dalton
+Port Town Dalton
+Port Town Dalton
+Port Town Dalton
+Port Town Dalton
+Port Town Dalton
+Port Town Dalton
+Port Town Dalton
+Port Town Dalton
+Port Town Dalton
+Port Town Dalton
+
+
+input\1304:
+Dragonship Destiny
+Dragonship Destiny
+Dragonship Destiny
+Dragonship Destiny
+Dragonship Destiny
+Dragonship Destiny
+
+
+input\1305:
+Port Town Dalton
+Save (Summerless)
+
+
+input\1306:
+Raculi Village
+Raculi Village
+Raculi Village
+Raculi Village
+Raculi Village
+
+
+input\1307:
+Dragon Ruins Entrance
+Dragon Ruins Entrance
+Dragon Ruins Statues
+Dragon Ruins 1F
+Dragon Ruins 2F
+Dragon Ruins 3F
+Dragon Ruins 4F
+Dragon Ruins 5F
+Dragon Ruins 6F
+Dragon Ruins 7F
+Dragon Ruins 8F
+Dragon Ruins 9F
+
+
+input\1308:
+Star Dragon Tower Transmission Room
+Star Dragon Tower 1F
+Star Dragon Tower 2F
+Star Dragon Tower 3F
+Star Dragon Tower 4F
+Star Dragon Tower 5F
+Star Dragon Tower 6F
+Star Dragon Tower 7F
+
+
+input\1309:
+Lance Forest
+Lance Forest
+Lance Forest
+Lance Forest
+
+
+input\1310:
+Lance Forest
+Lance Forest
+Lance Forest
+Lance Forest
+
+
+input\1311:
+Lance Forest
+Lance Forest
+Lance Forest
+Lance Forest
+Lance Forest
+Lance Forest
+Lance Forest
+Lance Forest
+Lance Forest
+Lance Forest
+Save (Summerless)
+
+
+input\1312:
+Althena's Shrine Ruins
+Althena's Shrine Ruins
+Althena's Shrine Ruins
+Althena's Shrine Ruins
+
+
+input\1313:
+Takkar Village
+Takkar Village
+Takkar Village
+Takkar Village
+Takkar Village
+Takkar Village
+Takkar Village
+Takkar Village
+
+
+input\1314:
+Takkar Mountain Pass
+Takkar Mountain Pass
+Haribote Dungeon
+
+
+input\1315:
+Takkar Mountain North
+Takkar Mountain North
+
+
+input\1316:
+Ancient Ruins Top Floor
+Ancient Ruins 1F
+Ancient Ruins 3F
+Ancient Ruins 2F
+Ancient Ruins 3F
+Ancient Ruins 3F
+Ancient Ruins 2F
+Ancient Ruins 2F
+Ancient Ruins Top Floor
+
+
+input\1317:
+Zulan Village
+Zulan Village
+Zulan Village
+Zulan Village
+Zulan Village
+Zulan Village
+Zulan Village
+
+
+input\1318:
+Zulan Snow Mountains
+Zulan Snow Mountains
+Zulan Snow Mountains
+Zulan Snow Mountains
+Zulan Snow Mountains
+Zulan Snow Mountains
+
+
+input\1319:
+Meribia
+Meribia
+Meribia
+Meribia
+Meribia
+Meribia
+Meribia
+Meribia
+Meribia
+Meribia
+
+
+input\1320:
+Lunn's Dojo
+Lunn's Dojo
+Lunn's Dojo
+Lunn's Dojo
+Save (Summerless)
+
+
+input\1321:
+Meribia Sewers
+Meribia Sewers
+Meribia Sewers
+
+
+input\1322:
+Grindery 6F
+Grindery 7F
+Grindery Prison
+
+
+input\1323:
+Grindery 8F
+Grindery 9F
+Grindery Aerial Garden
+
+
+input\1324:
+Grindery Entrance
+Grindery 2F
+Grindery 3F
+Grindery 4F
+Grindery 5F
+
+
+input\1325:
+Azado, Firey Port Town
+Azado, Firey Port Town
+Azado, Firey Port Town
+Azado, Firey Port Town
+Azado, Firey Port Town
+Azado, Firey Port Town
+Azado, Firey Port Town
+Azado, Firey Port Town
+Azado, Firey Port Town
+
+
+input\1326:
+Azado, Firey Port Town
+Azado, Firey Port Town
+Azado, Firey Port Town
+Azado, Firey Port Town
+Azado, Firey Port Town
+Azado, Firey Port Town
+Azado, Firey Port Town
+
+
+input\1327:
+Azado Goddess Statue Entrance
+Azado Goddess Statue Entrance
+Goddess Statue 1F
+Goddess Statue 2F
+Goddess Statue 3F
+Goddess Statue 4F
+Goddess Statue 5F
+Goddess Statue 6F
+Goddess Statue 7F
+Goddess Statue 8F
+Goddess Statue 9F
+Goddess Statue 10F
+Goddess Statue 11F
+
+
+input\1328:
+Goddess Statue Hands
+Save (Summerless)
+Goddess Statue Hands
+
+
+input\1329:
+Transmission Spring
+Cave of Trials B5
+Cave of Trials B4
+Cave of Trials B3
+Cave of Trials B2
+Cave of Trials B1
+
+
+input\1330:
+Holy City Pentagulia
+Holy City Pentagulia
+Holy City Pentagulia
+Holy City Pentagulia
+Holy City Pentagulia
+Holy City Pentagulia
+
+
+input\1331:
+Holy City Pentagulia
+Dragonship Destiny
+Dragonship Destiny
+
+
+input\1332:
+Great Temple
+Great Temple
+Great Temple
+Great Temple
+Great Temple
+Great Temple
+
+
+input\1333:
+Dragonship Destiny
+Dragonship Destiny
+Dragonship Destiny
+Dragonship Destiny
+Dragonship Destiny
+Dragonship Destiny
+
+
+input\1334:
+Holy City Pentagulia Basement
+White Tower 1F
+White Tower 2F
+White Tower 3F
+White Tower 4F
+White Tower 6F
+White Tower 5F
+
+
+input\1335:
+Holy City Pentagulia Basement
+Red Tower 1F
+Red Tower 2F
+Red Tower 3F
+Red Tower 4F
+Red Tower 6F
+Red Tower 5F
+
+
+input\1336:
+Holy City Pentagulia Basement
+Blue Tower 1F
+Blue Tower 2F
+Blue Tower 3F
+Blue Tower 4F
+Blue Tower 6F
+Blue Tower 5F
+
+
+input\1337:
+Holy City Pentagulia Basement
+Black Tower 1F
+Black Tower 2F
+Black Tower 3F
+Black Tower 4F
+Black Tower 6F
+Black Tower 5F
+
+
+input\1338:
+Goddess Tower Entrance
+
+
+input\1339:
+Goddess Tower Entrance
+Goddess Tower Crosswalk
+
+
+input\1340:
+Goddess Tower 1F
+Goddess Tower 2F
+Goddess Tower 3F
+Goddess Tower 4F
+Goddess Tower 5F
+Goddess Tower Top Floor
+
+
+input\1341:
+White Dragon Cave
+White Dragon Cave
+White Dragon Cave
+White Dragon Cave
+White Dragon Cave
+White Dragon Cave
+
+
+input\1342:
+White Dragon Seal Room
+
+
+input\1343:
+Martial Arts Arena
+Martial Arts Arena
+Martial Arts Arena
+
+
+input\1344:
+Neo-Vane
+Neo-Vane
+Neo-Vane
+Neo-Vane
+Neo-Vane
+Neo-Vane
+Neo-Vane
+
+
+input\1345:
+New Magic Guild
+New Magic Guild
+New Magic Guild
+New Magic Guild
+Save (Summerless)
+
+
+input\1346:
+Mine B1
+Mine B2
+Mine B3
+Mine B2
+
+
+input\1347:
+Black Dragon Seal Room
+
+
+input\1348:
+Black Dragon Cave
+Black Dragon Cave
+Black Dragon Cave
+Black Dragon Cave
+Black Dragon Cave
+Black Dragon Cave
+
+
+input\1349:
+Serak Palace Entrance
+Serak Palace 1F
+Serak Palace 1F
+Serak Palace 2F
+Serak Palace 3F
+Serak Palace Basement
+
+
+input\1350:
+Save (Summerless)
+Save (Summerless)
+Serak Palace 1F
+Save (Summerless)
+Save (Summerless)
+Save (Summerless)
+Save (Summerless)
+Save (Summerless)
+
+
+input\1351:
+Red Dragon Cave Entrance
+Red Dragon Cave
+Red Dragon Cave
+Red Dragon Cave
+Red Dragon Cave
+Red Dragon Cave
+
+
+input\1352:
+Red Dragon Seal Room
+
+
+input\1353:
+Blue Dragon Cave
+Blue Dragon Cave
+Blue Dragon Cave
+Blue Dragon Cave
+Blue Dragon Cave
+Blue Dragon Cave
+Blue Dragon Cave
+
+
+input\1354:
+Blue Dragon Seal Room
+
+
+input\1355:
+Hard Maze B2
+Hard Maze B5
+Hard Maze B5
+Hard Maze B1
+Hard Maze B3
+Hard Maze B4
+
+
+input\1356:
+Zophar's Keep 4F
+Zophar's Keep 1F
+Zophar's Keep 2F
+Zophar's Keep 3F
+Zophar's Keep 5F
+
+
+input\1357:
+Zophar's Keep, Genesis
+Zophar's Keep, Genesis
+Zophar's Keep Top Floor
+
+
+input\1358:
+Bent Mountain Range
+Bent Mountain Range
+Bent Mountain Range
+Bent Mountain Range
+Bent Mountain Range
+
+
+input\1359:
+East Salyan Desert
+East Salyan Desert
+
+
+input\1360:
+Water Ruins B1
+Water Ruins B2
+Water Ruins B3
+Water Ruins B4
+Water Ruins B5
+Water Ruins B5
+Water Ruins Statue Room
+Water Ruins
+
+
+input\1361:
+West Salyan Desert
+
+
+input\1362:
+Magic City Althena
+Magic City Althena
+Magic City Althena
+Magic City Althena
+Magic City Althena
+Magic City Althena
+Magic City Althena
+Magic City Althena
+Magic City Althena
+Magic City Althena
+
+
+input\1363:
+Lion's Head 1F
+Lion's Head 2F
+Lion's Head 3F
+Lion's Head 4F
+Lion's Head Top Floor
+Lion's Head 5F
+Lion's Head 5F
+Lion's Head 5F
+Lion's Head 5F
+Lion's Head 5F
+Lion's Head 5F
+Lion's Head 5F
+Lion's Head 5F
+Lion's Head 5F
+Lion's Head 5F
+Lion's Head Top Floor
+
+
+input\1364:
+Dragon's Nest B1
+Dragon's Nest B2
+Dragon's Nest B3
+Dragon's Nest B4
+Dragon's Nest B5
+Dragon's Nest B6
+Dragon's Nest B7
+Dragon's Nest B8
+Dragon's Nest B9
+Dragon's Nest B10
+
+
+input\1365:
+Water Gate Forest
+Water Gate Forest
+Water Ruins
+Water Ruins
+Water Ruins
+Water Ruins
+Water Ruins
+
+
+input\1366:
+Star Gazing Forest
+Star Gazing Forest
+
+
