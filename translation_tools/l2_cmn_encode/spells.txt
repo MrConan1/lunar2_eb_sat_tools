@@ -1,5 +1,5 @@
 Spell Strings
-0x00C7D0 0	                      	
+0x00C7D0 0	"        " "        "                 	
 0x00C7EA 1	"Escape Litany" "Teleport to the dungeon entrance"
 0x00C804 2	"Heal Litany" "Restores some HP to one ally"
 0x00C81E 3	"Purity Litany" "Recovers all HP of one ally"

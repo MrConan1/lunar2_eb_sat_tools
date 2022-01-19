@@ -46,7 +46,8 @@ There are 30 Locations
 
 Spells    : 0x0C7D0 to 0x0D5BB  (0x0DEC = 3564  bytes)
 Items     : 0x0D5C0 to 0x0F8E3  (0x2324 = 8996  bytes)
-UI/Error  : 0x0F8E8 to 0x1013F  (0x0BE0 = 63720 bytes)
+SpellEx   : 0x0F8E8 to 0x1013F  (0x858  = 2136 bytes) 
+UI/Error  : 0x10144 to 0x10D23  (0x0BE0 = 63720 bytes)
 Bromides  : 0x10D28 to 0x11097  (0x0370 = 880   bytes)
 Locations : 0x1109C to 0x1128B  (0x01F0 = 496   bytes)
 
@@ -67,7 +68,8 @@ An 0xA character will be used to separate the Name from the description.
 /* File Offsets */
 #define SPELL_OFFSET     0x0C7D0
 #define ITEM_OFFSET      0x0D5C0
-#define UI_OFFSET        0x10144//0x0F8E8
+#define SPELL_EX_OFFSET  0x0F8E8
+#define UI_OFFSET        0x10144
 #define BROMIDE_OFFSET   0x10D28
 #define LOCATION_OFFSET  0x1109C
 #define DICT_OFFSET      0x11290
@@ -75,6 +77,7 @@ An 0xA character will be used to separate the Name from the description.
 /* # of listings for each type */
 #define NUM_SPELL_ITEMS        137
 #define NUM_ITEMS              346
+#define NUM_SPELL_EXTRA_ITEMS  89
 #define NUM_UI_ITEMS           76
 #define NUM_BROMIDE_ITEMS      55
 #define NUM_LOCATION_ITEMS     31
@@ -82,9 +85,24 @@ An 0xA character will be used to separate the Name from the description.
 /* Region sizes in bytes */
 #define SPELL_SIZE             0xDEC
 #define ITEM_SIZE              0x2324
+#define SPELL_EX_SIZE          0x858
 #define UI_SIZE                0xBE0
 #define BROMIDE_SIZE           0x370
 #define LOCATION_SIZE          0x1F0
+
+/* Fixed Widths (# 16-BIT CHARACTERS) */
+#define SPELL_NAME_FXD_WIDTH     10  //10 visible
+#define SPELL_DESC_FXD_WIDTH     16  //15 visible
+#define ITEM_NAME_FXD_WIDTH      10  //12 visible, not sure how big buffer is
+#define ITEM_DESC_LN1_FXD_WIDTH  12
+#define ITEM_DESC_LN2_FXD_WIDTH  04  //12 visible, not sure if buffer is larger than 4
+#define SPELLEX_LN1_FXD_WIDTH    12
+#define SPELLEX_LN2_FXD_WIDTH    12
+#define UI_LN1_FXD_WIDTH         20
+#define BROMIDE_LN1_FXD_WIDTH    16   // 14 visible
+#define MAP_LN1_FXD_WIDTH        16
+
+
 
 /* Extra Space in the file in bytes */
 #define DICT_SIZE              0x1D48
@@ -97,6 +115,8 @@ An 0xA character will be used to separate the Name from the description.
 int encodeSpells(int numSpells, char* inFileName, 
     unsigned char* outBuffer, unsigned int* outNumBytes);
 int encodeItems(int numItems, char* inFileName, 
+    unsigned char* outBuffer, unsigned int* outNumBytes);
+int encodeSpellsEx(int numSpells, char* inFileName, 
     unsigned char* outBuffer, unsigned int* outNumBytes);
 int encodeCmnStandard(int numSlots, char* inFileName, 
     unsigned char* outBuffer, unsigned int* outNumBytes);
@@ -253,6 +273,47 @@ int main(int argc, char** argv){
     fclose(outFile);
 
 
+	/*******************************/
+    /* Encode the Extra spell Info */
+	/*******************************/
+	outBytes = 0;
+	memset(buffer,0,SPELL_EX_SIZE);
+	if(encodeSpellsEx(NUM_SPELL_EXTRA_ITEMS, "extra_spell_msgs.txt", buffer, &outBytes) < 0){
+		printf("An error occurred while trying to encode extra spell msgs.\n");
+		free(buffer);
+		return -1;
+	}
+
+	/* Open the output file */
+	strcpy(outFileName_Spell, outFileName); 
+	strcat(outFileName_Spell,"_extra_spell_msgs.bin");
+	outFile = fopen(outFileName_Spell,"wb");
+	if(outFile == NULL){
+		printf("Error occurred while opening %s for writing\n", outFileName_Spell);
+		free(buffer);
+        return -1;
+    }
+
+	/* Set size to original unless larger, then print a warning */
+	if(outBytes > SPELL_EX_SIZE){
+		printf("WARNING, Spell size exceeds original!\n");
+	}
+	else
+		outBytes = SPELL_EX_SIZE;
+
+    /* Write the binary version of the spells to the output file */
+	if(fwrite(buffer,1,outBytes,outFile) != outBytes){
+		printf("Error writing spells to output file.\n");
+	    fclose(outFile);
+		free(buffer);
+		return -1;
+	}
+
+	/* Close output file */
+    fclose(outFile);
+
+
+
 	/****************************/
 	/* Encode the UI/Error Msgs */
 	/****************************/
@@ -400,8 +461,8 @@ int createUpdatedCommonTextFile(char* outFileName){
 	static char fname[300];
 	char* buffer = NULL;
 	char* tmpBuf = NULL;
-	char* filenames[] = {"_spell.bin","_items.bin","_ui.bin","_bromides.bin", "_locations.bin"};
-	unsigned int offsets[] = {SPELL_OFFSET, ITEM_OFFSET, UI_OFFSET,
+	char* filenames[] = {"_spell.bin","_items.bin", "_extra_spell_msgs.bin","_ui.bin","_bromides.bin", "_locations.bin"};
+	unsigned int offsets[] = {SPELL_OFFSET, ITEM_OFFSET, SPELL_EX_OFFSET, UI_OFFSET,
 		                    BROMIDE_OFFSET, LOCATION_OFFSET, DICT_OFFSET};
 
 	/* Open the output file for writing */
@@ -434,8 +495,8 @@ int createUpdatedCommonTextFile(char* outFileName){
 	fclose(infile);
 
 	/* Now overwrite with the replacement data */
-	/* Spells, Items, UI/Error Msgs, Bromides, Locations */
-	for(x = 0; x < 5; x++){
+	/* Spells, Items, Spell_ex, UI/Error Msgs, Bromides, Locations */
+	for(x = 0; x < 6; x++){
 		tmpBuf = NULL;
 
 		/* Open modified data file & determine size of data */
@@ -674,8 +735,11 @@ int encodeSpells(int numSpells, char* inFileName,
 		memcpy(&outBuffer[outputSizeBytes], str1, str1Len);
 		outputSizeBytes += str1Len;
 //		if((outputSizeBytes % 2) == 0)
-		outBuffer[outputSizeBytes++] = 0xF9;
-		outBuffer[outputSizeBytes++] = 0x10;  //Need to Calculate
+
+		outBuffer[outputSizeBytes++] = 0xF4;
+		outBuffer[outputSizeBytes++] = 0xFE;  //Zero out rest of line
+//		outBuffer[outputSizeBytes++] = 0x0A;  //Separator
+
 		
 		/* Copy Spell Description, terminate with 0xFFFF */
 		/* If not aligned on a 16-bit boundary, just need 0xFF */
@@ -809,6 +873,21 @@ int encodeItems(int numItems, char* inFileName,
 			while(*pChar != '\0'){
 				unsigned char utf8Code;
 				int nBytes;
+
+				/* Insert carriage return */
+				if((*pChar == '\\') && (*(pChar+1) == 'n')){
+					pChar += 2;
+
+					//Zero out up to rest of this line/2
+					modifiedStr[numCharacters] = 0xF4;
+					numCharacters++;
+					modifiedStr[numCharacters] = 0xFD;
+					numCharacters++;
+//					modifiedStr[numCharacters] = 0x0A;
+//					numCharacters++;
+					continue;
+				}
+
 				nBytes = numBytesInUtf8Char(*pChar);
 				if(getUTF8code_Byte((char*)pChar, &utf8Code) < 0){
 					int y;
@@ -851,9 +930,11 @@ int encodeItems(int numItems, char* inFileName,
 		memcpy(&outBuffer[outputSizeBytes], str1, str1Len);
 		outputSizeBytes += str1Len;
 //		if((outputSizeBytes % 2) == 0)
-		outBuffer[outputSizeBytes++] = 0xF9;
-		outBuffer[outputSizeBytes++] = 0x10;  //Need to calculate
-		
+
+		outBuffer[outputSizeBytes++] = 0xF4;
+		outBuffer[outputSizeBytes++] = 0xFE;  //Zero out rest of line
+//		outBuffer[outputSizeBytes++] = 0x0A;  //Separator
+
 		/* Copy Item Description, terminate with 0xFFFF */
 		/* If not aligned on a 16-bit boundary, just need 0xFF */
 		memcpy(&outBuffer[outputSizeBytes], str2, str2Len);
@@ -868,6 +949,146 @@ int encodeItems(int numItems, char* inFileName,
 	fclose(infile);
 	return 0;
 }
+
+
+
+/* Reads extra spell info from an input file and encodes them */
+/* Expected format is:  Original_Address_Hex, Spell_Number_Dec, "Spell_Name" "Spell_Desc" */
+/* Example: 0x1234, 1, "Description" */
+/* Output Format: Compr_Desc, 0xFFFF */
+
+int encodeSpellsEx(int numSpells, char* inFileName, 
+    unsigned char* outBuffer, unsigned int* outNumBytes){
+
+	FILE* infile;
+	unsigned char* pData, *pChar;
+	unsigned short* pTextPointers;
+	static char line[1024];
+	static char str1[1024];
+	static char modifiedStr[1024];
+	int outputSizeBytes;
+	int numTextPointers, str1Len, numCharacters;
+	unsigned int oldAddress;
+	int txtIndex, x;
+
+	/* Init Output Size */
+	*outNumBytes = 0;
+
+	/* Open Input file */
+	infile = NULL;
+    infile = fopen(inFileName,"rb");
+    if(infile == NULL){
+		printf("Error occurred while opening %s for reading\n", inFileName);
+        return -1;
+    }
+	
+	/* Create and init the text pointers */
+	numTextPointers = numSpells;
+	memset(outBuffer,0x0,numTextPointers*2);
+	pTextPointers = (unsigned short*)outBuffer;
+	outputSizeBytes = numTextPointers*2;
+
+    /* Parse the entries line by line */
+    while(!feof(infile)){
+		
+		/* Read the line, make sure it starts with "0x" */
+		/* Otherwise, just ignore it */
+		memset(line,0,1023);
+	    fgets(line,1023,infile);
+		if( strncmp(line,"0x",2) != 0)
+			continue;
+		
+		/* Read the old address and the index */
+		sscanf((char*)line, "%X %d", &oldAddress, &txtIndex);
+		
+		/* Read the First Spell String */
+		str1Len = 0;
+		pData = (unsigned char*)strtok((char *)line, DELIM);
+		pData = (unsigned char*)strtok(NULL, DELIM);
+		if(pData == NULL)
+			continue;
+		x = 0;
+		while((pData[x] != '\0') && (pData[x] != '\"')){
+			x++;
+		}
+		str1Len = x;
+		strcpy(str1,(char*)pData);
+
+		/* Convert the UTF-8 text to use our table */
+        if(str1Len > 0){
+			pChar = (unsigned char*)str1;
+			numCharacters = 0;
+			while(*pChar != '\0'){
+				unsigned char utf8Code;
+				int nBytes;
+				
+				/* Insert carriage return */
+				if((*pChar == '\\') && (*(pChar+1) == 'n')){
+					pChar += 2;
+
+					//Zero out up to rest of this line/2
+					modifiedStr[numCharacters] = 0xF4;
+					numCharacters++;
+					modifiedStr[numCharacters] = 0xFD;
+					numCharacters++;
+//					modifiedStr[numCharacters] = 0x0A;  // FIX ME, Zero out rest of line only
+//					numCharacters++;
+					continue;
+				}
+				
+				nBytes = numBytesInUtf8Char(*pChar);
+				if(getUTF8code_Byte((char*)pChar, &utf8Code) < 0){
+					int y;
+					printf("Error, missing code for %d byte character!\n",nBytes);
+					for(y=0;y<nBytes;y++){
+						printf("\tByte %d: 0x%2X\n",y,pChar[y]);
+					}
+					fclose(infile);
+					return -1;
+				}
+				modifiedStr[numCharacters] = utf8Code;
+
+				pChar += nBytes;
+				numCharacters++;
+			}
+			modifiedStr[numCharacters] = 0;
+			memset(str1,0,1024);
+			strncpy(str1,modifiedStr,numCharacters);
+			str1Len = numCharacters;
+		}
+
+		/* Now Encode to the output file */
+		/* Set the associated index to point to the next text location */
+		/* Index stores the relative short word location from the beginning of the section */
+		/* Each entry must be on a short word boundary.                                    */
+		/* Encode the first text as compressed BPE, terminate with 0xFF or 0xFFFF */
+		/* Encode the second text as compressed BPE, terminate with 0xFF or 0xFFFF */
+
+
+        //BPE Compression
+        if(str1Len > 0)
+			compressBPE((unsigned char*)str1,(unsigned int*) &str1Len);
+
+		/* Update Pointer to Spell */
+		pTextPointers[txtIndex] = (unsigned short)(outputSizeBytes / 2) & 0xFFFF;
+		swap16(&pTextPointers[txtIndex]);
+
+        /* Copy Spell Name, terminate with spacing, not 0xFFFF */
+		/* If not aligned on a 16-bit boundary, just need 0xFF */
+		memcpy(&outBuffer[outputSizeBytes], str1, str1Len);
+		outputSizeBytes += str1Len;
+		if((outputSizeBytes % 2) == 0)
+			outBuffer[outputSizeBytes++] = 0xFF;
+		outBuffer[outputSizeBytes++] = 0xFF;
+	}
+
+    /* Update number of bytes written */
+	*outNumBytes = outputSizeBytes;
+	fclose(infile);
+	return 0;
+}
+
+
 
 
 #define OPEN_QUOTE   0
