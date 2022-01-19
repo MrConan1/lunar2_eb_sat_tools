@@ -1,0 +1,2029 @@
+File: 104
+Monster Name Offset: 0x1D8
+Size (Bytes): 96
+4 Monsters
+	Monster 0: "Pawn"
+	Monster 1: "Baiken"
+	Monster 2: "Wyndham"
+	Monster 3: "Zod"
+
+File: 109
+Monster Name Offset: 0x24C
+Size (Bytes): 120
+5 Monsters
+	Monster 0: "White"
+	Monster 1: "Chiro"
+	Monster 2: "Death Carrier"
+	Monster 3: "Ice Crusher"
+	Monster 4: "Snow Yeti"
+
+File: 114
+Monster Name Offset: 0x24C
+Size (Bytes): 120
+5 Monsters
+	Monster 0: "Desert Dolphin"
+	Monster 1: "Funayoimushi"
+	Monster 2: "Ligia exotica"
+	Monster 3: "Water Elemental"
+	Monster 4: "Water Assassin"
+
+File: 119
+Monster Name Offset: 0x1D8
+Size (Bytes): 96
+4 Monsters
+	Monster 0: "Boomba Baby"
+	Monster 1: "Boomba Boy"
+	Monster 2: "Big Boomba"
+	Monster 3: "Elder Boomba"
+
+File: 124
+Monster Name Offset: 0x1D8
+Size (Bytes): 96
+4 Monsters
+	Monster 0: "Rock Biter"
+	Monster 1: "Twin Dam"
+	Monster 2: "Curse Face"
+	Monster 3: "Gorgon Gidra"
+
+File: 129
+Monster Name Offset: 0x1D8
+Size (Bytes): 96
+4 Monsters
+	Monster 0: "Zombie"
+	Monster 1: "The Deep"
+	Monster 2: "Elm Master"
+	Monster 3: "Chaos Fiend"
+
+File: 134
+Monster Name Offset: 0x1D8
+Size (Bytes): 96
+4 Monsters
+	Monster 0: "Eredotas"
+	Monster 1: "Homunculus"
+	Monster 2: "Ark Cruz"
+	Monster 3: "Evil Eye"
+
+File: 139
+Monster Name Offset: 0x1D8
+Size (Bytes): 96
+4 Monsters
+	Monster 0: "Ark Mage"
+	Monster 1: "Arrowfish"
+	Monster 2: "Killer Fang"
+	Monster 3: "Bikuni"
+
+File: 14
+Monster Name Offset: 0x1D8
+Size (Bytes): 96
+4 Monsters
+	Monster 0: "Slime"
+	Monster 1: "Serve Cruz"
+	Monster 2: "Tricles"
+	Monster 3: "Crystal Soldier"
+
+File: 144
+Monster Name Offset: 0x1D8
+Size (Bytes): 96
+4 Monsters
+	Monster 0: "Fire Elemental"
+	Monster 1: "Blob Slime"
+	Monster 2: "Flare Lancer"
+	Monster 3: "Burner"
+
+File: 149
+Monster Name Offset: 0x1D8
+Size (Bytes): 96
+4 Monsters
+	Monster 0: "Doppelganger"
+	Monster 1: "Harpy"
+	Monster 2: "Wyvern"
+	Monster 3: "???"
+
+File: 154
+Monster Name Offset: 0x1D8
+Size (Bytes): 96
+4 Monsters
+	Monster 0: "Screw Mirror"
+	Monster 1: "Rig Horn"
+	Monster 2: "Mono Flyer"
+	Monster 3: "Canon Angel"
+
+File: 159
+Monster Name Offset: 0x1D8
+Size (Bytes): 96
+4 Monsters
+	Monster 0: "Hades"
+	Monster 1: "Bagger Eye"
+	Monster 2: "Snatcher"
+	Monster 3: "Dark Comet"
+
+File: 162
+Monster Name Offset: 0x334
+Size (Bytes): 168
+7 Monsters
+	Monster 0: "Lunar Seed"
+	Monster 1: "Fire Seed"
+	Monster 2: "Spark Seed"
+	Monster 3: "Air Seed"
+	Monster 4: "Ice Seed"
+	Monster 5: "Berserk"
+	Monster 6: "Demon Gate"
+
+File: 167
+Monster Name Offset: 0x1D8
+Size (Bytes): 96
+4 Monsters
+	Monster 0: "Dark Eye"
+	Monster 1: "Laser Foot"
+	Monster 2: "Shell Armor"
+	Monster 3: "Goliath"
+
+File: 172
+Monster Name Offset: 0x1D8
+Size (Bytes): 96
+4 Monsters
+	Monster 0: "Dark Stalker"
+	Monster 1: "Debauer"
+	Monster 2: "Curse Brain"
+	Monster 3: "Chrome Ghidora"
+
+File: 177
+Monster Name Offset: 0x1D8
+Size (Bytes): 96
+4 Monsters
+	Monster 0: "Alert Mirror"
+	Monster 1: "Guard Horn"
+	Monster 2: "Septe Flyer"
+	Monster 3: "Canon Seraphim"
+
+File: 182
+Monster Name Offset: 0xF0
+Size (Bytes): 48
+2 Monsters
+	Monster 0: "Buzz Fly"
+	Monster 1: "Buzz Slime"
+
+File: 187
+Monster Name Offset: 0x1D8
+Size (Bytes): 96
+4 Monsters
+	Monster 0: "Hell Gigant"
+	Monster 1: "Hell Worm"
+	Monster 2: "Shreeker"
+	Monster 3: "Killer Bee"
+
+File: 19
+Monster Name Offset: 0x1D8
+Size (Bytes): 96
+4 Monsters
+	Monster 0: "Slime"
+	Monster 1: "Serve Cruz"
+	Monster 2: "Tricles"
+	Monster 3: "Crystal Soldier"
+
+File: 192
+Monster Name Offset: 0xF0
+Size (Bytes): 48
+2 Monsters
+	Monster 0: "Goblin"
+	Monster 1: "Hummingbird"
+
+File: 197
+Monster Name Offset: 0x7C
+Size (Bytes): 24
+1 Monsters
+	Monster 0: "Flare Elemental"
+
+File: 202
+Monster Name Offset: 0x7C
+Size (Bytes): 24
+1 Monsters
+	Monster 0: "Baiken"
+
+File: 207
+Monster Name Offset: 0x164
+Size (Bytes): 72
+3 Monsters
+	Monster 0: "Chen"
+	Monster 1: "War Dueler"
+	Monster 2: "Lanzan"
+
+File: 212
+Monster Name Offset: 0x164
+Size (Bytes): 72
+3 Monsters
+	Monster 0: "Beetle"
+	Monster 1: "Desert Eye"
+	Monster 2: "Dolphin Face"
+
+File: 217
+Monster Name Offset: 0x1D8
+Size (Bytes): 96
+4 Monsters
+	Monster 0: "Slime"
+	Monster 1: "Mask Floater"
+	Monster 2: "Gremlin"
+	Monster 3: "Crystal Soldier"
+
+File: 222
+Monster Name Offset: 0x164
+Size (Bytes): 72
+3 Monsters
+	Monster 0: "Goblin"
+	Monster 1: "Hummingbird"
+	Monster 2: "Buzz Fly"
+
+File: 227
+Monster Name Offset: 0x1D8
+Size (Bytes): 96
+4 Monsters
+	Monster 0: "Parasite"
+	Monster 1: "Honey Devil"
+	Monster 2: "Shreeker"
+	Monster 3: "Killer Bee"
+
+File: 24
+Monster Name Offset: 0x164
+Size (Bytes): 72
+3 Monsters
+	Monster 0: "Dolphin Face"
+	Monster 1: "Poison Beetle"
+	Monster 2: "Scorpion"
+
+File: 29
+Monster Name Offset: 0xF0
+Size (Bytes): 48
+2 Monsters
+	Monster 0: "Infant"
+	Monster 1: "Captain"
+
+File: 34
+Monster Name Offset: 0x1D8
+Size (Bytes): 96
+4 Monsters
+	Monster 0: "Goblin"
+	Monster 1: "Hobgoblin"
+	Monster 2: "Goblin King"
+	Monster 3: "Hummingbird"
+
+File: 374
+Monster Name Offset: 0x7C
+Size (Bytes): 24
+1 Monsters
+	Monster 0: "Guardian"
+
+File: 379
+Monster Name Offset: 0x7C
+Size (Bytes): 24
+1 Monsters
+	Monster 0: "Guardian"
+
+File: 385
+Monster Name Offset: 0x7C
+Size (Bytes): 24
+1 Monsters
+	Monster 0: "Plantella"
+
+File: 389
+Monster Name Offset: 0x7C
+Size (Bytes): 24
+1 Monsters
+	Monster 0: "Plantella"
+
+File: 39
+Monster Name Offset: 0x1D8
+Size (Bytes): 96
+4 Monsters
+	Monster 0: "Hell Gigant"
+	Monster 1: "Skull Harpy"
+	Monster 2: "Stone Elemental"
+	Monster 3: "Hell Worm"
+
+File: 395
+Monster Name Offset: 0xF0
+Size (Bytes): 48
+2 Monsters
+	Monster 0: "Plantella"
+	Monster 1: " "
+
+File: 399
+Monster Name Offset: 0xF0
+Size (Bytes): 48
+2 Monsters
+	Monster 0: "Plantella"
+	Monster 1: " "
+
+File: 4
+Monster Name Offset: 0xF0
+Size (Bytes): 48
+2 Monsters
+	Monster 0: "Beetle"
+	Monster 1: "Desert Eye"
+
+File: 403
+Monster Name Offset: 0xF0
+Size (Bytes): 48
+2 Monsters
+	Monster 0: "Plantella"
+	Monster 1: " "
+
+File: 407
+Monster Name Offset: 0x164
+Size (Bytes): 72
+3 Monsters
+	Monster 0: "Plantella"
+	Monster 1: " "
+	Monster 2: " "
+
+File: 411
+Monster Name Offset: 0x164
+Size (Bytes): 72
+3 Monsters
+	Monster 0: "Plantella"
+	Monster 1: " "
+	Monster 2: " "
+
+File: 415
+Monster Name Offset: 0x164
+Size (Bytes): 72
+3 Monsters
+	Monster 0: "Plantella"
+	Monster 1: " "
+	Monster 2: " "
+
+File: 419
+Monster Name Offset: 0x164
+Size (Bytes): 72
+3 Monsters
+	Monster 0: "Plantella"
+	Monster 1: " "
+	Monster 2: " "
+
+File: 423
+Monster Name Offset: 0x164
+Size (Bytes): 72
+3 Monsters
+	Monster 0: "Plantella"
+	Monster 1: " "
+	Monster 2: " "
+
+File: 427
+Monster Name Offset: 0x164
+Size (Bytes): 72
+3 Monsters
+	Monster 0: "Plantella"
+	Monster 1: " "
+	Monster 2: " "
+
+File: 431
+Monster Name Offset: 0xF0
+Size (Bytes): 48
+2 Monsters
+	Monster 0: "Magical Buster Machine"
+	Monster 1: " "
+
+File: 435
+Monster Name Offset: 0xF0
+Size (Bytes): 48
+2 Monsters
+	Monster 0: "Magical Buster Machine"
+	Monster 1: " "
+
+File: 439
+Monster Name Offset: 0xF0
+Size (Bytes): 48
+2 Monsters
+	Monster 0: "Magical Buster Machine"
+	Monster 1: " "
+
+File: 44
+Monster Name Offset: 0x164
+Size (Bytes): 72
+3 Monsters
+	Monster 0: "Kuru Kuru Clown"
+	Monster 1: "Nemrin"
+	Monster 2: "Rock'n"
+
+File: 445
+Monster Name Offset: 0xF0
+Size (Bytes): 48
+2 Monsters
+	Monster 0: "Magical Buster Machine"
+	Monster 1: " "
+
+File: 449
+Monster Name Offset: 0xF0
+Size (Bytes): 48
+2 Monsters
+	Monster 0: "Magical Buster Machine"
+	Monster 1: " "
+
+File: 453
+Monster Name Offset: 0xF0
+Size (Bytes): 48
+2 Monsters
+	Monster 0: "Magical Buster Machine"
+	Monster 1: " "
+
+File: 457
+Monster Name Offset: 0xF0
+Size (Bytes): 48
+2 Monsters
+	Monster 0: "Magical Buster Machine"
+	Monster 1: " "
+
+File: 461
+Monster Name Offset: 0xF0
+Size (Bytes): 48
+2 Monsters
+	Monster 0: "Magical Buster Machine"
+	Monster 1: " "
+
+File: 465
+Monster Name Offset: 0xF0
+Size (Bytes): 48
+2 Monsters
+	Monster 0: "Magical Buster Machine"
+	Monster 1: " "
+
+File: 469
+Monster Name Offset: 0xF0
+Size (Bytes): 48
+2 Monsters
+	Monster 0: "Magical Buster Machine"
+	Monster 1: " "
+
+File: 473
+Monster Name Offset: 0xF0
+Size (Bytes): 48
+2 Monsters
+	Monster 0: "Magical Buster Machine"
+	Monster 1: " "
+
+File: 477
+Monster Name Offset: 0x24C
+Size (Bytes): 120
+5 Monsters
+	Monster 0: "White Yeti"
+	Monster 1: " "
+	Monster 2: " "
+	Monster 3: " "
+	Monster 4: " "
+
+File: 481
+Monster Name Offset: 0x24C
+Size (Bytes): 120
+5 Monsters
+	Monster 0: "White Yeti"
+	Monster 1: " "
+	Monster 2: " "
+	Monster 3: " "
+	Monster 4: " "
+
+File: 485
+Monster Name Offset: 0x24C
+Size (Bytes): 120
+5 Monsters
+	Monster 0: "White Yeti"
+	Monster 1: " "
+	Monster 2: " "
+	Monster 3: " "
+	Monster 4: " "
+
+File: 489
+Monster Name Offset: 0x24C
+Size (Bytes): 120
+5 Monsters
+	Monster 0: "White Yeti"
+	Monster 1: " "
+	Monster 2: " "
+	Monster 3: " "
+	Monster 4: " "
+
+File: 49
+Monster Name Offset: 0x1D8
+Size (Bytes): 96
+4 Monsters
+	Monster 0: "Persona"
+	Monster 1: "Masquerade"
+	Monster 2: "Crystal Mirror"
+	Monster 3: "Crystal Fencer"
+
+File: 493
+Monster Name Offset: 0x24C
+Size (Bytes): 120
+5 Monsters
+	Monster 0: "White Yeti"
+	Monster 1: " "
+	Monster 2: " "
+	Monster 3: " "
+	Monster 4: " "
+
+File: 497
+Monster Name Offset: 0x24C
+Size (Bytes): 120
+5 Monsters
+	Monster 0: "White Yeti"
+	Monster 1: " "
+	Monster 2: " "
+	Monster 3: " "
+	Monster 4: " "
+
+File: 501
+Monster Name Offset: 0x164
+Size (Bytes): 72
+3 Monsters
+	Monster 0: "Guardian"
+	Monster 1: "Guardian"
+	Monster 2: "Guardian"
+
+File: 505
+Monster Name Offset: 0x164
+Size (Bytes): 72
+3 Monsters
+	Monster 0: "Guardian"
+	Monster 1: "Guardian"
+	Monster 2: "Guardian"
+
+File: 509
+Monster Name Offset: 0x164
+Size (Bytes): 72
+3 Monsters
+	Monster 0: "Guardian"
+	Monster 1: "Guardian"
+	Monster 2: "Guardian"
+
+File: 513
+Monster Name Offset: 0x164
+Size (Bytes): 72
+3 Monsters
+	Monster 0: "Guardian"
+	Monster 1: "Guardian"
+	Monster 2: "Guardian"
+
+File: 519
+Monster Name Offset: 0x164
+Size (Bytes): 72
+3 Monsters
+	Monster 0: "Flame Fang"
+	Monster 1: " "
+	Monster 2: " "
+
+File: 523
+Monster Name Offset: 0x164
+Size (Bytes): 72
+3 Monsters
+	Monster 0: "Flame Fang"
+	Monster 1: " "
+	Monster 2: " "
+
+File: 527
+Monster Name Offset: 0x164
+Size (Bytes): 72
+3 Monsters
+	Monster 0: "Flame Fang"
+	Monster 1: " "
+	Monster 2: " "
+
+File: 531
+Monster Name Offset: 0x164
+Size (Bytes): 72
+3 Monsters
+	Monster 0: "Flame Fang"
+	Monster 1: " "
+	Monster 2: " "
+
+File: 535
+Monster Name Offset: 0x1D8
+Size (Bytes): 96
+4 Monsters
+	Monster 0: "White Fiend"
+	Monster 1: " "
+	Monster 2: " "
+	Monster 3: " "
+
+File: 537
+Monster Name Offset: 0x1D8
+Size (Bytes): 96
+4 Monsters
+	Monster 0: "White Fiend"
+	Monster 1: " "
+	Monster 2: " "
+	Monster 3: " "
+
+File: 539
+Monster Name Offset: 0x1D8
+Size (Bytes): 96
+4 Monsters
+	Monster 0: "White Fiend"
+	Monster 1: " "
+	Monster 2: " "
+	Monster 3: " "
+
+File: 54
+Monster Name Offset: 0x1D8
+Size (Bytes): 96
+4 Monsters
+	Monster 0: "Bigfoot"
+	Monster 1: "Round Wolf"
+	Monster 2: "Le Saint Trops"
+	Monster 3: "Worm"
+
+File: 541
+Monster Name Offset: 0x1D8
+Size (Bytes): 96
+4 Monsters
+	Monster 0: "White Fiend"
+	Monster 1: " "
+	Monster 2: " "
+	Monster 3: " "
+
+File: 543
+Monster Name Offset: 0x1D8
+Size (Bytes): 96
+4 Monsters
+	Monster 0: "White Fiend"
+	Monster 1: " "
+	Monster 2: " "
+	Monster 3: " "
+
+File: 545
+Monster Name Offset: 0x1D8
+Size (Bytes): 96
+4 Monsters
+	Monster 0: "Lunn"
+	Monster 1: " "
+	Monster 2: " "
+	Monster 3: " "
+
+File: 547
+Monster Name Offset: 0x1D8
+Size (Bytes): 96
+4 Monsters
+	Monster 0: "Lunn"
+	Monster 1: " "
+	Monster 2: " "
+	Monster 3: " "
+
+File: 549
+Monster Name Offset: 0x1D8
+Size (Bytes): 96
+4 Monsters
+	Monster 0: "Lunn"
+	Monster 1: " "
+	Monster 2: " "
+	Monster 3: " "
+
+File: 551
+Monster Name Offset: 0x1D8
+Size (Bytes): 96
+4 Monsters
+	Monster 0: "Lunn"
+	Monster 1: " "
+	Monster 2: " "
+	Monster 3: " "
+
+File: 553
+Monster Name Offset: 0x1D8
+Size (Bytes): 96
+4 Monsters
+	Monster 0: "Lunn"
+	Monster 1: " "
+	Monster 2: " "
+	Monster 3: " "
+
+File: 555
+Monster Name Offset: 0x1D8
+Size (Bytes): 96
+4 Monsters
+	Monster 0: "Lunn"
+	Monster 1: " "
+	Monster 2: " "
+	Monster 3: " "
+
+File: 559
+Monster Name Offset: 0x1D8
+Size (Bytes): 96
+4 Monsters
+	Monster 0: "Lunn"
+	Monster 1: " "
+	Monster 2: " "
+	Monster 3: " "
+
+File: 563
+Monster Name Offset: 0x1D8
+Size (Bytes): 96
+4 Monsters
+	Monster 0: "Blue Fiend"
+	Monster 1: " "
+	Monster 2: " "
+	Monster 3: " "
+
+File: 567
+Monster Name Offset: 0x1D8
+Size (Bytes): 96
+4 Monsters
+	Monster 0: "Blue Fiend"
+	Monster 1: " "
+	Monster 2: " "
+	Monster 3: " "
+
+File: 571
+Monster Name Offset: 0x1D8
+Size (Bytes): 96
+4 Monsters
+	Monster 0: "Blue Fiend"
+	Monster 1: " "
+	Monster 2: " "
+	Monster 3: " "
+
+File: 575
+Monster Name Offset: 0x1D8
+Size (Bytes): 96
+4 Monsters
+	Monster 0: "Blue Fiend"
+	Monster 1: " "
+	Monster 2: " "
+	Monster 3: " "
+
+File: 579
+Monster Name Offset: 0x1D8
+Size (Bytes): 96
+4 Monsters
+	Monster 0: "Blue Fiend"
+	Monster 1: " "
+	Monster 2: " "
+	Monster 3: " "
+
+File: 583
+Monster Name Offset: 0x1D8
+Size (Bytes): 96
+4 Monsters
+	Monster 0: "Borgan"
+	Monster 1: " "
+	Monster 2: " "
+	Monster 3: " "
+
+File: 587
+Monster Name Offset: 0x1D8
+Size (Bytes): 96
+4 Monsters
+	Monster 0: "Borgan"
+	Monster 1: " "
+	Monster 2: " "
+	Monster 3: " "
+
+File: 59
+Monster Name Offset: 0x1D8
+Size (Bytes): 96
+4 Monsters
+	Monster 0: "Mad Pierrot"
+	Monster 1: "Pink Ribbon"
+	Monster 2: "Man-eater"
+	Monster 3: "Magic Hat"
+
+File: 591
+Monster Name Offset: 0x1D8
+Size (Bytes): 96
+4 Monsters
+	Monster 0: "Borgan"
+	Monster 1: " "
+	Monster 2: " "
+	Monster 3: " "
+
+File: 595
+Monster Name Offset: 0x1D8
+Size (Bytes): 96
+4 Monsters
+	Monster 0: "Borgan"
+	Monster 1: " "
+	Monster 2: " "
+	Monster 3: " "
+
+File: 599
+Monster Name Offset: 0x1D8
+Size (Bytes): 96
+4 Monsters
+	Monster 0: "Borgan"
+	Monster 1: " "
+	Monster 2: " "
+	Monster 3: " "
+
+File: 603
+Monster Name Offset: 0x1D8
+Size (Bytes): 96
+4 Monsters
+	Monster 0: "Borgan"
+	Monster 1: " "
+	Monster 2: " "
+	Monster 3: " "
+
+File: 607
+Monster Name Offset: 0x1D8
+Size (Bytes): 96
+4 Monsters
+	Monster 0: "Borgan"
+	Monster 1: " "
+	Monster 2: " "
+	Monster 3: " "
+
+File: 609
+Monster Name Offset: 0x1D8
+Size (Bytes): 96
+4 Monsters
+	Monster 0: "Black Fiend"
+	Monster 1: " "
+	Monster 2: " "
+	Monster 3: " "
+
+File: 611
+Monster Name Offset: 0x1D8
+Size (Bytes): 96
+4 Monsters
+	Monster 0: "Black Fiend"
+	Monster 1: " "
+	Monster 2: " "
+	Monster 3: " "
+
+File: 613
+Monster Name Offset: 0x1D8
+Size (Bytes): 96
+4 Monsters
+	Monster 0: "Black Fiend"
+	Monster 1: " "
+	Monster 2: " "
+	Monster 3: " "
+
+File: 615
+Monster Name Offset: 0x1D8
+Size (Bytes): 96
+4 Monsters
+	Monster 0: "Black Fiend"
+	Monster 1: " "
+	Monster 2: " "
+	Monster 3: " "
+
+File: 617
+Monster Name Offset: 0x1D8
+Size (Bytes): 96
+4 Monsters
+	Monster 0: "Black Fiend"
+	Monster 1: " "
+	Monster 2: " "
+	Monster 3: " "
+
+File: 621
+Monster Name Offset: 0x1D8
+Size (Bytes): 96
+4 Monsters
+	Monster 0: "Devil Eye"
+	Monster 1: " "
+	Monster 2: " "
+	Monster 3: " "
+
+File: 625
+Monster Name Offset: 0x1D8
+Size (Bytes): 96
+4 Monsters
+	Monster 0: "Devil Eye"
+	Monster 1: " "
+	Monster 2: " "
+	Monster 3: " "
+
+File: 629
+Monster Name Offset: 0x1D8
+Size (Bytes): 96
+4 Monsters
+	Monster 0: "Devil Eye"
+	Monster 1: " "
+	Monster 2: " "
+	Monster 3: " "
+
+File: 633
+Monster Name Offset: 0x1D8
+Size (Bytes): 96
+4 Monsters
+	Monster 0: "Devil Eye"
+	Monster 1: " "
+	Monster 2: " "
+	Monster 3: " "
+
+File: 635
+Monster Name Offset: 0x1D8
+Size (Bytes): 96
+4 Monsters
+	Monster 0: "Devil Eye"
+	Monster 1: " "
+	Monster 2: " "
+	Monster 3: " "
+
+File: 637
+Monster Name Offset: 0x1D8
+Size (Bytes): 96
+4 Monsters
+	Monster 0: "Red Fiend"
+	Monster 1: " "
+	Monster 2: " "
+	Monster 3: " "
+
+File: 639
+Monster Name Offset: 0x1D8
+Size (Bytes): 96
+4 Monsters
+	Monster 0: "Red Fiend"
+	Monster 1: " "
+	Monster 2: " "
+	Monster 3: " "
+
+File: 64
+Monster Name Offset: 0x1D8
+Size (Bytes): 96
+4 Monsters
+	Monster 0: "Goa Karasin"
+	Monster 1: "Fati Viper"
+	Monster 2: "Cannon Foot"
+	Monster 3: "Ammo-nater"
+
+File: 641
+Monster Name Offset: 0x1D8
+Size (Bytes): 96
+4 Monsters
+	Monster 0: "Red Fiend"
+	Monster 1: " "
+	Monster 2: " "
+	Monster 3: " "
+
+File: 643
+Monster Name Offset: 0x1D8
+Size (Bytes): 96
+4 Monsters
+	Monster 0: "Red Fiend"
+	Monster 1: " "
+	Monster 2: " "
+	Monster 3: " "
+
+File: 645
+Monster Name Offset: 0x1D8
+Size (Bytes): 96
+4 Monsters
+	Monster 0: "Red Fiend"
+	Monster 1: " "
+	Monster 2: " "
+	Monster 3: " "
+
+File: 647
+Monster Name Offset: 0x24C
+Size (Bytes): 120
+5 Monsters
+	Monster 0: "Fake Althena"
+	Monster 1: " "
+	Monster 2: " "
+	Monster 3: " "
+	Monster 4: " "
+
+File: 649
+Monster Name Offset: 0x24C
+Size (Bytes): 120
+5 Monsters
+	Monster 0: "Fake Althena"
+	Monster 1: " "
+	Monster 2: " "
+	Monster 3: " "
+	Monster 4: " "
+
+File: 651
+Monster Name Offset: 0x24C
+Size (Bytes): 120
+5 Monsters
+	Monster 0: "Fake Althena"
+	Monster 1: " "
+	Monster 2: " "
+	Monster 3: " "
+	Monster 4: " "
+
+File: 653
+Monster Name Offset: 0x24C
+Size (Bytes): 120
+5 Monsters
+	Monster 0: "Fake Althena"
+	Monster 1: " "
+	Monster 2: " "
+	Monster 3: " "
+	Monster 4: " "
+
+File: 655
+Monster Name Offset: 0x24C
+Size (Bytes): 120
+5 Monsters
+	Monster 0: "Fake Althena"
+	Monster 1: " "
+	Monster 2: " "
+	Monster 3: " "
+	Monster 4: " "
+
+File: 657
+Monster Name Offset: 0x24C
+Size (Bytes): 120
+5 Monsters
+	Monster 0: "Fake Althena"
+	Monster 1: " "
+	Monster 2: " "
+	Monster 3: " "
+	Monster 4: " "
+
+File: 659
+Monster Name Offset: 0x1D8
+Size (Bytes): 96
+4 Monsters
+	Monster 0: "Sword Guardian"
+	Monster 1: " "
+	Monster 2: " "
+	Monster 3: " "
+
+File: 661
+Monster Name Offset: 0x1D8
+Size (Bytes): 96
+4 Monsters
+	Monster 0: "Sword Guardian"
+	Monster 1: " "
+	Monster 2: " "
+	Monster 3: " "
+
+File: 663
+Monster Name Offset: 0x1D8
+Size (Bytes): 96
+4 Monsters
+	Monster 0: "Sword Guardian"
+	Monster 1: " "
+	Monster 2: " "
+	Monster 3: " "
+
+File: 665
+Monster Name Offset: 0x1D8
+Size (Bytes): 96
+4 Monsters
+	Monster 0: "Sword Guardian"
+	Monster 1: " "
+	Monster 2: " "
+	Monster 3: " "
+
+File: 667
+Monster Name Offset: 0x1D8
+Size (Bytes): 96
+4 Monsters
+	Monster 0: "Sword Guardian"
+	Monster 1: " "
+	Monster 2: " "
+	Monster 3: " "
+
+File: 669
+Monster Name Offset: 0x1D8
+Size (Bytes): 96
+4 Monsters
+	Monster 0: "Water Guardian"
+	Monster 1: " "
+	Monster 2: " "
+	Monster 3: " "
+
+File: 671
+Monster Name Offset: 0x1D8
+Size (Bytes): 96
+4 Monsters
+	Monster 0: "Water Guardian"
+	Monster 1: " "
+	Monster 2: " "
+	Monster 3: " "
+
+File: 673
+Monster Name Offset: 0x1D8
+Size (Bytes): 96
+4 Monsters
+	Monster 0: "Water Guardian"
+	Monster 1: " "
+	Monster 2: " "
+	Monster 3: " "
+
+File: 675
+Monster Name Offset: 0x1D8
+Size (Bytes): 96
+4 Monsters
+	Monster 0: "Water Guardian"
+	Monster 1: " "
+	Monster 2: " "
+	Monster 3: " "
+
+File: 677
+Monster Name Offset: 0x1D8
+Size (Bytes): 96
+4 Monsters
+	Monster 0: "Water Guardian"
+	Monster 1: " "
+	Monster 2: " "
+	Monster 3: " "
+
+File: 683
+Monster Name Offset: 0xF0
+Size (Bytes): 48
+2 Monsters
+	Monster 0: "Zophar"
+	Monster 1: " "
+
+File: 687
+Monster Name Offset: 0xF0
+Size (Bytes): 48
+2 Monsters
+	Monster 0: "Zophar"
+	Monster 1: " "
+
+File: 69
+Monster Name Offset: 0x164
+Size (Bytes): 72
+3 Monsters
+	Monster 0: "Big Moss"
+	Monster 1: "Deadball"
+	Monster 2: "Mashwalker"
+
+File: 691
+Monster Name Offset: 0xF0
+Size (Bytes): 48
+2 Monsters
+	Monster 0: "Zophar"
+	Monster 1: " "
+
+File: 695
+Monster Name Offset: 0xF0
+Size (Bytes): 48
+2 Monsters
+	Monster 0: "Zophar"
+	Monster 1: " "
+
+File: 699
+Monster Name Offset: 0xF0
+Size (Bytes): 48
+2 Monsters
+	Monster 0: "Zophar"
+	Monster 1: " "
+
+File: 703
+Monster Name Offset: 0xA74
+Size (Bytes): 552
+23 Monsters
+	Monster 0: "Zophar"
+	Monster 1: "Face 2"
+	Monster 2: "Face 3"
+	Monster 3: "Face 4"
+	Monster 4: "Face 5"
+	Monster 5: "Face 6"
+	Monster 6: "Face 7"
+	Monster 7: "Right 1"
+	Monster 8: "Right 2"
+	Monster 9: "Right 3"
+	Monster 10: "Right 4"
+	Monster 11: "Right 5"
+	Monster 12: "Left 1"
+	Monster 13: "Left 2"
+	Monster 14: "Left 3"
+	Monster 15: "Left 4"
+	Monster 16: "Left 5"
+	Monster 17: "R1"
+	Monster 18: "R2"
+	Monster 19: "R3"
+	Monster 20: "L1"
+	Monster 21: "L2"
+	Monster 22: "L3"
+
+File: 707
+Monster Name Offset: 0xA74
+Size (Bytes): 552
+23 Monsters
+	Monster 0: "Zophar"
+	Monster 1: "Face 2"
+	Monster 2: "Face 3"
+	Monster 3: "Face 4"
+	Monster 4: "Face 5"
+	Monster 5: "Face 6"
+	Monster 6: "Face 7"
+	Monster 7: "Right 1"
+	Monster 8: "Right 2"
+	Monster 9: "Right 3"
+	Monster 10: "Right 4"
+	Monster 11: "Right 5"
+	Monster 12: "Left 1"
+	Monster 13: "Left 2"
+	Monster 14: "Left 3"
+	Monster 15: "Left 4"
+	Monster 16: "Left 5"
+	Monster 17: "R1"
+	Monster 18: "R2"
+	Monster 19: "R3"
+	Monster 20: "L1"
+	Monster 21: "L2"
+	Monster 22: "L3"
+
+File: 715
+Monster Name Offset: 0xA74
+Size (Bytes): 552
+23 Monsters
+	Monster 0: "Zophar"
+	Monster 1: "Face 2"
+	Monster 2: "Face 3"
+	Monster 3: "Face 4"
+	Monster 4: "Face 5"
+	Monster 5: "Face 6"
+	Monster 6: "Face 7"
+	Monster 7: "Right 1"
+	Monster 8: "Right 2"
+	Monster 9: "Right 3"
+	Monster 10: "Right 4"
+	Monster 11: "Right 5"
+	Monster 12: "Left 1"
+	Monster 13: "Left 2"
+	Monster 14: "Left 3"
+	Monster 15: "Left 4"
+	Monster 16: "Left 5"
+	Monster 17: "R1"
+	Monster 18: "R2"
+	Monster 19: "R3"
+	Monster 20: "L1"
+	Monster 21: "L2"
+	Monster 22: "L3"
+
+File: 717
+Monster Name Offset: 0xA74
+Size (Bytes): 552
+23 Monsters
+	Monster 0: "Zophar"
+	Monster 1: "Face 2"
+	Monster 2: "Face 3"
+	Monster 3: "Face 4"
+	Monster 4: "Face 5"
+	Monster 5: "Face 6"
+	Monster 6: "Face 7"
+	Monster 7: "Right 1"
+	Monster 8: "Right 2"
+	Monster 9: "Right 3"
+	Monster 10: "Right 4"
+	Monster 11: "Right 5"
+	Monster 12: "Left 1"
+	Monster 13: "Left 2"
+	Monster 14: "Left 3"
+	Monster 15: "Left 4"
+	Monster 16: "Left 5"
+	Monster 17: "R1"
+	Monster 18: "R2"
+	Monster 19: "R3"
+	Monster 20: "L1"
+	Monster 21: "L2"
+	Monster 22: "L3"
+
+File: 721
+Monster Name Offset: 0xA74
+Size (Bytes): 552
+23 Monsters
+	Monster 0: "Zophar"
+	Monster 1: "Face 2"
+	Monster 2: "Face 3"
+	Monster 3: "Face 4"
+	Monster 4: "Face 5"
+	Monster 5: "Face 6"
+	Monster 6: "Face 7"
+	Monster 7: "Right 1"
+	Monster 8: "Right 2"
+	Monster 9: "Right 3"
+	Monster 10: "Right 4"
+	Monster 11: "Right 5"
+	Monster 12: "Left 1"
+	Monster 13: "Left 2"
+	Monster 14: "Left 3"
+	Monster 15: "Left 4"
+	Monster 16: "Left 5"
+	Monster 17: "R1"
+	Monster 18: "R2"
+	Monster 19: "R3"
+	Monster 20: "L1"
+	Monster 21: "L2"
+	Monster 22: "L3"
+
+File: 725
+Monster Name Offset: 0xA74
+Size (Bytes): 552
+23 Monsters
+	Monster 0: "Zophar"
+	Monster 1: "Face 2"
+	Monster 2: "Face 3"
+	Monster 3: "Face 4"
+	Monster 4: "Face 5"
+	Monster 5: "Face 6"
+	Monster 6: "Face 7"
+	Monster 7: "Right 1"
+	Monster 8: "Right 2"
+	Monster 9: "Right 3"
+	Monster 10: "Right 4"
+	Monster 11: "Right 5"
+	Monster 12: "Left 1"
+	Monster 13: "Left 2"
+	Monster 14: "Left 3"
+	Monster 15: "Left 4"
+	Monster 16: "Left 5"
+	Monster 17: "R1"
+	Monster 18: "R2"
+	Monster 19: "R3"
+	Monster 20: "L1"
+	Monster 21: "L2"
+	Monster 22: "L3"
+
+File: 729
+Monster Name Offset: 0xA74
+Size (Bytes): 552
+23 Monsters
+	Monster 0: "Zophar"
+	Monster 1: "Face 2"
+	Monster 2: "Face 3"
+	Monster 3: "Face 4"
+	Monster 4: "Face 5"
+	Monster 5: "Face 6"
+	Monster 6: "Face 7"
+	Monster 7: "Right 1"
+	Monster 8: "Right 2"
+	Monster 9: "Right 3"
+	Monster 10: "Right 4"
+	Monster 11: "Right 5"
+	Monster 12: "Left 1"
+	Monster 13: "Left 2"
+	Monster 14: "Left 3"
+	Monster 15: "Left 4"
+	Monster 16: "Left 5"
+	Monster 17: "R1"
+	Monster 18: "R2"
+	Monster 19: "R3"
+	Monster 20: "L1"
+	Monster 21: "L2"
+	Monster 22: "L3"
+
+File: 733
+Monster Name Offset: 0xA74
+Size (Bytes): 552
+23 Monsters
+	Monster 0: "Zophar"
+	Monster 1: "Face 2"
+	Monster 2: "Face 3"
+	Monster 3: "Face 4"
+	Monster 4: "Face 5"
+	Monster 5: "Face 6"
+	Monster 6: "Face 7"
+	Monster 7: "Right 1"
+	Monster 8: "Right 2"
+	Monster 9: "Right 3"
+	Monster 10: "Right 4"
+	Monster 11: "Right 5"
+	Monster 12: "Left 1"
+	Monster 13: "Left 2"
+	Monster 14: "Left 3"
+	Monster 15: "Left 4"
+	Monster 16: "Left 5"
+	Monster 17: "R1"
+	Monster 18: "R2"
+	Monster 19: "R3"
+	Monster 20: "L1"
+	Monster 21: "L2"
+	Monster 22: "L3"
+
+File: 735
+Monster Name Offset: 0xA74
+Size (Bytes): 552
+23 Monsters
+	Monster 0: "Zophar"
+	Monster 1: "Face 2"
+	Monster 2: "Face 3"
+	Monster 3: "Face 4"
+	Monster 4: "Face 5"
+	Monster 5: "Face 6"
+	Monster 6: "Face 7"
+	Monster 7: "Right 1"
+	Monster 8: "Right 2"
+	Monster 9: "Right 3"
+	Monster 10: "Right 4"
+	Monster 11: "Right 5"
+	Monster 12: "Left 1"
+	Monster 13: "Left 2"
+	Monster 14: "Left 3"
+	Monster 15: "Left 4"
+	Monster 16: "Left 5"
+	Monster 17: "R1"
+	Monster 18: "R2"
+	Monster 19: "R3"
+	Monster 20: "L1"
+	Monster 21: "L2"
+	Monster 22: "L3"
+
+File: 737
+Monster Name Offset: 0xA74
+Size (Bytes): 552
+23 Monsters
+	Monster 0: "Zophar"
+	Monster 1: "Face 2"
+	Monster 2: "Face 3"
+	Monster 3: "Face 4"
+	Monster 4: "Face 5"
+	Monster 5: "Face 6"
+	Monster 6: "Face 7"
+	Monster 7: "Right 1"
+	Monster 8: "Right 2"
+	Monster 9: "Right 3"
+	Monster 10: "Right 4"
+	Monster 11: "Right 5"
+	Monster 12: "Left 1"
+	Monster 13: "Left 2"
+	Monster 14: "Left 3"
+	Monster 15: "Left 4"
+	Monster 16: "Left 5"
+	Monster 17: "R1"
+	Monster 18: "R2"
+	Monster 19: "R3"
+	Monster 20: "L1"
+	Monster 21: "L2"
+	Monster 22: "L3"
+
+File: 739
+Monster Name Offset: 0x24C
+Size (Bytes): 120
+5 Monsters
+	Monster 0: "Star Dragon Guardian"
+	Monster 1: " "
+	Monster 2: " "
+	Monster 3: " "
+	Monster 4: " "
+
+File: 74
+Monster Name Offset: 0x1D8
+Size (Bytes): 96
+4 Monsters
+	Monster 0: "Giga-Ant"
+	Monster 1: "Octoplant"
+	Monster 2: "Killer Humming"
+	Monster 3: "Wasp Wooder"
+
+File: 741
+Monster Name Offset: 0x24C
+Size (Bytes): 120
+5 Monsters
+	Monster 0: "Star Dragon Guardian"
+	Monster 1: " "
+	Monster 2: " "
+	Monster 3: " "
+	Monster 4: " "
+
+File: 743
+Monster Name Offset: 0x24C
+Size (Bytes): 120
+5 Monsters
+	Monster 0: "Star Dragon Guardian"
+	Monster 1: " "
+	Monster 2: " "
+	Monster 3: " "
+	Monster 4: " "
+
+File: 745
+Monster Name Offset: 0x24C
+Size (Bytes): 120
+5 Monsters
+	Monster 0: "Star Dragon Guardian"
+	Monster 1: " "
+	Monster 2: " "
+	Monster 3: " "
+	Monster 4: " "
+
+File: 747
+Monster Name Offset: 0x24C
+Size (Bytes): 120
+5 Monsters
+	Monster 0: "Star Dragon Guardian"
+	Monster 1: " "
+	Monster 2: " "
+	Monster 3: " "
+	Monster 4: " "
+
+File: 749
+Monster Name Offset: 0x24C
+Size (Bytes): 120
+5 Monsters
+	Monster 0: "Star Dragon Guardian"
+	Monster 1: " "
+	Monster 2: " "
+	Monster 3: " "
+	Monster 4: " "
+
+File: 751
+Monster Name Offset: 0x578
+Size (Bytes): 288
+12 Monsters
+	Monster 0: "Zophar Mind"
+	Monster 1: "Zophar Mind"
+	Monster 2: "Zophar Mind"
+	Monster 3: "Zophar Mind"
+	Monster 4: "Zophar Mind"
+	Monster 5: "Zophar Mind"
+	Monster 6: "Zophar Mind"
+	Monster 7: "Zophar Mind"
+	Monster 8: "Zophar Mind"
+	Monster 9: "Zophar Mind"
+	Monster 10: "Zophar Mind"
+	Monster 11: "Zophar Mind"
+
+File: 753
+Monster Name Offset: 0x578
+Size (Bytes): 288
+12 Monsters
+	Monster 0: "Zophar Mind"
+	Monster 1: "Zophar Mind"
+	Monster 2: "Zophar Mind"
+	Monster 3: "Zophar Mind"
+	Monster 4: "Zophar Mind"
+	Monster 5: "Zophar Mind"
+	Monster 6: "Zophar Mind"
+	Monster 7: "Zophar Mind"
+	Monster 8: "Zophar Mind"
+	Monster 9: "Zophar Mind"
+	Monster 10: "Zophar Mind"
+	Monster 11: "Zophar Mind"
+
+File: 759
+Monster Name Offset: 0x7C
+Size (Bytes): 24
+1 Monsters
+	Monster 0: "Ghaleon"
+
+File: 761
+Monster Name Offset: 0x7C
+Size (Bytes): 24
+1 Monsters
+	Monster 0: "Ghaleon"
+
+File: 763
+Monster Name Offset: 0x7C
+Size (Bytes): 24
+1 Monsters
+	Monster 0: "Ghaleon"
+
+File: 765
+Monster Name Offset: 0x7C
+Size (Bytes): 24
+1 Monsters
+	Monster 0: "Ghaleon"
+
+File: 767
+Monster Name Offset: 0x164
+Size (Bytes): 72
+3 Monsters
+	Monster 0: "Ghaleon"
+	Monster 1: " "
+	Monster 2: " "
+
+File: 769
+Monster Name Offset: 0x164
+Size (Bytes): 72
+3 Monsters
+	Monster 0: "Ghaleon"
+	Monster 1: " "
+	Monster 2: " "
+
+File: 771
+Monster Name Offset: 0x164
+Size (Bytes): 72
+3 Monsters
+	Monster 0: "Ghaleon"
+	Monster 1: " "
+	Monster 2: " "
+
+File: 773
+Monster Name Offset: 0x164
+Size (Bytes): 72
+3 Monsters
+	Monster 0: "Ghaleon"
+	Monster 1: " "
+	Monster 2: " "
+
+File: 775
+Monster Name Offset: 0x24C
+Size (Bytes): 120
+5 Monsters
+	Monster 0: "Ghaleon"
+	Monster 1: " "
+	Monster 2: " "
+	Monster 3: " "
+	Monster 4: " "
+
+File: 777
+Monster Name Offset: 0x24C
+Size (Bytes): 120
+5 Monsters
+	Monster 0: "Ghaleon"
+	Monster 1: " "
+	Monster 2: " "
+	Monster 3: " "
+	Monster 4: " "
+
+File: 779
+Monster Name Offset: 0x24C
+Size (Bytes): 120
+5 Monsters
+	Monster 0: "Ghaleon"
+	Monster 1: " "
+	Monster 2: " "
+	Monster 3: " "
+	Monster 4: " "
+
+File: 781
+Monster Name Offset: 0x24C
+Size (Bytes): 120
+5 Monsters
+	Monster 0: "Ghaleon"
+	Monster 1: " "
+	Monster 2: " "
+	Monster 3: " "
+	Monster 4: " "
+
+File: 783
+Monster Name Offset: 0x24C
+Size (Bytes): 120
+5 Monsters
+	Monster 0: "Ghaleon"
+	Monster 1: " "
+	Monster 2: " "
+	Monster 3: " "
+	Monster 4: " "
+
+File: 785
+Monster Name Offset: 0x24C
+Size (Bytes): 120
+5 Monsters
+	Monster 0: "Ghaleon"
+	Monster 1: " "
+	Monster 2: " "
+	Monster 3: " "
+	Monster 4: " "
+
+File: 787
+Monster Name Offset: 0x24C
+Size (Bytes): 120
+5 Monsters
+	Monster 0: "Ghaleon"
+	Monster 1: " "
+	Monster 2: " "
+	Monster 3: " "
+	Monster 4: " "
+
+File: 789
+Monster Name Offset: 0x24C
+Size (Bytes): 120
+5 Monsters
+	Monster 0: "Ghaleon"
+	Monster 1: " "
+	Monster 2: " "
+	Monster 3: " "
+	Monster 4: " "
+
+File: 79
+Monster Name Offset: 0x1D8
+Size (Bytes): 96
+4 Monsters
+	Monster 0: "Cyclopes"
+	Monster 1: "Corona Caster"
+	Monster 2: "Meta Ball"
+	Monster 3: "Spark Eye"
+
+File: 791
+Monster Name Offset: 0x24C
+Size (Bytes): 120
+5 Monsters
+	Monster 0: "Ghaleon"
+	Monster 1: " "
+	Monster 2: " "
+	Monster 3: " "
+	Monster 4: " "
+
+File: 793
+Monster Name Offset: 0x24C
+Size (Bytes): 120
+5 Monsters
+	Monster 0: "Ghaleon"
+	Monster 1: " "
+	Monster 2: " "
+	Monster 3: " "
+	Monster 4: " "
+
+File: 795
+Monster Name Offset: 0x24C
+Size (Bytes): 120
+5 Monsters
+	Monster 0: "Ghaleon"
+	Monster 1: " "
+	Monster 2: " "
+	Monster 3: " "
+	Monster 4: " "
+
+File: 797
+Monster Name Offset: 0x24C
+Size (Bytes): 120
+5 Monsters
+	Monster 0: "Ghaleon"
+	Monster 1: " "
+	Monster 2: " "
+	Monster 3: " "
+	Monster 4: " "
+
+File: 799
+Monster Name Offset: 0x24C
+Size (Bytes): 120
+5 Monsters
+	Monster 0: "Ghaleon"
+	Monster 1: " "
+	Monster 2: " "
+	Monster 3: " "
+	Monster 4: " "
+
+File: 801
+Monster Name Offset: 0x24C
+Size (Bytes): 120
+5 Monsters
+	Monster 0: "Ghaleon"
+	Monster 1: " "
+	Monster 2: " "
+	Monster 3: " "
+	Monster 4: " "
+
+File: 803
+Monster Name Offset: 0x24C
+Size (Bytes): 120
+5 Monsters
+	Monster 0: "Ghaleon"
+	Monster 1: " "
+	Monster 2: " "
+	Monster 3: " "
+	Monster 4: " "
+
+File: 805
+Monster Name Offset: 0x24C
+Size (Bytes): 120
+5 Monsters
+	Monster 0: "Ghaleon"
+	Monster 1: " "
+	Monster 2: " "
+	Monster 3: " "
+	Monster 4: " "
+
+File: 807
+Monster Name Offset: 0x2C0
+Size (Bytes): 144
+6 Monsters
+	Monster 0: "Leo"
+	Monster 1: " "
+	Monster 2: " "
+	Monster 3: " "
+	Monster 4: " "
+	Monster 5: " "
+
+File: 809
+Monster Name Offset: 0x2C0
+Size (Bytes): 144
+6 Monsters
+	Monster 0: "Leo"
+	Monster 1: " "
+	Monster 2: " "
+	Monster 3: " "
+	Monster 4: " "
+	Monster 5: " "
+
+File: 811
+Monster Name Offset: 0x2C0
+Size (Bytes): 144
+6 Monsters
+	Monster 0: "Leo"
+	Monster 1: " "
+	Monster 2: " "
+	Monster 3: " "
+	Monster 4: " "
+	Monster 5: " "
+
+File: 813
+Monster Name Offset: 0x2C0
+Size (Bytes): 144
+6 Monsters
+	Monster 0: "Leo"
+	Monster 1: " "
+	Monster 2: " "
+	Monster 3: " "
+	Monster 4: " "
+	Monster 5: " "
+
+File: 819
+Monster Name Offset: 0x2C0
+Size (Bytes): 144
+6 Monsters
+	Monster 0: "Leo"
+	Monster 1: " "
+	Monster 2: " "
+	Monster 3: " "
+	Monster 4: " "
+	Monster 5: " "
+
+File: 823
+Monster Name Offset: 0x2C0
+Size (Bytes): 144
+6 Monsters
+	Monster 0: "Leo"
+	Monster 1: " "
+	Monster 2: " "
+	Monster 3: " "
+	Monster 4: " "
+	Monster 5: " "
+
+File: 825
+Monster Name Offset: 0x2C0
+Size (Bytes): 144
+6 Monsters
+	Monster 0: "Leo"
+	Monster 1: " "
+	Monster 2: " "
+	Monster 3: " "
+	Monster 4: " "
+	Monster 5: " "
+
+File: 831
+Monster Name Offset: 0x2C0
+Size (Bytes): 144
+6 Monsters
+	Monster 0: "Leo"
+	Monster 1: " "
+	Monster 2: " "
+	Monster 3: " "
+	Monster 4: " "
+	Monster 5: " "
+
+File: 835
+Monster Name Offset: 0x2C0
+Size (Bytes): 144
+6 Monsters
+	Monster 0: "Leo"
+	Monster 1: " "
+	Monster 2: " "
+	Monster 3: " "
+	Monster 4: " "
+	Monster 5: " "
+
+File: 84
+Monster Name Offset: 0xF0
+Size (Bytes): 48
+2 Monsters
+	Monster 0: "Lancer"
+	Monster 1: "Pawn"
+
+File: 841
+Monster Name Offset: 0xA74
+Size (Bytes): 552
+23 Monsters
+	Monster 0: "Zophar"
+	Monster 1: "Face 2"
+	Monster 2: "Face 3"
+	Monster 3: "Face 4"
+	Monster 4: "Face 5"
+	Monster 5: "Face 6"
+	Monster 6: "Face 7"
+	Monster 7: "Right 1"
+	Monster 8: "Right 2"
+	Monster 9: "Right 3"
+	Monster 10: "Right 4"
+	Monster 11: "Right 5"
+	Monster 12: "Left 1"
+	Monster 13: "Left 2"
+	Monster 14: "Left 3"
+	Monster 15: "Left 4"
+	Monster 16: "Left 5"
+	Monster 17: "R1"
+	Monster 18: "R2"
+	Monster 19: "R3"
+	Monster 20: "L1"
+	Monster 21: "L2"
+	Monster 22: "L3"
+
+File: 845
+Monster Name Offset: 0xA74
+Size (Bytes): 552
+23 Monsters
+	Monster 0: "Zophar"
+	Monster 1: "Face 2"
+	Monster 2: "Face 3"
+	Monster 3: "Face 4"
+	Monster 4: "Face 5"
+	Monster 5: "Face 6"
+	Monster 6: "Face 7"
+	Monster 7: "Right 1"
+	Monster 8: "Right 2"
+	Monster 9: "Right 3"
+	Monster 10: "Right 4"
+	Monster 11: "Right 5"
+	Monster 12: "Left 1"
+	Monster 13: "Left 2"
+	Monster 14: "Left 3"
+	Monster 15: "Left 4"
+	Monster 16: "Left 5"
+	Monster 17: "R1"
+	Monster 18: "R2"
+	Monster 19: "R3"
+	Monster 20: "L1"
+	Monster 21: "L2"
+	Monster 22: "L3"
+
+File: 851
+Monster Name Offset: 0x1D8
+Size (Bytes): 96
+4 Monsters
+	Monster 0: "Zophar"
+	Monster 1: " "
+	Monster 2: " "
+	Monster 3: " "
+
+File: 855
+Monster Name Offset: 0x1D8
+Size (Bytes): 96
+4 Monsters
+	Monster 0: "Zophar"
+	Monster 1: " "
+	Monster 2: " "
+	Monster 3: " "
+
+File: 859
+Monster Name Offset: 0x1D8
+Size (Bytes): 96
+4 Monsters
+	Monster 0: "Zophar"
+	Monster 1: " "
+	Monster 2: " "
+	Monster 3: " "
+
+File: 863
+Monster Name Offset: 0x1D8
+Size (Bytes): 96
+4 Monsters
+	Monster 0: "Zophar"
+	Monster 1: " "
+	Monster 2: " "
+	Monster 3: " "
+
+File: 867
+Monster Name Offset: 0x1D8
+Size (Bytes): 96
+4 Monsters
+	Monster 0: "Zophar"
+	Monster 1: " "
+	Monster 2: " "
+	Monster 3: " "
+
+File: 871
+Monster Name Offset: 0x1D8
+Size (Bytes): 96
+4 Monsters
+	Monster 0: "Zophar"
+	Monster 1: " "
+	Monster 2: " "
+	Monster 3: " "
+
+File: 875
+Monster Name Offset: 0x1D8
+Size (Bytes): 96
+4 Monsters
+	Monster 0: "Zophar"
+	Monster 1: " "
+	Monster 2: " "
+	Monster 3: " "
+
+File: 89
+Monster Name Offset: 0xF0
+Size (Bytes): 48
+2 Monsters
+	Monster 0: "Baiken"
+	Monster 1: "Sargent"
+
+File: 9
+Monster Name Offset: 0x1D8
+Size (Bytes): 96
+4 Monsters
+	Monster 0: "Slime"
+	Monster 1: "Serve Cruz"
+	Monster 2: "Tricles"
+	Monster 3: "Brain Hand"
+
+File: 94
+Monster Name Offset: 0xF0
+Size (Bytes): 48
+2 Monsters
+	Monster 0: "Wyndham"
+	Monster 1: "Dark Sorcerer"
+
+File: 99
+Monster Name Offset: 0xF0
+Size (Bytes): 48
+2 Monsters
+	Monster 0: "Zod"
+	Monster 1: "Gargoyle"
+
