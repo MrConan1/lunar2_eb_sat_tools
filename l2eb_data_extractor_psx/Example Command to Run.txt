@@ -1,0 +1,1 @@
+./l2extract_psx.exe data.idx data.pak data.upd out
