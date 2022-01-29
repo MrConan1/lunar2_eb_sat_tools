@@ -2,7 +2,7 @@ User Interface Text and Error Reporting
 0x010144 0	"Internal RAM unavailable"  
 0x01016C 1	"(Not Initialized)"  
 0x010194 2	"Erase all records?"  
-0x0101BC 3	                    
+0x0101BC 3	" "                    
 
 0x0101E4 4	"Cartridge RAM unavailable"
 0x01020C 5	"(Not Initialized)" 
@@ -26,8 +26,8 @@ User Interface Text and Error Reporting
 0x0103EC 17	"not detected"      
 
 0x010414 18	"Loading game data"       
-0x01043C 19	                    
-0x010464 20	                    
+0x01043C 19	" "                    
+0x010464 20	" "                    
 0x01048C 21	"The record could not"     
 0x0104B4 22	"be loaded properly"        
 
@@ -48,7 +48,7 @@ User Interface Text and Error Reporting
 0x01066C 33	"not formatted"
 0x010694 34	"Unknown error"        
 
-0x0106BC 35	                    
+0x0106BC 35	" "                    
 0x0106E4 36	"Hiro gains a level!"    
 0x01070C 37	"Gwyn gains a level!"    
 0x010734 38	"Erasing"
@@ -64,18 +64,18 @@ User Interface Text and Error Reporting
 0x0108C4 48	"Leo gains a level!"       
 0x0108EC 49	"Unused"
 0x010914 50	"Leo gains a level!"         
-0x01093C 51	"Sound\XF930Stereo\XF920Monaural"
+0x01093C 51	"Sound\XF947Stereo\XF920Monaural"
 0x010964 52	"Window"            
-0x01098C 53	"Style\XF920Normal\XF920Mesh"  
-0x0109B4 54	"Color\XF9301\XF9102\XF9103\XF9104\XF9105"
-0x0109DC 55	"Dash\XF930R\XF910L\XF910B\XF910Y"   
+0x01098C 53	"Style\XF945Normal\XF940Mesh"  
+0x0109B4 54	"Color\XF9451\XF9202\XF9203\XF9204\XF9205"
+0x0109DC 55	"Dash\XF940R\XF920L\XF920B\XF920Y"   
 0x010A04 56	"Can't use this record."
 0x010A2C 57	" "                   
 0x010A54 58	"Replace with disk 1"
 0x010A7C 59	"Replace with disk 2"   
 0x010AA4 60	" was stolen"            
 0x010ACC 61	"There was nothing to steal..."      
-0x010AF4 62	                    
+0x010AF4 62	" "                    
 
 0x010B1C 63	"No save game data detected"      
 0x010B44 64	" "              
