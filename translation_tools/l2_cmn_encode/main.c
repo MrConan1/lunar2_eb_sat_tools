@@ -493,6 +493,54 @@ int createUpdatedCommonTextFile(char* outFileName){
 	}
 	fread(buffer,1,fsize,infile);
 	fclose(infile);
+	
+	/* Overwrite Offsets in section 1 */
+	strcpy(fname,"section1_updates.txt");
+	infile = fopen(fname,"r");
+	if(infile == NULL){
+		printf("Error occurred while opening %s for reading\n", fname);
+		return -1;
+	}
+	while(1){
+		unsigned int rval, offset, value1;
+		unsigned short* pData;
+
+		/* Read in modification information */		
+		rval = fscanf(infile,"%X %X ",&offset,&value1);
+		if(rval != 2)
+			break;
+
+		/* Overwrite Original Data */
+		swap16(&value1);
+		pData = (unsigned short*)&buffer[offset];		
+		pData[0] = (unsigned short)value1;
+	}
+	fclose(infile);
+
+	/* Overwrite Offsets in section 2 */
+	strcpy(fname,"section2_updates.txt");
+	infile = fopen(fname,"r");
+	if(infile == NULL){
+		printf("Error occurred while opening %s for reading\n", fname);
+		return -1;
+	}
+	while(1){
+		unsigned int rval, offset, value1, value2;
+		unsigned short* pData;
+
+		/* Read in modification information */		
+		rval = fscanf(infile,"%X %X %X",&offset,&value1, &value2);
+		if(rval != 3)
+			break;
+
+		/* Overwrite Original Data */
+		swap16(&value1);
+		swap16(&value2);
+		pData = (unsigned short*)&buffer[offset];		
+		pData[1] = (unsigned short)value1;
+		pData[2] = (unsigned short)value2;
+	}
+	fclose(infile);
 
 	/* Now overwrite with the replacement data */
 	/* Spells, Items, Spell_ex, UI/Error Msgs, Bromides, Locations */
