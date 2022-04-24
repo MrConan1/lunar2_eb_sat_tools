@@ -494,7 +494,15 @@ int createUpdatedCommonTextFile(char* outFileName){
 	fread(buffer,1,fsize,infile);
 	fclose(infile);
 	
-	/* Overwrite Offsets in section 1 */
+	/*  Overwrite Section 1 Data */
+	/*  0x4 bytes
+		==========
+		00-01      # Image Data Headers to read in Section 2
+		02-03      Offset First Data Header in Section 2
+		
+		Section2_File_Data_Location_Offset = (Offset) * 0x16 + 0x05A0
+    */
+
 	strcpy(fname,"section1_updates.txt");
 	infile = fopen(fname,"r");
 	if(infile == NULL){
@@ -517,7 +525,23 @@ int createUpdatedCommonTextFile(char* outFileName){
 	}
 	fclose(infile);
 
-	/* Overwrite Offsets in section 2 */
+	/* Overwrite Section 2 Data */
+	/* 0x16 bytes
+		==========
+		00      Palette?
+		01      Palette?
+		02-03   (Offset / 8); 0x1400 usually added (1400*8 = 0xA000, offset in vdp1 ram of file data)
+		04      Width / 8
+		05      Height
+		06-07   Relative X position
+		08-09   Relative Y position
+		0A-0B   word
+		0C-0D   word
+		0E-0F   word
+		10-11   word 
+		12-13   word
+		14-15   word
+	*/
 	strcpy(fname,"section2_updates.txt");
 	infile = fopen(fname,"r");
 	if(infile == NULL){
@@ -525,20 +549,26 @@ int createUpdatedCommonTextFile(char* outFileName){
 		return -1;
 	}
 	while(1){
-		unsigned int rval, offset, value1, value2;
+		unsigned int rval, offset, value1, value2, xcoord, ycoord;
 		unsigned short* pData;
 
 		/* Read in modification information */		
-		rval = fscanf(infile,"%X %X %X",&offset,&value1, &value2);
-		if(rval != 3)
+		rval = fscanf(infile,"%X %X %X %X %X",&offset,&value1, &value2, &xcoord, &ycoord);
+		if(rval != 5)
 			break;
 
 		/* Overwrite Original Data */
 		swap16(&value1);
 		swap16(&value2);
+		swap16(&xcoord);
+		swap16(&ycoord);
 		pData = (unsigned short*)&buffer[offset];		
-		pData[1] = (unsigned short)value1;
-		pData[2] = (unsigned short)value2;
+		pData[1] = (unsigned short)value1; /* Offset */
+		pData[2] = (unsigned short)value2; /* Width & Height */
+		if(xcoord < 0xFFFF){
+			pData[3] = (unsigned short)xcoord; /* X Coord */
+			pData[4] = (unsigned short)ycoord; /* Y Coord */
+		}
 	}
 	fclose(infile);
 
