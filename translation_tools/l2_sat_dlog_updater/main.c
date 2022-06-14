@@ -435,6 +435,7 @@ int createDlgTextFromUpdateFile(char* updateFname, int numDlogs, char* pOutbuf,
 	int textLen, x;
 	static char linebuf[300];
 	static char tag[300];
+	unsigned int cc;
 	unsigned short controlCode;
 	unsigned short* pDlogLength;
 	FILE* inUpdate = NULL;
@@ -537,7 +538,7 @@ int createDlgTextFromUpdateFile(char* updateFname, int numDlogs, char* pOutbuf,
 
 				/* Update the Dialog length */
 				*pDlogLength += textLen;
-				if((textLen % 2) != 0){
+				if(((*pDlogLength) % 2) != 0){
 					/* Add 0x00 to the output for alignment purposes */
                     pOutbuf[bufferOffset+relativeSatTxtOffset] = 0x00;
 		            relativeSatTxtOffset++;
@@ -548,7 +549,8 @@ int createDlgTextFromUpdateFile(char* updateFname, int numDlogs, char* pOutbuf,
 			else if(linebuf[0] == 'C'){
 				/* Control Code detected, convert to Saturn Version and insert into the binary */
 				/* The update files all use the PSX version of the control codes */
-			    sscanf(linebuf,"%s %hu",tag,&controlCode);
+			    sscanf(linebuf,"%s %x",tag,&cc);
+				controlCode = (unsigned short)cc;
 				if(psxEncodingFlg){
 					controlCode = convertPsxCtrlCode(controlCode);
 				}
@@ -569,6 +571,8 @@ int createDlgTextFromUpdateFile(char* updateFname, int numDlogs, char* pOutbuf,
 			}
 
 		}
+
+		swap16(pDlogLength);
 
 		/* Check to see if complete */
 		if(numDlogs == countedDlogs)
