@@ -26,10 +26,12 @@
 
 
 #define VER_MAJ    1
-#define VER_MIN    1
+#define VER_MIN    2
 
 
 #undef PRINT_CMDS
+
+/* Note - It appears all sections need to be 4-byte aligned*/
 
 /* Sections of ES File Format */
 /* 1.) 0x20 Byte ES Header */
@@ -422,7 +424,7 @@ int main(int argc, char** argv){
 	/* Other notes:                                                 */
 	/*    0x1F is added to all 8-bit text values.  The upper bit    */
 	/*         test is performed prior to adding 0x1F               */
-	/*    On PSX, Character 0x5F is a space not an _ character      */
+	/*    On PSX, Character 0x5F is a space not an _ character      */  /* FIX THIS! */
 
 	/* Need to fix certain commands from PSX to Saturn */
 	/* Unknown:           3xxx (Just remove it & adjust size) */
@@ -490,6 +492,13 @@ int main(int argc, char** argv){
 					if(firstChar & 0x80){
 						textOutputActive = 0;
 					}
+
+					/* Check for 0x5F, if found update to space & modify pData16 */
+					if((firstChar & 0x7F) == (0x5F-0x1F)){
+						firstChar = (firstChar & 0x80) | (0x20-0x1F);
+						data = (data & 0xFF00) | firstChar;
+						*pData16 = data;
+					}
 				}
 				
 				/* Return to Control Mode*/
@@ -509,6 +518,18 @@ int main(int argc, char** argv){
 					}				
 					if(secondWd & 0x80){
 						textOutputActive = 0;
+					}
+
+					/* Check for 0x5F, if found update to space & modify pData16 */
+					if((firstWd & 0x7F) == (0x5F-0x1F)){
+						firstWd = (firstWd & 0x80) | (0x20-0x1F);
+						data = (data & 0x00FF) | (firstWd << 8);
+						*pData16 = data;
+					}
+					if((secondWd & 0x7F) == (0x5F-0x1F)){
+						secondWd = (secondWd & 0x80) | (0x20-0x1F);
+						data = (data & 0xFF00) | secondWd;
+						*pData16 = data;
 					}
 				}
 				
