@@ -1,0 +1,48 @@
+<File_Info>
+Name: 2441
+Script_Offset: 0xFC8
+</File_Info>
+
+<ES_Header>
+Command_Offset: 0x20
+Text_Offset: 0x2C
+Portrait_Offset: 0x5A
+Text_Size: 0x2F
+</ES_Header>
+
+<Command_Section>
+
+Num_Text_Pointers: 0x2
+	Text_Pointer_0001: ScriptOffset 0x00000020 DlgTextOffset 0x0000002C
+	Text_Pointer_0002: ScriptOffset 0x00000024 DlgTextOffset 0x00000040
+</Command_Section>
+
+<Text_Section>
+Label: Text 1
+Offset: 0x2C
+Size: 0x12 bytes
+
+Text_Start
+Control_Code 0xB001 (Item_Print 0xB001)
+" "
+Control_Code 0x1000 (newline)
+"was obtained."
+Control_Code 0x1000 (newline)
+Text_End
+
+Label: Text 2
+Offset: 0x40
+Size: 0x18 bytes
+
+Text_Start
+Control_Code 0xB002 (Item_Print 0xB002)
+" "
+Control_Code 0x1000 (newline)
+"found, but inventory is full!"
+Control_Code 0x1000 (newline)
+Text_End
+
+</Text_Section>
+
+<Script_Errors>
+</Script_Errors>
