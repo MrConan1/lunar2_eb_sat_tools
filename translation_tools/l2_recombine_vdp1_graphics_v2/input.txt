@@ -1,0 +1,215 @@
+#############################################################################
+# Format: Old_Offset New_Offset Width_Pixels Height_Pixels Palette X_Coord Y_Coord New_Image_File
+#
+#         Offsets are relative to the start of file 1227 (past 8 byte hdr)
+#         If the image did not exist before, set Old_Offset to FFFFFFFF
+#         If New_Image_File is "0", then its a zero-fill request &
+#            the width becomes the # of bytes to zero-fill, height ignored.
+#         Lines that start with # are comments
+#         All image offsets should be multiples of 8 bytes
+#         All F's for Palette or X/Y Coord means do not update those values
+#         *** Last entry needs to be a newline ***
+#############################################################################
+
+# Character Names
+0148	0148	32	7	FF	FFFF	FFFF	input\11_HIRO.bin
+01B8	01B8	32	7	FF	FFFF	FFFF	input\12_RONFAR.bin
+0228	0228	32	7	FF	FFFF	FFFF	input\13_LEMINA.bin
+0298	0298	32	7	FF	FFFF	FFFF	input\14_Jean.bin
+0308	0308	32	8	FF	FFFF	FFFF	input\15_gwyn.bin
+0388	0388	32	7	FF	FFFF	FFFF	input\16_lucia.bin
+03F8	03F8	32	7	FF	FFFF	FFFF	input\17_Mystere.bin
+0468	0468	16	7	FF	FFFF	FFFF	input\18_LEO.bin
+
+# System Menu - Character Stats
+1098	1098	32	11	01	FFFF	FFFF	input\65_attack.bin
+1188	1148	32	11	01	FFFF	FFFF	input\66_attacks.bin
+1268	11F8	32	10	01	FFFF	FFFF	input\67_defense.bin
+1348	1298	32	13	01	FFFF	FFFF	input\68_agility.bin
+1428	1368	32	13	01	FFFF	FFFF	input\69_speed.bin
+1518	1438	32	10	01	FFFF	FFFF	input\70_wisdom.bin
+15F8	14D8	32	13	01	FFFF	FFFF	input\71_mgcdef.bin
+16D8	15A8	32	13	01	FFFF	FFFF	input\72_range.bin
+17B8	1678	32	10	01	FFFF	FFFF	input\73_Luck.bin
+5348    1718    16      11 	FF	FFFF	FFFF    input\AI_16x11_4bpp.bin
+FFFF	1770	296 	0 	FF	FFFF	FFFF	0
+
+# OK?, Yes/No
+7628    7628    32      11	FF	FFFF	FFFF    input\ok_32_11_4bpp.bin
+FFFF    76D8    184     0 	FF	FFFF	FFFF    0
+
+2B18	2B18	24	11	FF	FFFF	FFFF	input\106_yes.bin
+2BF8	2BA0	16	11	FF	FFFF	FFFF	input\107_no.bin
+FFFF	2BF8	300	0	FF	FFFF	FFFF	0
+
+# Change Weapon
+3F90	3F90	112	14	FF	FFFF	FFFF	input\Change_Weapon_112x14_4bpp.bin
+FFFF	42A0	112	0	FF	FFFF	FFFF	0
+
+# Spell Types
+#SP, One, Zone, All, Line, Self  <-- fix offsets
+6100    6100    16      11	FF	FFFF	FFFF    input\SP_16x11_4bpp.bin
+FFFF    6158	168	0	FF	FFFF	FFFF	0
+62E8    62E8    32      11 	FF	FFFF	FFFF    input\One_32x11_4bpp.bin
+63E8    6398    32      11 	FF	FFFF	FFFF    input\Zone_32x11_4bpp.bin
+64E8    6448    32      11 	FF	FFFF	FFFF    input\All_32x11_4bpp.bin
+65E8    64F8	64	11	FF	FFFF	FFFF	input\Random_64x11_4bpp.bin
+66D8    6658	32	11	FF	FFFF	FFFF	input\Field_32x11_4bpp.bin
+67C8    6708    32      11 	FF	FFFF	FFFF    input\Line_32x11_4bpp.bin
+68C8    67B8    32      11 	FF	FFFF	FFFF    input\Self_32x11_4bpp.bin
+FFFF	6868	352	0	FF	FFFF	FFFF	0
+
+
+# System Tactics Sub-menu Order Graphic
+6B48	6B48	104	16	FF	FFFF	FFFF	input\181_order.bin
+
+# System Tactics Sub-menu Act Graphic
+7060	7060	24	16	FF	FFFF	FFFF	input\187_act.bin
+
+
+############
+#  Battle  #
+############
+
+# Battle - Character State
+# Note: Mute moved to save game area
+7D90	7D90	32	7	FF	FFFF	FFFF	input\213_FAINT.bin
+7E10	7E00	32	7	FF	FFFF	FFFF	input\214_poison.bin
+7E48	7E70	32	7	FF	FFFF	FFFF	input\215_paralyze.bin
+7E88	7EE0	32	7	FF	FFFF	FFFF	input\216_Sleep.bin
+7EF8	7F50	32	7	FF	FFFF	FFFF	input\217_Charmed.bin
+FFFF    7FC0	40	0	FF	FFFF	FFFF	0
+
+
+#################
+#  Battle Over  #
+#################
+
+#Received:  (Earned:) 48x16
+9DD8	9DD8	48	11	FF	FFFF	FFFF	input\Earned_48x11_4bpp.bin
+
+#EXP (lowercase it)  erase "to" by pointing it to zeros
+9F58	9EE0	32	14	FF	FFFF	FFFF	input\Exp_32x14_4bpp.bin
+FFFF    9FC0	216	0	FF	FFFF	FFFF	0
+
+#Remove "to" and "gold obtained"
+#could reclaim gold obtained space if needed
+A028	8A70    8       1       FF	FFFF	FFFF	input\zeros.bin
+A100	8A70    8       1       FF	FFFF	FFFF	input\zeros.bin
+FFFF    A100	384	0	FF	FFFF	FFFF	0
+
+# Items:
+A280	A280	48	11	FF	FFFF	FFFF	input\Items_48x11_4bpp.bin
+# No Items (nashi)
+A400 	A388	32	11	FF	FFFF	FFFF	input\None_32x11_4bpp.bin
+FFFF    A438	168	0	FF	FFFF	FFFF	0
+
+
+# Battle - Level Up
+
+# New Stats
+95B8	95B8	32	11	FF	FFFF	FFFF	input\Level_32x11_4bpp.bin
+#9720	9668	48	11	FF	FFFF	FFFF	input\Attacks_48x11_4bpp.bin
+#9810	9770	48	14	FF	FFFF	FFFF	input\Agility_48x14_4bpp.bin
+#98F0	98C0	48	14	FF	FFFF	FFFF	input\Speed_48x14_4bpp.bin
+#99E0	9A10	64	11	FF	FFFF	FFFF	input\Wisdom_64x11_4bpp.bin
+#9AD0	9B70	48	14	FF	FFFF	FFFF	input\MgcDef_48x14_4bpp.bin
+#Next availabile is 9CC0 to 9D9F (0xE0 bytes free)
+
+#Need space for the following (or reuse stat versions)
+#9BC0	9CC0	48	14	FF	FFFF	FFFF	input\Range_48x14_4bpp.bin
+#9CB0	9E10	32	11	FF	FFFF	FFFF	input\Luck_32x11_4bpp.bin
+#5538	1098	48	11	FF	FFFF	FFFF	input\Attack_48x11_4bpp.bin
+#5818	A280	48	11	FF	FFFF	FFFF	input\Defense_48x11_4bpp.bin
+
+#32x11 = 0xB0
+#48x11 = 0x108
+#48x14 = 0x150
+#64x11 = 0x160
+
+#Substitute stats for lvl up stuff
+5538	1098	32	11	01	FFFF	FFFF	input\65_attack.bin
+9720	1148	32	11	01	FFFF	FFFF	input\66_attacks.bin
+5818	11F8	32	10	01	FFFF	FFFF	input\67_defense.bin
+9810	1298	32	13	01	FFFF	FFFF	input\68_agility.bin
+98F0	1368	32	13	01	FFFF	FFFF	input\69_speed.bin
+99E0	1438	32	10	01	FFFF	FFFF	input\70_wisdom.bin
+9AD0	14D8	32	13	01	FFFF	FFFF	input\71_mgcdef.bin
+9BC0	15A8	32	13	01	FFFF	FFFF	input\72_range.bin
+9CB0	1678	32	10	01	FFFF	FFFF	input\73_Luck.bin
+
+
+#Get rid of:  MgcDef Pt 2 / Rng Pt 2
+9B48	8A70    8       1       FF	FFFF	FFFF	input\zeros.bin
+9C38	8A70    8       1       FF	FFFF	FFFF	input\zeros.bin
+
+
+# Spell - Learned (put in-place or shift it somewhere else? -- 264 bytes)
+# Temporarily moving to A100, remove "eta."
+B1B0	A100	48	11	FF	FFFF	FFFF	input\learned_48x11_4bpp.bin
+B2B0	8A70    8       1       FF	FFFF	FFFF	input\zeros.bin
+B328	8A70    8       1       FF	FFFF	FFFF	input\zeros.bin
+
+# Spell - Power Up (morphed into)
+# erase wa and ni
+B400    8A70    8       1       FF	FFFF	FFFF	input\zeros.bin
+B470    8A70    8       1       FF	FFFF	FFFF	input\zeros.bin
+B4E0	B400	96	14	FF	FFFF	FFFF	input\morphed_into_96x14_4bpp.bin
+FFFF    B692	196	0	FF	FFFF	FFFF	0
+
+
+
+###################
+# Save Game Stuff #
+###################
+
+# Hr/Min, stuffed MUTE over here from Battle - Character Status
+# Erase Kan
+8988	8988	16	11	FF	FFFF	FFFF	input\229_hr.bin
+8A80	89E0	16	7	FF	FFFF	FFFF	input\231_min.bin
+7F68    8A18    24      7  	FF	FFFF	FFFF    input\218_MUTE.bin
+FFFF	8A6C	148	0	FF	FFFF	FFFF	0
+8A08    8A70    8       1       FF	FFFF	FFFF	input\zeros.bin
+
+# Cart RAM, Internal RAM
+# Theres some free space here, but not bothering right now
+8078	8078	64	11	FF	FFFF	FFFF	input\Int_RAM_64x11_4bpp.bin
+82F8	82F8	64	11	FF	FFFF	FFFF	input\Cart_RAM_64x11_4bpp.bin
+
+#########
+# Shops #
+#########
+
+#FFFF	4DB0	928	0	FF	FFFF	FFFF	0
+
+# Junk characters
+48B0    8A70    8       1       FF	FFFF	FFFF	input\zeros.bin
+4AB0    8A70    8       1       FF	FFFF	FFFF	input\zeros.bin
+4D78    8A70    8       1       FF	FFFF	FFFF	input\zeros.bin
+4E48    8A70    8       1       FF	FFFF	FFFF	input\zeros.bin
+4EB0    8A70    8       1       FF	FFFF	FFFF	input\zeros.bin
+4F30    8A70    8       1       FF	FFFF	FFFF	input\zeros.bin
+50D0    8A70    8       1       FF	FFFF	FFFF	input\zeros.bin
+
+# General Shop
+47B0	47B0	48	11	FF	FFFF	FFFF	input\General_48x11_4bpp.bin
+# Arms Shop
+4930	48B8	32	11	FF	FFFF	FFFF	input\Arms_32x11_4bpp.bin
+# Armor Shop
+4A30	4968	48	11	FF	FFFF	FFFF	input\Armor_48x11_4bpp.bin
+4C28	4968	48	11	FF	FFFF	FFFF	input\Armor_48x11_4bpp.bin
+# Items Shop
+4B28	4A70	32	11	FF	FFFF	FFFF	input\Items_32x11_4bpp.bin
+
+#Buy
+4F58	4B20	32	14	FF	FFFF	FFFF	input\Buy_32x14_4bpp.bin
+#Sell
+5058	4C00	32	11	FF	FFFF	FFFF	input\Sell_32x11_4bpp.bin
+# S
+4CA8	4CB0	16	10	FF	FFFF	FFFF	input\138.bin
+#Own:
+4CF8	4D00	32	11	FF	FFFF	FFFF	input\own_32x11_4bpp.bin
+
+#Zero out Remainder up to 0x514F
+FFFF	4DB0	928	0	FF	FFFF	FFFF	0
+## Need to end at 514F
