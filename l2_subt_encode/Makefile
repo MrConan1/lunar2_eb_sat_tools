@@ -4,7 +4,7 @@ INSTALL := install
 PREFIX := /usr/local
 bindir := $(PREFIX)/bin
 
-l2_subt_extract: main.c
+l2_subt_encode: main.c
 	$(CC) $(CFLAGS) -Wall main.c -o $@
 
 .PHONY: all clean install
