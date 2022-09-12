@@ -169,7 +169,7 @@ int main(int argc, char** argv){
 			relVramOffset = pSubtImageInfo->imageInfoArray[y].rel_vram_offset_div_8;
 			swap16(&relVramOffset);
 			relVramOffsetUint = relVramOffset * 8;		
-			sprintf(outfileName,"%s_subtimg%d_0x%08X_%dw_%dh.bin",argv[1],x,relVramOffset,width,height);
+			sprintf(outfileName,"%s_subtimg%d_%d_0x%08X_%dw_%dh.bin",argv[1],x,y+1,relVramOffset,width,height);
 
 			/* Open and write the output files */
 			outfile = fopen(outfileName,"wb");
