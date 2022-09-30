@@ -73,11 +73,11 @@ FFFF	6868	352	0	FF	FFFF	FFFF	0
 
 # Battle - Character State
 # Note: Mute moved to save game area
-7D90	7D90	32	7	FF	FFFF	FFFF	input\213_FAINT.bin
-7E10	7E00	32	7	FF	FFFF	FFFF	input\214_poison.bin
-7E48	7E70	32	7	FF	FFFF	FFFF	input\215_paralyze.bin
-7E88	7EE0	32	7	FF	FFFF	FFFF	input\216_Sleep.bin
-7EF8	7F50	32	7	FF	FFFF	FFFF	input\217_Charmed.bin
+7D90	7D90	32	7	FF	0000	0000	input\213_FAINT.bin
+7E10	7E00	32	7	FF	0000	0000	input\214_poison.bin
+7E48	7E70	32	7	FF	0000	0000	input\215_paralyze.bin
+7E88	7EE0	32	7	FF	0000	0000	input\216_Sleep.bin
+7EF8	7F50	32	7	FF	0000	0000	input\217_Charmed.bin
 FFFF    7FC0	40	0	FF	FFFF	FFFF	0
 
 
@@ -108,7 +108,7 @@ FFFF    A438	168	0	FF	FFFF	FFFF	0
 # Battle - Level Up
 
 # New Stats
-95B8	95B8	32	11	FF	FFFF	FFFF	input\Level_32x11_4bpp.bin
+95B8	95B8	32	10	FF	FFFF	FFFF	input\Level_32x10_4bpp.bin
 #9720	9668	48	11	FF	FFFF	FFFF	input\Attacks_48x11_4bpp.bin
 #9810	9770	48	14	FF	FFFF	FFFF	input\Agility_48x14_4bpp.bin
 #98F0	98C0	48	14	FF	FFFF	FFFF	input\Speed_48x14_4bpp.bin
@@ -143,6 +143,9 @@ FFFF    A438	168	0	FF	FFFF	FFFF	0
 9B48	8A70    8       1       FF	FFFF	FFFF	input\zeros.bin
 9C38	8A70    8       1       FF	FFFF	FFFF	input\zeros.bin
 
+#System
+D3A8	9658	64	16	FF	FFFF	FFFF	input\System_64x16_4bpp.bin
+
 
 # Spell - Learned (put in-place or shift it somewhere else? -- 264 bytes)
 # Temporarily moving to A100, remove "eta."
@@ -167,7 +170,7 @@ FFFF    B692	196	0	FF	FFFF	FFFF	0
 # Erase Kan
 8988	8988	16	11	FF	FFFF	FFFF	input\229_hr.bin
 8A80	89E0	16	7	FF	FFFF	FFFF	input\231_min.bin
-7F68    8A18    24      7  	FF	FFFF	FFFF    input\218_MUTE.bin
+7F68    8A18    24      7  	FF	0000	0000    input\218_MUTE.bin
 FFFF	8A6C	148	0	FF	FFFF	FFFF	0
 8A08    8A70    8       1       FF	FFFF	FFFF	input\zeros.bin
 
@@ -179,8 +182,6 @@ FFFF	8A6C	148	0	FF	FFFF	FFFF	0
 #########
 # Shops #
 #########
-
-#FFFF	4DB0	928	0	FF	FFFF	FFFF	0
 
 # Junk characters
 48B0    8A70    8       1       FF	FFFF	FFFF	input\zeros.bin
@@ -213,3 +214,6 @@ FFFF	8A6C	148	0	FF	FFFF	FFFF	0
 #Zero out Remainder up to 0x514F
 FFFF	4DB0	928	0	FF	FFFF	FFFF	0
 ## Need to end at 514F
+
+#Command, doubles as a tactics character
+5150	4DB0	80	13	FF	FFFF	FFFF	input\Command_80x13_4bpp.bin
