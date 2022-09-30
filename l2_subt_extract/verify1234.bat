@@ -1,0 +1,12 @@
+fc /b 1234_subtimg0_1_0x00000000_184w_17h.bin updated1234.bin_subtimg0_1_0x00000000_184w_17h.bin
+fc /b 1234_subtimg0_2_0x000000C4_160w_48h.bin updated1234.bin_subtimg0_2_0x000000C4_160w_48h.bin
+fc /b 1234_subtimg0_3_0x000002A4_200w_70h.bin updated1234.bin_subtimg0_3_0x000002A4_200w_70h.bin
+fc /b 1234_subtimg0_4_0x00000610_104w_16h.bin updated1234.bin_subtimg0_4_0x00000610_104w_16h.bin
+fc /b 1234_subtimg0_5_0x00000678_144w_16h.bin updated1234.bin_subtimg0_5_0x00000678_144w_16h.bin
+fc /b 1234_subtimg0_6_0x00000708_168w_51h.bin updated1234.bin_subtimg0_6_0x00000708_168w_51h.bin
+fc /b 1234_subtimg0_7_0x00000920_160w_34h.bin updated1234.bin_subtimg0_7_0x00000920_160w_34h.bin
+fc /b 1234_subtimg0_8_0x00000A74_120w_16h.bin updated1234.bin_subtimg0_8_0x00000A74_120w_16h.bin
+fc /b 1234_subtimg0_9_0x00000AEC_168w_35h.bin updated1234.bin_subtimg0_9_0x00000AEC_168w_35h.bin
+fc /b 1234_subtimg1_1_0x00000000_320w_224h.bin updated1234.bin_subtimg1_1_0x00000000_320w_224h.bin
+
+pause

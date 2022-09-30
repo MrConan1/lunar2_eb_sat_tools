@@ -1,0 +1,18 @@
+fc /b 1235_subtimg0_1_0x00000000_112w_46h.bin updated1235.bin_subtimg0_1_0x00000000_112w_46h.bin
+fc /b 1235_subtimg0_2_0x00000144_104w_35h.bin updated1235.bin_subtimg0_2_0x00000144_104w_35h.bin
+fc /b 1235_subtimg0_3_0x00000228_112w_46h.bin updated1235.bin_subtimg0_3_0x00000228_112w_46h.bin
+fc /b 1235_subtimg0_4_0x0000036C_64w_36h.bin updated1235.bin_subtimg0_4_0x0000036C_64w_36h.bin
+fc /b 1235_subtimg0_5_0x000003FC_32w_11h.bin updated1235.bin_subtimg0_5_0x000003FC_32w_11h.bin
+fc /b 1235_subtimg0_6_0x00000414_80w_112h.bin updated1235.bin_subtimg0_6_0x00000414_80w_112h.bin
+fc /b 1235_subtimg0_7_0x00000644_80w_73h.bin updated1235.bin_subtimg0_7_0x00000644_80w_73h.bin
+fc /b 1235_subtimg0_8_0x000007B4_80w_76h.bin updated1235.bin_subtimg0_8_0x000007B4_80w_76h.bin
+fc /b 1235_subtimg0_9_0x00000930_88w_55h.bin updated1235.bin_subtimg0_9_0x00000930_88w_55h.bin
+fc /b 1235_subtimg0_10_0x00000A60_144w_78h.bin updated1235.bin_subtimg0_10_0x00000A60_144w_78h.bin
+fc /b 1235_subtimg0_11_0x00000D20_104w_34h.bin updated1235.bin_subtimg0_11_0x00000D20_104w_34h.bin
+fc /b 1235_subtimg0_12_0x00000E00_80w_37h.bin updated1235.bin_subtimg0_12_0x00000E00_80w_37h.bin
+fc /b 1235_subtimg0_13_0x00000EBC_144w_35h.bin updated1235.bin_subtimg0_13_0x00000EBC_144w_35h.bin
+fc /b 1235_subtimg0_14_0x00000FF8_160w_38h.bin updated1235.bin_subtimg0_14_0x00000FF8_160w_38h.bin
+fc /b 1235_subtimg0_15_0x00001174_112w_37h.bin updated1235.bin_subtimg0_15_0x00001174_112w_37h.bin
+fc /b 1235_subtimg0_16_0x00001278_144w_38h.bin updated1235.bin_subtimg0_16_0x00001278_144w_38h.bin
+
+pause
