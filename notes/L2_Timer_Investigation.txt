@@ -1,0 +1,759 @@
+0605b2CA is the location of the new code
+Automated code coming out of 0x2E5A92
+Item reading from 0x2E5AC6  (corruption)
+
+
+If the text is shortened at 0x2E5A92, then there is no corruption.
+Appears to be a timing conflict.  Text box needs to go away before the next one is called.
+Maybe this is a control code issue.
+
+
+
+File in question is... 
+CDE0010.DAT and 1367
+Shortening the text fixes the problem.  The higher up script is setting a timer somewhere.  Nothing to fix in the ES script.
+
+>> Script resides at 2E1000 to 2ed7ff
+Read Breakpoint 0x2e1000 to 2e2800
+2E1D38
+
+0605c23A: Read 2E15CE = 0x0006
+0605C242: CMP/EQ with 0xFFFF  (bt 0605c250)
+else
+Mult by 4 --> 0x0006*4 = 0x18
+jsr based on the above value
+
+0605DE84 mov.w @r8, r3  (r8 = 2E15D6; r3 = 0x0000)
+         mov r6, r5  (r5 = 2D3528)
+		 add #8, r5  (r5 = 2D3530)
+		 r2 = *2D3530  = 0x0000
+		 
+0605D840 mov.w @r13, r1;  r1 = *2E15D0 = 0x0000
+         cmp/pz r1  
+		 bt/s 0605d86c
+
+
+0605D894 mov.w @r1, r1;   r1 = *2E15D2 = 0x0000
+
+
+0605D8B2 mov.w @r12, r1   r1 = *2D51c2 = 0x0000
+
+0605DC32 mov.b @r2, r2   r2 = *2E15DB = 0x00
+
+0605DC66 mov.w @r1, r6  r6 = 2E15DA = 0x0000
+
+0605DC6A mov.w @r8, r5   r5 = *2E15D8 = 0x000A
+0605DC6E jsr 0x0600DC28(r4 = 0x0018, r5 = 0x000A, r6 = 0x0000) 
+
+0605DC98 mov.w @r8, r1
+
+==============================
+0605C23A mov.w @r5, r1  r1 = *2E1D38 = 0x0004
+
+
+=========================================
+0605c23a  MOV.W @R5, R1  0x2E1358 = 0x001d
+Call 0x0605E7C8 (0x0002, 2e135A, 0006)  <-- fctn based on above
+
+
+
+
+0605C23C   *2E134A = 0x001C
+Call 0x0605E72C (r4 = 0x0001, r5 = 2E134C, r6 = 0x0006)
+
+
+605C120 jsr @605c200
+
+0605C12E jsr @06058684 <-- seems to print to text box
+
+
+
+->> 0604FD1C jsr @0600F324 <-- is this the delay?  Nope, 0xFFFF clear
+
+
+
+
+********* New attempt -- work backwards -- *************
+Break on reads to 2E5970 to 2E5D30
+
+0605E754 mov.l  @r1, r4 {*060420EC = 2E597C} This is a ptr to the start of the script
+0605E756 jsr    @r0     {r0 = 060585B8}
+0605E758 extu.w r5, r5  {r5 = 0x0000} <- index into cmds
+
+Fctn 060585B8
+  r5 *= 4;  (r5 = 0)
+  r1 = 0x20 (Location past ES HDR, CMD Data)
+  r0 = r5
+  r3 = (r4+28) 0x00000058
+  r1 = r4+0x20;  (2e599c)
+  r2 = *(0x0000 + 2e599c) = 1D0000  (First command)
+  0x060585d6 add r4, r3  (r3 = start of text)
+  0x060585DC adds offset from cmd to start of text section
+  0x060585E0 jsr @r1 (r1 = 0605B2C4)  {r4 = address to start of text}
+         Decompresses the text?
+  0x0605E75A
+  switch to break on reads to 2A0000 - 2A0150
+  0x0605B6B8
+    0605B6B8 -- read letter
+	0605BA8E -- read next letter
+	...
+	Ends with 0x2000
+	Branches to 0605B7C4
+	r3 = *0604266c (file pointer to next text block)
+	r1 = *06042e74 = 2a0154
+	cmp/hs r1, r3
+	bt 0605b7de      <-- this is a boundary check for the block
+605b7d0 mov.w @r3, r1
+        r1 = *2A005C = C2C1
+		r2 = 0x1000
+		cmp/eq r2, r1 <-- check for a following 0x1000
+		bf/s 0605B7de
+		add #2, r3  (r3 = 2A005e)
+		*06042808 = 1
+0605B7E6	jsr 0605b2EC
+           r1 = *6042820
+           0605b2F4 cmp #1, r0 (r0 = 2)
+           branches to 0605b30c
+		   
+          0605b30c
+			mov -2, r1
+			r2 = 060423dc
+			bra 0605b330
+			060423dc = -2  (0xFFFFFFFE)
+			rts
+		r2 = 06042e64
+		mov #0, r1
+605B7EE bra 0605ba10
+        mov.l r1, @r2			<-- *06042e64 = 0x0
+Resume execution at 0605BB66
+
+0605BB66  r1 = 0604266c
+		  r3 = *0604266c = 2A005C
+		  r1 = *06042E74 = 2A0154 <-- end location
+		  cmp/hs r1, r3
+		  bf 0605bb90
+
+0605bb90  r1 = 06042820	
+		  r0 = *06042820 = 0x2
+		  cmp/eq #2, r0
+		  bf/s 0605bbb0
+		  mov r9, r0    <-- r9 is 1
+		  mov.l @r1, r0  <-- r0 = *6042808 = 1
+		  cmp/eq #1, r0
+		  bf/s 0605bbb0
+		  mov r9, r0
+		  r1 = 060423dc
+		  mov.l @r1, r0    r0 = *060423dc = -2
+		  cmp/eq -2, r0  (TRUE)
+		  bt/s 0605bbb0
+		  mov #0, r0    r0 = 0
+  
+ Execution returns to 0605D3F8
+         r1 = 06042820
+		 r0 = *06042820 = 2
+		 cmp/eq #2, r0
+		 bt/s 0605d40e
+		 mov r8, r1  (r8 is 2D34b0)
+0605d40E  add #32, r1   r1 = 2D34D0
+          mov.w @r1, r1   r1 = 0x00000073
+		  tst r1, r1
+		  bt 0605d418
+		  mov.l r9, @(56, r8)  r8 = 2d34d0; r9 is 06056000
+
+Return to 0605C2AC
+          r1 = *2D5028 = 2D34b0
+		  mov.l @(52, r1), r2   r2 = 0605D438
+		  r1 = *(r8+4) = *(2D502C) = 0x0000
+		  mov.l @r1, r5;  r5 = 20000200
+		  jsr @r2  (r2 = 0605d438| r4 = 2d5020, r5 = 20000200)
+  
+ Something going on at 06056000?? 
+          Read from 2D350C = 15B
+		  subtract 1 and write back to 2d350c
+
+06056000 <-- decrementing counter
+    mov r4, r2   (r4 = 2D3528)   r2 += 42 = 2d3352	
+	*2d3352= 0x00
+	r2 = 2D3528 +32 = 2D3548 <-- magic location?
+	add -1, r1
+	mov.w r1, @r2
+	...
+  
+  
+ Execution returns to 0605C128 
+  
+ 0605C290 keeps getting called but nothing is printed.  (Is this the real delay?)
+ 
+ 
+ First text box timer is at 2d3458 = 0xAB
+ 2d3474
+ 2d34d0
+ 2d350c
+ 2d3458  <-- expired after text
+ 2d3494  <-- expired after text
+  2d34D0  <-- expired after text
+   2d3548  <-- expired after text
+    2d3020  <-- expired after text  
+    2d305C  <-- expired after text 
+    2d3188  <-- expired after text 
+    2d31C4  <-- expired after text 
+    2d3200  <-- expired after text 
+    2d323C  <-- expired after text 	
+...
+2d33a4	
+2d34x0  >> 23
+
+2d34D0  >> 23  <-- this one appears to be it for automated text.  set to 0x3 when it messes up
+2d3458?
+
+
+2E1350 = 00A0
+add 1 and store   0605e778
+
+2E1356 = 009B
+2E135C = 004B
+
+0605DA22 mov.w @r5, r5 ) r5 = *2E11AE =  0x42 
+(for 2d3458)
+2D51a0 -> 2d34d0  (9B)
+2e15e2 ->
+2e1790
+2e1a2a
+2e1d42
+2e1f40
+2e214c
+2e22b0
+2e2420
+2e2906 -> 2d34d0 
+
+===============================================================================
+
+Opening dialog timers Investigation
+========================
+2E1350 = 00A0
+2E1356 = 009B
+2E135C = 004B
+
+
+         r5 = *2D5024
+0605C23A mov.w @r5, r1  <--  r1 = *2E134A = 0x001C
+         r0 = 1C * 4 = 0x70
+		 r5 += 2;  <-- r5 = 2E134C    <-- READ
+		 r0 = 0604A45C + r0 = 0604A45C + 0x70 = 0605E72C
+		 r4 = r9 = 2
+		 jsr 0605E72C (2, 2E134C, 6)
+		 
+0605E72C
+	r9 = *60421e0 = 2D5000
+	r2 *= 16 = 0x20
+	add r2,r9;   r9 = 2D5020
+	r1 = *2D5028 = 2D34B0
+	r11 = *(r1+48) = 2d51A0
+	r4 = *60420ec = 
+	r5 = *2E134C = 0000  <-- READ
+	r4 = 2E597c
+	jsr 60585b8 (2e597c <-- script start, 0, 6)
+	
+	r1= *2e5998 = 0x20
+...
+605E75A mov.w @r8, r1  r1 = *2E134E = 1
+
+...
+
+0605DA10 (0x0002, 2E1350, 6)
+
+0605da22 mov.w @r5, r5  <==  r5 = 2E1350
+
+0605R7F8 MOV.W @r8, r1   <== r1 = *2e1354 = 0x0000
+
+
+
+
+
+
+
+
+
+Read Examination  (Break on Reads from 2E1000 to 2E5D30)
+======================
+
+--> HIRO movie running <--
+
+FilE # 1367 is loaded
+
+Header:
+2E1000 0000C23C 00000002 00000018 0000497C
+2E1010 0000197C 00007D64 00000005 00000010
+2E1020 0000000A 00000108 00000100 00200020
+2E1030 8600FFFF FFFFFFFF FFFFFFFF FFFFFFFF
+2E1040 FFFFFFFF FFFFFFFF
+
+
+LW	Value		Descr
+==================================
+0	0000C23C	ZeroPad Relative Offset
+1	00000002	Partial offset: Multiply by 8 -> 2*0x8 = 0x10
+2	00000018 	Partial offset: Add previous value to this value (2E1000+*2E1008 + 0x10 = 0x2E1000+0x18+0x10 = 0x2E1028)
+                    This gives some sort of a max address location to check against.
+					Also used to get address 0x2E1018, used later
+3	0000497C	ES File Relative Offset
+4	0000197C 	Script Relative offset? (Precedes ES File)
+5	00007D64 
+6	00000005    This is #2E1018.  Begin check against 0xA
+7	00000010    check against 0xA
+8	0000000A    check against 0xA (TRUE).  This is saved off as a global
+9	00000108    (0x2E1018+00000108) =	0x2E1120.  This is a file section offset
+A	00000100
+B	00200020
+C 	8600FFFF
+D 	FFFFFFFF FFFFFFFF FFFFFFFF FFFFFFFF FFFFFFFF
+
+
+Start looking before Hiro movie
+=================================
+0605C144 read from 2E102B = 0x0
+if 0x0 call jsr 0605c4e0
+   Write 0x0 to 06042BB4
+0605C054 r1 = *2E1000 = 00000000
+
+--> Start reading header information
+0605BFDA mov.l @(16,r13),r4    r4 = *(2E1000+0x10) = 0x197C  (Read LW#4)
+                                    Add this relative offset to 0x2E1000 (Beginning of section)
+                               r4 = 0x2E297C         [Action Script? (Precedes ES File)]
+							   
+0605BFE2 mov.l @(12, r13), r2  r4 = *(2E1000+0x0C) = 0x497C  (Read LW#3)
+                               r4 = 0x2E597C         [ES File Offset]
+0x0605BFEC:  *0x060420EC = 0x2E597C;  <-- global
+
+0605C054 mov.l @r2, r1          r1 = *2E1000 = 0x0000C23C
+0605C070 mov.l @(8, r2), r7     r7 = *2E1008 = 0x00000018
+                                r7 = 0x2E1018
+								
+0605C074 mov.l @(4, r2), r3     r3 = *2E1004 = 0x00000002
+                                r1 = r3*8 = 0x10
+								r1 += r7 = 0x2E1028 <-- max
+
+0605C088 mov.l @(r0,r7),r3      r3 = *(0x2E1018+0) = 0x00000005
+                                (check against 0xA)
+								
+								r2 = 2E1018+8 = 2e1020
+								(check against 0x2E1028)
+								
+r0+=8  (was loaded with 0) go back to 0605C088								
+
+0605C088 mov.l @(r0,r7),r3      r3 = *(0x2E1018+0x8) = 0x0000000A
+                                (check against 0xA) <-- TRUE
+0604C062 mov.l@(4,r2), r2		r2 = *(4+2E1020) = *2E1024 = 00000108;
+r0 = 1
+add r2, r7;   r7 = (0x2E1018+00000108) =	0x2E1120					
+0605C06A  mov.l r7, @r1         *06042BB4 = 0x2E1120  <-- Global, updated from init of 0x0
+
+0605C06E   mov.l r3,@r1         *060421D4 = 0x0000000A  <-- global
+0605BF08  mov.l @r8, r5     r5 = *060420E0 = 0x0000000A
+
+Section Offset 0x2E1120
+read 2E1121 = 00
+read 2E1122 = 01
+
+0605C4A0  jsr 0605C684 (2E1128, 0xA)
+
+
+The 0x2D5000 Table population occurs here:
+This table is used to jump to the offsets in the action script.		
+0605C716:  	read 2E1140 = 0x00000030
+       	    write 1 to 0x2D5000
+            Add 0x30+0x30 = 0x60
+            2E1140+60 = 2E11A0
+		    2D5004 = 2E11A0
+		   
+		   then 9A*2 = 134;  2E1140+134 = 002E1274
+		   
+		   Read 2E1148 = 0101
+		   0101+0101 = 0202
+		   2E1140+0202 = 2E1342
+
+			*0604220C = 002D3438
+			r4 = 8
+			add r11,r1   <-- r11=78, r1 = 2D34B0
+
+Example of 2D5000 Table
+=========================
+		  ActnScrpt 		  
+Enabled   Location  ???       ???
+0001_0000 002E_11A0 002D_3438 0000_0000
+0001_0000 002E_1274 002D_3474 0000_0000
+...
+
+
+(Update: Break on Reads from 2E11A0 to 2E297B)
+
+--> Start going into the script <--
+0605C23A mov.w @r5, r1       r1 = *2E11A0 = 0x001F	 <-- CMD=play_movie
+0605E8C0 mov.w @r8, r5       r5 = *2E11A2 = 0x0001
+0605E8C2 mov.w @r1, r4       *2E11A6 = 0x0005   <-- ID of the movie to play
+             0x5  = hiro movie
+			 0x9  = ronfar
+			 0x16, 0x17 = lucia nighttime
+			 certain numbers do not work
+             jsr 06058F10 (r4 = movie# (param #2), r5 = 1 (param#1), r6 = 1)
+
+0605C23A mov.w @r5, r1       r1 = *2E11A8 = 0x0001	 <-- CMD=Parameter modification in associated data structure						 
+0605DA22  mov.w @r5, r5      r5 = *2E11aa = 0x0173   <-- SW timer value?
+---------------
+0605C23A mov.w @r5, r1       r1 = *2E1278 = 0x0007	 <-- CMD= Some sort of video effect?
+0605DF7E mov.w @r1, r6       r6 = *2E127C = 0x0000
+0605DF82 mov.w @r9, r5       r5 = *2E127A = 0x0000
+0605E00E mov.w @r8, r6       r6 = *2E127E = 0x001E
+0605DA22  mov.w @r5, r5      r5 = *2E127E = 0x001E
+--------------
+0605C23A mov.w @r5, r1       r1 = *2E143E = 0x0017	 <-- CMD= Music?
+0605E590 mov.w @r8, r4       r4 = *2E1440 = 0x0000   <-- background music# (0=none)
+0605E59E mov.w @r8, r1       r1 = *2E1440 = 0x0000   <-- writes to global 6042968
+--------------
+0605C23A mov.w @r5, r1       r1 = *2E15BC = 0x0006	 <-- CMD= ???
+0605DE84 mov.w @r8, r3       r3 = *2E15C4 = 0x0000
+0605D840 mov.w @r13,r1       r1 = *2E15BE = 0x0000
+0605D894 mov.w @r1, r1       r1 = *2E15C0 = 0x0000
+0605DC32 mov.b @r2, r2       r1 = *2E15C9 = 0x1F
+0605DC68 mov.w @r1, r6       r1 = *2E15C8 = 0x001F
+0605DC6A mov.w @r8, r5       r1 = *2E15C6 = 0x0001
+0605DC98 mov.w @r8, r1       r1 = *2E15C6 = 0x0001
+-------------
+0605C23A mov.w @r5, r1       r1 = *2E1768 = 0x0003	 <-- CMD= ???
+0605DDAC mov.w @r9+,r1       r1 = *2e176A = 0x00B0
+0605DDB6 mov.w @r9+,r1       r1 = *2e176C = 0x0088
+0605DE86 mov.w @r8,r3        r3 = *2e176E = 0x0700
+--------------
+Another 0003
+        0098
+        0090
+2E1A14  0711
+---------------
+brightens
+---------------
+0605C23A mov.w @r5, r1       r1 = *2E1446 = 0x0019	 <-- Play Sound effect (called a lot)
+0605E64A mov.w @r8, r1		 r1 = *2E1448 = 0001
+-----------------------------
+0605C23A mov.w @r5, r1       r1 = *2E144E = 0x0018	 <--
+0605E5D0 mov.w @r8+, r1		 r1 = *2E1450 = 0231
+0605E5D4 mov.w @r8+, r1		 r1 = *2E1454 = 0000
+-----------------------------
+Another 0003  0003 0003  0003
+        00A0  00A8 00B8  00C8
+        0098  00A8 00B0  00B0
+2E1D32  0601  0601 0601  0601
+-----------------------------
+0605C23A mov.w @r5, r1       r1 = *2E1774 = 0x0004	 <-- CMD= ???
+0605DE84 mov.w @r8, r3       r3 = *2E1776 = 0x0701
+-----------------------------
+Another 0006 (all zeroes, last two were 000A 000A)
+-----------------------------
+more brightening
+
+2E1D38 = 0004  <-- CMD (a lot)
+2E1D3A = 0600
+---------------
+0605C23A mov.w @r5, r1       r1 = *2E1A1A = 0x0002	 <-- CMD=
+0605DE84 mov.w @r8, r3       r3 = *2E1A22 = 0x0711
+0605D840 mov.w @r13, r1      r1 = *2E1A1C = 0x0000
+0605D894 mov.w @r1, r1       r1 = *2E1A1E = 0xFFE8
+0605D8BE mov.w @r9+,r4       r4 = *2E1A1C = 0x0000
+0605D8C0 mov.w @r9, r4       r1 = *2E1A1E = 0xFFE8
+0605DAC0 mov.w @r10, r5      r5 = *2E1A20 = 0x0008
+--------------
+0605C23A mov.w @r5, r1       r1 = *2E134A = 0x001C	 <-- CMD= Timed Dialog
+0605E750 mov.w @r8+,r5       r5 = *2E134C = 0x0000   <-- Index into dialog script (Which # cmd 0x1Dxxxxxx)
+0605E75A mov.w @r8,r1        r1 = *2E134E = 0x0001   <-- flag for extra stuff, true if 1 (0 nothing prints)
+0605DA22 mov.w @r5, r5       r5 = *2E1350 = 0x00A0   <-- adds a timer for the first text in the dialog box
+---------------
+First Text prints
+---------------
+0605C3D2 mov.w @r2, r1       r1 = *2E11AC = 0x0001
+---------------
+0605C23A mov.w @r5, r1       r1 = *2E1352 = 0x001D	 <-- CMD=Delay for nth timed text in the current dialog sequence (n!=first)
+0605E7F8 mov.w @r8, r1       r1 = *2E1354 = 0x0001
+0605DA22 mov.w @r5, r5       r5 = *2E1356 = 0x009B
+-----------------------
+Second text prints
+-----------------------
+2E1358 Another CMD 1D
+-----------------------
+Third text prints
+-----------------------
+0605C23A mov.w @r5, r1       r1 = *2E1460 = 0x001B	 <-- CMD=
+(no parameters)
+-----------------------
+2E1362 Another CMD 1D
+-----------------------
+0605C23A mov.w @r5, r1       r1 = *2E11BC = 0x0012	 <-- CMD=12
+0605E382 mov.w @r0+,r4       r4 = *2E11BE = 0x0001
+-----------------------
+2E1368 Another Cmd 001C: 0001 0001 0082
+-----------------------
+Fourth text 
+------------------------
+2E1370 - Another delay
+-------------------------
+0605C23A mov.w @r5, r1       r1 = *2E137A = 0x001B	 <-- CMD=
+-------------------------
+2E137A Another delay
+-----------------------
+0605C23A mov.w @r5, r1       r1 = *2E1380 = 0x000B	 <-- CMD=
+??
+-------------------------
+Item displayed.  (hit Button);
+-------------------------
+0605C23A mov.w @r5, r1       r1 = *2E11DC = 0x001E	 <-- CMD=
+0605e860 mov.w @r0+, r1      r1 = *2E11DE = 0x0000
+0605E868 mov.w @r0, r1       r1 = *2E11E0 = 0x0002
+0605C3D2 mov.w @r2, r1       r1 = *2E11E2 = 0x000F <-- not part of parameters
+-------------------------
+0605C23A mov.w @r5, r1       r1 = *2E11E2 = 0x000F	 <-- CMD=
+0605E306 mov.w @r8, r1       r1 = *2E11E4 = 0x0001
+0605E314 mov.w @r8+, r5      r5 = *2E11E4 = 0x0001
+------------------------
+
+
+
+
+
+
+
+
+
+
+
+====== Determine how we enter the Dialog ========
+
+0605E750 mov.w @r8+, r5        <--  r5 = *2E1390 = 0x0003
+0605E756 Calls  (and also 0605E17E)
+     jsr @060585B8
+
+Function 060585B8  (r4 = 2E597C (start of ES header) , r5 = CMD index)
+==================
+
+60ffaa4 = 002E59D4
+
+
+
+
+
+
+0600E61C mov.l @r1, r8       r8 = *2E297C = 0x00000010
+                             Read 2E2980 =  0x000002BC
+							 Read 2E2984 =  0x00002C12
+							 Read 2E2988 =  0x00002C8A
+0600E638 mov.w @r1, r1       r1 = *2E5590 = 0x0000
+0600E64C mov.w @r1, r1       r1 = *2E5608 = 0x0001
+---------------
+*** 1D is cmd for timer	   
+
+
+
+--------------------------------------------------------------------
+
+
+0605C23A mov.w @r5, r1       r1 = *2E11BC = 0x0012	 <-- CMD to ?
+0605E382 mov.w @r0+,r4       r4 = *2E11BE = 0x0001
+0605C3D2 mov.w @r2, r1       r1 = *2E11C0 = 0x0001 <-- END of sequence check i think?
+
+0605C23A mov.w @r5, r1       r1 = *2E11C0 = 0x0001	 <-- CMD to ?
+r0 *= 4 = 4
+r5 += 2;  r5 = 2E11C2
+r0 = *(0604A45C+r0)  = 0605DD20 <-- function table
+jsr @r0  <-- jsr 0605DD20(r4 = 0)
+
+0605DD20
+    jsr @0605da10(r4=0,r5=2E11C2)
+	r4 *= 16;
+	r8 = *060421E0 = 2D5000
+	mov.w @r5,r5      r5 = *2E11C2 = 0x0044
+	add r4,r8         r8 = 2D5000+0 = 2D5000
+	mov.l @(8,r8),r4  r4 = *2D5008 = 0x2D3438
+	jsr @r0 <-- jsr 060562FC (r4 = 2D3438, r5 = 0x0044)
+	... See below ...
+	r1=0605d438
+	r2 = *(2d5000+8) = 2D3438
+	*(2D3438+52) = *(2D346C) = r1;  *(2D346C) = 0605D438 
+	r8 = 2D5000+2 = 2D5002
+	*2D5002 = 0x0001
+	return
+	
+	r8+=2; r8 = 2E11C4
+	r0 = 2E11C4
+	return
+
+060562FC
+    mov r4,r2       r2=2D3438
+	tst r5,r5
+	bt/s 0605630c   <-- only branch if r5 is 0 (in this case 0x1 is written to *2D3458)
+	add #32,r2      r2 = 2D3458
+	bra 06056310
+	mov.w r5, @r2   *2D3458 = 0x0044
+	mov r4, r1      r1 = 2D3438
+	add #39, r1     r1 = 2D345F
+	r2 = 1
+	*r1 = r2 = 0x1 <-- probably setting  a flag
+	*(r4+56) = *2D3470 = 06056000
+	r0 = 1
+	return
+	
+0605C24E mov.l r0, @r8  *2D5004 = 2E11C4
+         r8 += 0x10;  r8 = 2D5014
+	     r9++;  (r9 = 1)
+		 cmp/gt r1,r9   {r1 = 0x17,r9 = 1}  r1 is # of table entries
+		 bf/s 0605c228
+		 r10 += 0x10;   r10 = 2D5010
+
+
+
+
+
+			 
+0605C238  mov.l @r8, r5      r5 = *2D5014  <-- when did this get written?
+0605C23A  mov.w @r5, r1      r1 = *2E1274  <-- beginning of a script
+
+0605DA22  mov.w @r5, r5      r5 = *2E1276 = 0x0001
+                             Passed into FCTN 060562FC as r5
+							 060562FC(0x2D3474,0x0001,0x6)
+							 
+0605C23A mov.w @r5, r1       r1 = *2E1342 = 0x0001	 <-- beginning of a script						 
+0605DA22  mov.w @r5, r5      r5 = *2E1344 = 0x0001
+
+0605C23A mov.w @r5, r1       r1 = *2E143A = 0x0001 <-- beginning of a script
+0605DA22  mov.w @r5, r5      r5 = *2E143C = 0x0001
+
+0605C23A mov.w @r5, r1       r1 = *2E15B8 = 0x0001 <-- beginning of a script
+0605DA22  mov.w @r5, r5      r5 = *2E15BA = 0x0001
+
+0605C23A mov.w @r5, r1       r1 = *2E1764 = 0x0001 <-- beginning of a script
+0605DA22  mov.w @r5, r5      r5 = *2E1768 = 0x0001
+								
+0605C23A mov.w @r5, r1       r1 = *2E1A0A = 0x0001 <-- beginning of a script
+0605DA22  mov.w @r5, r5      r5 = *2E1A0C = 0x0001
+
+===> 2D5000 has pointer information. 4 LW entries each.  First = ?  Last = globals?
+===> second word is event script offset, 3rd word is ??? <====
+...
+
+
+0605C3D2 mov.w @r2, r1     r1 = *2E11A8 = 0001
+0605DA22 mov.w @r5, r5     r5 = *2E11AA = 0173
+
+------------------- Start reading from first script
+
+0605C23A mov.w @r5, r1       r1 = *2E1278 = 0x0007
+0605DF7E mov.w @r1, r6       r6 = *2E127C = 0x0000
+0605DF82 mov.w @r9, r5       r5 = *2E127A = 0x0000
+0605E00E mov.w @r8, r6       r6 = *2E127E = 0x001E
+
+0605DA22 mov.w @r5, r5       r5 = *2E127E = 0x0001
+
+------------------- Start reading from Second script
+
+0605C23A mov.w @r5, r1       r1 = *2E1346 = 0x0001
+0605DA22 mov.w @r5, r5       r5 = *2E1348 = 0x00D2
+--------------
+0605C23A mov.w @r5, r1       r1 = *2E143E = 0x0017
+0605E590 mov.w @r8, r4       r4 = *2E1440 = 0x0000
+0605E59E mov.w @r8, r1       r1 = *2E1440 = 0x0000
+--------------
+0605C23A mov.w @r5, r1       r1 = *2E15BC = 0x0006
+0605DE84 mov.w @r8, r3       r3 = *2E15C4 = 0x0000
+0605D840 mov.w @r13,r1       r1 = *2E15BE = 0x0000
+0605D894 mov.w @r1, r1       r1 = *2E15C0 = 0x0000
+0605DC32 mov.b @r2, r2       r1 = *2E15C9 = 0x1F
+0605DC68 mov.w @r1, r6       r1 = *2E15C8 = 0x001F
+0605DC6A mov.w @r8, r5       r1 = *2E15C6 = 0x0001
+0605DC98 mov.w @r8, r1       r1 = *2E15C6 = 0x0001
+-------------
+0605C23A mov.w @r5, r1       r1 = *2E1768 = 0x0003
+0605DDAC mov.w @r9+,r1       r1 = *2e176A = 0x00B0
+0605DDB6 mov.w @r9+,r1       r1 = *2e176C = 0x0088
+0605DE86 mov.w @r8,r3        r3 = *2e176E = 0x0700
+
+0600E61C mov.l @r1, r8       r8 = *2E297C = 0x00000010
+                             Read 2E2980 =  0x000002BC
+							 Read 2E2984 =  0x00002C12
+							 Read 2E2988 =  0x00002C8A
+
+0600E638 mov.w @r1, r1       r1 = *2E5590 = 0x0000
+0600E64C mov.w @r1, r1       r1 = *2E5608 = 0x0001
+-------------
+0605C23A mov.w @r5, r1       r1 = *2E1A0E = 0x0003
+0605DDAC mov.w @r9+,r1       r1 = *2e1A10 = 0x0098
+0605DDB6 mov.w @r9+,r1       r1 = *2e1A12 = 0x0090
+0605DE86 mov.w @r8,r3        r3 = *2e1A14 = 0x0711
+
+0600E61C mov.l @r1, r8       r8 = *2E297C = 0x00000010
+                             Read 2E2980 =  0x000002BC
+							 Read 2E2984 =  0x00002C12
+							 Read 2E2988 =  0x00002C8A
+
+0600E638 mov.w @r1, r1       r1 = *2E???? = 0x00A1
+0600E64C mov.w @r1, r1       r1 = *2E588C = 0x0008
+-------------
+0605C23A mov.w @r5, r1       r1 = *2E1D28 = 0x0001
+0605DA22 mov.w @r5, r5       r5 = *2E132A = 0x0046
+-------------
+0605C23A mov.w @r5, r1       r1 = *2E1F26 = 0x0001
+0605DA22 mov.w @r5, r5       r5 = *2E1F28 = 0x0046
+-------------
+0605C23A mov.w @r5, r1       r1 = *2E2132 = 0x0001
+0605DA22 mov.w @r5, r5       r5 = *2E1134 = 0x0046
+-------------
+0605C23A mov.w @r5, r1       r1 = *2E2296 = 0x0001
+0605DA22 mov.w @r5, r5       r5 = *2E1298 = 0x0046
+
+                    ....
+2E1442		0001			
+2E1444		0041
+
+2E1A16      0001
+2E1A18      0088 <-- additonal reads
+0600DE5E mov.w @r1, r2   r2 = *2E5606 = 0000
+                               2E298C = 0004   
+							   2E298E = 0000
+							   2E2C7A = 00
+							   2E2C7A = 00
+							   2E2C7B = 0000
+							   2E2C7C = 00AA
+							   2E2C7E = 01
+							   2E2C7F = 04
+							   2E2C7B = 00
+							   2E2C80 = FFFD
+							   2E2C82 = FFF9
+							   2E2C7A = 00
+							   2E2C64 = 00
+							   2E2C64 = 00
+							   2E2C65 = 00
+							   2E2C66 = 00A4
+							   2E2C68 = 02
+							   2E2C69 = 03
+							   2E2C65 = 00
+							   2E2C6A = FFF8
+							   2E2C6C = 000A
+							   2E2C64 = 00
+							   2E2C4E = 00
+							   2E2C4F = 00
+							   2E2C50 = 0070
+							   2E2C52 = 02
+							   ...
+							   room brightens
+
+-------------
+0605C23A mov.w @r5, r1       r1 = *2E1280 = 0x0001
+							   
+							   
+						*** 1D is cmd for timer	   
+
+
+
+
+
+
+
+
+
+
+

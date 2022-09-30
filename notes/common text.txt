@@ -391,13 +391,13 @@ In the decompressed data, the first 12 characters are printed on the top line, a
         0606cc80 d8  0c           mov.l      @(-> FUN_0600f6c0 ,pc ),r8                         = 0600f6c0  <-- print
         0606cc82 e7  02           mov        #0x2 ,r7
         0606cc84 e6  0c           mov        #0xc ,r6
-        0606cc86 48  0b           jsr        @r8 => FUN_0600f6c0                               undefined FUN_0600f6c0()
+        0606cc86 48  0b           jsr        @r8 => FUN_0600f6c0                               undefined FUN_0600f6c0() <-- print line 1
         0606cc88 64  e3           _mov       r14 ,r4
         0606cc8a d5  0b           mov.l      @(PTR_DAT_0606ccb8 ,pc ),r5 => DAT_25c07300        = 25c07300
         0606cc8c 64  e3           mov        r14 ,r4
         0606cc8e 74  18           add        0x18 ,r4
         0606cc90 e7  02           mov        #0x2 ,r7
-        0606cc92 48  0b           jsr        @r8 => FUN_0600f6c0                               undefined FUN_0600f6c0()
+        0606cc92 48  0b           jsr        @r8 => FUN_0600f6c0                               undefined FUN_0600f6c0() <-- print line 2
         0606cc94 e6  0c           _mov       #0xc ,r6
                              LAB_0606cc96                                    XREF[1]:     0606cc7a (j)   
         0606cc96 7e  34           add        0x34 ,r14
@@ -714,6 +714,8 @@ r4=060ffb3e,r7=0602E8D4
         0606ea98 38  1c           add        r1 ,r8
         0606ea9a 40  0b           jsr        @r0 => FUN_0602c8c4                               undefined FUN_0602c8c4(25C06000)
         0606ea9c 64  83           _mov       r8 ,r4
+
+--== Expand Text at r4 here and replace r4 with a new temporary address ==--
 
         0606ea9e d0  50           mov.l      @(-> FUN_0600f6c0 ,pc ),r0                         = 0600f6c0
         0606eaa0 e7  02           mov        #0x2 ,r7                                    <-- r7=2

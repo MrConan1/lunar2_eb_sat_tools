@@ -1,0 +1,65 @@
+To change what you get out of a treasure chest, at 06054884, change what goes into r1 into the item you want.
+Or go to the chest and edit 0x2D626a
+
+0x0F = Rememberizer
+0x10 = Luna Bromide 01
+0x11 = Mias Bromide 2
+
+0x2D = Angels Tear
+
+0x40 althena tear
+0x50 Bastard Sword
+0x55 ?? Sword (109 attack)
+0x58  Sword 124 attack
+0x59 Althena's sword (135 attack)
+
+0x60 = Flare
+
+0x44C = 100 $
+
+It looks like a lot of areas use logic from file 2441
+At the end of the file is an ES script section.
+There are two item print statements 0xB0xx is overwritten depending what the item is.
+
+The first statement reads:
+"Item_Name
+ was obtained"
+
+The second statement reads:
+"Item_Name
+ could not be carried."
+or
+"Item_Name found
+ but inventory is full."
+
+Probably just want to manually edit this section for simplicity.
+Also want to remove _ from item names (search for "Ancient Dagger")
+
+Need to update text but also keep items locations the same if possible, or move location of items
+
+TBD
+----
+Fix the text corruption during timed dialogs
+
+
+Fixed battle learned spells printing
+   Same issue as below.
+   Code is at 06084AA8 jsr @r9 (r9 = 0606dcbc) [r4 = 2847d0, r5 = 34, r6 = 0x28, r7 = 60ff9b8]
+   >> 06084AA6 goes to r5 instead of r6
+   >> jsr to extra code
+   >> extra code does a pr save and rts at the end
+>> prints 2 strings??  name and definition?
+284BE0 to 060FF9B8  <-- spell name, to vram at 25c06000
+2847d0 to 060ff9ec  <-- erase, to a different vram area
+
+Fixed battle gained items printing
+   Herb (JP Text Location:  2855DA)
+
+   06084440 jsr @r0  (r0 = 606DCBC)
+                              Base        Bytes       Index   Dest
+       Function at 606DCBC (r4 = 2855c0, r5 = 0x34, r6 = 1, r7 = 60FFACC (destination) )
+          606DCE6 mov.w @r2+, r1      <-- put SW at 2855da into r1
+          returns 0x2855DA  (Address that is beginning of Herb)
+
+   06084452 jsr @r0 (r0 = 0x0600f6c0)  <-- Print up to r6 SW characters at r5, reading from r4
+                                           r6 = A, r5 = 25C06000, r4 = 60ffacc

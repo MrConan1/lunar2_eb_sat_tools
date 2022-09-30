@@ -1,0 +1,281 @@
+B033
+
+0x0605B96C  mov.l 0x0605ace8, r1
+            jsr @r1
+            nop
+
+0605B99C  mov r2, r4  (r4 = 0x33)
+
+    0605b368  MOV.L R8, @-R15
+    ...
+    add #-52,r15
+    mov r15, r14 <-- r14 holds data
+
+          060708E8 jsr @r0,  (r4=2855c0, r5=52 (0x34), r6 = 0x33, r7 = 60ffaa4)
+
+Starting at 0x606DCBC:
+=======================
+0x34 / 2 = 0x1A.
+Multiply 0x33 * 0x1A
+r1 = 0x52E
+r4 = 2855c0 + 0x52E = 0x285AEE
+r2 = r4
+
+At 0606DCE6 r2 holds the address of the text
+
+60423c4 holds 289290 (dict address)
+
+data gets copied to r7  (060ffaa4 stack location)
+
+0605B3A8 to 0605B3B2
+0605B3B0  <-- print character by character?
+
+
+
+
+
+                             *************************************************************
+                             *                           FUNCTION                         (r4 = 0x33 [index], r5 = 060427c0, r6=60427c0, r7=60429dc)
+                             *************************************************************
+                             undefined  FUN_0605b368 ()
+             undefined         r0:1           <RETURN>
+             undefined4        Stack[-0x4]:4  local_4                                 XREF[1]:     0605b368 (*)   
+             undefined4        Stack[-0x8]:4  local_8                                 XREF[2]:     0605b36a (*) , 
+                                                                                                   0605b3c0 (*)   
+             undefined4        Stack[-0xc]:4  local_c                                 XREF[2]:     0605b36c (*) , 
+                                                                                                   0605b3be (*)   
+             undefined4        Stack[-0x10]   local_10                                XREF[2]:     0605b36e (*) , 
+                                                                                                   0605b3bc (*)   
+             undefined4        Stack[-0x14]   local_14                                XREF[2]:     0605b370 (*) , 
+                                                                                                   0605b3ba (*)   
+             undefined2        Stack[-0x48]   local_48                                XREF[1]:     0605b3a8 (*)   
+                             FUN_0605b368                                    XREF[2]:     FUN_0605b604:0605b99a (c) , 
+                                                                                          0605ba5c (*)   
+        0605b368 2f  86           mov.l      r8 ,@- r15 => local_4
+        0605b36a 2f  96           mov.l      r9 ,@- r15 => local_8
+        0605b36c 2f  a6           mov.l      r10 ,@- r15 => local_c
+        0605b36e 2f  e6           mov.l      r14 ,@- r15 => local_10
+        0605b370 4f  22           sts.l      pr ,@- r15 => local_14
+        0605b372 7f  cc           add        -0x34 ,r15                           <-- 26 short word buffer  <--- INCREASE THIS TO 0x68
+        0605b374 6e  f3           mov        r15 ,r14                             <-- r14 = 060FFAA4
+        0605b376 d1  14           mov.l      @(-> FUN_060708d8 ,pc ),r1                         = 060708d8
+        0605b378 41  0b           jsr        @r1 => FUN_060708d8                               undefined FUN_060708d8()
+        0605b37a 65  e3           _mov       r14 ,r5                              <-- r5 = 060FFAA4
+
+        0605b37c e2  09           mov        #0x9 ,r2                                  <-- r2 = 9
+        0605b37e 97  22           mov.w      @(DAT_0605b3c6 ,pc ),r7                           = F000h
+        0605b380 d3  12           mov.l      @(PTR_DAT_0605b3cc ,pc ),r3                       = 00009000
+        0605b382 e6  12           mov        #0x12 ,r6                                 <-- r6 = 0x12
+                             LAB_0605b384                                    XREF[1]:     0605b394 (j)   
+        0605b384 60  63           mov        r6 ,r0                                    <-- r0 = 0x12
+        0605b386 01  ed           mov.w      @( r0 ,r14 ), r1                          <-- r1 = *(060FFAA4 + 0x12) = *(060FFAB6)  = 0x0000
+        0605b388 61  1d           extu.w     r1 ,r1                                    
+        0605b38a 21  79           and        r7 ,r1                                     <-- r1 = r1 & 0xFFFFF000
+        0605b38c 31  30           cmp/eq     r3 ,r1                                         r1 == 0x9000 ?
+        0605b38e 8b  03           bf         LAB_0605b398
+        0605b390 72  ff           add        -0x1 ,r2                                   skip
+        0605b392 42  11           cmp/pz     r2                                         skip
+        0605b394 8d  f6           bt/s       LAB_0605b384                               skip
+        0605b396 76  fe           _add       -0x2 ,r6                                   skip
+                             LAB_0605b398                                    XREF[1]:     0605b38e (j)   
+        0605b398 e1  00           mov        #0x0 ,r1                                   r1 = 0
+        0605b39a 31  27           cmp/gt     r2 ,r1                                     r1 > r2?  (r1 = 0, r2 = 9)
+        0605b39c 8d  0b           bt/s       LAB_0605b3b6
+        0605b39e e8  00           _mov       #0x0 ,r8                                   r8 = 0
+        0605b3a0 da  0b           mov.l      @(-> print_character ,pc ),r10                     = 0605b0cc  (print character)
+        0605b3a2 69  23           mov        r2 ,r9                                     r9 = 9              <-- nop                      E9FF ld -1?
+        0605b3a4 39  9c           add        r9 ,r9                                     r9 = 9+9 = 0x12     <-- load r9 with 0xFFFF      698D extu.w r8, r9
+        0605b3a6 60  83           mov        r8 ,r0                                     r0 = r8 = 0
+
+
+                             LAB_0605b3a8                                    XREF[1]:     0605b3b2 (j)      <---- CHANGE TO PRINT UNTIL 0xFFFF Reached
+        0605b3a8 04  ed           mov.w      @( r0 ,r14 => local_48 ), r4                r4 = (0x060FFAA4 + x)  [r0 holds x]
+        0605b3aa 4a  0b           jsr        @r10 => print_character                           undefined print_character()
+        0605b3ac 64  4d           _extu.w    r4 ,r4
+        0605b3ae 78  02           add        0x2 ,r8                                    r8 += 2
+        0605b3b0 38  97           cmp/gt     r9 ,r8                                     r8 > r9 ?  (r8 increments 0 to n, counting by 2s r9 is 0x12)
+8        0605b3b2 8f  f9           bf/s       LAB_0605b3a8
+        0605b3b4 60  83           _mov       r8 ,r0                                     r0 = r8
+
+
+                             LAB_0605b3b6                                    XREF[1]:     0605b39c (j)   
+        0605b3b6 7e  34           add        0x34 ,r14                                   <--- INCREASE THIS TO 0x68  69??
+        0605b3b8 6f  e3           mov        r14 ,r15
+        0605b3ba 4f  26           lds.l      @r15 => local_14 +, pr
+        0605b3bc 6e  f6           mov.l      @r15 => local_10 +, r14
+        0605b3be 6a  f6           mov.l      @r15 => local_c +, r10
+        0605b3c0 69  f6           mov.l      @r15 => local_8 +, r9
+        0605b3c2 00  0b           rts
+        0605b3c4 68  f6           _mov.l     @r15 +, r8
+                             DAT_0605b3c6                                    XREF[1]:     FUN_0605b368:0605b37e (R)   
+        0605b3c6 f0  00           undefine   F000h
+                             PTR_FUN_0605b3c8                                XREF[1]:     FUN_0605b368:0605b376 (R)   
+        0605b3c8 06  07  08       addr       FUN_060708d8            <-- ALTER THIS TO GO TO NEW CODE
+                 d8
+                             PTR_DAT_0605b3cc                                XREF[1]:     FUN_0605b368:0605b380 (R)   
+        0605b3cc 00  00  90       addr       DAT_00009000
+                 00
+                             PTR_print_character_0605b3d0                    XREF[1]:     FUN_0605b368:0605b3a0 (R)   
+        0605b3d0 06  05  b0       addr       print_character
+                 cc
+
+Alteration
+
+                             LAB_0605b384                                    XREF[1]:     0605b394 (j)   
+        0605b384 D201           ld #0000FFFF, r2
+        0605b386 A007           bra 0x0605b398
+        0605b388 0009           nop
+        0605b38a 0009           nop 
+        0605b38c 0000           data
+        0605b38e FFFF           data
+        0605b390 0009           nop
+        0605b392 0009           nop
+        0605b394 0009           nop
+        0605b396 0009           nop
+                             LAB_0605b398                                    XREF[1]:     0605b38e (j)   
+        0605b398 e1  00           mov        #0x0 ,r1                                   r1 = 0
+        0605b39a 31  27           cmp/gt     r2 ,r1                                     r1 > r2?  (r1 = 0, r2 = 9)
+        0605b39c 8d  0b           bt/s       LAB_0605b3b6
+        0605b39e e8  00           _mov       #0x0 ,r8                                   r8 = 0
+        0605b3a0 da  0b           mov.l      @(-> print_character ,pc ),r10                     = 0605b0cc  (print character)
+        0605b3a2 69  23           mov        r2 ,r9                                     r9 = 9 
+        0605b3a4 0009             nop
+        0605b3a6 60  83           mov        r8 ,r0                                     r0 = r8 = 0
+
+                             LAB_0605b3a8                                    XREF[1]:     0605b3b2 (j)      <---- CHANGE TO PRINT UNTIL 0xFFFF Reached
+        0605b3a8 04  ed           mov.w      @( r0 ,r14 => local_48 ), r4                r4 = (0x060FFAA4 + x)  [r0 holds x]
+        0605b3ac 64  4d           _extu.w    r4 ,r4
+        0605b3b0                  cmp        r4 ,r9                                     r8 > r9 ?  (r8 increments 0 to n, counting by 2s r9 is 0x12)
+                                  bt         0605b3b6                                     
+        0605b3aa 4a  0b           jsr        @r10 => print_character                           undefined print_character()
+                                  nop
+        0605b3ae 78  02           add        0x2 ,r8                                    r8 += 2
+        0605b3b4 60  83           _mov       r8 ,r0                                     r0 = r8
+        0605b3b2 8f  f9           bra       LAB_0605b3a8
+        0605b3b2 8f  f9           nop
+
+Replacement Function:
+
+/* 0x296aec */
+void decompressObtainedItem(int index, unsigned int dstAddr){
+
+
+
+}
+
+
+
+
+
+                             *************************************************************
+                             *                           FUNCTION                         r4 = 0x33; r5 = 060FFAA4 (buffer)
+                             *************************************************************
+                             undefined  FUN_060708d8 ()
+             undefined         r0:1           <RETURN>
+             undefined4        Stack[-0x4]:4  local_4                                 XREF[1]:     060708d8 (*)   
+             undefined4        Stack[-0x8]:4  local_8                                 XREF[2]:     060708da (*) , 
+                                                                                                   060708ee (*)   
+                             FUN_060708d8                                    XREF[2]:     FUN_0605b368:0605b378 (c) , 
+                                                                                          0605b3c8 (*)   
+        060708d8 2f  e6           mov.l      r14 ,@- r15 => local_4
+        060708da 4f  22           sts.l      pr ,@- r15 => local_8
+        060708dc 6e  f3           mov        r15 ,r14
+        060708de 66  43           mov        r4 ,r6                                  <-- r6 = 0x33
+        060708e0 67  53           mov        r5 ,r7                                  <-- r7 = 0x060FFAA4
+        060708e2 d1  04           mov.l      @(PTR_PTR_DAT_060708f4 ,pc ),r1                  = 06042960
+        060708e4 d0  04           mov.l      @(-> FUN_0606dcbc ,pc ),r0                         = 0606dcbc   <-- old decompression routine
+        060708e6 64  12           mov.l      @r1 => PTR_DAT_06042960 ,r4 => DAT_002855c0        r4 = 002855c0
+        060708e8 40  0b           jsr        @r0 => FUN_0606dcbc                               (r4=2855c0, r5=52 (0x34), r6 = 0x33, r7 = 60ffaa4)
+                                                                                             returns compressed address in r0  (BaseAddr, buffer_size_bytes, index, DST)
+                                                                                             not used by caller in this case
+        060708ea e5  34           _mov       #0x34 ,r5
+        060708ec 6f  e3           mov        r14 ,r15
+        060708ee 4f  26           lds.l      @r15 => local_8 +, pr
+        060708f0 00  0b           rts
+        060708f2 6e  f6           _mov.l     @r15 +, r14
+                             PTR_PTR_DAT_060708f4                            XREF[1]:     FUN_060708d8:060708e2 (R)   
+        060708f4 06  04  29       addr       PTR_DAT_06042960                                 = 002855c0
+                 60
+                             PTR_FUN_060708f8                                XREF[1]:     FUN_060708d8:060708e4 (R)   
+        060708f8 06  06  dc       addr       FUN_0606dcbc
+                 bc
+
+
+
+
+
+
+
+
+
+
+                             *************************************************************
+                             *                           FUNCTION                         
+                             *************************************************************
+                             undefined  FUN_0606dcbc ()
+             undefined         r0:1           <RETURN>
+             undefined4        Stack[-0x4]:4  local_4                                 XREF[2]:     0606dcbc (*) , 
+                                                                                                   0606dcfa (*)   
+                             FUN_0606dcbc                                    XREF[19]:    FUN_0606cb64:0606cb80 (c) , 
+                                                                                          0606cba0 (*) , 
+                                                                                          FUN_0606cba8:0606cbc8 (c) , 
+                                                                                          0606cbec (*) , 
+                                                                                          FUN_0606cc04:0606cc24 (c) , 
+                                                                                          0606cc4c (*) , 
+                                                                                          FUN_0606cc5c:0606cc70 (c) , 
+                                                                                          0606cca8 (*) , 
+                                                                                          FUN_0606d0cc:0606d0ee (c) , 
+                                                                                          0606d13c (*) , 
+                                                                                          FUN_060708d8:060708e8 (c) , 
+                                                                                          060708f8 (*) , 
+                                                                                          FUN_06073204:06073216 (c) , 
+                                                                                          06073244 (*) , 
+                                                                                          FUN_0608434c:06084440 (c) , 
+                                                                                          060844d8 (*) , 
+                                                                                          FUN_06084a28:06084aa8 (c) , 
+                                                                                          FUN_06084a28:06084aba (c) , 
+                                                                                          06084ba0 (*)   
+        0606dcbc 2f  e6           mov.l      r14 ,@- r15 => local_4
+        0606dcbe 61  53           mov        r5 ,r1
+        0606dcc0 41  04           rotl       r1
+        0606dcc2 01  29           movt       r1
+        0606dcc4 31  5c           add        r5 ,r1
+        0606dcc6 41  21           shar       r1
+        0606dcc8 01  67           mul.l      r6 ,r1
+        0606dcca 6e  f3           mov        r15 ,r14
+        0606dccc e3  00           mov        #0x0 ,r3
+        0606dcce 01  1a           sts        macl ,r1
+        0606dcd0 34  1c           add        r1 ,r4
+        0606dcd2 62  43           mov        r4 ,r2
+        0606dcd4 d6  0a           mov.l      @(PTR_PTR_DAT_0606dd00 ,pc ),r6                  = 060423c4
+                             LAB_0606dcd6                                    XREF[1]:     0606dcf4 (j)   
+        0606dcd6 61  53           mov        r5 ,r1
+        0606dcd8 41  11           cmp/pz     r1
+        0606dcda 89  00           bt         LAB_0606dcde
+        0606dcdc 71  03           add        0x3 ,r1
+                             LAB_0606dcde                                    XREF[1]:     0606dcda (j)   
+        0606dcde 41  21           shar       r1
+        0606dce0 41  21           shar       r1
+        0606dce2 33  13           cmp/ge     r1 ,r3
+        0606dce4 89  08           bt         LAB_0606dcf8
+        0606dce6 61  25           mov.w      @r2 +, r1
+        0606dce8 60  1d           extu.w     r1 ,r0
+        0606dcea 61  62           mov.l      @r6 => PTR_DAT_060423c4 ,r1                        = 00289290
+        0606dcec 40  08           shll2      r0
+        0606dcee 01  1e           mov.l      @( r0 ,r1 => DAT_00289290 ), r1                      = 90h
+        0606dcf0 73  01           add        0x1 ,r3
+        0606dcf2 27  12           mov.l      r1 ,@ r7
+        0606dcf4 af  ef           bra        LAB_0606dcd6
+        0606dcf6 77  04           _add       0x4 ,r7
+                             LAB_0606dcf8                                    XREF[1]:     0606dce4 (j)   
+        0606dcf8 6f  e3           mov        r14 ,r15
+        0606dcfa 6e  f6           mov.l      @r15 => local_4 +, r14
+        0606dcfc 00  0b           rts
+        0606dcfe 60  43           _mov       r4 ,r0
+                             PTR_PTR_DAT_0606dd00                            XREF[1]:     FUN_0606dcbc:0606dcd4 (R)   
+        0606dd00 06  04  23       addr       PTR_DAT_060423c4                                 = 00289290
+                 c4
+
+
+
+

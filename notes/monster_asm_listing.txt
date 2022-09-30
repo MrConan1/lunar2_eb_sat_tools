@@ -1,0 +1,389 @@
+                             *************************************************************
+                             *                           FUNCTION                         
+                             *************************************************************
+                             undefined  FUN_06083ee4 ()
+             undefined         r0:1           <RETURN>
+             undefined4        Stack[-0x4]:4  local_4                                 XREF[1]:     06083ee4 (*)   
+             undefined4        Stack[-0x8]:4  local_8                                 XREF[2]:     06083ee6 (*) , 
+                                                                                                   06083ef8 (*)   
+                             FUN_06083ee4                                    XREF[5]:     FUN_06073c30:06073c48 (c) , 
+                                                                                          06073c64 (*) ,  06077a68 (*) , 
+                                                                                          06077bcc (*) ,  06077d88 (*)   
+        06083ee4 2f  e6           mov.l      r14 ,@- r15 => local_4
+        06083ee6 4f  22           sts.l      pr ,@- r15 => local_8
+        06083ee8 d1  05           mov.l      @(-> FUN_06068768 ,pc ),r1                         = 06068768
+        06083eea 41  0b           jsr        @r1 => FUN_06068768                               undefined FUN_06068768()
+        06083eec 6e  f3           _mov       r15 ,r14
+        06083eee d1  05           mov.l      @(PTR_PTR_06083f04 ,pc ),r1                       = 060421a4
+        06083ef0 d0  05           mov.l      @(-> FUN_0600e758 ,pc ),r0                         = 0600e758
+        06083ef2 40  0b           jsr        @r0 => FUN_0600e758                               undefined FUN_0600e758()
+        06083ef4 64  12           _mov.l     @r1 => PTR_PTR_DAT_060421a4 ,r4 => PTR_DAT_0602d9dc = 0602d9dc
+                                                                                             = 005a0023
+        06083ef6 6f  e3           mov        r14 ,r15
+        06083ef8 4f  26           lds.l      @r15 => local_8 +, pr
+        06083efa 00  0b           rts
+        06083efc 6e  f6           _mov.l     @r15 +, r14
+        06083efe 00              ??         00h                                              ?  ->  00090606
+        06083eff 09              ??         09h
+                             PTR_FUN_06083f00                                XREF[1]:     FUN_06083ee4:06083ee8 (R)   
+        06083f00 06  06  87       addr       FUN_06068768
+                 68
+                             PTR_PTR_06083f04                                XREF[1]:     FUN_06083ee4:06083eee (R)   
+        06083f04 06  04  21       addr       PTR_PTR_DAT_060421a4                             = 0602d9dc
+                 a4
+                             PTR_FUN_06083f08                                XREF[1]:     FUN_06083ee4:06083ef0 (R)   
+        06083f08 06  00  e7       addr       FUN_0600e758
+                 58
+
+
+
+                             LAB_06083f0c                                    XREF[1]:     060764b0 (*)   
+        06083f0c 2f  86           mov.l      r8 ,@- r15
+        06083f0e 2f  96           mov.l      r9 ,@- r15
+        06083f10 2f  a6           mov.l      r10 ,@- r15
+        06083f12 2f  b6           mov.l      r11 ,@- r15
+        06083f14 2f  c6           mov.l      r12 ,@- r15
+        06083f16 2f  d6           mov.l      r13 ,@- r15
+        06083f18 2f  e6           mov.l      r14 ,@- r15
+        06083f1a 4f  22           sts.l      pr ,@- r15
+        06083f1c 7f  d8           add        -0x28 ,r15
+        06083f1e 6e  f3           mov        r15 ,r14
+        06083f20 62  e3           mov        r14 ,r2
+        06083f22 72  20           add        0x20 ,r2
+        06083f24 e1  4b           mov        #0x4b ,r1
+        06083f26 22  11           mov.w      r1 ,@ r2
+        06083f28 61  e3           mov        r14 ,r1
+        06083f2a 71  22           add        0x22 ,r1
+        06083f2c e3  0d           mov        #0xd ,r3
+        06083f2e 21  31           mov.w      r3 ,@ r1
+        06083f30 62  e3           mov        r14 ,r2
+        06083f32 72  24           add        0x24 ,r2
+        06083f34 91  76           mov.w      @(DAT_06084024 ,pc ),r1                           = 0113h
+        06083f36 22  11           mov.w      r1 ,@ r2
+        06083f38 61  e3           mov        r14 ,r1
+        06083f3a 71  26           add        0x26 ,r1
+        06083f3c 21  31           mov.w      r3 ,@ r1
+        06083f3e d0  3d           mov.l      @(-> FUN_0602c8c4 ,pc ),r0                         = 0602c8c4
+        06083f40 e6  20           mov        #0x20 ,r6
+        06083f42 e5  00           mov        #0x0 ,r5
+        06083f44 40  0b           jsr        @r0 => FUN_0602c8c4                               undefined FUN_0602c8c4()
+        06083f46 64  e3           _mov       r14 ,r4
+        06083f48 e9  00           mov        #0x0 ,r9
+        06083f4a d1  3b           mov.l      @(PTR_PTR_DAT_06084038 ,pc ),r1                  = 06042668
+        06083f4c e3  13           mov        #0x13 ,r3
+        06083f4e 62  12           mov.l      @r1 => PTR_DAT_06042668 ,r2                        = 060e8000
+                             LAB_06083f50                                    XREF[1]:     06083f6e (j)   
+        06083f50 61  23           mov        r2 ,r1
+        06083f52 71  0c           add        0xc ,r1
+        06083f54 60  10           mov.b      @r1 => DAT_060e800c ,r0                            = 00010101
+                                                                                             = FFh
+        06083f56 88  01           cmp/eq     0x1 ,r0
+        06083f58 8f  06           bf/s       LAB_06083f68
+        06083f5a 61  23           _mov       r2 ,r1
+        06083f5c 71  08           add        0x8 ,r1
+        06083f5e 60  10           mov.b      @r1 => DAT_060e8008 ,r0                            = FFh
+        06083f60 40  08           shll2      r0
+        06083f62 01  ee           mov.l      @( r0 ,r14 ), r1
+        06083f64 71  01           add        0x1 ,r1
+        06083f66 0e  16           mov.l      r1 ,@( r0 ,r14 )
+                             LAB_06083f68                                    XREF[1]:     06083f58 (j)   
+        06083f68 91  5d           mov.w      @(DAT_06084026 ,pc ),r1                           = 01F0h
+        06083f6a 79  01           add        0x1 ,r9
+        06083f6c 39  37           cmp/gt     r3 ,r9
+        06083f6e 8f  ef           bf/s       LAB_06083f50
+        06083f70 32  1c           _add       r1 ,r2
+        06083f72 d2  32           mov.l      @(PTR_DAT_0608403c ,pc ),r2                       = 06042758
+        06083f74 e1  00           mov        #0x0 ,r1
+        06083f76 22  12           mov.l      r1 ,@ r2 => DAT_06042758                            = 00000002h
+        06083f78 e9  00           mov        #0x0 ,r9
+        06083f7a 6c  23           mov        r2 ,r12
+        06083f7c 9d  54           mov.w      @(DAT_06084028 ,pc ),r13                          = 0204h
+        06083f7e 6a  e3           mov        r14 ,r10
+        06083f80 eb  00           mov        #0x0 ,r11
+                             LAB_06083f82                                    XREF[1]:     0608400a (j)   
+        06083f82 61  a2           mov.l      @r10 ,r1
+        06083f84 41  15           cmp/pl     r1
+        06083f86 8b  3c           bf         LAB_06084002
+        06083f88 62  c2           mov.l      @r12 => DAT_06042758 ,r2                           = 00000002h
+        06083f8a 91  4e           mov.w      @(DAT_0608402a ,pc ),r1                           = 0600h
+        06083f8c d5  2c           mov.l      @(PTR_DAT_06084040 ,pc ),r5                       = 25c00000
+        06083f8e d0  2d           mov.l      @(-> FUN_0600f6c0 ,pc ),r0                         = 0600f6c0
+        06083f90 02  17           mul.l      r1 ,r2
+        06083f92 e7  02           mov        #0x2 ,r7
+        06083f94 e6  0c           mov        #0xc ,r6
+        06083f96 08  1a           sts        macl ,r8
+        06083f98 91  48           mov.w      @(DAT_0608402c ,pc ),r1                           = 6000h
+        06083f9a 38  1c           add        r1 ,r8
+        06083f9c d1  2a           mov.l      @(PTR_PTR_06084048 ,pc ),r1                       = 0604295c
+        06083f9e 64  12           mov.l      @r1 => PTR_PTR_DAT_0604295c ,r4                   = 002a8168   <-- LORAM MONSTER ADDR
+        06083fa0 35  8c           add        r8 ,r5 => DAT_25c06000                                        
+        06083fa2 40  0b           jsr        @r0 => FUN_0600f6c0                               undefined FUN_0600f6c0()    <-- PRINT (r4=2a8168,r5=25c06000,r6=0xC,r7=2)
+        06083fa4 34  bc           _add       r11 ,r4 => PTR_DAT_002a8168                        = 00bb0006
+        06083fa6 2f  d6           mov.l      r13 ,@- r15
+        06083fa8 d1  28           mov.l      @(PTR_PTR_DAT_0608404c ,pc ),r1                  = 0604de10
+        06083faa 2f  16           mov.l      r1 => PTR_DAT_0604de10 ,@- r15                     = 00c00010
+        06083fac d0  28           mov.l      @(-> FUN_0600ec90 ,pc ),r0                         = 0600ec90
+        06083fae 67  e3           mov        r14 ,r7
+        06083fb0 77  20           add        0x20 ,r7
+        06083fb2 e6  00           mov        #0x0 ,r6
+        06083fb4 95  3b           mov.w      @(DAT_0608402e ,pc ),r5 => DAT_00005100             = 5100h
+        06083fb6 40  0b           jsr        @r0 => FUN_0600ec90                               undefined FUN_0600ec90(undefined
+        06083fb8 64  83           _mov       r8 => DAT_00006000 ,r4
+        06083fba 62  03           mov        r0 ,r2
+        06083fbc d1  25           mov.l      @(PTR_PTR_06084054 ,pc ),r1                       = 06042b00
+        06083fbe 67  d3           mov        r13 ,r7
+        06083fc0 66  e3           mov        r14 ,r6
+        06083fc2 76  24           add        0x24 ,r6
+        06083fc4 60  c2           mov.l      @r12 => DAT_06042758 ,r0                           = 00000002h
+        06083fc6 d4  24           mov.l      @(PTR_PTR_DAT_06084058 ,pc ),r4 => PTR_DAT_06042d  = 0000a000
+                                                                                             = 06042d10
+        06083fc8 40  08           shll2      r0
+        06083fca 01  26           mov.l      r2 ,@( r0 ,r1 => PTR_PTR_DAT_06042b00 )              = 0602db6c
+        06083fcc 91  30           mov.w      @(PTR_DAT_06084030 ,pc ),r1                       = 00f40009
+        06083fce 65  a2           mov.l      @r10 ,r5
+        06083fd0 d0  22           mov.l      @(-> FUN_0600e5cc ,pc ),r0                         = 0600e5cc
+        06083fd2 40  0b           jsr        @r0 => FUN_0600e5cc                               undefined FUN_0600e5cc()
+        06083fd4 35  1c           _add       r1 ,r5
+        06083fd6 62  03           mov        r0 ,r2
+        06083fd8 63  c2           mov.l      @r12 => DAT_06042758 ,r3                           = 00000002h
+        06083fda d1  21           mov.l      @(PTR_PTR_06084060 ,pc ),r1                       = 06042030
+        06083fdc 60  33           mov        r3 ,r0
+        06083fde 40  08           shll2      r0
+        06083fe0 01  26           mov.l      r2 ,@( r0 ,r1 => PTR_PTR_DAT_06042030 )              = 0602dbbc
+        06083fe2 62  e3           mov        r14 ,r2
+        06083fe4 72  22           add        0x22 ,r2
+        06083fe6 61  21           mov.w      @r2 ,r1
+        06083fe8 7f  08           add        0x8 ,r15
+        06083fea 71  10           add        0x10 ,r1
+        06083fec 22  11           mov.w      r1 ,@ r2
+        06083fee 62  e3           mov        r14 ,r2
+        06083ff0 72  26           add        0x26 ,r2
+        06083ff2 61  21           mov.w      @r2 ,r1
+        06083ff4 73  01           add        0x1 ,r3
+        06083ff6 71  10           add        0x10 ,r1
+        06083ff8 22  11           mov.w      r1 ,@ r2
+        06083ffa e1  03           mov        #0x3 ,r1
+        06083ffc 33  17           cmp/gt     r1 ,r3
+        06083ffe 8d  06           bt/s       LAB_0608400e
+        06084000 2c  32           _mov.l     r3 ,@ r12 => DAT_06042758                           = 00000002h
+                             LAB_06084002                                    XREF[1]:     06083f86 (j)   
+        06084002 7a  04           add        0x4 ,r10
+        06084004 79  01           add        0x1 ,r9
+        06084006 e1  07           mov        #0x7 ,r1
+        06084008 39  17           cmp/gt     r1 ,r9
+        0608400a 8f  ba           bf/s       LAB_06083f82
+        0608400c 7b  18           _add       0x18 ,r11
+                             LAB_0608400e                                    XREF[1]:     06083ffe (j)   
+        0608400e 7e  28           add        0x28 ,r14
+        06084010 6f  e3           mov        r14 ,r15
+        06084012 4f  26           lds.l      @r15 +, pr
+        06084014 6e  f6           mov.l      @r15 +, r14
+        06084016 6d  f6           mov.l      @r15 +, r13
+        06084018 6c  f6           mov.l      @r15 +, r12
+        0608401a 6b  f6           mov.l      @r15 +, r11
+        0608401c 6a  f6           mov.l      @r15 +, r10
+        0608401e 69  f6           mov.l      @r15 +, r9
+        06084020 00  0b           rts
+        06084022 68  f6           _mov.l     @r15 +, r8
+                             DAT_06084024                                    XREF[1]:     06083f34 (R)   
+        06084024 01  13           undefine   0113h                                            ?  ->  011301f0
+                             DAT_06084026                                    XREF[1]:     06083f68 (R)   
+        06084026 01  f0           undefine   01F0h                                            ?  ->  01f00204
+                             DAT_06084028                                    XREF[1]:     06083f7c (R)   
+        06084028 02  04           undefine   0204h                                            ?  ->  02040600
+                             DAT_0608402a                                    XREF[1]:     06083f8a (R)   
+        0608402a 06  00           undefine   0600h                                            ?  ->  06006000
+                             DAT_0608402c                                    XREF[1]:     06083f98 (R)   
+        0608402c 60  00           undefine   6000h
+                             DAT_0608402e                                    XREF[1]:     06083fb4 (R)   
+        0608402e 51  00           undefine   5100h
+                             PTR_DAT_06084030                                XREF[1]:     06083fcc (R)   
+        06084030 00  f4  00       addr       DAT_00f40009
+                 09
+                             PTR_FUN_06084034                                XREF[1]:     06083f3e (R)   
+        06084034 06  02  c8       addr       FUN_0602c8c4
+                 c4
+                             PTR_PTR_DAT_06084038                            XREF[1]:     06083f4a (R)   
+        06084038 06  04  26       addr       PTR_DAT_06042668                                 = 060e8000
+                 68
+                             PTR_DAT_0608403c                                XREF[1]:     06083f72 (R)   
+        0608403c 06  04  27       addr       DAT_06042758                                     = 00000002h
+                 58
+                             PTR_DAT_06084040                                XREF[1]:     06083f8c (R)   
+        06084040 25  c0  00       addr       DAT_25c00000
+                 00
+                             PTR_FUN_06084044                                XREF[1]:     06083f8e (R)   
+        06084044 06  00  f6       addr       FUN_0600f6c0
+                 c0
+                             PTR_PTR_06084048                                XREF[1]:     06083f9c (R)   
+        06084048 06  04  29       addr       PTR_PTR_DAT_0604295c                             = 002a8168
+                 5c
+                             PTR_PTR_DAT_0608404c                            XREF[1]:     06083fa8 (R)   
+        0608404c 06  04  de       addr       PTR_DAT_0604de10                                 = 00c00010
+                 10
+                             PTR_FUN_06084050                                XREF[1]:     06083fac (R)   
+        06084050 06  00  ec       addr       FUN_0600ec90
+                 90
+                             PTR_PTR_06084054                                XREF[1]:     06083fbc (R)   
+        06084054 06  04  2b       addr       PTR_PTR_DAT_06042b00                             = 0602db6c
+                 00
+                             PTR_PTR_DAT_06084058                            XREF[1]:     06083fc6 (R)   
+        06084058 06  04  2d       addr       PTR_DAT_06042d10                                 = 0000a000
+                 10
+                             PTR_FUN_0608405c                                XREF[1]:     06083fd0 (R)   
+        0608405c 06  00  e5       addr       FUN_0600e5cc
+                 cc
+                             PTR_PTR_06084060                                XREF[1]:     06083fda (R)   
+        06084060 06  04  20       addr       PTR_PTR_DAT_06042030                             = 0602dbbc
+                 30
+
+
+
+
+
+
+
+
+
+
+
+
+
+                             *************************************************************
+                             *                           FUNCTION                         
+                             *************************************************************
+                             undefined  FUN_0600f6c0 ()
+             undefined         r0:1           <RETURN>
+             undefined4        Stack[-0x4]:4  local_4                                 XREF[1]:     0600f6c0 (*)   
+             undefined4        Stack[-0x8]:4  local_8                                 XREF[2]:     0600f6c2 (*) , 
+                                                                                                   0600f742 (*)   
+             undefined4        Stack[-0xc]:4  local_c                                 XREF[2]:     0600f6c4 (*) , 
+                                                                                                   0600f740 (*)   
+             undefined4        Stack[-0x10]   local_10                                XREF[2]:     0600f6c6 (*) , 
+                                                                                                   0600f73e (*)   
+             undefined4        Stack[-0x14]   local_14                                XREF[2]:     0600f6c8 (*) , 
+                                                                                                   0600f73c (*)   
+             undefined4        Stack[-0x18]   local_18                                XREF[2]:     0600f6ca (*) , 
+                                                                                                   0600f73a (*)   
+             undefined4        Stack[-0x1c]   local_1c                                XREF[2]:     0600f6cc (*) , 
+                                                                                                   0600f738 (*)   
+             undefined4        Stack[-0x20]   local_20                                XREF[2]:     0600f6ce (*) , 
+                                                                                                   0600f736 (*)   
+                             FUN_0600f6c0                                    XREF[22]:    FUN_0606cb28:0606cb3a (c) , 
+                                                                                          FUN_0606cb28:0606cb46 (c) , 
+                                                                                          0606cb5c (*) , 
+                                                                                          FUN_0606cc5c:0606cc86 (c) , 
+                                                                                          FUN_0606cc5c:0606cc92 (c) , 
+                                                                                          0606ccb4 (*) , 
+                                                                                          FUN_0606d0cc:0606d11a (c) , 
+                                                                                          FUN_0606d0cc:0606d126 (c) , 
+                                                                                          0606d158 (*) , 
+                                                                                          FUN_0606d71c:0606d74a (c) , 
+                                                                                          0606d778 (*) , 
+                                                                                          FUN_0606ea58:0606eaa6 (c) , 
+                                                                                          0606ebe0 (*) , 
+                                                                                          FUN_06073204:06073230 (c) , 
+                                                                                          0607324c (*) ,  06083fa2 (c) , 
+                                                                                          FUN_0608434c:06084452 (c) , 
+                                                                                          060844e4 (*) , 
+                                                                                          FUN_06084a28:06084ac6 (c) , 
+                                                                                          FUN_06084a28:06084ad0 (c) ,  [more]
+        0600f6c0 2f  86           mov.l      r8 ,@- r15 => local_4
+        0600f6c2 2f  96           mov.l      r9 ,@- r15 => local_8
+        0600f6c4 2f  a6           mov.l      r10 ,@- r15 => local_c
+        0600f6c6 2f  b6           mov.l      r11 ,@- r15 => local_10
+        0600f6c8 2f  c6           mov.l      r12 ,@- r15 => local_14
+        0600f6ca 2f  d6           mov.l      r13 ,@- r15 => local_18
+        0600f6cc 2f  e6           mov.l      r14 ,@- r15 => local_1c
+        0600f6ce 4f  22           sts.l      pr ,@- r15 => local_20
+        0600f6d0 6e  f3           mov        r15 ,r14
+        0600f6d2 69  43           mov        r4 ,r9
+        0600f6d4 6b  53           mov        r5 ,r11
+        0600f6d6 60  73           mov        r7 ,r0
+        0600f6d8 88  01           cmp/eq     0x1 ,r0
+        0600f6da 8f  18           bf/s       LAB_0600f70e
+        0600f6dc 6a  63           _mov       r6 ,r10
+        0600f6de e8  00           mov        #0x0 ,r8
+        0600f6e0 38  a3           cmp/ge     r10 ,r8
+        0600f6e2 8d  27           bt/s       LAB_0600f734
+        0600f6e4 60  a3           _mov       r10 ,r0
+        0600f6e6 dc  19           mov.l      @(-> FUN_0600f4d4 ,pc ),r12                        = 0600f4d4
+                             LAB_0600f6e8                                    XREF[1]:     0600f702 (j)   
+        0600f6e8 61  91           mov.w      @r9 ,r1
+        0600f6ea 64  1d           extu.w     r1 ,r4
+        0600f6ec d1  18           mov.l      @(PTR_DAT_0600f750 ,pc ),r1                       = 0000ffff
+        0600f6ee 34  10           cmp/eq     r1 ,r4
+        0600f6f0 8d  0b           bt/s       LAB_0600f70a
+        0600f6f2 e7  00           _mov       #0x0 ,r7
+        0600f6f4 e6  01           mov        #0x1 ,r6
+        0600f6f6 4c  0b           jsr        @r12 => FUN_0600f4d4                              undefined FUN_0600f4d4()
+        0600f6f8 65  b3           _mov       r11 ,r5
+        0600f6fa 79  02           add        0x2 ,r9
+        0600f6fc 91  24           mov.w      @(PTR_DAT_0600f748 ,pc ),r1                       = 00800009
+        0600f6fe 78  01           add        0x1 ,r8
+        0600f700 38  a3           cmp/ge     r10 ,r8
+        0600f702 8f  f1           bf/s       LAB_0600f6e8
+        0600f704 3b  1c           _add       r1 ,r11
+        0600f706 a0  15           bra        LAB_0600f734
+        0600f708 60  a3           _mov       r10 ,r0
+                             LAB_0600f70a                                    XREF[2]:     0600f6f0 (j) ,  0600f720 (j)   
+        0600f70a a0  13           bra        LAB_0600f734
+        0600f70c 60  83           _mov       r8 ,r0
+                             LAB_0600f70e                                    XREF[1]:     0600f6da (j)   
+        0600f70e e8  00           mov        #0x0 ,r8
+        0600f710 38  a3           cmp/ge     r10 ,r8
+        0600f712 8d  0f           bt/s       LAB_0600f734
+        0600f714 60  a3           _mov       r10 ,r0
+        0600f716 dd  0e           mov.l      @(PTR_DAT_0600f750 ,pc ),r13                      = 0000ffff
+        0600f718 dc  0c           mov.l      @(-> FUN_0600f4d4 ,pc ),r12                        = 0600f4d4
+                             LAB_0600f71a                                    XREF[1]:     0600f72e (j)   
+        0600f71a 61  91           mov.w      @r9 ,r1
+        0600f71c 64  1d           extu.w     r1 ,r4
+        0600f71e 34  d0           cmp/eq     r13 ,r4
+        0600f720 8d  f3           bt/s       LAB_0600f70a
+        0600f722 67  83           _mov       r8 ,r7
+        0600f724 66  a3           mov        r10 ,r6
+        0600f726 4c  0b           jsr        @r12 => FUN_0600f4d4                              undefined FUN_0600f4d4()
+        0600f728 65  b3           _mov       r11 ,r5
+        0600f72a 78  01           add        0x1 ,r8
+        0600f72c 38  a3           cmp/ge     r10 ,r8
+        0600f72e 8f  f4           bf/s       LAB_0600f71a
+        0600f730 79  02           _add       0x2 ,r9
+        0600f732 60  a3           mov        r10 ,r0
+                             LAB_0600f734                                    XREF[4]:     0600f6e2 (j) ,  0600f706 (j) , 
+                                                                                          0600f70a (j) ,  0600f712 (j)   
+        0600f734 6f  e3           mov        r14 ,r15
+        0600f736 4f  26           lds.l      @r15 => local_20 +, pr
+        0600f738 6e  f6           mov.l      @r15 => local_1c +, r14
+        0600f73a 6d  f6           mov.l      @r15 => local_18 +, r13
+        0600f73c 6c  f6           mov.l      @r15 => local_14 +, r12
+        0600f73e 6b  f6           mov.l      @r15 => local_10 +, r11
+        0600f740 6a  f6           mov.l      @r15 => local_c +, r10
+        0600f742 69  f6           mov.l      @r15 => local_8 +, r9
+        0600f744 00  0b           rts
+        0600f746 68  f6           _mov.l     @r15 +, r8
+                             PTR_DAT_0600f748                                XREF[1]:     FUN_0600f6c0:0600f6fc (R)   
+        0600f748 00  80  00       addr       DAT_00800009
+                 09
+                             PTR_FUN_0600f74c                                XREF[2]:     FUN_0600f6c0:0600f6e6 (R) , 
+                                                                                          FUN_0600f6c0:0600f718 (R)   
+        0600f74c 06  00  f4       addr       FUN_0600f4d4
+                 d4
+                             PTR_DAT_0600f750                                XREF[2]:     FUN_0600f6c0:0600f6ec (R) , 
+                                                                                          FUN_0600f6c0:0600f716 (R)   
+        0600f750 00  00  ff       addr       DAT_0000ffff
+                 ff
+                             LAB_0600f754                                    XREF[2]:     FUN_0600f7b8:0600f7bc (*) , 
+                                                                                          0600f838 (*)   
+        0600f754 2f  e6           mov.l      r14 ,@- r15
+        0600f756 6e  f3           mov        r15 ,r14
+        0600f758 d2  02           mov.l      @(PTR_DAT_0600f764 ,pc ),r2                       = 060398f0
+        0600f75a e1  00           mov        #0x0 ,r1
+        0600f75c 22  12           mov.l      r1 ,@ r2 => DAT_060398f0
+        0600f75e 00  0b           rts
+        0600f760 6e  f6           _mov.l     @r15 +, r14
+        0600f762 00              ??         00h                                              ?  ->  00090603
+        0600f763 09              ??         09h
+                             PTR_DAT_0600f764                                XREF[1]:     0600f758 (R)   
+        0600f764 06  03  98       addr       DAT_060398f0
+                 f0

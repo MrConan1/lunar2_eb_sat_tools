@@ -1,0 +1,228 @@
+
+
+r5=0x34, 
+
+                             *************************************************************
+                             *                           FUNCTION                         
+                             *************************************************************
+                             undefined  FUN_0606cb28 ()
+             undefined         r0:1           <RETURN>
+             undefined4        Stack[-0x4]:4  local_4                                 XREF[1]:     0606cb28 (*)   
+             undefined4        Stack[-0x8]:4  local_8                                 XREF[2]:     0606cb2a (*) , 
+                                                                                                   0606cb50 (*)   
+             undefined4        Stack[-0xc]:4  local_c                                 XREF[2]:     0606cb2c (*) , 
+                                                                                                   0606cb4e (*)   
+             undefined4        Stack[-0x10]   local_10                                XREF[2]:     0606cb2e (*) , 
+                                                                                                   0606cb4c (*)   
+                             FUN_0606cb28                                    XREF[6]:     FUN_0606cb64:0606cb86 (c) , 
+                                                                                          0606cba4 (*) , 
+                                                                                          FUN_0606cba8:0606cbd8 (c) , 
+                                                                                          0606cbfc (*) , 
+                                                                                          FUN_0606cc04:0606cc34 (c) , 
+                                                                                          0606cc58 (*)   
+        0606cb28 2f  86           mov.l      r8 ,@- r15 => local_4
+        0606cb2a 2f  96           mov.l      r9 ,@- r15 => local_8
+        0606cb2c 2f  e6           mov.l      r14 ,@- r15 => local_c
+        0606cb2e 4f  22           sts.l      pr ,@- r15 => local_10
+        0606cb30 6e  f3           mov        r15 ,r14
+        0606cb32 69  43           mov        r4 ,r9
+        0606cb34 d5  08           mov.l      @(PTR_DAT_0606cb58 ,pc ),r5 => DAT_25c06800        = 25c06800
+        0606cb36 d8  09           mov.l      @(-> FUN_0600f6c0 ,pc ),r8                         = 0600f6c0
+        0606cb38 e7  02           mov        #0x2 ,r7
+        0606cb3a 48  0b           jsr        @r8 => FUN_0600f6c0                               undefined FUN_0600f6c0()   <-- first line
+        0606cb3c e6  0a           _mov       #0xa ,r6
+        0606cb3e d5  08           mov.l      @(PTR_DAT_0606cb60 ,pc ),r5 => DAT_25c06000        = 25c06000
+  mov r0,r4 [6403]      0606cb40 79  14           add        0x14 ,r9                                          
+        0606cb42 e7  02           mov        #0x2 ,r7
+        0606cb44 e6  10           mov        #0x10 ,r6
+        0606cb46 48  0b           jsr        @r8 => FUN_0600f6c0                               undefined FUN_0600f6c0()   <-- second line
+  add 2,r4 [7402]      0606cb48 64  93           _mov       r9 ,r4
+        0606cb4a 6f  e3           mov        r14 ,r15
+        0606cb4c 4f  26           lds.l      @r15 => local_10 +, pr
+        0606cb4e 6e  f6           mov.l      @r15 => local_c +, r14
+        0606cb50 69  f6           mov.l      @r15 => local_8 +, r9
+        0606cb52 00  0b           rts
+        0606cb54 68  f6           _mov.l     @r15 +, r8
+        0606cb56 00              ??         00h                                              ?  ->  000925c0
+        0606cb57 09              ??         09h
+                             PTR_DAT_0606cb58                                XREF[1]:     FUN_0606cb28:0606cb34 (R)   
+        0606cb58 25  c0  68       addr       DAT_25c06800
+                 00
+                             PTR_FUN_0606cb5c                                XREF[1]:     FUN_0606cb28:0606cb36 (R)   
+        0606cb5c 06  00  f6       addr       FUN_0600f6c0
+                 c0
+                             PTR_DAT_0606cb60                                XREF[1]:     FUN_0606cb28:0606cb3e (R)   
+        0606cb60 25  c0  60       addr       DAT_25c06000
+                 00
+
+
+
+
+
+600f6c0 (r4=address_text,r5=vramaddr, r6=max # of text to print, r7 = 2 (usually, 1 is unique) )
+returns # 16-bit characters copied
+could modify to use for incrementing
+
+                             *************************************************************
+                             *                           FUNCTION                         
+                             *************************************************************
+                             undefined  FUN_0600f6c0 ()
+             undefined         r0:1           <RETURN>
+             undefined4        Stack[-0x4]:4  local_4                                 XREF[1]:     0600f6c0 (*)   
+             undefined4        Stack[-0x8]:4  local_8                                 XREF[2]:     0600f6c2 (*) , 
+                                                                                                   0600f742 (*)   
+             undefined4        Stack[-0xc]:4  local_c                                 XREF[2]:     0600f6c4 (*) , 
+                                                                                                   0600f740 (*)   
+             undefined4        Stack[-0x10]   local_10                                XREF[2]:     0600f6c6 (*) , 
+                                                                                                   0600f73e (*)   
+             undefined4        Stack[-0x14]   local_14                                XREF[2]:     0600f6c8 (*) , 
+                                                                                                   0600f73c (*)   
+             undefined4        Stack[-0x18]   local_18                                XREF[2]:     0600f6ca (*) , 
+                                                                                                   0600f73a (*)   
+             undefined4        Stack[-0x1c]   local_1c                                XREF[2]:     0600f6cc (*) , 
+                                                                                                   0600f738 (*)   
+             undefined4        Stack[-0x20]   local_20                                XREF[2]:     0600f6ce (*) , 
+                                                                                                   0600f736 (*)   
+                             FUN_0600f6c0                                    XREF[22]:    FUN_0606cb28:0606cb3a (c) , 
+                                                                                          FUN_0606cb28:0606cb46 (c) , 
+                                                                                          0606cb5c (*) , 
+                                                                                          FUN_0606cc5c:0606cc86 (c) , 
+                                                                                          FUN_0606cc5c:0606cc92 (c) , 
+                                                                                          0606ccb4 (*) , 
+                                                                                          FUN_0606d0cc:0606d11a (c) , 
+                                                                                          FUN_0606d0cc:0606d126 (c) , 
+                                                                                          0606d158 (*) , 
+                                                                                          FUN_0606d71c:0606d74a (c) , 
+                                                                                          0606d778 (*) , 
+                                                                                          FUN_0606ea58:0606eaa6 (c) , 
+                                                                                          0606ebe0 (*) , 
+                                                                                          FUN_06073204:06073230 (c) , 
+                                                                                          0607324c (*) ,  06083fa2 (c) , 
+                                                                                          FUN_0608434c:06084452 (c) , 
+                                                                                          060844e4 (*) , 
+                                                                                          FUN_06084a28:06084ac6 (c) , 
+                                                                                          FUN_06084a28:06084ad0 (c) ,  [more]
+        0600f6c0 2f  86           mov.l      r8 ,@- r15 => local_4
+        0600f6c2 2f  96           mov.l      r9 ,@- r15 => local_8
+        0600f6c4 2f  a6           mov.l      r10 ,@- r15 => local_c
+        0600f6c6 2f  b6           mov.l      r11 ,@- r15 => local_10
+        0600f6c8 2f  c6           mov.l      r12 ,@- r15 => local_14
+        0600f6ca 2f  d6           mov.l      r13 ,@- r15 => local_18
+        0600f6cc 2f  e6           mov.l      r14 ,@- r15 => local_1c
+        0600f6ce 4f  22           sts.l      pr ,@- r15 => local_20
+        0600f6d0 6e  f3           mov        r15 ,r14
+        0600f6d2 69  43           mov        r4 ,r9                             <-- r9  = character addr
+        0600f6d4 6b  53           mov        r5 ,r11                            <-- r11 = vram addr
+        0600f6d6 60  73           mov        r7 ,r0                             <== r0 = r7 input
+        0600f6d8 88  01           cmp/eq     0x1 ,r0
+        0600f6da 8f  18           bf/s       LAB_0600f70e
+        0600f6dc 6a  63           _mov       r6 ,r10                            <-- r10 = max # of 16-bit characters in the line
+        0600f6de e8  00           mov        #0x0 ,r8                           <-------------- begin CASE r7 == 1  ----------------------->  (strange vram incr)
+        0600f6e0 38  a3           cmp/ge     r10 ,r8                                r8 >= r10?
+        0600f6e2 8d  27           bt/s       LAB_0600f734                         goto end
+        0600f6e4 60  a3           _mov       r10 ,r0                               r0 = max # characters
+        0600f6e6 dc  19           mov.l      @(-> FUN_0600f4d4 ,pc ),r12                        = 0600f4d4
+                             LAB_0600f6e8                                    XREF[1]:     0600f702 (j)   
+        0600f6e8 61  91           mov.w      @r9 ,r1                               r1 = character
+        0600f6ea 64  1d           extu.w     r1 ,r4                                r4 = r1
+        0600f6ec d1  18           mov.l      @(PTR_DAT_0600f750 ,pc ),r1                       = 0000ffff
+        0600f6ee 34  10           cmp/eq     r1 ,r4                                r4 == 0xffff?
+        0600f6f0 8d  0b           bt/s       LAB_0600f70a                          goto end
+        0600f6f2 e7  00           _mov       #0x0 ,r7                              r7 = 0
+        0600f6f4 e6  01           mov        #0x1 ,r6                              r6 = 1
+        0600f6f6 4c  0b           jsr        @r12 => FUN_0600f4d4                              undefined FUN_0600f4d4()
+        0600f6f8 65  b3           _mov       r11 ,r5                               r5 = vram addr
+        0600f6fa 79  02           add        0x2 ,r9                               r9 += 2;
+        0600f6fc 91  24           mov.w      @(PTR_DAT_0600f748 ,pc ),r1            = 00800009
+        0600f6fe 78  01           add        0x1 ,r8                                r8++
+        0600f700 38  a3           cmp/ge     r10 ,r8                                 r8 >= r10
+        0600f702 8f  f1           bf/s       LAB_0600f6e8                            branch false 600f6e8
+        0600f704 3b  1c           _add       r1 ,r11                                 r11 += r1;  (vram addr += 0x00800009)
+        0600f706 a0  15           bra        LAB_0600f734
+        0600f708 60  a3           _mov       r10 ,r0
+                             LAB_0600f70a                                    XREF[2]:     0600f6f0 (j) ,  0600f720 (j)   
+        0600f70a a0  13           bra        LAB_0600f734
+        0600f70c 60  83           _mov       r8 ,r0
+                             LAB_0600f70e                                    XREF[1]:     0600f6da (j)   
+        0600f70e e8  00           mov        #0x0 ,r8                                 <---------------- BEGIN r7 != 1 ----------------->
+                                                                                            r8 = 0
+        0600f710 38  a3           cmp/ge     r10 ,r8                                     r8 >= r10 (max# 16-bit characters)?    
+        0600f712 8d  0f           bt/s       LAB_0600f734                                 goto end                              
+        0600f714 60  a3           _mov       r10 ,r0                                      r0 = max # of characters              
+        0600f716 dd  0e           mov.l      @(PTR_DAT_0600f750 ,pc ),r13                      = 0000ffff
+        0600f718 dc  0c           mov.l      @(-> FUN_0600f4d4 ,pc ),r12                        = 0600f4d4
+                             LAB_0600f71a                                    XREF[1]:     0600f72e (j)   
+        0600f71a 61  91           mov.w      @r9 ,r1                                         r1 = *r9  (character data)
+        0600f71c 64  1d           extu.w     r1 ,r4                                          r4 = r1
+        0600f71e 34  d0           cmp/eq     r13 ,r4                                         r4 == 0xFFFF ?
+8D08        0600f720 8d  f3           bt/s       LAB_0600f70a                                    goto F70a, which copies r8 into r0 and ends  (r8 is # of characters copied) ; altered to jump to F734
+        0600f722 67  83           _mov       r8 ,r7                                          r7 = r8 (current draw slot)
+        0600f724 66  a3           mov        r10 ,r6                                         r6 = r10 = max # 16-bit characters
+        0600f726 4c  0b           jsr        @r12 => FUN_0600f4d4                              undefined FUN_0600f4d4()
+        0600f728 65  b3           _mov       r11 ,r5                                         r5 = r11 (vram buffer)
+        0600f72a 78  01           add        0x1 ,r8                                         r8++
+7902        0600f72c 38  a3           cmp/ge     r10 ,r8                                         r8 >= r10                         <-- change to r8 >= r13 [38D3]
+38d3        0600f72e 8f  f4           bf/s       LAB_0600f71a                                    bf f71a                                 <-- change to an unconditional branch
+8ff3        0600f730 79  02           _add       0x2 ,r9                                         r9 += 2 (incr short word address)       <-- need this
+6093        0600f732 60  a3           mov        r10 ,r0                                         r0 = r10 = # 16-bit characters copied   <-- mov r9, r0  [6093]
+                             LAB_0600f734                                    XREF[4]:     0600f6e2 (j) ,  0600f706 (j) , 
+                                                                                          0600f70a (j) ,  0600f712 (j)   
+        0600f734 6f  e3           mov        r14 ,r15
+        0600f736 4f  26           lds.l      @r15 => local_20 +, pr
+        0600f738 6e  f6           mov.l      @r15 => local_1c +, r14
+        0600f73a 6d  f6           mov.l      @r15 => local_18 +, r13
+        0600f73c 6c  f6           mov.l      @r15 => local_14 +, r12
+        0600f73e 6b  f6           mov.l      @r15 => local_10 +, r11
+        0600f740 6a  f6           mov.l      @r15 => local_c +, r10
+        0600f742 69  f6           mov.l      @r15 => local_8 +, r9
+        0600f744 00  0b           rts
+        0600f746 68  f6           _mov.l     @r15 +, r8
+                             PTR_DAT_0600f748                                XREF[1]:     FUN_0600f6c0:0600f6fc (R)   
+        0600f748 00  80  00       addr       DAT_00800009
+                 09
+                             PTR_FUN_0600f74c                                XREF[2]:     FUN_0600f6c0:0600f6e6 (R) , 
+                                                                                          FUN_0600f6c0:0600f718 (R)   
+        0600f74c 06  00  f4       addr       FUN_0600f4d4
+                 d4
+                             PTR_DAT_0600f750                                XREF[2]:     FUN_0600f6c0:0600f6ec (R) , 
+                                                                                          FUN_0600f6c0:0600f716 (R)   
+        0600f750 00  00  ff       addr       DAT_0000ffff
+                 ff
+                             LAB_0600f754                                    XREF[2]:     FUN_0600f7b8:0600f7bc (*) , 
+                                                                                          0600f838 (*)   
+        0600f754 2f  e6           mov.l      r14 ,@- r15
+        0600f756 6e  f3           mov        r15 ,r14
+        0600f758 d2  02           mov.l      @(PTR_DAT_0600f764 ,pc ),r2                       = 060398f0
+        0600f75a e1  00           mov        #0x0 ,r1
+        0600f75c 22  12           mov.l      r1 ,@ r2 => DAT_060398f0
+        0600f75e 00  0b           rts
+        0600f760 6e  f6           _mov.l     @r15 +, r14
+        0600f762 00              ??         00h                                              ?  ->  00090603
+        0600f763 09              ??         09h
+                             PTR_DAT_0600f764                                XREF[1]:     0600f758 (R)   
+        0600f764 06  03  98       addr       DAT_060398f0
+                 f0
+
+
+
+
+        0600f72c 38  a3           cmp/ge     r10 ,r8                                         r8 >= r10                         <-- change to r8 >= r13 [38D3]
+        0600f72e 8f  f4           bf/s       LAB_0600f71a                                    bf f71a                                 <-- change to an unconditional branch
+        0600f730 79  02           _add       0x2 ,r9                                         r9 += 2 (incr short word address)       <-- need this
+        0600f732 60  a3           mov        r10 ,r0                                         r0 = r10 = # 16-bit characters copied   <-- mov r9, r0  [6093]
+
+new
+        0600f72c 79  02           _add       0x2 ,r9                                         r9 += 2 (incr short word address)       <-- need this
+        0600f72e 38  d3           cmp/ge     r10 ,r8                                         r8 >= r10                         <-- change to r8 >= r13 [38D3]
+        0600f730 8f  f3           bf/s       LAB_0600f71a                                    bf f71a                                 <-- change to an unconditional branch
+        0600f732 6093           mov        r9 ,r0                                         r0 = r10 = # 16-bit characters copied   <-- mov r9, r0  [6093]
+
+Note:  this alteration causes weird delays during battle sequences and save/load
+May need to code my own alternative routine
+
+
+
+
+Battle Screen
+---------------
+06083FA2 calls 0600Fxx routine

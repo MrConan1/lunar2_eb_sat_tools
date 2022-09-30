@@ -13,6 +13,47 @@ r9 = 4+ 060902d8
 mov.l @r1,r8 (*06054044) =0
 
 
+
+8000
+184x17 4bpp
+B8x11
+
+8620
+160x48 4bpp
+
+
+File Format of File #1234
+=========================
+# of sections in file:  4 bytes
+Size of Section 1:      4 bytes
+    Section 1 (bunch of 32-bit Words) 
+	This is a sequence of commands to draw the subtitles (delays, fade in, fade out, etc)
+Size of Section 2:      4 bytes
+    Section 2 
+	    16 short words (to be ored with 0x8000), which are copied to 25C7FFC0 (Color lookup table)
+		Subtitle Hdr Offset#1:  32-bit LW  (00000028) {Add 060902B0 to get absolute address = 060902D8}
+		    0000002C:  byte offset to subtitle data from subtitle hdr offset.  060902D8+2C = 06090304
+			00000009:  # of image data info structures that follow
+			           Each structure is 32-bits and contains:
+					       8-bit width/8  (mult by 8 to get width)
+						   8-bit height
+						   16-bit image offset in vram/8  (mult by 8 to get vram offset)
+			00002DEB: length of compressed image data in bytes (At address 06090304)
+			The image data follows here
+		Subtitle Hdr Offset#2:  32-bit LW  (00002E44) {Add 060902B0 to get absolute address = 060930F4}
+		                                   If value is 0xFFFFFFFF, then this is N/A for this file
+		    0000000C: byte offset to subtitle data from subtitle hdr offset.  060930F4+C = 06093100
+			00000001: # of image data info structures that follow
+			           Each structure is 32-bits and contains:
+					       8-bit width/8  (mult by 8 to get width)
+						   8-bit height
+						   16-bit image offset in vram/8  (mult by 8 to get vram offset)
+			00008F2E: length of compressed image data in bytes (At address 06093100)
+End with Zero Pad to 2048 byte multiple
+
+
+
+
 Investigation (Hit on 0x25C08030 = 0x44000444)
 -------------
 0x06051AAE:  06052238 subroutine is called
@@ -30,8 +71,381 @@ This file is read and copied into VDP1 to create the subtitles...
 However it appears there is some sort of conversion or compression going on
 (redo, i lost track after a while)			
 
+
+*** START HERE ***
+*** Trigger on 060525C8 (start of fctn) <-- different code exists here during movies ***
+
+
+0604A9BA jsr@r1  <-- jsr 06051a54(r4 = 060902B0, r5 = 40, r6 = 0603C6C0)
+         mov r11, r4
+
+0604A99C  r11 = 06090004
+          r8 = *r11 = 000002A4
+		  r11 = 06090008
+		  r6 = r8 = 000002A4
+		  jsr @r1   (r1 = 0602C828)
+		       2A4 / 4 = A9
+			   Make A9 writes to 23EF98 onward  <-- are these for timing?
+			                                        read occurs at 06051596
+			   
+		  r5 = r11 = 06090008
+
+0604A9AE  add r8,r11   <-- r8 = 2a4 + 06090008 = 060902AC
+		  add #4, r11  <-- 060902B0   <-- skip the LW at 060902AC
+
+Start
+=====
+06051A54
+    r6=15
+	r7 = 8000
+	r8 = r4 = 060902b0
+
+-- The below loop runs 14 times
+-- Writes 14 Short words ored with 0x8000 to 25C7FFC0 onward
+06051A70 mov r2, r0
+06051A72 add r0, r0 
+06051A74 mov.w @(r0,r8),r1    r1 = *(0+060902B0) = 0x0016
+         add #1, r2  <-- r2 = 1
+		 or r7, r1  <-- r1 = FFFF8016
+		 mov.w r1,@r3  <-- *25C7FFC0 = 8016
+		 cmp/gt r6,r2  <-- r6=F, r2=1  
+		 bf/s 06051a70
+		 add #2,r3       <-- r3+=2;  r3 = 25C7FFC2
+		 bra 06051a9a
+		 mov.l @(32,r8),r2  <-- r2 = *(32+060902B0) = 00000028
+
+
+06051A9A mov r2, r0  <-- r0 = 28
+         cmp/eq -1, r0
+         bt/s 06051ab2
+         mov #0,r5
+		 r1 = 06041514
+		 mov.l @r1, r1  <-- r1 = 0
+		 mov r2, r4     <-- r4 = 28   <-- first index for subtitles
+		 r0 = 06052238
+		 tst r1, r1  (r1 is 0) (TRUE)
+		 movt r6   <-- r6 = 1
+		 jsr @r0  
+		 add r8,r4   <-- r4 = 060902D8
+		 
+06051AAE jsr@r0  (r4=060902D8, r5 = 0, r6 = 1)
+         add r8,r4
+         mov.l @(36,r8),r1    <-- r1 = 060902b0 + 36 = *060902D4 = 2E44
+		 mov r1, r0  <-- r0 = 2E44   <-- second index for subtitles
+		 cmp/eq -1,r0
+		 bt/s 06051aea
+		 mov #5, r6   <-- r6 = 5
+		 mov #1, r5   <-- r5 = 1 
+		 mov r1, r4   <-- r4 = 2E44
+		 r0 = 06052238
+		 jsr @r0     06052238 FCTN (r4=060930F4, r5 = 1, r6 = 5)
+		 add r8,r4   <-- r4 = 060930F4
+         ...
+
+
+
+
+
+
+06052238 First FCTN (r4=060902D8, r5 = 0, r6 = 1)
+    mov.l @r4, r1  <-- r1 = *060902D8 = 0x0000002C
+	cmp/gt r1,r4   <-- 2C < 060902d8?
+	bf/s 0605224c
+	mov r15,r14
+	add r4, r1     <-- r1 = 06090304
+	mov.l r1, @r4  <-- *060902d8 = 06090304
+	r1 = 0605404c
+	r1 = *0605404c = 8000
+	cmp/pz r1       <-- true
+	bt 06052256
+	add #7,r1      <-- skip
+	mov r1, r3   <-- r3 = 8000
+	r3 /= 8;     <-- r3 = 1000
+	r1 = 06054044
+	r9 = *(r4+4) = *(060902dc) = 00000009
+	r0 = 0
+	cmp/ge r9,r0  0 > 9?  (FALSE)
+	bt/s 06052294
+	mov.l  @r1, r8    r8 = *06054044 = 0
+	r1 = 06041530
+	mov r4, r7   <-- r7 = 060902d8
+	mov r8, r2   <-- r2 = 0
+	r2 /= 4;     <-- r2 = 0;
+	r2 = r1+r2 = 06041530
+06052274:
+loop start (read image info about all 9 subtitles and copy elsewhere in HI-RAM)
+	r7 += 8  = 060902e0
+	mov.b @r7, r1     <-- r1 = *060902e0 = 17
+	add #1,r8         <-- r8 = 1
+	mov.b r1, @r2     <-- *06041530 = 0x17   <-- 0x17 * 8 = 184 (width)
+	add #1,r0         <-- r0 = 1	
+	mov.b @r7, r1     <-- r1 = *060902e1 = 0x11
+	add #1,r2         <-- r2 = 06041531
+	mov.b r1, @r2     <-- *06041531 = 0x11	<-- 17 height
+    cmp/ge r9,r0      <-- 1 > 9?
+	mov.w @r7, r1     <-- r1 = *060902E2 = 0000
+	r2++              <-- r2 = 06041532
+	add r3, r1        <-- r1 = r3+r1 = 0+1000 = 1000  <-- size?
+	mov.w r1, @r2     <-- *06041532 = 1000
+	r7 = r7-6         <-- r7 = 060902DC <-- base address
+	bf/s 06052274
+	add #2, r2        <-- r2 = 06041534
+loop end
+
+-- 8 additional details on images follow (9 total):
+	r1 = *060902E4 = 14
+	30
+	00C4 + 1000 = 10C4
+	...
+	...
+{06051530 to 06041553 holds this information}
+
+
+06052294 mov r5, r0   <-- r0 = 0
+         shll2        <-- r0 = 0
+		 r0 += r0     <-- r0 = 0   <-- r0 *= 8 is the result
+r2 = 0603c670
+mov r0, r3  <-- r3 = 0
+mov.l @(4,r4),r1  <-- r1 = *(060902D8+4) = *060902DC = 00000009
+add r2, r3    <-- r3 = 0603c670
+mov.l r1, @(r0,r2)  <--  *(0+0605C670) = 9
+add #4, r3     <-- r3 = 0603c674
+mov.w r6, @r3   <-- *r3 = r6 ;  *0603C674 = 1
+r2 = 06054046
+r0 = 060525c8
+mov.w @r2, r1    <-- r1 = *0605046 = 0000
+add #2, R3       <-- r3 = 0603C676
+mov.w r1, @r3    <-- *0603C676 = 0000
+add -2, r2       <-- r2 = 06050444
+mov.l r8, @r2    <-- *r2 = 9
+r8 = 0605404c
+mov.l @r4, r1   <-- r1 = *060902D8 = 06090304
+r2 = 25C00000
+mov r1, r5       <-- r5 = 06090304 (# bytes of compressed data)
+mov.l @r8,r6     <-- r6 = *0605404c = 8000
+add #4,r5        <-- r5 = 06090308   <-- start of compressed data
+mov.l @r1, r4    <-- r4 = *06090304  <-- # bytes compressed data
+jsr @r0 <-- call the decompression function
+add r2,r6        <-- r6 = 25C00000 + 8000 = 25C80000 <-- dst offset
+
+r2 = 0x1F
+and r0, r2        r2 = 62E0 & 1F = 0
+mov.l @r8, r1     r1 = *0605404c = 8000
+add r0, r2        r2 = 0+62e0 = 62e0
+add r1, r2        r2 = 8000=62E0 = e2e0
+mov.l r2, @r8     *0605404C = E2E0
+rts
+
+
+
+
+
+...
+060522C4 jsr @r0 r0 = 060525C8 (r4= , r5= , r6= , r7= )
+
+             *06090306
+              max count?    SRC            DST          ???
+FCTN 060525C8(r4= 2DEB, r5= 06090308, r6= 25c08000, r7= 060902FC)
+returns 0x62E0
+r2 = 0
+r0 = 06052678 (constant)
+r1 = 0x400
+
+-- Erase 06052678 to 06053677
+060525DA mov.l r2, @r0  (*06052678 = r2 = 0)
+060525DC dt r1
+060525DE bf/s 060525da
+060525E0 add #4, r0
+
+-- Initialization
+060525E2 r1 = r3 = r12 = 0
+         r11 = 0x0FEE
+		 r7 =  0x0FFF
+		 
+060525EC shlr r12  <-- r12 /= 2
+060525EE bt/s 0x060525FC
+060525F0 nop
+
+-- Section 1
+060525F2 mov.b @r5+, r2   r2= *0x06090308 = DC (0xFFFFFFDC)
+060525F4 cmp/hs r4, r1    [2DEB > 0 ? ; FALSE ]
+060525F6 bt/s 0605265c
+060525F8 add #1, r1
+060525FA r12 = 0x007F
+-- Section 2
+060525FC shlr r2          r2 = 0x7FFFFFEE   <-- T == 1 after this instruction if the lowest bit is set
+060525FE bf/s 06052618   (FALSE)
+06052600 mov.b @r5+,r13   Read 0x06090309, r13 = 0xFFFFFFDC
+
+-- Section4
+06052618 cmp/hs  r4,r1    (r4= 2DEB, r1=1)  (FALSE)
+0605261A bt/s  0x0605265c
+0605261C add #1,r1        r1=2
+0605261E mov.b @r5+,r8   Read 0x0609030A, r8 = 0xFFFFFFFF
+06052620 cmp/hs  r4,r1    (r4= 2DEB, r1=1)  (FALSE)
+06052622 bt/s  0x0605265c (FALSE)
+06052624 add #1,r1        r1=3
+06052626 extu.b r13,r13   r13 = DC
+06052628 extu.b r8,r8     r8  = FF
+0605262A mov r8,r0        r0 = FF
+0605262C and #240,r0      r0 &= F0;  r0 = 0xF0
+0605262E shll2 r0         
+06052630 shll2 r0         r0 *= 16;  r0 = 0xF00
+06052632 or r0, r13       r0 = 0x0F00 | 0x DC = 0x0FDC;
+06052634 mov #15, r10     r10 = 0x0F
+06052636 and r10, r8      r8 =  0xFF & 0xF = 0xF
+06052638 add #3, r8       r8 =  0x12
+0605263A mov #0, r9       r9 = 0
+0605263C r0 = 06052678
+-- Loop start (repeats r8 times) --
+0605263E mov r13, r10        r10 = 0xFDC
+06052640 add r9, r10         r10 = 0+r10 = 0xFDC
+06052642 and r7, r10         r10 = 0xFFF & r10 = 0xFDC
+06052644 mov.b @(r0,r10),r10 r10 = 06052678[FDC] = 00
+06052646 mov.b r10,@r6       *25C08000 = 0x00
+06052648 add #1, r6          r6 = 25C08001              <-- vram write
+0605264A mov.b r10,@(r0,r11) *06052678[FEE] = r10 = 00  <-- local write
+0605264C add #1, r11         r11 += 1;  r11 = FEF
+0605264E and r7,r11          r11 &= 0xFFF =   FEF
+06052650 add #1,r3           r3++;  r3 = 1
+06052652 dt r8               r8--;  r8 = 11
+06052654 bf/s 0605263E       FALSE, go back to 0605263E
+06052656 add #1,r9           r9++, r9 = 1
+-- This only runs when r8 is zero
+06052658 bra 060525EC
+0605265A nop
+
+r12 = 0x7F
+ 
+060525EC shlr r12  <-- r12 /= 2;  r12 = 0x3F
+060525EE bt/s 0x060525FC
+060525F0 nop
+
+060525FC shlr r2          r2 = 0x3FFFFFF7
+060525FE bf/s 06052618   (FALSE)
+06052600 mov.b @r5+,r13   Read 0x0609030B, r13 = 0xFFFFFFFB
+
+06052618 cmp/hs  r4,r1    (r4= 2DEB, r1=3)  (FALSE)
+0605261A bt/s  0x0605265c
+0605261C add #1,r1        r1=4
+0605261E mov.b @r5+,r8   Read 0x0609030C, r8 = 0xFFFFFFFA
+06052620 cmp/hs  r4,r1    (r4= 2DEB, r1=4)  (FALSE)
+06052622 bt/s  0x0605265c (FALSE)
+06052624 add #1,r1        r1=5
+06052626 extu.b r13,r13   r13 = FB
+06052628 extu.b r8,r8     r8  = FA
+0605262A mov r8,r0        r0 = FA
+0605262C and #240,r0      r0 &= F0;  r0 = 0xF0
+0605262E shll2 r0         
+06052630 shll2 r0         r0 *= 16;  r0 = 0xF00
+06052632 or r0, r13       r0 = 0x0F00 | 0xFB = 0x0FFB;
+06052634 mov #15, r10     r10 = 0x0F
+06052636 and r10, r8      r8 =  0xFF & 0xA = 0xA
+06052638 add #3, r8       r8 =  0xD
+0605263A mov #0, r9       r9 = 0
+0605263C r0 = 06052678
+
+
+....
+
+
+
+060525EC
+...
+         shlr r2             (r2 = 1FFFFFFB)
+         bf/s 06052618    
+06052600 mov.b @r5+,r13   Read 0x0609030D, r13 = 0x04
+06052602 cmp/hs r4,r1     
+06052604 bt/s 0605265c    
+06052606 add #1,r1        r1++;  r1 = 6
+06052608 mov.b r13,@r6    *25C0801F = 0x04
+0605260A add #1,r6        r6++;  r6 = 25C08020
+0605260C r0 = 06052678
+0605260E mov.b r13,@(r0,r11)   06052678[D] = 04
+06052610 r11++;                r11 = E
+06052612 and r7,r11            r11 &= 0xFFF
+06052614 bra 060525EC
+06052616 add #1,r3             r3 = 0x20
+06052618 
+
+
+return 0x62E0
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+0605265C 
+0605265E 
+
+
+
+
+mov.b r13, @r6   *25C08036 = 44 <-- r6 is VDP1 ram location
+add #1,r6        r6=25c08037
+mova @(104,pc),r0  <-r0 = 0x06052678
+mov.b r13, @(r0,r11)  <-- *(0x06052678+0x24) = 44
+add#1, r11         <--r11 = 0x25
+bra 0x060525ec
+add#1,r3           <- r3 = 0x37
+
+shlr r12           <-- r12 goes from F to 0x7
+bt/s 0x060525fc  
+nop
+
+0x060525fc shlr r2 <-- r2 goes to 0x0 
+bf/s 0x06052618
+0x06052600 mov.b @r5+,r13    <== r13 = *0x0609031C; r13 = 0x0E
+
+0x06052618 cmp/hs r4,r1  r4 is 2DEB, r1 is 0x14
+bt/s  0x0605265c
+add #1,r1        r1=15
+mov.b @r5+,r8    r8 = 0x04
+cmp/hs r4,r1     r4 is 2DEB, r1 is 0x15
+bt/s 0605265c
+add #1,r1        r1 = 0x16
+extu.b r13,r13   r13 = 0x0E
+extu.b r8,r8     r8 =  0x04
+and #240,r0      r0 &= 0xF0;   r0 = 0x04 & 0xF0 = 0x00
+r0 *=16 (shifts)          r0 = 0
+or r0,r13         r13 = 0x0E
+r10= 0x0F
+and r10,r8     r10 is 0xF,r8=0x4  ;  r8 = 0x4
+add #3,r8      r8=7
+mov 0,r9       r9=0
+r0 = 0
+
+mov.b r13, @r6   *25C08036 = 44 <-- r6 is VDP1 ram location
+add #1,r6        r6=25c08037
+mova @(104,pc),r0  <-r0 = 0x06052678
+mov.b r13, @(r0,r11)  <-- *(0x06052678+0x24) = 44
+add#1, r11         <--r11 = 0x25
+bra 0x060525ec
+add#1,r3           <- r3 = 0x37
+
+
+
+
+
+
+
+
+
+
+
+
 0x06052600:
-mov.b @r5+,r13   Read 0x0609031C, r13 = 0x44
+
 
 cmp/hs  r4,r1    (r4= 2DEB, r1=14)
 bt/s  0x0605265c
@@ -77,3 +491,299 @@ mov.b r13, @(r0,r11)  <-- *(0x06052678+0x24) = 44
 add#1, r11         <--r11 = 0x25
 bra 0x060525ec
 add#1,r3           <- r3 = 0x37
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Debugging of First Section of Subtitle File
+--------------------------------------------
+Hit on 0602C86C  0602c864->0602C86C PR=0604A9AE
+
+Perform a copy of all values to LWRAM
+0602C86C mov.l @r5+, r0    r0 = 0000000E
+0602C86E dt r2             r2=a8
+0602C870 mov.l r0, @r4     r4 = 23EF98;  *23EF98 = 0000000E
+0602C872 add #4,r4         r4 = 23EF9C
+
+0602C8A8 mov r6,r0  <-- r0 = 2A4  (# bytes in first section)
+and #3, r0 = 0
+bt rts
+mov r3, r0  <-- r0 = 23EF98
+
+0604A9AE  add r8,r11  <-- r11 = 060902AC
+r11 +=4   = 060902B0 <-- doing stuff with second section with subtitle data
+
+
+*** Trigger on reads to 0x23EF98 to 0x23F23B
+
+Hit 06051596 mov.l @r2+, r3   r3 = *23EF98 = E
+mov.l r2, @r1   *06053FD0 = 0x0000000E <-- mult by 2 and use for jmp address logic
+
+
+060515e8
+
+Seems to be a sequence of commands that controls the subtitles.  Need to decode the logic.
+
+
+
+
+
+06051596 read 0000000E
+    0605175E Read 00000000
+06051596 read 00000003
+    060515e8 Read 0000001F
+06051596 read 00000007
+	06051630 Read 00000000
+	0605163E Read 00000000
+	06051646 Read 00000000
+	06051650 Read 00000001
+	0605165A Read 00000000
+06051596 read 00000004	
+	060515FC Read 00000078
+06051596 read 00000006	
+<=== Scene change from New Game Screen to move, Movie runs for a bit ===>
+06051596 read 00000001     <-- ??Init Script??
+06051596 read 0000000B     <-- Timer Ctrl Code!
+	0605175E Read 0000005A <-- Definitely a timer!
+<=== Movie runs for a bit ===>	
+06051596 read 0000000A
+	06051708 Read 00000000
+06051596 read 0000000B
+	0605175E Read 0000005A
+<=== Movie runs for a bit ===>	
+
+06051596 read 0000000E
+    0605175E Read 00000005
+06051596 read 00000003
+    060515e8 Read 0000001F
+06051596 read 00000007
+	06051630 Read 00000000 <-- Unknown, changing to 0x10, 0x22 made no text appear
+	0605163E Read 000000A0 <-- X position = 160, Relative screen location i guess
+	06051646 Read 00000070 <-- Y Position = 112, Relative screen location i guess
+	06051650 Read 00000000 <-- 0x10, 0xFF, 0x20 changed text outline from black to light blue
+	                           0x01 resulted in no text
+	0605165A Read 00000000 <-- subtitle # (0 to n-1)
+06051596 read 00000004	
+	060515FC Read 00000078  <-- fade in time?  If 0, never fades in
+06051596 read 0000000B
+	0605175E Read 00000078
+<=== Movie runs for a bit, Subtitle#1 fades in ===>
+06051596 read 00000005
+	06051610 Read 00000078 <-- fade out time?  If 0, never fades out
+06051596 read 0000000B
+	0605175E Read 00000096
+<=== Movie runs for a bit, Subtitle#1 fades out ===>	
+
+06051596 read 0000000A
+	06051708 Read 00000000
+06051596 read 00000007
+	06051630 Read 00000000
+	0605163E Read 000000A0
+	06051646 Read 00000070
+	06051650 Read 00000000
+	0605165A Read 00000001
+06051596 read 00000004	
+	060515FC Read 00000078  <-- could this be a timer?
+06051596 read 0000000B
+	0605175E Read 000000F0	
+<=== Movie runs for a bit, Subtitle#2 fades in ===>
+06051596 read 00000005
+	06051610 Read 00000078
+06051596 read 0000000B
+	0605175E Read 00000096
+<=== Movie runs for a bit, Subtitle#2 fades out ===>
+
+
+06051596 read 0000000A
+	06051708 Read 00000000
+06051596 read 00000007
+	06051630 Read 00000000
+	0605163E Read 000000A0
+	06051646 Read 00000070
+	06051650 Read 00000000
+	0605165A Read 00000002
+06051596 read 00000004	
+	060515FC Read 00000078  <-- could this be a timer?
+06051596 read 0000000B
+	0605175E Read 0000012C	
+<=== Movie runs for a bit, Subtitle#2 fades in ===>
+06051596 read 00000005
+	06051610 Read 00000078
+06051596 read 0000000B
+	0605175E Read 00000096
+<=== Movie runs for a bit, Subtitle#2 fades out ===>	
+
+
+
+...
+
+
+06051596 read 0000000A
+	06051708 Read 00000000
+06051596 read 00000000
+DONE
+
+
+
+==============================================================================
+Question remains how to load subtitles for a particular video sequence....
+==============================================================================
+-> Break on 0604A7A0
+Begin new game
+
+0604A728 is called
+   0604A7A0 rts
+????? is called
+   hit on 0604A998, 0604A9A6 <== starts subtitle loading code
+
+
+0604ce4a  <-- parts of common video play routine loop
+06050bc6
+0604a54a
+0604a55E
+0604a560 bf  (r0 = 0, looking for value of 1)
+
+branches back to 0604A5DA
+another branches back to 0604A542...
+
+Trace:
+0604A554->060514BC
+[Examine 0604A54A to 0604A558]
+It appears that at 0604A554: jsr @060514BC  <-- this is never called when there are no subtitles
+
+0604A548 mov.l 06054190
+         mov.l @r1, r0
+		 and #4, r0
+		 tst r0,r0
+		 bt 0604a558
+		 mov.l 060514BC, r0
+		 jsr @r0
+		 nop
+
+Break on writes to 06054190, reset the game
+First hit occurs at 0604A99A  (loads 0x14 into the address from r5).  This value stays in there for the entire first subtitle sequence	
+Backtracing...
+ 
+ 
+0600EC64 jsr @r10
+         mov #20, r5  (r5 = 0x14)
+
+
+=========================
+Function at 0600CE30 (Caller is 06086D4C, whose caller is at 06010e66)
+   jsr 0600C924 (r4=5D1, r5= 06090000, r6 = 0000) <-- copies the file to 06090000
+   5D1 = 1234 somehow.  If you put in 5d2, those subs show up instead.  also graphic stays on the screen in front of hte movie.
+Next video, (OP credits) hit on 600CE68... run
+  0600CE7C  jsr 0600C924 (r4=5D2, r5= 06090000, r6 = 0000) <-- copies the file to 06090000
+        5D2 = 1,490; which equates to file 1235 somehow
+  600ce88 calls 604a988  jsr 604a988(3E, 4 )  <-- black if 3C
+      call 0604ab5c
+R5 = 4 this time when writing to 06054190
+
+
+---- first video with no subs
+06017E9E
+    06017AB8 write 0 to 06054190
+	0604ab80 mov.l r1, @r2 <-- write 0 to 06054190
+
+
+===============================================
+===============================================
+===============================================
+===============================================
+
+Left off here.
+1. Need to figure out the relationship between file# and the ID for loading.
+2. OP movies appear to be hardcoded into the game.
+3. The 0x14 and 0x4 i believe are bit flags.  Not sure what they do but no subs when its 0x0
+4. Need to figure out where to insert the loading of the subtitles for standard movies since this would not normally occur.
+
+
+
+
+Normal In-game Movies
+---------------------
+From the timer investigation, In-game movies are played from the script via the following routine:
+jsr 06058F10 (r4 = movie# (param #2), r5 = 1 (param#1), r6 = 1)
+This routine is not called by the OP Movie
+	Actual movie plays at 06058F8E jsr 0600CDC8(r4 = 0x40, r5=0, r6=7)
+	    which in turn calls:
+     		0600CDD6 jsr 0600F324(r4 = ) 
+     		0600CDDC jsr 0600F3DC(r4 = ) 
+     		0600CDE2 jsr 0600D268(r4 = ) 
+     		0600CDE8 jsr 0604a808(r4 = ) 
+     		0600CDEE jsr 0604ab5c(r4 = 0x40)  <-- movie plays (fctn common with OP)
+			     *06042c30 = 1;  --> save to 06054190
+				 0604AB88 jsr 0604a444(r4 = 0x40)  <-- common play movie routine
+     		0600CDF4 jsr 0604d714(r4 = ) 			
+     		0600CDFA jsr 0600D398(r4 = ) 
+     		0600CDFE jsr 0600D0DC(r4 = )
+
+0x23EF98 interestingly enough has a TON of stuff from that point onward.
+Not sure what the data is, maybe movie data?
+
+
+
+
+Duplicating from above:
+-----------------------
+Function at 0600CE30 (Caller is 06086D4C, whose caller is at 06010e66)
+   jsr 0600C924 (r4=5D1, r5= 06090000, r6 = 0000) <-- copies the file to 06090000
+   5D1 = 1234 somehow.  If you put in 5d2, those subs show up instead.  also graphic stays on the screen in front of hte movie.
+Next video, (OP credits) hit on 600CE68... run
+  0600CE7C  jsr 0600C924 (r4=5D2, r5= 06090000, r6 = 0000) <-- copies the file to 06090000
+        5D2 = 1,490; which equates to file 1235 somehow
+  600ce88 calls 604a988  jsr 604a988(3E, 4 )  <-- black if 3C
+      call 0604ab5c
+R5 = 4 this time when writing to 06054190
+
+
+---- first video with no subs
+06017E9E
+    06017AB8 write 0 to 06054190
+	0604ab80 mov.l r1, @r2 <-- write 0 to 06054190
+	
+
+First OP Video
+===============	
+0600CE48 jsr 0600C924
+0600CE4E jsr 0600E574
+0600CE54 jsr 0600D268
+0600CE5A jsr 0604A728
+0600CE66 jsr 0604A988(r4 = 3D, r5=0x0014) <-- First movie w./ subs
+			Save 0x14 to 0x06054190
+			r8 = *06090004 = 0x2A4, since subtitle file was loaded in earlier
+			r4 = *0603B984 = 0x23EF98 (location for subtitle sequence)
+			jsr 0602C828 (r4=23EF98, r5=0609008) <-- write out subtitle sequece to 23EF98
+			jsr 06051A18 (r4=0, r5=060902AC)
+			06051a54 (r4=060902B0)
+			06051428 (r4=23EF98)
+			0602133c (R4=100,7)
+			06024320 (r4=7,r5=1)
+			0604a444(r4=3D,r5=0700,r6=1730,r7=060460d0) <-- common play movie routine
+			     0604a290(r4=)
+0600CE6A jsr 0600F9A8
+0600CE74 jsr 0600D200
+0600CE7C jsr 0600C924
+0600CE82 jsr 0604a684
+0600CE88 jsr 0604A988 (r4 = 3F, r5 = 4) <-- second movie w./ subs
+0600CE8C jsr 0600F9A8
+0600CE96 jsr 0604ab5c <-- ran another movie (no subs)
+0600CE9C jsr 0604d714  <-- run after normal movies
+0600CEA2 jsr 0600d398  <-- run after normal movies
+0600CEA8 jsr 0600d000  <-- D0DC run after normal movies instead 
+			 
+Should figure out where address 23EF98 comes from...
+
