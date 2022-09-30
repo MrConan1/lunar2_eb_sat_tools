@@ -126,7 +126,7 @@ int main(int argc, char** argv){
 	
 	/* 4 Commandline Arguments */
 	if(argc != 4){
-		printf("Error in arguments, Usage:  l2_subt_extract.exe origFname reconfigFname outputFname\n\n");
+		printf("Error in arguments, Usage:  l2_subt_encode.exe origFname reconfigFname outputFname\n\n");
 		return -1;
 	}
 	memset(origfileName,0,300);
