@@ -173,8 +173,7 @@ int main(int argc, char** argv){
 	/* And Print out the details                      */
 	pActionScriptOffsetArray = (actionScriptHdrType*)(outputBuf+pPackedHdr->hdr1LenBytes);
 	for(i = 0; i < numActionScripts; i++){
-		unsigned int id, as_offset, temp, a, b, c;
-		int flag;
+		unsigned int id, as_offset, temp;
 
 		id = pActionScriptOffsetArray[i].actionScriptID;
 		as_offset = pActionScriptOffsetArray[i].actionScriptOffset;
@@ -311,6 +310,11 @@ int main(int argc, char** argv){
 								numArgs = 1;
 								break;				
 
+							case 0x0005:
+								fprintf(outFile,"TBD - 6 args sometimes but not always\n");
+								numArgs = 6;
+								break;
+
 							case 0x0006:
 								fprintf(outFile,"TBD\n");
 								numArgs = 6;
@@ -325,13 +329,46 @@ int main(int argc, char** argv){
 								fprintf(outFile,"TBD, assumed\n");
 								numArgs = 3;
 								break;
-						
-							case 0x000B:
+
+							case 0x0009:
 								fprintf(outFile,"TBD\n");
 								numArgs = 1;
 								break;
-							
+
+							case 0x000A:
+								fprintf(outFile,"TBD\n");
+								numArgs = 1;
+								break;
+
+							case 0x000B: //3 args when entry = 3,7 (x=2,6)  //4 when x = 2,6 (entry 3,7)
+								fprintf(outFile,"TBD\n");
+								if((x == 0x2) || (x == 0x6))
+									numArgs = 3;
+								else
+									numArgs = 1;
+								break;
+
+							case 0x000C:
+								fprintf(outFile,"TBD\n");
+								numArgs = 1;
+								break;
+
+							case 0x000D:
+								fprintf(outFile,"TBD\n");
+								numArgs = 1;
+								break;
+
+							case 0x000E:
+								fprintf(outFile,"TBD - assumption\n");
+								numArgs = 4;
+								break;
+
 							case 0x000F:
+								fprintf(outFile,"TBD\n");
+								numArgs = 1;
+								break;
+
+							case 0x0010:
 								fprintf(outFile,"TBD\n");
 								numArgs = 1;
 								break;
@@ -340,7 +377,27 @@ int main(int argc, char** argv){
 								fprintf(outFile,"TBD\n");
 								numArgs = 1;
 								break;
-							
+
+							case 0x0014:
+								fprintf(outFile,"TBD - read 3 args but uses 5?\n");
+								numArgs = 4; //4 when x = 6 (entry 7)
+
+								if(x == 0x4)
+									numArgs = 5;
+
+								break;
+
+
+							case 0x0015:
+								fprintf(outFile,"TBD\n");
+								numArgs = 2;
+								break;
+
+							case 0x0016:
+								fprintf(outFile,"Enter Boss Battle (arg1)\n");
+								numArgs = 1;
+								break;
+
 							case 0x0017:
 								fprintf(outFile,"Background Music\n");
 								numArgs = 1;
@@ -348,7 +405,8 @@ int main(int argc, char** argv){
 							
 							case 0x0018:
 								fprintf(outFile,"TBD\n");
-								numArgs = 4; /* had 3, assumed 4 */
+								//numArgs = 4; /* had 3, assumed 4 */
+								numArgs = 2;
 								break;
 							
 							case 0x0019:
@@ -373,7 +431,8 @@ int main(int argc, char** argv){
 							
 							case 0x001D:
 								fprintf(outFile,"Delay for nth timed text in the current dialog sequence (n!=first)\n");
-								numArgs = 2;
+								//numArgs = 2;
+								numArgs = 0;
 								break;		
 						
 							case 0x001E:
@@ -388,7 +447,22 @@ int main(int argc, char** argv){
 								else
 									numArgs = 3;
 								break;	
-						
+
+							/* psx only */
+							case 0x0020:
+								fprintf(outFile,"TBD\n");
+								numArgs = 1;
+								break;
+							case 0x0021:
+								fprintf(outFile,"TBD\n");
+								numArgs = 3;
+								break;
+							case 0x0022:
+								fprintf(outFile,"TBD\n");
+								numArgs = 1;
+								break;
+
+
 							default: 
 								fprintf(outFile,"Unknown, SYNC LOST\n");
 								cmdSync = 0;
