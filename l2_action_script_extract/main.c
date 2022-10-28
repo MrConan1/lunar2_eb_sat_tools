@@ -251,7 +251,7 @@ int main(int argc, char** argv){
 		
 			if(!psxFlg)
 				swap32(pBuf32);
-			fprintf(outFile,"Entry %d: 0x%08X\n",x+1,*pBuf32);
+			fprintf(outFile,"Entry %d: 0x%08X\n",x,*pBuf32);
 
 			if(*pBuf32 == 0x0){
 				fprintf(outFile,"NO_DATA\n\n");
@@ -340,7 +340,7 @@ int main(int argc, char** argv){
 								numArgs = 1;
 								break;
 
-							case 0x000B: //3 args when entry = 3,7 (x=2,6)  //4 when x = 2,6 (entry 3,7)
+							case 0x000B: //3 args when entry = 2,6
 								fprintf(outFile,"TBD\n");
 								if((x == 0x2) || (x == 0x6))
 									numArgs = 3;
@@ -380,7 +380,7 @@ int main(int argc, char** argv){
 
 							case 0x0014:
 								fprintf(outFile,"TBD - read 3 args but uses 5?\n");
-								numArgs = 4; //4 when x = 6 (entry 7)
+								numArgs = 4; //4 when x = 6
 
 								if(x == 0x4)
 									numArgs = 5;
@@ -415,7 +415,7 @@ int main(int argc, char** argv){
 								break;
 						
 							case 0x001A:
-								fprintf(outFile,"TBD, assumed\n");
+								fprintf(outFile,"TBD\n");
 								numArgs = 2;
 								break;
 						
