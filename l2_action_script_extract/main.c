@@ -167,7 +167,7 @@ int main(int argc, char** argv){
 		swap32(&pPackedHdr->hdr1LenBytes);
 	}
 	numActionScripts = pPackedHdr->numActionScripts;
-
+	fprintf(outFile,"NumSections: %d\n\n",numActionScripts);
 
     /* Locate the ID / Offset to each "action script" */
 	/* And Print out the details                      */
