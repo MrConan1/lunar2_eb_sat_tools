@@ -425,12 +425,12 @@ int main(int argc, char** argv){
 								break;
 						
 							case 0x001C:
-								fprintf(outFile,"Timed Dialog\n");
-								numArgs = 3;
+								fprintf(outFile,"Start Timed Dialog\n");
+								numArgs = 1;
 								break;
 							
 							case 0x001D:
-								fprintf(outFile,"Delay for nth timed text in the current dialog sequence (n!=first)\n");
+								fprintf(outFile,"Advance to Next Part of Timed Dialog\n");
 								//numArgs = 2;
 								numArgs = 0;
 								break;		
