@@ -426,7 +426,7 @@ int main(int argc, char** argv){
 						
 							case 0x001C:
 								fprintf(outFile,"Start Timed Dialog\n");
-								numArgs = 1;
+								numArgs = 1;  /* technically this is 3, but the next 2 args are "1 timervalue", so i interpret as a timer cmd */
 								break;
 							
 							case 0x001D:
