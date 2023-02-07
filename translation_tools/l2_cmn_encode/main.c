@@ -886,7 +886,7 @@ int encodeItems(int numItems, char* inFileName,
 		/* Read the old address and the index */
 		sscanf((char*)line, "%X %d", &oldAddress, &txtIndex);
 		
-		/* Read the First Spell String */
+		/* Read the First Item String */
 		str1Len = 0;
 		pData = (unsigned char*)strtok((char *)line, DELIM);
 		pData = (unsigned char*)strtok(NULL, DELIM);
@@ -925,7 +925,7 @@ int encodeItems(int numItems, char* inFileName,
 			str1Len = numCharacters;
 		}
 
-		/* Read the Second Spell String */
+		/* Read the Second Item String */
 		str2Len = 0;
 		pData = (unsigned char*)strtok(NULL, DELIM);
 		if(pData == NULL)
@@ -956,13 +956,12 @@ int encodeItems(int numItems, char* inFileName,
 				if((*pChar == '\\') && (*(pChar+1) == 'n')){
 					pChar += 2;
 
-					//Zero out up to rest of this line/2
+					//Input code to zero out up to rest of this line
 					modifiedStr[numCharacters] = 0xF4;
 					numCharacters++;
-					modifiedStr[numCharacters] = 0xFD;
+					modifiedStr[numCharacters] = 0xFD;  // <-- The whole line/2 thing doesnt happen.  They are treated as individual lines.
 					numCharacters++;
-//					modifiedStr[numCharacters] = 0x0A;
-//					numCharacters++;
+
 					continue;
 				}
 
