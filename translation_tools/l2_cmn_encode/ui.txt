@@ -86,7 +86,7 @@ User Interface Text and Error Reporting
 
 0x010C0C 69	"It's a dead man's party!" 
 0x010C34 70	"Please choose a saved game."
-0x010C5C 71	"Save the memories of your adventure?"     
+0x010C5C 71	"Save your adventure?"     
 0x010C84 72	"Item cannot be used."      
 0x010CAC 73	"No data"
           

@@ -22,14 +22,14 @@ Item Names and descriptions
 0x00D7C8 20	"Bromide 05" "The best morning, the best smile"
 0x00D7E2 21	"Bromide 06" "Dreaming of a Blue Star? Or is it...?"
 0x00D7FC 22	"Bromide 07" "For This Drink..."    
-0x00D816 23	"Bromide 08" "Maihime's Descent! Hurry to the carnival!" 
+0x00D816 23	"Bromide 08" "Hurry to the carnival!" 
 0x00D830 24	"Bromide 09" "A Little Bit of Sleeping Beauty"
 0x00D84A 25	"Bromide 10" "Blowing in the dusk wind..."     
 0x00D864 26	"Bromide 11" "A Million Silver Smiles"
 0x00D87E 27	"Bromide 12" "Midnight Fun ♥"     
 0x00D898 28	"Bromide 13" "Come home soon, Ronfa ♥"
 0x00D8B2 29	"Bromide 14" "The Dream We Dream Together..."  
-0x00D8CC 30	"Bromide 15" "Arrangement in progress! He calls himself the Friend of Justice."
+0x00D8CC 30	"Bromide 15" "The Friend of Justice"
 0x00D8E6 31	"Bromide 16" "Do not open! Amulet of Fear"
 0x00D900 32	          	                
 0x00D91A 33	          	                
