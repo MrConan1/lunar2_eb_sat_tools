@@ -157,7 +157,7 @@ B328	8A70    8       1       FF	FFFF	FFFF	input\zeros.bin
 # erase wa and ni
 B400    8A70    8       1       FF	FFFF	FFFF	input\zeros.bin
 B470    8A70    8       1       FF	FFFF	FFFF	input\zeros.bin
-B4E0	B400	96	14	FF	FFFF	FFFF	input\morphed_into_96x14_4bpp.bin
+B4E0	B400	96	14	FF	FFFF	0030	input\morphed_into_96x14_4bpp.bin
 FFFF    B692	196	0	FF	FFFF	FFFF	0
 
 
