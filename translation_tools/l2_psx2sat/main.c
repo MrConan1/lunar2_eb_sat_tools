@@ -429,6 +429,7 @@ int main(int argc, char** argv){
 	/* Need to fix certain commands from PSX to Saturn */
 	/* Unknown:           3xxx (Just remove it & adjust size) */
 	/* Dialog Selection:  4xxx becomes 5xxx */
+	/* Alt Btn Press:     6xxx becomes 8xxx */
     /* Item Text:         Axxx becomes Bxxx */
     /* Portrait Text:     Bxxx becomes Cxxx */
     /* Animations:        Cxxx becomes Dxxx */
@@ -543,6 +544,9 @@ int main(int argc, char** argv){
 							break;
 						case 0x4000:
 							*pData16 = 0x5000 | (data & 0x0FFF);
+							break;
+						case 0x6000:   /* This was previously missing, added 1-17-24 */
+							*pData16 = 0x8000 | (data & 0x0FFF);
 							break;
 						case 0xA000:
 							*pData16 = 0xB000 | (data & 0x0FFF);
