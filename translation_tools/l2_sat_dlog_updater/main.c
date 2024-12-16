@@ -425,6 +425,7 @@ int main(int argc, char** argv){
 /* Need to fix certain commands from PSX to Saturn */
 /* Unknown:           3xxx (Just remove it & adjust size) */
 /* Dialog Selection:  4xxx becomes 5xxx */
+/* Push Button (Alt): 6xxx becomes 8xxx */
 /* Item Text:         Axxx becomes Bxxx */
 /* Portrait Text:     Bxxx becomes Cxxx */
 /* Animations:        Cxxx becomes Dxxx */
@@ -603,6 +604,9 @@ unsigned short convertPsxCtrlCode(unsigned short controlCode){
 			break;
 		case 0x4000:
 			rval = 0x5000 | (controlCode & 0x0FFF);
+			break;
+		case 0x6000:   /* This was previously missing, added 12-15-24 */
+			rval = 0x8000 | (controlCode & 0x0FFF);
 			break;
 		case 0xA000:
 			rval = 0xB000 | (controlCode & 0x0FFF);
