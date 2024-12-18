@@ -284,8 +284,12 @@ int main(int argc, char** argv){
 						fprintf(outFile,"\tCmd: ");
 						switch(command){
 						
+							case 0x0000:
 							case 0x0001:
-								fprintf(outFile,"SW Timer Null Delay?\n");
+							case 0x0009:
+							case 0x000A:
+							case 0x0011:
+								fprintf(outFile,"V-blank SW Timer Delay\n");
 								numArgs = 1;
 								break;
 						
@@ -311,7 +315,7 @@ int main(int argc, char** argv){
 								break;				
 
 							case 0x0005:
-								fprintf(outFile,"TBD - 6 args sometimes but not always\n");
+								fprintf(outFile,"TBD - 6 args\n");
 								numArgs = 6;
 								break;
 
@@ -330,22 +334,12 @@ int main(int argc, char** argv){
 								numArgs = 3;
 								break;
 
-							case 0x0009:
-								fprintf(outFile,"TBD\n");
-								numArgs = 1;
-								break;
-
-							case 0x000A:
-								fprintf(outFile,"TBD\n");
-								numArgs = 1;
-								break;
-
 							case 0x000B: //3 args when entry = 2,6
-								fprintf(outFile,"TBD\n");
-								if((x == 0x2) || (x == 0x6))
+								fprintf(outFile,"Got Item\n");
+//								if((x == 0x2) || (x == 0x6))
 									numArgs = 3;
-								else
-									numArgs = 1;
+//								else
+//									numArgs = 1;
 								break;
 
 							case 0x000C:
@@ -378,12 +372,19 @@ int main(int argc, char** argv){
 								numArgs = 1;
 								break;
 
-							case 0x0014:
-								fprintf(outFile,"TBD - read 3 args but uses 5?\n");
-								numArgs = 4; //4 when x = 6
+							case 0x0013:
+								fprintf(outFile,"TBD\n");
+								numArgs = 1;
+								break;
 
-								if(x == 0x4)
+							case 0x0014:
+								fprintf(outFile,"TBD\n");
+//								numArgs = 4; //4 when x = 6
+
+								if(x <= 0x5)
 									numArgs = 5;
+								else
+									numArgs = 6;
 
 								break;
 
@@ -421,7 +422,7 @@ int main(int argc, char** argv){
 						
 							case 0x001B:
 								fprintf(outFile,"TBD\n");
-								numArgs = 0;
+								numArgs = 0; //Had 2, assumed a timer always followed.
 								break;
 						
 							case 0x001C:
@@ -460,6 +461,10 @@ int main(int argc, char** argv){
 							case 0x0022:
 								fprintf(outFile,"TBD\n");
 								numArgs = 1;
+								break;
+							case 0x0023:
+								fprintf(outFile,"Saturn Unimplemented\n");
+								numArgs = 0;
 								break;
 
 
