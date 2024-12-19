@@ -231,6 +231,11 @@ int main(int argc, char** argv){
 			preambleSize += 4;
 		}
 
+		/* PSX Endian Fix */
+		if(psxFlg){
+			for(z = 4; z < preambleSize; z+=2)
+				swap16(&pPreData[z]);
+		}
 
 		fprintf(outFile,"Preamble Size: 0x%X bytes\n",preambleSize);
 		fprintf(outFile,"Preamble Data: ");
@@ -452,7 +457,7 @@ int main(int argc, char** argv){
 							/* psx only */
 							case 0x0020:
 								fprintf(outFile,"TBD\n");
-								numArgs = 1;
+								numArgs = 2;
 								break;
 							case 0x0021:
 								fprintf(outFile,"TBD\n");
@@ -460,11 +465,11 @@ int main(int argc, char** argv){
 								break;
 							case 0x0022:
 								fprintf(outFile,"TBD\n");
-								numArgs = 1;
+								numArgs = 1; 
 								break;
 							case 0x0023:
 								fprintf(outFile,"Saturn Unimplemented\n");
-								numArgs = 0;
+								numArgs = 0; 
 								break;
 
 
